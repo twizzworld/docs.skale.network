@@ -1,0 +1,21 @@
+site:
+  title: SKALE Network Docs
+  url: https://skale.network/docs
+  start_page: skalenetwork::index.adoc
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: components/home
+
+    - url: https://github.com/skalenetwork/skale-manager
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/skalenetwork/filestorage.js
+      branches: docs-v*
+      start_path: docs
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true

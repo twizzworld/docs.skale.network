@@ -1,0 +1,10 @@
+= Documentation
+
+Explore guides and examples to integrate SKALE Network.
+
+== Questions?
+
+Join the SKALE Network community http://skale.chat[Discord server].
+
+
+
