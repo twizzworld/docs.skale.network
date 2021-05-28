@@ -2,9 +2,20 @@
   "name": "docs.skale.network",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "prepare": "yarn --cwd ui bundle",
+    "serve": "live-server build/site",
+    "watch:local": "fgbg 'nodemon -e yml,adoc -w componenets -x yarn build:local' 'live-server build/site'"
+  },
   "dependencies": {
     "@antora/cli": "2.3",
     "@antora/site-generator-default": "2.3",
     "yarn": "^1.22.4"
+  },
+  "devDependencies": {
+    "fgbg": "^0.1.5",
+    "gulp-cli": "^2.3.0",
+    "live-server": "^1.2.1",
+    "nodemon": "^2.0.7"
   }
 }

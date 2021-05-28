@@ -17,5 +17,8 @@ content:
       start_path: docs
 ui:
   bundle:
-    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/master/raw/build/ui-bundle.zip?job=bundle-stable
-    snapshot: true
+    url: ./ui/build/sn-docs-ui-bundle.zip
+    # snapshot: true
+asciidoc:
+  extensions:
+  - ./lib/tabs-block.js
