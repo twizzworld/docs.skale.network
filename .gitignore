@@ -1,5 +1,5 @@
 build
-public/
+ui/public/
 # Logs
 logs
 *.log
