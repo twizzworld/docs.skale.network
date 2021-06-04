@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "yarn --cwd ui bundle",
     "serve": "live-server build/site",
-    "watch:local": "fgbg 'nodemon -e yml,adoc -w componenets -x yarn build:local' 'live-server build/site'"
+    "watch:local": "fgbg 'nodemon -e yml,adoc -w components -x yarn build:local' 'live-server build/site'"
   },
   "dependencies": {
     "@antora/cli": "2.3",
