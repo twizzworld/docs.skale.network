@@ -24,8 +24,9 @@
 .doc h4,
 .doc h5,
 .doc h6 {
+  font-family: var(--monospace-font-family);
   color: var(--heading-font-color);
-  font-weight: var(--heading-font-weight);
+  font-weight: var(--monospace-font-weight-bold);
   hyphens: none;
   line-height: 1.3;
   margin: 1rem 0 0;
@@ -66,7 +67,7 @@ h1.page + aside.toc.embedded {
 }
 
 .doc h3:not(.discrete) {
-  font-weight: var(--alt-heading-font-weight);
+  font-weight: var(--monospace-font-weight-bold);
 }
 
 .doc h1 .anchor,
