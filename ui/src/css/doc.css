@@ -197,6 +197,16 @@ h1.page + aside.toc.embedded {
   margin: 1rem 0 0;
 }
 
+.doc .ulist,
+.doc .olist {
+  color: rgb(36, 36, 167);
+}
+
+.doc .ulist p,
+.doc .olist p {
+  color: var(--doc-font-color);
+}
+
 .doc table.tableblock {
   font-size: calc(15 / var(--rem-base) * 1rem);
   margin: 1.5rem 0 0;
