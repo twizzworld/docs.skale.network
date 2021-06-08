@@ -114,6 +114,7 @@ h1.page + aside.toc.embedded {
 
 .doc a:hover {
   color: var(--link_hover-font-color);
+  text-decoration: none;
 }
 
 .doc a.bare {
@@ -131,8 +132,8 @@ h1.page + aside.toc.embedded {
 
 .doc p code,
 .doc thead code {
-  color: var(--code-font-color);
-  background: var(--code-background);
+  color: var(--doc-font-color);
+  background: var(--color-smoke-70);
   border-radius: 0.25em;
   font-size: 0.95em;
   padding: 0.125em 0.25em;

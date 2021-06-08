@@ -1,6 +1,10 @@
 :root {
   /* colors */
   --color-blue-white-gradient: linear-gradient(rgb(36, 36, 167) 0%, rgb(9, 141, 222) 100%);
+  --color-blue-white-gradient-muted: linear-gradient(rgb(36, 36, 167 / 50%) 0%, rgb(9, 141, 222 / 50%) 100%);
+  --color-dark-blue: rgb(36, 36, 167);
+  --color-dark-blue-10: rgb(38, 38, 199);
+  --color-transparent: transparent;
   --color-white: #fff;
   --color-smoke-10: #fefefe;
   --color-smoke-30: #fafafa;
@@ -17,6 +21,7 @@
   --color-jet-70: #222;
   --color-jet-80: #191919;
   --color-black: #000;
+  --color-black-skale: rgb(40, 42, 54);
   /* fonts */
   --rem-base: 18; /* used to compute rem value from desired pixel value (e.g., calc(18 / var(--rem-base) * 1rem) = 18px) */
   --body-font-size: 1.0625em; /* 17px */
@@ -24,9 +29,9 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: var(--color-white);
-  --body-font-family: "Roboto", sans-serif;
+  --body-font-family: "Graphik";
   --body-font-weight-bold: 500;
-  --monospace-font-family: "Roboto Mono", monospace;
+  --monospace-font-family: "Space Mono", monospace;
   --monospace-font-weight-bold: 500;
   /* base */
   --body-background: var(--color-white);
@@ -46,14 +51,16 @@
   --navbar-menu_hover-background: var(--color-smoke-50);
   /* nav */
   --nav-background: var(--panel-background);
+  --nav-background-dark: var(--color-dark-blue);
   --nav-border-color: var(--color-gray-10);
   --nav-line-height: 1.35;
   --nav-heading-font-color: var(--color-white);
+  --nav-font-color: var(--color-white);
   --nav-muted-color: var(--color-gray-70);
   --nav-panel-divider-color: var(--color-smoke-90);
-  --nav-secondary-background: var(--color-smoke-70);
+  --nav-secondary-background: var(--color-dark-blue-10);
   /* toolbar */
-  --toolbar-background: var(--panel-background);
+  --toolbar-background: var(--body-background);
   --toolbar-border-color: var(--panel-border-color);
   --toolbar-font-color: var(--color-gray-70);
   --toolbar-muted-color: var(--color-gray-30);
@@ -81,8 +88,8 @@
   --heading-font-weight: normal;
   --alt-heading-font-weight: var(--body-font-weight-bold);
   --section-divider-color: var(--panel-border-color);
-  --link-font-color: #1565c0;
-  --link_hover-font-color: #104d92;
+  --link-font-color: rgb(21, 101, 192);
+  --link_hover-font-color: rgb(16, 77, 146);
   --link_unresolved-font-color: var(--important-color);
   --abstract-background: var(--color-smoke-70);
   --abstract-font-color: var(--color-jet-20);
@@ -91,7 +98,8 @@
   --admonition-label-font-weight: var(--body-font-weight-bold);
   --caption-font-color: var(--color-gray-70);
   --caption-font-weight: var(--body-font-weight-bold);
-  --code-background: var(--color-white);
+  --code-background-inline: var(--color-black);
+  --code-background: var(--color-black-skale);
   --code-font-color: var(--body-font-color);
   --example-background: var(--color-white);
   --example-border-color: var(--color-gray-70);
@@ -115,9 +123,9 @@
   --toc-line-height: 1.2;
   /* footer */
   --footer-line-height: var(--doc-line-height);
-  --footer-background: var(--color-smoke-90);
-  --footer-font-color: var(--color-gray-70);
-  --footer-link-font-color: var(--color-jet-80);
+  --footer-background: var(--color-white);
+  --footer-font-color: var(--color-jet-80);
+  --footer-link-font-color: var(--color-gray-70);
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);

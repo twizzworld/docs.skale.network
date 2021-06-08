@@ -1,5 +1,5 @@
 site:
-  title: SKALE Network Docs
+  title: Developers 
   url: https://skale.network/docs
   start_page: skalenetwork::index.adoc
 content:
