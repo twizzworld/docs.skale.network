@@ -47,6 +47,16 @@ module.exports = (src, dest, preview) => () => {
           return path.join('..', 'font', basename)
         },
       },
+      {
+        filter: '**/**/fonts/*',
+        url: (asset) => {
+          const relpath = asset.pathname
+          const basename = ospath.basename(relpath)
+          const destpath = ospath.join(dest, 'font', basename)
+          if (!fs.pathExistsSync(destpath)) fs.copySync(relpath, destpath)
+          return path.join('..', 'font', basename)
+        },
+      },
     ]),
     postcssVar({ preserve: preview }),
     preview ? postcssCalc : () => {},

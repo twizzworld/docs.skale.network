@@ -8,6 +8,10 @@
   visibility: hidden;
 }
 
+.logo {
+  margin-right: 24px;
+}
+
 @media screen and (min-width: 769px) {
   .nav-container {
     width: var(--nav-width);
@@ -66,12 +70,12 @@ html.is-clipped--nav {
 }
 
 .nav-panel-menu:not(.is-active) .nav-menu {
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .nav-panel-menu:not(.is-active)::after {
   content: "";
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--color-blue-white-gradient-muted);
   display: block;
   position: absolute;
   top: 0;
@@ -150,7 +154,7 @@ html.is-clipped--nav {
 }
 
 .nav-panel-explore {
-  background: var(--nav-background);
+  background: var(--nav-background-dark);
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -168,8 +172,8 @@ html.is-clipped--nav {
 .nav-panel-explore .context {
   font-size: calc(15 / var(--rem-base) * 1rem);
   flex-shrink: 0;
-  color: var(--nav-muted-color);
-  box-shadow: 0 -1px 0 var(--nav-panel-divider-color);
+  color: var(--nav-font-color);
+  box-shadow: 0 -1px 0 var(--nav-background-dark);
   padding: 0 0.5rem;
   display: flex;
   align-items: center;
@@ -194,7 +198,6 @@ html.is-clipped--nav {
 .nav-panel-explore .components {
   line-height: var(--doc-line-height);
   flex-grow: 1;
-  box-shadow: inset 0 1px 5px var(--nav-panel-divider-color);
   background: var(--nav-secondary-background);
   padding: 0.5rem 0.75rem 0 0.75rem;
   margin: 0;

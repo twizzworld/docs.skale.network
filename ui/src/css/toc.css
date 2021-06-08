@@ -87,10 +87,6 @@
   color: var(--doc-font-color);
 }
 
-.sidebar.toc .toc-menu a:focus {
-  background: var(--panel-background);
-}
-
 .toc .toc-menu .is-hidden-toc {
   display: none !important;
 }
