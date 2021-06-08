@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prepare": "yarn --cwd ui bundle",
-    "serve": "live-server build/site",
-    "watch:local": "fgbg 'nodemon -e yml,adoc -w components -x yarn build:local' 'live-server build/site'"
+    "prepare:ui": "yarn --cwd ui bundle",
+    "prepare:docs": "antora --fetch playbook.yml --stacktrace",
+    "serve": "live-server build/site"
   },
   "dependencies": {
     "@antora/cli": "2.3",
