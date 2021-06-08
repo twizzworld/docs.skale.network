@@ -261,6 +261,7 @@ h1.page + aside.toc.embedded {
 
 .doc .admonitionblock {
   margin: 1.4rem 0 0;
+  border-left: 3px solid rgb(36, 36, 167);
 }
 
 .doc .admonitionblock p,
@@ -281,11 +282,11 @@ h1.page + aside.toc.embedded {
   table-layout: fixed;
   position: relative;
   width: 100%;
+  border: 1px solid #dddddf;
 }
 
 .doc .admonitionblock td.content {
   padding: 1rem 1rem 0.75rem;
-  background: var(--admonition-background);
   width: 100%;
   word-wrap: anywhere;
 }
@@ -315,8 +316,14 @@ h1.page + aside.toc.embedded {
 }
 
 .doc .admonitionblock.note .icon {
-  background-color: var(--note-color);
-  color: var(--note-on-color);
+  display: none;
+}
+
+.doc .admonitionblock.note td.content::before {
+  content: "Note";
+  color: rgb(36, 36, 167);
+  display: block;
+  margin-bottom: 3px;
 }
 
 .doc .admonitionblock.tip .icon {
