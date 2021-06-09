@@ -23,6 +23,10 @@ content:
     - url: https://github.com/skalenetwork/IMA
       branches: docs-v*
       start_path: docs
+
+    - url: https://github.com/skalenetwork/skale-watchdog
+      branches: docs-v*
+      start_path: docs
       
 ui:
   bundle:
