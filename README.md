@@ -19,11 +19,8 @@ yarn dev
 To pull from live repos in the playbook and serve from the UI bundle, first install ui npm libraries to allow the bundle to be built. Then cd into the parent folder, install the libraries and prepare the bundle. Then run the playbook and serve the files.
 
 ```console
-cd ui
 yarn
-cd ..
-yarn
-yarn prepare
-antora --fetch playbook.yml --stacktrace
+yarn prepare:ui     # build UI
+yarn prepare:docs   # build docs
 yarn serve
 ```
