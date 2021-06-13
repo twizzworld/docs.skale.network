@@ -256,3 +256,19 @@ html.is-clipped--nav {
   opacity: 0.9;
   font-weight: var(--body-font-weight-bold);
 }
+
+.nav-components .nav-title {
+  padding: 12px 16px 12px 32px;
+  margin-bottom: 0;
+}
+
+.nav-components .nav-title,
+.nav-components a {
+  color: #fff;
+  padding: 12px 16px 12px 32px;
+}
+
+.nav-component {
+  color: #fff;
+  padding: 12px 0;
+}
