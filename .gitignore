@@ -1,5 +1,5 @@
 build
-ui/public/
+ui/public/**
 # Logs
 logs
 *.log
@@ -11,5 +11,6 @@ node_modules/
 .npm
 .yarn-integrity
 .env
+
 
 
