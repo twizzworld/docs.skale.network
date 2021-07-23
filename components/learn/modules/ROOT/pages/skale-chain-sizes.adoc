@@ -23,10 +23,10 @@ Current node storage for each SKALE Chain is allocated to consensus (30%), block
 | 4.44 GB
 
 | Medium
-| 1/32
+| 1/8
 | 200 tps
-| 17.8125 GB
-| 17.8125 GB
+| 70 GB
+| 70 GB
 
 | Large
 | 1/1
