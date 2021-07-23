@@ -1,0 +1,25 @@
+= Overview
+
+Filestorage is available on each SKALE Chain. It allows developers to leverage specialized storage resources on the SKALE Chain's nodes to store files across each of the 16 nodes. 
+
+To get started, checkout the xref:filestorage.js::index.adoc[Filestorage JS] NPM Library.
+
+== Upgradeability
+
+Filestorage leverages a specialized contract to write chunks of data directly into the SKALE Chain and into the storage space.  This contract can be upgraded to suit any variety of functions for SKALE Chain owners.  
+
+image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with openzeppelin]
+
+And of course, it is built with OpenZeppelin Upgradeability technology :)
+
+== Web3 File Server
+
+What good are your files if you can't show them to the world? No worries mate. SKALE Nodes also have a small NGINX server enabling your web3 files to be served to the world. 
+
+image::https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white[]
+
+Check out about how this xref:web3-server.adoc[Web3 File Server works].
+
+== Other Features
+
+**Want to see another feature listed here? https://skale.network/roadmap[Submit an idea] to the SKALE Community roadmap!**

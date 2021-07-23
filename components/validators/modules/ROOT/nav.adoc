@@ -1,0 +1,6 @@
+* xref:index.adoc[Overview]
+* xref:delegation.adoc[Delegation]
+* xref:mainnet.adoc[Mainnet Versions]
+// * xref:skale-network:soft-upgrade.adoc[Soft Upgrade]
+// * xref:skale-network:compliance-requirements.adoc[Compliance Requirements]
+// * xref:skale-network:setup-process.adoc[Setup Process]

@@ -8,6 +8,22 @@ content:
       branches: HEAD
       start_path: components/home
 
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+
+    - url: .
+      branches: HEAD
+      start_path: components/validators
+
+    - url: .
+      branches: HEAD
+      start_path: components/filestorage
+
+    - url: .
+      branches: HEAD
+      start_path: components/technology
+
     - url: https://github.com/skalenetwork/skale-manager
       branches: docs-v*
       start_path: docs
@@ -25,6 +41,18 @@ content:
       start_path: docs
 
     - url: https://github.com/skalenetwork/skale-watchdog
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/skalenetwork/node-cli
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/skalenetwork/validator-cli
+      branches: docs-v*
+      start_path: docs
+
+    - url: https://github.com/skalenetwork/skale-node
       branches: docs-v*
       start_path: docs
       

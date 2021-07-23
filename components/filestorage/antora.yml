@@ -1,0 +1,5 @@
+name: filestorage
+title: Filestorage
+version: master
+nav:
+  - modules/ROOT/nav.adoc

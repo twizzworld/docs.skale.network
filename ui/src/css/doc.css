@@ -204,7 +204,7 @@ h1.page + aside.toc.embedded {
 
 .doc .ulist p,
 .doc .olist p {
-  color: var(--doc-font-color);
+  color: var(--color-gray-10);
 }
 
 .doc table.tableblock {
@@ -860,6 +860,7 @@ h1.page + aside.toc.embedded {
   margin-right: 0.25rem;
   padding: 0 1.5rem;
   position: relative;
+  color: white;
 }
 
 .tabs.ulist li {

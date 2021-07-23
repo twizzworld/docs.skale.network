@@ -2,9 +2,47 @@
 
 Explore guides and examples to integrate SKALE Network.
 
+xref:validators::delegation.adoc[How does SKALE delegation work?]
+
+== About SKALE Network
+
+SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific and customizable Web3 cloud resources.
+
+=== SKALE Chains
+
+A scalable Web3 instance sharing resources across 16 nodes, enabling dApps to run fast and cost-effectively.
+
+=== Filestorage
+
+A scalable Web3 storage layer on each SKALE Chain, enabling dApp Developers to leverage decentralized storage right on their SKALE Chain.
+
+=== Interchain Messaging Agent (IMA)
+
+An Ethereum-SKALE bridge allowing transfer of tokens and messages between SKALE Chains and Ethereum.
+
+=== Delegation
+
+SKALE token holders can delegate/stake tokens to validators by interacting with SKALE Manager contracts on Ethereum. Delegators receive monthly bounty rewards for performing this service.
+
+=== Validation
+
+Validators run SKALE nodes that support SKALE Chains and IMA. Each node must meet certain network, software, and staking requirements to register with the network. Nodes work together to create and sign blocks on multiple SKALE Chains.
+
+=== Open Source
+
+== Security Audits
+
+SKALE Network security audits are performed on a periodic and regular basis.  To learn more about SKALE Network audits, please find audit reports under the respective repository. https://skale.network/security[Click here for more information on SKALE Network's security policy].
+
+== More 
+
+See the https://skale.network[main website].
+
+Follow the community's open source development on https://github.com/skalenetwork[GitHub]
+
 == Questions?
 
-Join the SKALE Network community http://skale.chat[Discord server].
+Join the SKALE Network developer community http://skale.chat[Discord server].
 
 
 

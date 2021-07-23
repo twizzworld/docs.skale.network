@@ -3,17 +3,37 @@
   {{#each (pick site.components "skalenetwork")}}
   {{> navigation-component }}
   {{/each}}
+  {{#each (pick site.components "learn")}}
+  {{> navigation-component }}
+  {{/each}}
 
   <h3 class="nav-title">dApp Developers</h3>
-  {{#each (pick site.components "filestorage.js")}}
+  {{#each (pick site.components "skaled")}}
+  {{> navigation-component }}
+  {{/each}}
+  {{#each (pick site.components "filestorage")}}
   {{> navigation-component }}
   {{/each}}
   {{#each (pick site.components "ima")}}
   {{> navigation-component }}
   {{/each}}
 
+  <h3 class="nav-title">Validators</h3>
+  {{#each (pick site.components "validators")}}
+  {{> navigation-component }}
+  {{/each}}
+  {{#each (pick site.components "network")}}
+  {{> navigation-component }}
+  {{/each}}
+  {{#each (pick site.components "node-cli")}}
+  {{> navigation-component }}
+  {{/each}}
+  {{#each (pick site.components "validator-cli")}}
+  {{> navigation-component }}
+  {{/each}}
+
   <h3 class="nav-title">Technology</h3>
-  {{#each (pick site.components "skaled")}}
+  {{#each (pick site.components "technology")}}
   {{> navigation-component }}
   {{/each}}
 </div>
