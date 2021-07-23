@@ -5,6 +5,7 @@
   "scripts": {
     "prepare:ui": "yarn --cwd ui bundle",
     "prepare:docs": "antora --fetch playbook.yml --stacktrace",
+    "build": "yarn prepare:ui && antora --fetch playbook.yml --to-dir=public",
     "serve": "live-server build/site"
   },
   "dependencies": {
