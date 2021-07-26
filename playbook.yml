@@ -63,3 +63,4 @@ ui:
 asciidoc:
   extensions:
   - ./lib/tabs-block.js
+  - '@djencks/asciidoctor-mathjax'

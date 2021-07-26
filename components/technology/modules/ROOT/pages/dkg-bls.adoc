@@ -65,18 +65,14 @@ Mathematically, let L_i(x) be
 
 [latexmath]
 ++++
-\[
 \prod_{1 \leq k \leq t, k \not= i} \frac{x - k}{j - k}.
-\]
 ++++
 Here, only required to compute L_i(0), and to extrapolate
 p(0), raise it to the power; that is,
 
 [latexmath]
 ++++
-\[
 \prod_{1 \leq k \leq t} ((H(m)^{s_k})^{L_k(0)} = H(m)^s,
-\]
 ++++
 for secret shares s_k and group secret s = p(0).
 
