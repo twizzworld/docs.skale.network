@@ -1,1 +1,29 @@
-= Overview test
+= Overview
+
+Here are a few notes about getting started with SKALE chains.
+
+== SKALE Chain Sizes
+
+SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
+
+== SKALE Chain ETH
+
+SKALE Chains operate with skETH, which unlike ETH has no monetary value, but like ETH is used to conduct transactions. xref:skale-chain-eth.adoc[Learn more about managing skETH on your SKALE Chain].
+
+== Providers
+
+You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:providers.adoc[Read more about this here].
+
+== Using Remix
+
+You can use Remix as an IDE for deploying to SKALE Chains. xref:using-remix.adoc[Read more about using Remix here].
+
+== Deployment
+
+You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Truffle, Node.js, and Remix. xref:deployment.adoc[Read more about deployment scripts here].
+
+== Other
+
+* xref:skaled::index.adoc[More about SKALE Chains]
+* xref:filestorage::index.adoc[Filestorage]
+* xref:ima::index.adoc[Ethereum <> SKALE Bridge: Interchain Messaging Agent (IMA)]

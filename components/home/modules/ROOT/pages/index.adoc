@@ -30,6 +30,8 @@ Validators run SKALE nodes that support SKALE Chains and IMA. Each node must mee
 
 === Open Source
 
+SKALE Network code and development is all open source. See the GitHub repository at <https://github.com/skalenetwork>.
+
 == Security Audits
 
 SKALE Network security audits are performed on a periodic and regular basis.  To learn more about SKALE Network audits, please find audit reports under the respective repository. https://skale.network/security[Click here for more information on SKALE Network's security policy].
