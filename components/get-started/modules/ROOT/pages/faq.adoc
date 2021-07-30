@@ -1,0 +1,71 @@
+== Are transactions free on SKALE?
+
+Transactions on SKALE Chain run in a cost-free way. This means there is gas on SKALE Chains just like on Ethereum, but it’s powered by what’s called SKALE ETH (skETH), which has no monetary value. In this way, executing transactions and state changes don’t incur costs, but require consuming gas in skETH, which is zero-cost. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
+
+== Can files be stored on SKALE?
+
+You bet! Storing files on the blockchain is possible within the SKALE Network. You can use SKALE to host your text, image, HTML, and other file formats through the [file-storage npm package](https://www.npmjs.com/package/@skalenetwork/filestorage.js).
+
+More information can be found here:
+[https://skale.network/docs/developers/products/file-storage/file-storage](https://skale.network/docs/developers/products/file-storage/file-storage)
+
+== Can SKALE be used for data privacy sensible dApps?
+
+The SKALE Network is suitable for enterprise apps, where data privacy is a concern due to the security that the network offers. More on SKALE security can be found here:
+
+https://skale.network/blog/the-best-approach-to-securing-decentralized-networks/
+
+https://skale.network/docs/technology/skale-consensus
+
+The SKALE Network is permissionless, and blockchain data is publicly accessible. However, the use of this type of environment in enterprise applications means that the enterprise apps put a stronger focus on security and privacy within their entire app and not just the blockchain parts. A good example of an enterprise app that requires both privacy and security is a health care app that is improving the way health care data is shared between systems, all while integrating with layer 2 solutions like SKALE.
+
+== Can SKALE be used for data privacy sensible dApps?
+
+e SKALE Network is suitable for enterprise apps, where data privacy is a concern due to the security that the network offers. More on SKALE security can be found here:
+
+https://skale.network/blog/the-best-approach-to-securing-decentralized-networks/
+
+https://skale.network/docs/technology/skale-consensus
+
+The SKALE Network is permissionless, and blockchain data is publicly accessible. However, the use of this type of environment in enterprise applications means that the enterprise apps put a stronger focus on security and privacy within their entire app and not just the blockchain parts. A good example of an enterprise app that requires both privacy and security is a health care app that is improving the way health care data is shared between systems, all while integrating with layer 2 solutions like SKALE.
+
+== Do I need to run an own node to deploy a dApp?
+
+No. Validators run and maintain SKALE Nodes, providing distributed computing power to the Network. The Network enables dApp developers to access validator-operated nodes' compute power to run SKALE Chains. 
+
+== Do you have any examples of how gaming dApps are using SKALE?
+
+Yes. We have written on a number of case studies of developers building on the SKALE Network. A few of these case studies address gaming dApps and include the reasons why they’re using SKALE, and the benefits they are seeing.
+
+One case study is on a strategy game where players can build empires and battle with other players. The other is an Ethereum-based battle game that features collectible cards. The benefits they see are higher transaction throughput, zero to near zero gas fees, and faster commit times. They are also able to employ cut over very easily to SKALE, either by migrating a single smart contract at a time in a phased approach and/or making use of multiple sidechains each tailored to a specific feature set.
+
+== Is it possible to use ERC1404 with SKALE IMA?
+
+For restricted tokens like ERC1404, you will still be able to use the Interchain Messaging Feature since the contracts will be mirrored between Ethereum and the SKALE Network. You will have full control over when those tokens can be transferred. This is made possible because, at the core, SKALE allows you to deploy any smart contract written in solidity. In this use case you will be able to deploy your ERC1404 (or similar) token smart contract for managing your restricted tokens, and through Interchain Messaging have it linked to your ERC1404 smart contract that lives on Ethereum. On the SKALE side you will see the token as a clone of what exists on Ethereum via the Interchain Messaging Feature.
+
+== What are the benefits of using SKALE?
+
+The primary benefits of using an elastic sidechain are faster commit times, greater throughput, and lower transaction costs. The advantages of using the SKALE Network in particular include a robust security model (based on random selection and frequent rotation of validator nodes), virtualized and containerized validator nodes, variable chain sizes, expandable on-chain storage options, BLS rollups, full EVM and Web3 compatibility, and more.
+
+You can visit the SKALE Network: Technical Highlights for a deeper dive into the benefits of the network including:
+
+- Zero to Near-Zero Gas Fees
+- Random Node Selection/Frequent Node Rotation
+- Virtualized Subnodes
+- Containerized Validator Nodes
+- Consensus via Asynchronous Binary Byzantine Agreement (ABBA)
+- BLS Rollups
+- Node Monitoring
+- Ethereum Interoperability
+
+== What is the SKALE Innovator Program?
+
+The SKALE Innovator Program is a program SKALE has been running for the last years. The program is for projects which plan to use SKALE chains. The incentives we offer projects (i.e. access to engineering resources, introductions to SKALE investors, co-marketing, and a grant for using SKALE) are provided in exchange for feedback on the platform. We want to make sure that the SKALE team is building the right tools and systems for developers and partners and through the SKALE Innovator Program.
+
+== How easy is it for EVM compatible codebase?
+
+The SKALE execution model is fully compatible with the Ethereum Virtual Machine (EVM) making it so that smart contracts that run on the Ethereum mainnet can also run on the SKALE Network. There is no need to rewrite or port smart contracts. Anything written for the EVM will execute on the SKALE Network. As such, developers are able to migrate to SKALE elastic sidechains in a phased manner – moving smart contracts to SKALE on an individual basis as the needs and benefits dictate.
+
+Because the SKALE Network makes use of the Ethereum EVM, it also has full Solidity support and works with almost all the Ethereum developer toolset. These include connecting to the network via web3.js and web3.py as well as supporting tools such as Truffle and Remix. The SKALE Network supports all major Ethereum token standards including ETH, ERC20, ERC721, ERC777, and Dai. Interchain messaging, as well as deposit boxes and token clones, ensures the integrity and fidelity of token operations with the SKALE Network.
+
+In addition, the SKALE Network supports a number of major crypto wallets and browser plugins and bridges. These include Bitski, Fortmatic, Metamask, Portis, Torus. These interface components are well-regarded in the community and used by thousands of developers. Lastly, the SKALE Network is easy to use. The steps to provision one or more elastic sidechains are simple with options to select sidechain size (small, medium, large), chain duration, storage options, and more.

@@ -8,6 +8,9 @@
   {{/each}}
 
   <h3 class="nav-title">dApp Developers</h3>
+  {{#each (pick site.components "get-started")}}
+  {{> navigation-component }}
+  {{/each}}
   {{#each (pick site.components "skaled")}}
   {{> navigation-component }}
   {{/each}}

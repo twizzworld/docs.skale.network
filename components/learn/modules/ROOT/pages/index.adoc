@@ -2,6 +2,10 @@
 
 Here are a few notes about getting started with SKALE chains.
 
+== SKALE Network Basics
+
+Read up on what is the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:basics.adoc[in our Basics doc].
+
 == SKALE Chain Sizes
 
 SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].

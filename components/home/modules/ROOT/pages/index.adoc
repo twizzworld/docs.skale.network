@@ -6,11 +6,24 @@ xref:validators::delegation.adoc[How does SKALE delegation work?]
 
 == About SKALE Network
 
-SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific and customizable Web3 cloud resources.
+SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific and customizable Web3 cloud resources. 
+
+What does this mean? It means running your dApp on a scalable and fast chain provisioned exclusively for your dApp and ecosystem, without the worry of gas constraints, with all the connections to Ethereum Mainnet that you, your users and community need. It means having access to decentralized storage, webservers, and message transfer all on the same chain.
+
+=== Ethereum Native
+
+* SKALE is built on Ethereum. Yes, it's Inception level stuff : a network within a network - the entire operation and orchestration of the SKALE network is conducted in a dApp on Ethereum called SKALE Manager.
+* SKALE is built with Ethereum technology. SKALE Chains run a EVM client based on Ethereum's Aleth client.
+* SKALE is interoperable with Ethereum. The Ethereum-SKALE bridge called Interchain Messaging Agent (IMA) allows transferring of any token standard or message between Ethereum and SKALE, using BLS Threshold cryptography to secure transfers.
+* SKALE is incentive aligned with Ethereum. SKALE Network operations such as SKALE Chain creation, validator registration, delegation, etc, all are transactions on Ethereum mainnet and handled by SKALE Manager. So SKALE Network is secured by Ethereum, and drives mining fees back to Ethereum miners.
+
+=== Multichain
+
+SKALE Network can support an unlimited number of chains that are purpose-built for Web3 dapps.
 
 === SKALE Chains
 
-A scalable Web3 instance sharing resources across 16 nodes, enabling dApps to run fast and cost-effectively.
+A scalable Web3 sidechain instance sharing resources across a randomized set of 16 nodes, enabling dApps to run fast and cost-effectively in a 16-node decentralized manner.
 
 === Filestorage
 

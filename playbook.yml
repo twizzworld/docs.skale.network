@@ -18,6 +18,10 @@ content:
 
     - url: .
       branches: HEAD
+      start_path: components/get-started
+
+    - url: .
+      branches: HEAD
       start_path: components/filestorage
 
     - url: .

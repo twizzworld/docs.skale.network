@@ -1,12 +1,12 @@
-= Overview
+= Basics of SKALE Network
 
 == SKALE Network & What it does
 
-The SKALE Network is an open-source on-demand Web3 cloud platform designed to scale Ethereum dApps. The Network enables dApp developers to access validator-operated nodes' compute power to run fast, containerized, EVM-compatible SKALE Chains. Validators run and maintain SKALE Nodes, providing distributed computing power to the Network. The entire SKALE Network is managed by SKALE Manager, a dApp deployed on Ethereum Mainnet. Network users such as validators, delegators, and dApp Developers SKALE (SKL) tokens to stake and access network services.
+The SKALE is an Ethereum Native Multichain network of high-performance blockchaains. The network is open-source and is built to scale Ethereum dApps. The Network enables dApp developers to access validator-operated nodes' compute power to run fast, containerized, EVM-compatible SKALE Chains. Validators run and maintain SKALE Nodes, providing distributed computing power to the Network. The entire SKALE Network is managed by SKALE Manager, a dApp deployed on Ethereum Mainnet. Network users such as validators, delegators, and dApp Developers exchange SKALE (SKL) tokens to provide stake and access network services.
 
-The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 120 days. https://countdown.skale.network/[Checkout the current stats.]
+The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. https://countdown.skale.network/[Checkout the current stats.]
 
-With SKALE, dApps run gas-less transactions on a Proof-of-Stake chain distributed across 16 nodes, each running containerized EVM. SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum networks, allowing dApp developers to use SKALE for powering their dApps while enabling token transfers to and from Ethereum or other chains.
+With SKALE, dApps run zero-cost transactions on a Proof-of-Stake chain distributed across a randomly chosen set of 16 nodes, each running containerized EVM. SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum networks, allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
 
 SKALE Network uses a https://skale.network/blog/technical-highlights/[unique combination of several technologies] to achieve scalability, security, interoperability, and progressive decentralization:
 
