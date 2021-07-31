@@ -3,7 +3,7 @@ site:
   url: https://docs.skale.network
   start_page: skalenetwork::index.adoc
 urls:
-  html-extension-style: drop
+  html_extension_style: drop
 content:
   sources:
     - url: .
