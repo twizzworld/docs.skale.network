@@ -1,5 +1,6 @@
 site:
   title: SKALE Network Docuementation 
+  url: https://docs.skale.network
   start_page: skalenetwork::index.adoc
 urls:
   html-extension-style: drop
