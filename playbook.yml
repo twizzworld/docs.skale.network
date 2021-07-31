@@ -1,6 +1,5 @@
 site:
   title: SKALE Network Docuementation 
-  url: https://skale.network/docs
   start_page: skalenetwork::index.adoc
 content:
   sources:
