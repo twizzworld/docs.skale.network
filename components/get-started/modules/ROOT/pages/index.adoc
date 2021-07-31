@@ -2,10 +2,55 @@
 
 == Quick Start
 
-== I already have a dApp
+Already an Ethereum developer? Use all your usual tools and deployment methods (Truffle, Hardhat, Remix, Web3) and get your own SKALE Chain RPC Endpoint. Yes - an entire RPC endpoint for your dApp, end-users, and ecosystem.
 
-== I am building a new dApp
+=== Get a SKALE Endpoint
 
-== Developer tools
+There are several types of SKALE RPC endpoints to get depending on your development stage. For quick development, a single-node chain is sufficient. For network and load testing, a multi-node chain is recommended. And of course for production ready dApps, SKALE Mainnet Chains are available to select dApps.
+
+.Local and Local-Rinkeby development environments
+* Run a single-node SKALE Chain in your local environment
+* Run a single-node SKALE Chain with IMA in your local environment with IMA connected to Ethereum Rinkeby
+
+.SKALE Testnet-Rinkeby development environments
+* Request a multi-node testnet SKALE Chain with IMA connected to Ethereum Rinkeby
+* Request to join the SKALE Innovator Program to access a multi-node testnet SKALE Chain
+
+.SKALE Mainnet
+* Receive a grant to provision a 16-node SKALE Chain on Mainnet
+* (Soon) Stake SKL to provision a 16-node SKALE Chain on Mainnet
+
+* Setup Web3 wallets to work with the RPC Endpoint
+
+* Deploy your contracts on your SKALE Endpoint
+
+== Existing dApps
+
+You can deploy your contracts over to your SKALE Chain and begin to use faster and zero-cost gas transactions. Depending on your architecture and needs, you may want to evaluate which contracts to keep on Ethereum and which to serve on SKALE, such as putting more end-user facing transactions on SKALE and transactions requiring PoW security on Ethereum.
+
+For using the Ethereum-SKALE bridge called Interchain Messaging Agent, you can customize your own bridge and map tokens you select to support, or enable automatic mapping.
+
+To enable existing contracts to interact with the messaging layer, you'll have to add an interface to communicate with the IMA MessageProxy layer. 
+
+Already have an ERC-721 on Mainnet? You can use the IMA extension contracts to enable any new tokens minted on SKALE to be minted on Ethereum while preserving the URI and original Minter address on mainnet. 
+
+== New dApps
+
+== Developer Tool Docs
+
+* https://www.trufflesuite.com/docs[Truffle Suite Docs]
+* https://remix-ide.readthedocs.io/en/latest/#[Remix Docs]
+* https://docs.openzeppelin.com/[OpenZeppelin Docs]
+
 
 == Basics of dapp Development
+
+* https://cryptozombies.io/[CryptoZombies]
+* https://solidity-by-example.org[Solidity By Example]
+* https://docs.soliditylang.org/[Solidity Docs] and see https://docs.soliditylang.org/en/v0.8.6/#translations[Solidity Docs translations]
+* https://ethereum.org/en/developers/[Ethereum Developer Resources]
+
+== Best Practices
+
+* https://consensys.github.io/smart-contract-best-practices/[Ethereum Smart Contract Security Best Practices]
+* https://consensys.net/diligence/blog/2020/11/token-interaction-checklist/[ConsenSys Diligence's Token Interaction Checklist]

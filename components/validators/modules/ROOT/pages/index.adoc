@@ -1,14 +1,14 @@
 = SKALE Validator
 
-The SKALE Network is a high-throughput, low-latency, configurable byzantine fault-tolerant multichain network for  Ethereum. Or, in short, an Elastic Sidechain Network.  
+The SKALE Network is an Ethereum Native multichain network supporting high-throughput, low-latency, configurable byzantine fault-tolerant sidechains for Ethereum. 
 
-The SKALE Network has a set of validators securing the network. Validators provide computation power to the SKALE Network via deploying nodes. The collection of validators and the node(s) they spin up represent the entire validator network that performs work for SKALE Chains (Elastic Sidechain aka SKALE Chain).  
+The SKALE Network has a set of validators securing the network. Validators provide computation power to the SKALE Network via deploying nodes. The collection of validators and the node(s) they spin up represent the entire validator network that performs work for SKALE Chains (an elastic sidechain or SKALE Chain).  
 ‍  
 SKALE Chains in the network are operated by a group of virtualized sub-nodes selected from a subset of nodes (validators) in the network and are run on all or a subset (multi-tenancy) of each node’s computation and storage resources.  
 
-As each node in the network continues to participate in their assigned SKALE Chains, they are awarded bounties based upon their performance at the end of each network epoch. Each node will be monitored by their peer nodes.  
+As each node in the network continues to participate in their assigned SKALE Chains, they're awarded bounties based upon their performance at the end of each network epoch. Each node will be monitored by their peer nodes.  
 ‍  
-When an Elastic Sidechain has reached the end of its lifetime, the resources (computation, storage) of its virtualized sub-nodes will be freed so that validator nodes may participate in newly created Elastic Sidechains.  
+When a SKALE Chain has reached the end of its lifetime, the resources (computation, storage) of its virtualized sub-nodes will be freed so that validator nodes may participate in newly created SKALE Chains.  
 
 **Interested in helping the SKALE Network grow? https://skale.network/validators-signup[Apply to become a SKALE Validator]**  
 
@@ -33,7 +33,7 @@ Please check following links to learn more about the SKALE Token Economics:
 
 To encourage proper behavior amongst network participants, SKALE follows a Proof of Stake (POS) system whereby each node must stake a predetermined amount of SKALE tokens to be slashed at the citation of any activity not condoned by the network.  
 
-Activities not approved by the network generally include those which denote a failure to properly participate in each assigned SKALE Chain’s consensus, and maintain uptime and latency standards enforced by the Service Level Agreement (SLA).  
+Activities not approved by the network include those which denote a failure to properly participate in each assigned SKALE Chain’s consensus, and maintain uptime and latency standards enforced by the Service Level Agreement (SLA).  
 
 Network SLAs are enforced through an algorithmic peer review system whereby each node is appointed 24 node peers to monitor and log their network participation, uptime, and latency. These metrics will be collected and averaged on the Ethereum mainnet to reward or slash nodes according to their respective performance.
 
@@ -41,15 +41,15 @@ Network SLAs are enforced through an algorithmic peer review system whereby each
 
 To be added as a node to the SKALE Network, a prospective node must run the SKALE Admin, which manages all operations in the node and is installed with the [skale-node-cli](/validators/validator-cli). SKALE Admin evaluates the prospective node to ensure that it's upholding network hardware requirements. If the prospective node passes this verification step, the SKALE Admin permits the node to submit a request to SKALE Manager to join the network. This request contains both the required network deposit as well as node metadata collected by the SKALE Daemon (for example IP address, port, public key, etc.).  
 
-Once the request has been submitted to SKALE Manager on Ethereum, SKALE Manager randomly defines the prospective node as a 'full node' or a 'fractional node' by assigning different sizes of SKALE Chains to the prospective node. Full nodes have all their resources utilized for a single Elastic Sidechain, while fractional nodes participate in multiple Elastic Sidechains (multi-tenancy).  
+Once the request has been submitted to SKALE Manager on Ethereum, SKALE Manager randomly defines the prospective node as a 'full node' or a 'fractional node' by assigning different sizes of SKALE Chains to the prospective node. Full nodes have all their resources utilized for a single sidechain, while fractional nodes participate in multiple sidechains (multi-tenancy).  
 
 === General Hardware Requirements
 
-See specific network requirements.
+xref:network::index.adoc#_prerequisites[See specific network requirements].
 
 **Important notes:**  
 
-. If you have any issues you can save the logs using `skale logs dump` command. It's also useful to check logs from node-cli `skale cli logs` from docker plugin `/var/log/docker-lvmpy/lvmpy.log` if there are any issues.
+If you have any issues you can save the logs using `skale logs dump` command. It's also useful to check logs from node-cli `skale cli logs` from docker plugin `/var/log/docker-lvmpy/lvmpy.log` if there are any issues.
 
 === Block Storage
 

@@ -1,21 +1,22 @@
 = Documentation
 
-Explore guides and examples to integrate SKALE Network.
+Explore documentation about the SKALE Network, developing on SKALE, validating and delegating, and about SKALE's technologies.
 
-xref:validators::delegation.adoc[How does SKALE delegation work?]
+[NOTE]
+xref:validators::delegation.adoc[How does SKALE delegation work? Read here.]
 
 == About SKALE Network
 
-SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific and customizable Web3 cloud resources. 
+SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific, customizable and scalable Web3 cloud resources. 
 
-What does this mean? It means running your dApp on a scalable and fast chain provisioned exclusively for your dApp and ecosystem, without the worry of gas constraints, with all the connections to Ethereum Mainnet that you, your users and community need. It means having access to decentralized storage, webservers, and message transfer all on the same chain.
+What does this mean? It means running your dApp on a scalable and fast chain provisioned exclusively for your dApp and ecosystem, without the worry of gas constraints, with all the connections to Ethereum Mainnet that you, your users, and your community need. It means having access to decentralized storage, web servers, and message transfer all on the same chain.
 
 === Ethereum Native
 
-* SKALE is built on Ethereum. Yes, it's Inception level stuff : a network within a network - the entire operation and orchestration of the SKALE network is conducted in a dApp on Ethereum called SKALE Manager.
-* SKALE is built with Ethereum technology. SKALE Chains run a EVM client based on Ethereum's Aleth client.
+* SKALE is built on Ethereum. Yes, it's Inception level stuff: a network within a network - the entire operation and orchestration of the SKALE network is conducted in a dApp on Ethereum called SKALE Manager.
+* SKALE is built with Ethereum technology. SKALE Chains run an EVM client based on Ethereum's Aleth client.
 * SKALE is interoperable with Ethereum. The Ethereum-SKALE bridge called Interchain Messaging Agent (IMA) allows transferring of any token standard or message between Ethereum and SKALE, using BLS Threshold cryptography to secure transfers.
-* SKALE is incentive aligned with Ethereum. SKALE Network operations such as SKALE Chain creation, validator registration, delegation, etc, all are transactions on Ethereum mainnet and handled by SKALE Manager. So SKALE Network is secured by Ethereum, and drives mining fees back to Ethereum miners.
+* SKALE is incentive aligned with Ethereum. SKALE Network operations such as SKALE Chain creation, validator registration, delegation, etc., all are transactions on Ethereum mainnet and handled by SKALE Manager. So SKALE Network is secured by Ethereum and drives mining fees back to Ethereum miners.
 
 === Multichain
 
@@ -39,21 +40,21 @@ SKALE token holders can delegate/stake tokens to validators by interacting with 
 
 === Validation
 
-Validators run SKALE nodes that support SKALE Chains and IMA. Each node must meet certain network, software, and staking requirements to register with the network. Nodes work together to create and sign blocks on multiple SKALE Chains.
+Validators run SKALE nodes that support SKALE Chains and IMA. Each node must meet specific network, software, and staking requirements to register with the network. Nodes work together to create and sign blocks on multiple SKALE Chains.
 
 === Open Source
 
-SKALE Network code and development is all open source. See the GitHub repository at <https://github.com/skalenetwork>.
+SKALE Network code and development are all open source. See the GitHub repository at <https://github.com/skalenetwork>.
 
 == Security Audits
 
-SKALE Network security audits are performed on a periodic and regular basis.  To learn more about SKALE Network audits, please find audit reports under the respective repository. https://skale.network/security[Click here for more information on SKALE Network's security policy].
+SKALE Network security audits are performed on a periodic and regular basis. To learn more about SKALE Network audits, please find audit reports under the respective repository. https://skale.network/security[Click here for more information on SKALE Network's security policy].
 
 == More 
 
 See the https://skale.network[main website].
 
-Follow the community's open source development on https://github.com/skalenetwork[GitHub]
+Follow the community's open-source development on https://github.com/skalenetwork[GitHub]
 
 == Questions?
 
