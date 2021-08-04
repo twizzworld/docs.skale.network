@@ -62,7 +62,7 @@ content:
 ui:
   bundle:
     url: ./ui/build/sn-docs-ui-bundle.zip
-  supplemental_files: ./ui
+  supplemental_files: ./ui/static
     # snapshot: true
 asciidoc:
   extensions:

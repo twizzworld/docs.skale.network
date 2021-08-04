@@ -6,7 +6,8 @@
     "prepare:ui": "yarn --cwd ui bundle",
     "build:ui": "yarn --cwd ui install && yarn --cwd ui bundle",
     "prepare:docs": "antora --fetch playbook.yml --stacktrace",
-    "build": "yarn build:ui && yarn prepare:docs && antora --fetch playbook.yml --html-url-extension-style=drop",
+    "build:local": "yarn prepare:ui && yarn prepare:docs",
+    "build": "yarn build:ui && antora --fetch playbook.yml --stacktrace --html-url-extension-style=drop",
     "serve": "live-server build/site"
   },
   "dependencies": {
