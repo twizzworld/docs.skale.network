@@ -7,16 +7,17 @@ xref:validators::delegation.adoc[How does SKALE delegation work? Read here.]
 
 == About SKALE Network
 
-SKALE Network is the only Ethereum native multichain network, using the latest consensus and cryptography technologies to bring Web3 developers dApp-specific, customizable and scalable Web3 cloud resources. 
+The SKALE Network is a highly expandable multichain blockchain network that serves as a secure Ethereum scalability solution. Unlike most Layer 1 and Layer 2 networks, the SKALE architecture is built to support an ever-expanding set of dapp-specific chains. It uses the Ethereum mainnet to manage and orchestrate many critical network operations thereby enhancing overall network security and transparency.
 
 What does this mean? It means running your dApp on a scalable and fast chain provisioned exclusively for your dApp and ecosystem, without the worry of gas constraints, with all the connections to Ethereum Mainnet that you, your users, and your community need. It means having access to decentralized storage, web servers, and message transfer all on the same chain.
 
 === Ethereum Native
 
-* SKALE is built on Ethereum. Yes, it's Inception level stuff: a network within a network - the entire operation and orchestration of the SKALE network is conducted in a dApp on Ethereum called SKALE Manager.
-* SKALE is built with Ethereum technology. SKALE Chains run an EVM client based on Ethereum's Aleth client.
+* SKALE is built on Ethereum. Yes, it's Inception-level stuff – a network within a network. The entire operation and orchestration of the SKALE network is conducted via a series of smart contracts on Ethereum called SKALE Manager.
+* SKALE is built with Ethereum technology. SKALE Chains run an EVM client based on Ethereum's Aleth client. 
 * SKALE is interoperable with Ethereum. The Ethereum-SKALE bridge called Interchain Messaging Agent (IMA) allows transferring of any token standard or message between Ethereum and SKALE, using BLS Threshold cryptography to secure transfers.
-* SKALE is incentive aligned with Ethereum. SKALE Network operations such as SKALE Chain creation, validator registration, delegation, etc., all are transactions on Ethereum mainnet and handled by SKALE Manager. So SKALE Network is secured by Ethereum and drives mining fees back to Ethereum miners.
+* SKALE support for Solidity and the Ethereum VM extends to commonality with Ethereum protocols and developer tools. You can use the same tools, wallets, token standards, etc. as you do with the Ethereum mainnet.
+* SKALE is incentively aligned with Ethereum. SKALE Network operations such as SKALE Chain creation, validator registration, delegation, etc., all are transactions on Ethereum mainnet and handled by SKALE Manager. So SKALE Network is secured by Ethereum and drives mining fees back to Ethereum miners.
 
 === Multichain
 
@@ -61,4 +62,15 @@ Follow the community's open-source development on https://github.com/skalenetwor
 Join the SKALE Network developer community http://skale.chat[Discord server].
 
 
+== Resources
 
+https://skale.network/blog/technical-highlights/[Technical Highlights]
+https://skale.network/blog/the-power-of-ethereum-a-blockchain-created-by-a-blockchain/[The Power of Ethereum: A blockchain created by a blockchain/]
+https://skale.network/blog/why-multichain-networks-matter-and-other-advantages-of-skale-chains/[Why Multichain networks Matter and other Advantages of SKALE Chains]
+https://skale.network/blog/the-skl-token-and-ethereum-mainnet-fees/[The SKL Token and Ethereum Mainnet fees]
+
+https://skale.network/blog/introduction-of-the-skale-ima-bridge/[Introduction of the SKALE IMA Bridge]
+https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Containerization: The Future of Decentralized Infrastructure]
+https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization: The Future of Decentralized Infrastructure, part 2]
+https://skale.network/blog/the-skale-network-validator-faq/[The SKALE Network Validator FAQ]
+https://skale.network/blog/delegators/[Delegators]
