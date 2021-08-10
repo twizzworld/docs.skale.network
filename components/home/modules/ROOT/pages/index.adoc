@@ -64,13 +64,12 @@ Join the SKALE Network developer community http://skale.chat[Discord server].
 
 == Resources
 
-https://skale.network/blog/technical-highlights/[Technical Highlights]
-https://skale.network/blog/the-power-of-ethereum-a-blockchain-created-by-a-blockchain/[The Power of Ethereum: A blockchain created by a blockchain/]
-https://skale.network/blog/why-multichain-networks-matter-and-other-advantages-of-skale-chains/[Why Multichain networks Matter and other Advantages of SKALE Chains]
-https://skale.network/blog/the-skl-token-and-ethereum-mainnet-fees/[The SKL Token and Ethereum Mainnet fees]
-
-https://skale.network/blog/introduction-of-the-skale-ima-bridge/[Introduction of the SKALE IMA Bridge]
-https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Containerization: The Future of Decentralized Infrastructure]
-https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization: The Future of Decentralized Infrastructure, part 2]
-https://skale.network/blog/the-skale-network-validator-faq/[The SKALE Network Validator FAQ]
-https://skale.network/blog/delegators/[Delegators]
+* https://skale.network/blog/technical-highlights/[Technical Highlights]
+* https://skale.network/blog/the-power-of-ethereum-a-blockchain-created-by-a-blockchain/[The Power of Ethereum: A blockchain created by a blockchain/]
+* https://skale.network/blog/why-multichain-networks-matter-and-other-advantages-of-skale-chains/[Why Multichain networks Matter and other Advantages of SKALE Chains]
+* https://skale.network/blog/the-skl-token-and-ethereum-mainnet-fees/[The SKL Token and Ethereum Mainnet fees]
+* https://skale.network/blog/introduction-of-the-skale-ima-bridge/[Introduction of the SKALE IMA Bridge]
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Containerization: The Future of Decentralized Infrastructure]
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization: The Future of Decentralized Infrastructure, part 2]
+* https://skale.network/blog/the-skale-network-validator-faq/[The SKALE Network Validator FAQ]
+* https://skale.network/blog/delegators/[Delegators]

@@ -17,7 +17,7 @@ content:
 
     - url: .
       branches: HEAD
-      start_path: components/get-started
+      start_path: components/develop
 
     - url: .
       branches: HEAD

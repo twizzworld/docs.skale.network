@@ -6,15 +6,21 @@ Already an Ethereum developer? Use all your usual tools and deployment methods (
 
 === Get a SKALE Endpoint
 
-There are several types of SKALE RPC endpoints to get depending on your development stage. For quick development, a single-node chain is sufficient. For network and load testing, a multi-node chain is recommended. And of course for production ready dApps, SKALE Mainnet Chains are available to select dApps.
+There are several types of SKALE RPC endpoints to get depending on your development stage: development, network testing, and mainnet.
+
+**🧑‍💻 For quick development**, a single-node chain is sufficient and recommended to build and test your dApp on a SKALE Chain with IMA and Filestorage. 
 
 .Local and Local-Rinkeby development environments
 * Run a single-node SKALE Chain in your local environment
-* Run a single-node SKALE Chain with IMA in your local environment with IMA connected to Ethereum Rinkeby
+* Run a single-node SKALE Chain with IMA in your local environment with IMA connected to Ethereum Rinkeby with the https://github.com/skalenetwork/skale-ima-sdk[IMA-SDK]
 
-.SKALE Testnet-Rinkeby development environments
-* Request a multi-node testnet SKALE Chain with IMA connected to Ethereum Rinkeby
-* Request to join the SKALE Innovator Program to access a multi-node testnet SKALE Chain
+**✅ For network and load testing**, a multi-node chain is recommended.
+
+.SKALE Dappnet-Rinkeby development environments
+* Request a multi-node Dappnet SKALE Chain with IMA connected to Ethereum Rinkeby
+* https://skale.network/innovators-signup[Request to join the SKALE Innovator Program] to access a multi-node Dappnet SKALE Chain
+
+**🚀 For production ready dApps**, SKALE Mainnet Chains are currently available to select dApps, and will be available on a rolling basis.
 
 .SKALE Mainnet
 * Receive a grant to provision a 16-node SKALE Chain on Mainnet
@@ -27,6 +33,9 @@ There are several types of SKALE RPC endpoints to get depending on your developm
 == Existing dApps
 
 You can deploy your contracts over to your SKALE Chain and begin to use faster and zero-cost gas transactions. Depending on your architecture and needs, you may want to evaluate which contracts to keep on Ethereum and which to serve on SKALE, such as putting more end-user facing transactions on SKALE and transactions requiring PoW security on Ethereum.
+
+[NOTE]
+SKALE Chains have unique access control features. New SKALE Chains only permit the SKALE Chain owner the ability to deploy contracts. See xref:skale-chain-access-control.adoc[SKALE Chain Access Control] for more information. 
 
 For using the Ethereum-SKALE bridge called Interchain Messaging Agent, you can customize your own bridge and map tokens you select to support, or enable automatic mapping.
 
