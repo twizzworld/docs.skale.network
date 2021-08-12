@@ -6,8 +6,14 @@
 ** xref:using-truffle-box.adoc[Using Truffle Bpx]
 ** xref:using-remix.adoc[Using Remix]
 * xref:wallets.adoc[Wallets]
+** xref:wallets/metamask.adoc[Metamask]
+** xref:wallets/portis.adoc[Portis]
+** xref:wallets/bitski.adoc[Bitski]
+** xref:wallets/torus.adoc[Torus]
+** xref:wallets/magic-wallet.adoc[Magic]
+** xref:wallets/wallet-connect.adoc[Wallet Connect]
 * xref:ima::index.adoc[Ethereum <-> SKALE]
-* xref:skale-chain-access-control.adoc[Access Control]
+* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 * Indexing
 * Tutorials
 * xref:faq.adoc[FAQs]

@@ -1,0 +1,43 @@
+= Managing Endpoints
+:sectnums:
+
+Each Mainnet SKALE Chain is supported by a set of 16 randomly chosen nodes – therefore there are 16 available nodes each with http/https/ws/wss endpoints. You can either choose to use any one of the 16 endpoints for Web3 transactions, or you can employ a reverse-proxy server to balance Web3 transactions across the 16 endpoints.
+
+The proxy server is an open source docker container that runs nginx, and routes Port 80 and 443 messages across the 16 endpoints of a SKALE Chain. If any node becomes unresponsive, the proxy server will automatically route messages to another endpoint.
+
+To set up a reverse-proxy,
+
+== Clone the repo
+```shell
+git clone https://github.com/skalenetwork/skale-proxy.git
+```
+
+== Load the ABI
+Place the ABI Json of SKALE Manager into the `abi` directory.
+
+== Set docker-compose.yml
+You'll need to set the following variables in the docker-compose.yml file
+
+* `ABI_FILENAME`
+* `PROXY_FULL_HOST_NAME`
+* `ENDPOINT_PREFIX`
+* `ETH_ENDPOINT`
+
+== Set SSL certificates
+Create a `data` directory and copy `server.crt` and `server.key` to it. The certificate must be issued to `PROXY_FULL_HOST_NAME`.
+
+== Run the container
+```shell
+docker-compose pull && docker-compose up
+```
+
+Wait for the container image to pull, and allow the proxy to read the data from SKALE Manager on Ethereum.
+
+== Try the proxy
+
+Try `http://PROXY_FULL_HOST_NAEM/api.json`, you should be presented with API descriptions.
+
+:sectnums!:
+== Other Features
+
+**Want to see another feature? https://skale.network/roadmap[Submit an idea] to the SKALE Community roadmap! or https://github.com/skalenetwork/skale-proxy/issues[open an issue in Github]**
