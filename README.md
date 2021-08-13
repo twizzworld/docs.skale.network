@@ -1,7 +1,5 @@
 # Docs
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6e1a2f3c-f2c8-43bf-a3cd-40e2a9530fe0/deploy-status)](https://app.netlify.com/sites/tender-lichterman-b7b0cc/deploys)
-
 Requirements:
 
 * Node v14 LTS

@@ -1,5 +1,5 @@
 site:
-  title: SKALE Network Docuementation 
+  title: SKALE Network Documentation 
   start_page: skalenetwork::index.adoc
 content:
   sources:
