@@ -5,7 +5,7 @@ Each Mainnet SKALE Chain is supported by a set of 16 randomly chosen nodes – 
 
 The proxy server is an open source docker container that runs nginx, and routes Port 80 and 443 messages across the 16 endpoints of a SKALE Chain. If any node becomes unresponsive, the proxy server will automatically route messages to another endpoint.
 
-To set up a reverse-proxy,
+To set up a reverse-proxy, follow the instructions below.
 
 == Clone the repo
 ```shell
@@ -33,11 +33,15 @@ docker-compose pull && docker-compose up
 
 Wait for the container image to pull, and allow the proxy to read the data from SKALE Manager on Ethereum.
 
-== Try the proxy
+== Test the proxy
 
 Try `http://PROXY_FULL_HOST_NAEM/api.json`, you should be presented with API descriptions.
 
 :sectnums!:
+== Handling your Endpoints
+
+For reverse proxies hosted on machines or other domains, you can create A or CNAME DNS records under your domain that will redirect traffic to your hosted reverse proxy. For further URL redirect to a specific SKALE Chain name, you can use the `mod_alias` or `mod_rewrite` modules for Apache or define the redirect in the server block for Nginx. 
+
 == Other Features
 
 **Want to see another feature? https://skale.network/roadmap[Submit an idea] to the SKALE Community roadmap! or https://github.com/skalenetwork/skale-proxy/issues[open an issue in Github]**

@@ -1,7 +1,8 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
-* Network Details
+* xref:network-details.adoc[Network Details]
 * Tools
+** xref:ima-sdk.adoc[Setup the IMA SDK]
 ** xref:providers.adoc[Using Web3 Providers]
 ** xref:using-truffle-box.adoc[Using Truffle Bpx]
 ** xref:using-remix.adoc[Using Remix]

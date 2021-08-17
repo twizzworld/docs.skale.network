@@ -37,7 +37,7 @@ There are several ways to delegate SKALE tokens.
 
 === ConsenSys Activate
 
-You may use https://activate.codefi.network/skale-network-launch-partner[ConsenSys Activate]'s platform with Metamask to view validators, make delegation proposals, and view received bounties. 
+You may use https://activate.codefi.network/skale-network-launch-partner[ConsenSys Activate]'s platform with Metamask to view validators, make delegation proposals, and view received bounties. Read about ConsenSys Activate's process here: https://codefi.consensys.net/blog/activate-claiming-and-staking-guide 
 
 === Validator CLI
 

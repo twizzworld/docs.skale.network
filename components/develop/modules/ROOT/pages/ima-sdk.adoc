@@ -1,0 +1,121 @@
+= Setup SKALE IMA SDK
+
+The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 8545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
+
+This IMA SDK works for Mac, Windows, and 64-bit Linux.
+
+== Get Started with the IMA SDK
+
+. Ensure that docker compose is installed and running on your system. https://docs.docker.com/compose/install/
+
+. Clone the IMA SDK repository
+
+```shell
+git clone https://github.com/skalenetwork/skale-ima-sdk
+```
+
+[start=3]
+. Setup a `.env` environment variable file from the `.env-compose-sample` template and add your accounts.
+
+. Run `./run_compose.sh` and give the containers a few minutes to download.
+
+Output:
+
+```shell
+sdk uses an image, skipping
+ganache uses an image, skipping
+Creating network "skale-ima-sdk_ima" with the default driver
+Pulling sdk (skalenetwork/ima_sdk:0.0.0)...
+0.0.0: Pulling from skalenetwork/ima_sdk
+e7ae86ffe2df: Pull complete
+a6b7c8300c0c: Pull complete
+...
+bd0c9ece4688: Pull complete
+Digest: sha256:da03c4fff68f9b828cad7cb0ab2d186697913af65e58ac5f676fcfb9e3cef890
+Status: Downloaded newer image for trufflesuite/ganache-cli:beta
+Creating ima_sdk_ganache ... done
+Creating ima_sdk         ... done
+```
+
+You can check that both the `ima_sdk_ganache` and `ima_sdk` containers are up by executing:
+
+```shell
+docker ps -a
+```
+
+[start=5]
+. Wait for completion of IMA contract deployments and startup of the IMA Agent. You can check the progress as follows:
+
+```shell
+docker logs ima_sdk_ganache
+```
+
+You should see this final line in the log outputs: `Listening on 0.0.0.0:8545`
+
+```shell
+docker logs ima_sdk
+```
+
+And you should see this complete final output before using the sdk:
+
+```shell
+...
+Will start SKALE Chain...
+Successfully started SKALE Chain
+ 
+Will deploy IMA to Main Net...
+Successfully deployed IMA to Main Net...
+ 
+Will deploy IMA to S-Chain...
+Successfully deployed IMA to SKALE Chain...
+ 
+Will register IMA...
+Successfully registered IMA.
+ 
+Will start IMA agent transfer loop...
+Successfully started IMA agent transfer loop
+ 
+Press any key to stop this docker container
+```
+
+You can also test the Ganache using `geth attach`:
+
+```shell
+geth attach http://127.0.0.1:8545
+```
+
+Should output:
+
+```shell
+Welcome to the Geth JavaScript console!
+
+instance: EthereumJS TestRPC/v2.11.3-beta.0/ethereum-js
+coinbase: 0x98664cee8831d7a61d394d7e10207df074e5a895
+at block: 0 (Mon Aug 16 2021 14:58:31 GMT-0700 (PDT))
+ modules: eth:1.0 evm:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0
+```
+
+And attaching to the SKALE chain:
+
+```shell
+geth attach http://127.0.0.1:15000
+```
+
+Should output:
+
+```shell
+Welcome to the Geth JavaScript console!
+
+instance: skaled/3.7.3+commit.ecaa2572/linux/gnu7.5.0/debug
+coinbase: 0x66c5a87f4a49dd75e970055a265e8dd5c3f8f852
+at block: 40 (Mon Aug 16 2021 15:01:55 GMT-0700 (PDT))
+ modules: admin:1.0 debug:1.0 eth:1.0 miner:1.0 net:1.0 personal:1.0 skale:0.1 skaleDebug:1.0 skaleStats:1.0 web3:1.0
+```
+
+== Working with the SDK
+
+_docs in progress_
+
+== Using the IMA Bridge
+
+Please refer to the main xref:ima::index.adoc[IMA Bridge documentation here].

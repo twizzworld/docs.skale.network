@@ -1,0 +1,18 @@
+= SKALE Networks
+
+== Mainnet
+
+SKALE Network is live on Mainnet, operating for over 315 days and counting!
+
+Mainnet SKALE Chains are now open for developers on a rolling basis.
+
+* SKALE Manager contracts on Ethereum Mainnet: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/skale-manager
+* IMA Bridge contracts on Ethereum Mainnet: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/IMA/1.0.0
+
+== Testnet
+
+SKALE Network operates a Testnet for onboarding and training new validators, and performing testing of new features and bug fixes. SKALE Chains on testnet are reserved for only QA testing purposes.
+
+== Dappnet
+
+SKALE Network core team operates several Dappnets for helping dApp developers perform final network and load testing before Mainnet production launch. 
