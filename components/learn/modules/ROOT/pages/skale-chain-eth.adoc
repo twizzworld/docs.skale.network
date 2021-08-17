@@ -6,16 +6,12 @@ There are a few ways to get SKALE ETH (skETH), depending on your setup.
 
 == ETH on SKALE SDKs
 
-For SKALE SDKs, an account is pre-funded with SKALE ETH (skETH). You can use this for conducting transactions, sending to users on your SKALE Chain, and more. See the README in the SDK for the pre-funded account.
+For SKALE SDKs, an account is pre-funded with SKALE ETH (skETH). You can use this for conducting transactions, sending to users on your SKALE Chain, and more. See the README in the respective SDK for the pre-funded account, or check your `.env` file setup.
 
-== ETH on Testnet SKALE Chains
+== skETH on Mainnet and Dappnet SKALE Chains
 
-For Testnets, a faucet is available to fund accounts on your specific endpoint.  https://faucet.skale.network[Click here to access the Testnet Faucet.]
-
-== ETH on Mainnet SKALE Chains
-
-For Mainnet, the SKALE Chain owner account is provided ETH for the SKALE Chain. From this account, the owner can fund contracts, accounts, conduct transactions, etc. When end-users complete transactions and spend gas, the coinbase account is refunded with gas. The coinbase account for SKALE chains is the SKALE Owner account.
+For Mainnet and Dappnet, the SKALE Chain owner account is provided skETH for the SKALE Chain. From this account, the owner can fund contracts, accounts, conduct transactions, etc. When end-users complete transactions and spend gas, the coinbase account is refunded with gas. The coinbase account for SKALE chains is the SKALE Owner account.
 
 == Real ETH on SKALE Chains
 
-To view Real ETH on SKALE Chains, you can use the _informational RPC ports_ for your endpoint. 
+To view Real ETH on SKALE Chains, as in the amount locked in IMA DepositBoxes, you can use the _informational RPC ports_ for your endpoint. 
