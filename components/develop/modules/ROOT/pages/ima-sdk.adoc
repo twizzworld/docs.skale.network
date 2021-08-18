@@ -6,7 +6,10 @@ This IMA SDK works for Mac, Windows, and 64-bit Linux.
 
 == Get Started with the IMA SDK
 
-. Ensure that docker compose is installed and running on your system. https://docs.docker.com/compose/install/
+. Ensure that the following prerequisites are installed:
+* Docker
+* docker-compose (https://docs.docker.com/compose/install/)
+* nodejs (>12) 
 
 . Clone the IMA SDK repository
 
@@ -15,26 +18,45 @@ git clone https://github.com/skalenetwork/skale-ima-sdk
 ```
 
 [start=3]
-. Setup a `.env` environment variable file from the `.env-compose-sample` template and add your accounts.
+. Copy the .env template and add your accounts:
 
-. Run `./run_compose.sh` and give the containers a few minutes to download.
+```shell
+cp .env-compose-sample .env
+nano .env
+``` 
+
+. Export the environment variables:
+
+```shell
+export $(grep -v '^#' .env | xargs)
+```
+
+. Startup the SDK and deploy IMA contracts to local ganache and Skaled:
+
+```shell
+WAIT=True bash scripts/run_sdk.sh
+```
+
 
 Output:
 
 ```shell
-sdk uses an image, skipping
-ganache uses an image, skipping
-Creating network "skale-ima-sdk_ima" with the default driver
-Pulling sdk (skalenetwork/ima_sdk:0.0.0)...
-0.0.0: Pulling from skalenetwork/ima_sdk
-e7ae86ffe2df: Pull complete
-a6b7c8300c0c: Pull complete
-...
-bd0c9ece4688: Pull complete
-Digest: sha256:da03c4fff68f9b828cad7cb0ab2d186697913af65e58ac5f676fcfb9e3cef890
-Status: Downloaded newer image for trufflesuite/ganache-cli:beta
-Creating ima_sdk_ganache ... done
+Updating skaled configuration file
+Will load JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json"...
+Did loaded content of JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json", will parse it...
+Done, loaded content of JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json".
+Updated chainId: -4
+Address 0x66c5a87f4a49DD75e970055A265E8dd5C3F8f852 is already in accounts section
+Will save JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json"...
+Done, saved content of JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json".
+Done.
 Creating ima_sdk         ... done
+Creating ima_sdk_ganache ... done
+Mainnet contracts deployed: /Users/cskale/Projects/skale-ima-sdk/scripts/../contracts_data/proxyMainnet.json
+Waiting for sChain contracts 0/100
+Waiting for sChain contracts 1/100
+...
+
 ```
 
 You can check that both the `ima_sdk_ganache` and `ima_sdk` containers are up by executing:
@@ -119,3 +141,15 @@ _docs in progress_
 == Using the IMA Bridge
 
 Please refer to the main xref:ima::index.adoc[IMA Bridge documentation here].
+
+== Stopping the SDK
+
+```shell
+CLEANUP=True  bash scripts/stop_sdk.sh
+```
+
+== Troubleshooting
+
+If you encounter any issues, be sure to stop and remove the docker containers, and execute `./clean.sh`.
+
+You can inspect the `data_dir/all_ima_*.txt` files for logs of the startup process.
