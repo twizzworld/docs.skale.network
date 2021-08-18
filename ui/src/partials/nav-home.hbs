@@ -34,6 +34,9 @@
   {{#each (pick site.components "validator-cli")}}
   {{> navigation-component }}
   {{/each}}
+  {{#each (pick site.components "skale-watchdog")}}
+  {{> navigation-component }}
+  {{/each}}
 
   <h3 class="nav-title">Technology</h3>
   {{#each (pick site.components "technology")}}
