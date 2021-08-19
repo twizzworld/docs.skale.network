@@ -13,7 +13,7 @@ npm install --save web3 @toruslabs/torus-embed
 == Example Code
 
 ```javascript
-import Portis from '@toruslabs/torus-embed';
+import Torus from '@toruslabs/torus-embed';
 import Web3 from 'web3';
 
 
