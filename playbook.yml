@@ -1,6 +1,7 @@
 site:
   title: SKALE Network Documentation 
   start_page: docs::index.adoc
+  robots: allow
 content:
   sources:
     - url: .
