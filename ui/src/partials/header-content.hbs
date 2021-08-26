@@ -5,11 +5,9 @@
         <img class="logo" width="148" height="39" alt="SKALE" src={{{uiRootPath}}}/img/Skale_Logo_Black.png />
         {{site.title}}
       </a>
-      {{#if env.ALGOLIA_API_KEY}}
-      <div class="navbar-item hide-for-print">
-        <input id="search-input" type="text" placeholder="Search docs">
+      <div id="search" class="navbar-item" >
+        {{!-- <input id="search-input" type="text" placeholder="Search docs"> --}}
       </div>
-      {{/if}}
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
