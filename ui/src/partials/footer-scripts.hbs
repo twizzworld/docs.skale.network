@@ -3,11 +3,9 @@
 {{#if env.ALGOLIA_API_KEY}}
 <script src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
 <!-- fetched from https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js -->
-<script>
+<script type="text/javascript">
   algoliasearchNetlify({
-  {{#with env.ALGOLIA_APP_ID}}
-  appId: '{{this}}',
-  {{/with}}
+  appId: '{{env.ALGOLIA_APP_ID}}',
   apiKey: '{{env.ALGOLIA_API_KEY}}',
   siteId: '{{env.ALGOLIA_SITE_ID}}',
   branch: 'master',
@@ -15,7 +13,7 @@
 });
 </script>
 {{#if page.home}}
-<script>
+<script type="text/javascript">
 window.addEventListener('load', function focusSearchInput () {
   window.removeEventListener('load', focusSearchInput)
   document.querySelector('#search-input').focus()
