@@ -8,7 +8,7 @@ var search = docsearch({
   {{#with env.ALGOLIA_APP_ID}}
   appId: '{{this}}',
   {{/with}}
-  apiKey: '{{env.ALGOLIA_API_KEY}}',
+  apiKey: '{{env.ALGOLIA_SEARCH_API_KEY}}',
   indexName: '{{env.ALGOLIA_IDX_NAME}}',
   inputSelector: '#search-input',
   autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
