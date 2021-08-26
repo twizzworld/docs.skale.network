@@ -4,18 +4,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
 <!-- fetched from https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js -->
 <script>
-var search = algoliasearchNetlify({
+  algoliasearchNetlify({
   {{#with env.ALGOLIA_APP_ID}}
   appId: '{{this}}',
   {{/with}}
   apiKey: '{{env.ALGOLIA_API_KEY}}',
   siteId: '{{env.ALGOLIA_SITE_ID}}',
   branch: 'master',
-  inputSelector: '#search-input',
-  autocompleteOptions: { hint: false, keyboardShortcuts: ['s'] },
-  algoliaOptions: { hitsPerPage: 10 }
-}).autocomplete
-search.on('autocomplete:closed', function () { search.autocomplete.setVal() })
+  selector: '#search-input',
+});
 </script>
 {{#if page.home}}
 <script>
