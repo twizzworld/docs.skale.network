@@ -7,39 +7,49 @@ This IMA SDK works for Mac, Windows, and 64-bit Linux.
 == Get Started with the IMA SDK
 
 . Ensure that the following prerequisites are installed:
-* Docker
+* docker
 * docker-compose (https://docs.docker.com/compose/install/)
-* nodejs (>12) 
+* nodejs (>12)
+* _optional: domain name + SSL certificates if you wish to use https endpoints_
 
 . Clone the IMA SDK repository
-
++
 ```shell
 git clone https://github.com/skalenetwork/skale-ima-sdk
+cd skale-ima-sdk
 ```
 
-[start=3]
 . Copy the .env template and add your accounts:
-
++
 ```shell
 cp .env-compose-sample .env
 nano .env
 ``` 
 
 . Export the environment variables:
-
++
 ```shell
 export $(grep -v '^#' .env | xargs)
 ```
 
-. Startup the SDK and deploy IMA contracts to local ganache and Skaled:
+. (OPTIONAL) Place SSL cert & key in `ssl` folder:
++
+[NOTE]
+Names must be `ssl_key` and `ssl_cert`:
++
+```shell
+cp privkey.pem ~/skale-ima-sdk/ssl/ssl_key
+cp cert.pem ~/skale-ima-sdk/ssl/ssl_cert
+```
 
+. Startup the SDK and deploy IMA contracts to local ganache and Skaled:
++
 ```shell
 WAIT=True bash scripts/run_sdk.sh
 ```
-
-
++
 Output:
-
++
 ```shell
 Updating skaled configuration file
 Will load JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json"...
@@ -58,28 +68,27 @@ Waiting for sChain contracts 1/100
 ...
 
 ```
-
++
 You can check that both the `ima_sdk_ganache` and `ima_sdk` containers are up by executing:
-
++
 ```shell
 docker ps -a
 ```
 
-[start=5]
 . Wait for completion of IMA contract deployments and startup of the IMA Agent. You can check the progress as follows:
-
++
 ```shell
 docker logs ima_sdk_ganache
 ```
-
++
 You should see this final line in the log outputs: `Listening on 0.0.0.0:8545`
-
++
 ```shell
 docker logs ima_sdk
 ```
-
++
 And you should see this complete final output before using the sdk:
-
++
 ```shell
 ...
 Will start SKALE Chain...
@@ -99,15 +108,15 @@ Successfully started IMA agent transfer loop
  
 Press any key to stop this docker container
 ```
-
++
 You can also test the Ganache using `geth attach`:
-
++
 ```shell
 geth attach http://127.0.0.1:8545
 ```
-
++
 Should output:
-
++
 ```shell
 Welcome to the Geth JavaScript console!
 
@@ -116,15 +125,15 @@ coinbase: 0x98664cee8831d7a61d394d7e10207df074e5a895
 at block: 0 (Mon Aug 16 2021 14:58:31 GMT-0700 (PDT))
  modules: eth:1.0 evm:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0
 ```
-
++
 And attaching to the SKALE chain:
-
++
 ```shell
 geth attach http://127.0.0.1:15000
 ```
-
++
 Should output:
-
++
 ```shell
 Welcome to the Geth JavaScript console!
 
@@ -135,6 +144,28 @@ at block: 40 (Mon Aug 16 2021 15:01:55 GMT-0700 (PDT))
 ```
 
 == Working with the SDK
+
+=== Access ABIs
+
+The ABIs generated for the IMA contracts deployed to Ganache and the SKALE Chain are found here:
+
+```shell
+skale-ima-sdk/contracts_data/proxyMainnet.json # Mainnet part
+skale-ima-sdk/contracts_data/proxySchain_Bob.json # sChain part
+```
+
+=== Endpoints
+
+```shell
+# sChain
+http://$IP_ADDRESS:15000
+http://$DOMAIN_NAME/schain # if you have SSL certs and domain name
+https://$DOMAIN_NAME/schain # if you have SSL certs and domain name
+# Mainnet
+http://$IP_ADDRESS:1545
+http://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
+https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
+```
 
 _docs in progress_
 
