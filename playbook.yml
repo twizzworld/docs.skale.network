@@ -71,4 +71,4 @@ asciidoc:
   extensions:
   - ./lib/tabs-block.js
   - '@djencks/asciidoctor-mathjax'
-  - asciidoctor-plantuml
+  - asciidoctor-kroki
