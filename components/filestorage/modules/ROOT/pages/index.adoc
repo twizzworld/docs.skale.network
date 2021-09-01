@@ -1,5 +1,4 @@
 = Overview
-:plantuml-server-url: http://plantuml.com/plantuml
 
 SKALE Filestorage is available on each SKALE Chain. This feature lets developers leverage specialized storage resources on the nodes that operate a SKALE Chain nodes to store data in a validated and secure manner that's in addition to the on-chain data within the SKALE Chain.
 
@@ -38,6 +37,8 @@ SKALE Filestorage leverages a specialized contract to write chunks of data direc
 image::https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with openzeppelin]
 
 And of course, it's built with OpenZeppelin Upgradeability technology.
+
+Read about how to xref:filestorage-upgrades.adoc[perform filestorage upgrades].
 
 == Web3 File Server
 
