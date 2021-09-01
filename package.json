@@ -13,6 +13,7 @@
   "dependencies": {
     "@antora/cli": "^2.3.4",
     "@antora/site-generator-default": "^2.3.4",
+    "asciidoctor-plantuml": "^1.5.0",
     "generator": "^1.0.1",
     "typeface-space-mono": "^1.1.13",
     "yarn": "^1.22.4"

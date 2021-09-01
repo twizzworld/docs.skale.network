@@ -1,8 +1,34 @@
 = Overview
+:plantuml-server-url: http://plantuml.com/plantuml
 
-SKALE Filestorage is available on each SKALE Chain. This feature lets developers leverage specialized storage resources on the nodes that operate a SKALE Chain nodes to store data in a validated and secure manner that is in addition to the onchain data within the SKALE Chain.
+SKALE Filestorage is available on each SKALE Chain. This feature lets developers leverage specialized storage resources on the nodes that operate a SKALE Chain nodes to store data in a validated and secure manner that's in addition to the on-chain data within the SKALE Chain.
 
 To get started, checkout the xref:filestorage.js::index.adoc[Filestorage JS] NPM Library.
+
+== Architecture
+
+SKALE Filestorage consists of several layers:
+
+image:./assets/filestorage-architecture.svg[]
+////
+[plantuml, fs, png]
+....
+@startuml
+skinparam monochrome true
+
+component "Filestorage.js" as fsjs
+component "Filestorage.sol" as fssol
+component "Precompiled.cpp" as precomp
+component "Node Filesystem" as nfs
+
+fsjs -- fssol
+fssol -- precomp
+precomp -- nfs
+@enduml
+....
+////
+
+`FileStorage.js` is a simple npm package allows users to integrate SKALE Filestorage into their decentralized applications with just a few lines of code. This package is an interface to `Filestorage.sol` which calls a precompiled smart contract (`Precompiled.cpp`) which has access to the node’s native filesystem. Each of these layers serves an integral part to the process of uploading, downloading, and deleting of files with the EVM.
 
 == Upgradeability
 
@@ -19,6 +45,30 @@ What good are your files if you can't show them to the world? Here, the SKALE Ne
 image::https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white[]
 
 Check out how this xref:web3-server.adoc[Web3 File Server works].
+
+== FAQ
+
+=== Where can I read more about SKALE Filestorage?
+
+https://skale.network/blog/skale_decentralized_storage/
+
+=== How long will data be stored on SKALE Chain filestorage?
+
+Data will be available as long as the SKALE Chain lifetime. Users or the SKALE Chain owner can extend the life of a SKALE Chain through SKL deposits.
+
+=== Can I use SKALE Filestorage with NFTs? 
+
+Absolutely! You can perform NFT mint operations all on a SKALE Chain, and store URI assets on the same SKALE Chain. Assets are then distributed across 16 nodes and persist through the lifetime of the SKALE Chain. And those URIs can be served through the xref:web3-server.adoc[Web3 webserver].
+
+=== Are there any size restrictions for stored NFTs?
+
+Currently the maximum single file size is 100 MB, and are uploaded in chunks of 1MB.  SKALE Chains can store GBs of data depending on the chain size. For example, medium chains can store up to 60 GBs of data.
+
+=== Can I run and execute programs from SKALE Filestorage?
+
+No, filestorage is suitable for static content only, like files, photos, videos. You can host a static website from SKALE Filestorage, which may include client-side scripts.
+
+Dynamic websites rely on server-side processing, and currently SKALE filestorage does not support server-side scripting.
 
 == Other Features
 
