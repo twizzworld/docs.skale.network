@@ -2,3 +2,4 @@
 * xref:delegation.adoc[Delegation]
 * xref:troubleshooting.adoc[Troubleshooting]
 * xref:delegation-faq.adoc[Delegation FAQ]
+* xref:validator-faq.adoc[Validator FAQ]
