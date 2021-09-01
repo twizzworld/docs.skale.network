@@ -9,7 +9,8 @@ To get started, checkout the xref:filestorage.js::index.adoc[Filestorage JS] NPM
 
 SKALE Filestorage consists of several layers:
 
-image:./assets/filestorage-architecture.svg[]
+image:filestorage-architecture.svg[]
+
 ////
 [plantuml, fs, png]
 ....
