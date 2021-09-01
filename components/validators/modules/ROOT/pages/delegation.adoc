@@ -150,6 +150,10 @@ TIP: 00:00 UTC refers to "start of the day" rather than "end of the day."
 * Undelegate: 300,000 gas
 * Automatic re-delegation: 0 gas
 
+== Other Questions
+
+xref:delegation-faq.adoc[See the delegation FAQ.]
+
 == References
 
 * https://skale.network/blog/network-bounties-and-delegation-workflow/[SKALE Blog: Network Bounties and Delegation Workflow]
