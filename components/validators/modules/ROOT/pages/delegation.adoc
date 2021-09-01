@@ -33,11 +33,35 @@ A wallet that has delegated SKL tokens will incur higher gas fees for SKL token 
 
 == How to delegate
 
-There are several ways to delegate SKALE tokens. 
+There are several ways to delegate SKALE tokens. You can delegate through several applications built by SKALE Validators, through a CLI tool called Validator CLI, or through Etherscan.
 
 === ConsenSys Activate
 
-You may use https://activate.codefi.network/skale-network-launch-partner[ConsenSys Activate]'s platform with Metamask to view validators, make delegation proposals, and view received bounties. Read about ConsenSys Activate's process here: https://codefi.consensys.net/blog/activate-claiming-and-staking-guide 
+image:https://activate.codefi.network/static/media/activate-logo.6cd07d42.svg[width=300]
+
+You may use https://consensys.net/codefi/[ConsenSys Codefi]'s Activate platform with Metamask to view validators, make delegation proposals, and view received bounties.
+
+* https://activate.codefi.network/skale-network-launch-partner
+* Rewards calculator: https://activate.codefi.network/skale
+* Read about ConsenSys Activate's process here: https://codefi.consensys.net/blog/activate-claiming-and-staking-guide
+
+=== StakeWithUs Unagii
+
+image:https://app.unagii.com/img/wordmark-orange.95f9bb14.svg[width=200]
+
+You can also stake through Unagii, built by https://www.stakewith.us/[StakeWithUs].
+
+* https://app.unagii.com/stake/skale
+* Read more about staking through Unagii: https://www.unagii.com/blog/stake-skale-network-skl-intro
+
+=== Figment Hubble
+
+image:https://hubble.figment.io/assets/hubble-logo-dark-456353d7b8820b49a181a35636b69f0cd6ac991d8241b9b35e0b938052e4662e.svg[width=200]
+
+And you can also stake through Hubble, built by https://figment.io[Figment]. 
+
+* https://hubble.figment.io/skale/chains/mainnet 
+* Read more about staking though Hubble: https://figment.io/resources/skale-hubble-staking/
 
 === Validator CLI
 
