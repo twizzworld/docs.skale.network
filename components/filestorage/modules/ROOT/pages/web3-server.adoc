@@ -17,5 +17,5 @@ The NGINX config is as follows:
 
 [source]
 ----
-include::network::nginx.conf.j2[]
+include::network::example$nginx.conf.j2[]
 ----
