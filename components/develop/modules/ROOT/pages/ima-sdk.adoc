@@ -4,8 +4,19 @@ The IMA SDK provides a locally hosted environment for developing with the SKALE 
 
 This IMA SDK works for Mac, Windows, and 64-bit Linux.
 
+This is everything you need to develop a full dApp on SKALE with IMA Bridge and Filestorage. 
+
+What you get:
+
+* A SKALE Chain endpoint
+* An Ethereum Chain (Ganache) endpoint
+* Deployed IMA contracts on Ethereum (mainnet)
+* Deployed IMA contracts on SKALE Chain
+* 10GB of xref:filestorage::index.adoc[SKALE Filestorage]
+* xref:filestorage::web3-server.adoc[Web3 server]
+
 .Overview of the IMA SDK
-video::MYwRa4gw-so[youtube, start=155, end=214]
+video::MYwRa4gw-so[youtube, start=155, end=214, height=450, width=800, opts="modest"]
 
 == Get Started with the IMA SDK
 
@@ -13,7 +24,7 @@ video::MYwRa4gw-so[youtube, start=155, end=214]
 * docker
 * docker-compose (https://docs.docker.com/compose/install/)
 * nodejs (>12)
-* _optional: domain name + SSL certificates if you wish to use https endpoints_
+* _optional: <<get_a_domain_name, domain name>> + <<get_ssl_certificates, SSL certificates>> if you wish to use https endpoints_
 
 . Clone the IMA SDK repository
 +
