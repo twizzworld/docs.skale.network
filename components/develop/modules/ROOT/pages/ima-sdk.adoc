@@ -72,7 +72,7 @@ Waiting for sChain contracts 1/100
 
 ```
 +
-You can check that both the `ima_sdk_ganache` and `ima_sdk` containers are up by executing:
+You can check that the `ima_sdk_ganache`, `ima_sdk`, and `ima_sdk_nginx` containers are up by executing:
 +
 ```shell
 docker ps -a
@@ -154,33 +154,64 @@ The ABIs generated for the IMA contracts deployed to Ganache and the SKALE Chain
 
 ```shell
 skale-ima-sdk/contracts_data/proxyMainnet.json # Mainnet part
-skale-ima-sdk/contracts_data/proxySchain_Bob.json # sChain part
+skale-ima-sdk/contracts_data/proxySchain_Bob.json # SKALE Chain part
 ```
 
 === Endpoints
 
+Use the following endpoints to deploy and transact with each chain.
+
 ```shell
-# sChain
+# SKALE Chain
 http://$IP_ADDRESS:15000
-http://$DOMAIN_NAME/schain # if you have SSL certs and domain name
+http://$DOMAIN_NAME/schain # if you have a domain name
 https://$DOMAIN_NAME/schain # if you have SSL certs and domain name
-# Mainnet
+# Ethereum (Ganache)
 http://$IP_ADDRESS:1545
-http://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
+http://$DOMAIN_NAME/mainnet # if you have a domain name
 https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
 ```
 
-_docs in progress_
+xref:deployment.adoc[Follow deployment instructions here].
+
+=== Adding Additional Accounts
+
+### Pass additional accounts
+
+You can pass any number of additional accounts to the SDK. All accounts will have pre-allocated ETH both on Mainnet and SKALE Chain sides.
+  
+To do that add `additional_accounts.json` file in the root of the project. Structure of the file:
+
+```json
+[
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    },
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    }
+]
+```
 
 == Using the IMA Bridge
 
-Please refer to the main xref:ima::index.adoc[IMA Bridge documentation here].
+Please refer to the xref:ima::index.adoc[IMA Bridge documentation here].
 
 == Stopping the SDK
 
 ```shell
 CLEANUP=True  bash scripts/stop_sdk.sh
 ```
+
+== Get a Domain Name
+
+See: https://www.noip.com/
+
+== Get SSL Certificates
+
+See: https://letsencrypt.org/ and https://certbot.eff.org/
 
 == Troubleshooting
 
