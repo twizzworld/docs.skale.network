@@ -1,4 +1,7 @@
-= Setup SKALE IMA SDK
+= Development with IMA-SDK
+
+IMA-SDK is a tool for dApp developers that emulates SKALE Node + IMA env on a single machine for dev purposes.  
+This article will demonstrate how to setup and use the IMA-SDK in combination with IMA-JS library for dApp development.
 
 The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 8545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
 
@@ -15,7 +18,8 @@ What you get:
 * 10GB of xref:filestorage::index.adoc[SKALE Filestorage]
 * xref:filestorage::web3-server.adoc[Web3 server]
 
-.Overview of the IMA SDK
+=== Overview of the IMA SDK
+  
 video::MYwRa4gw-so[youtube, start=155, end=214, height=450, width=800, opts="modest"]
 
 == Get Started with the IMA SDK
@@ -54,6 +58,30 @@ Names must be `ssl_key` and `ssl_cert`:
 ```shell
 cp privkey.pem ~/skale-ima-sdk/ssl/ssl_key
 cp cert.pem ~/skale-ima-sdk/ssl/ssl_cert
+```
+
+
+. (OPTIONAL) Add additional accounts
++
+[NOTE]
+This step is optional. Proceed to the next step if you need only 1 account with funds.
++
+You can pass any number of additional accounts to the SDK.  
+All accounts will have pre-allocated ETH both on Mainnet and sChain sides. 
+To do that add `additional_accounts.json` file in the root of the project. Structure of the file:
++
+```json
+[
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    },
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    }
+    ...
+]
 ```
 
 . Startup the SDK and deploy IMA contracts to local ganache and Skaled:
@@ -185,26 +213,9 @@ https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
 
 xref:deployment.adoc[Follow deployment instructions here].
 
-=== Adding Additional Accounts
+== IMA-JS integration
 
-### Pass additional accounts
-
-You can pass any number of additional accounts to the SDK. All accounts will have pre-allocated ETH both on Mainnet and SKALE Chain sides.
-  
-To do that add `additional_accounts.json` file in the root of the project. Structure of the file:
-
-```json
-[
-    {
-        "private_key": "0x...",
-        "address": "0x.."
-    },
-    {
-        "private_key": "0x...",
-        "address": "0x.."
-    }
-]
-```
+To start development of your dApp using IMA-SDK with IMA-JS refer to xref:ima::ima-js-sdk.adoc[this doc].
 
 == Using the IMA Bridge
 
@@ -226,6 +237,10 @@ See: https://letsencrypt.org/ and https://certbot.eff.org/
 
 == Troubleshooting
 
-If you encounter any issues, be sure to stop and remove the docker containers, and execute `./clean.sh`.
+If you encounter any issues you can run cleanup and start from scratch:
 
-You can inspect the `data_dir/all_ima_*.txt` files for logs of the startup process.
+```shell
+CLEANUP=True  bash scripts/stop_sdk.sh
+```
+
+You can inspect the `data_dir/all_ima_*.txt` files for logs.
