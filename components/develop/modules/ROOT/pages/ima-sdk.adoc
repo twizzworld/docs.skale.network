@@ -3,7 +3,7 @@
 IMA-SDK is a tool for dApp developers that emulates SKALE Node + IMA env on a single machine for dev purposes.  
 This article will demonstrate how to setup and use the IMA-SDK in combination with IMA-JS library for dApp development.
 
-The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 8545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
+The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 1545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
 
 This IMA SDK works for Mac, Windows, and 64-bit Linux.
 
@@ -123,7 +123,7 @@ docker ps -a
 docker logs ima_sdk_ganache
 ```
 +
-You should see this final line in the log outputs: `Listening on 0.0.0.0:8545`
+You should see this final line in the log outputs: `Listening on 0.0.0.0:1545`
 +
 ```shell
 docker logs ima_sdk
@@ -154,7 +154,7 @@ Press any key to stop this docker container
 You can also test the Ganache using `geth attach`:
 +
 ```shell
-geth attach http://127.0.0.1:8545
+geth attach http://127.0.0.1:1545
 ```
 +
 Should output:
