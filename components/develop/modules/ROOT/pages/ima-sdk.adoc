@@ -42,7 +42,12 @@ cd skale-ima-sdk
 ```shell
 cp .env-compose-sample .env
 nano .env
-``` 
+```
++
+[NOTE]
+`SDK_PRIVATE_KEY` is used in the background by the SDK's IMA agent to conduct transactions on Ethereum (Ganache).
+`TEST_PRIVATE_KEY` is used by the end user to conduct general transactions. This is the only key you should use when conducting transactions.
+Both are automatically allocated funds by the SDK, and should be different keys.
 
 . Export the environment variables:
 +
