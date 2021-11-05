@@ -212,7 +212,7 @@ https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
 
 Use the endpoints above along with your deployment scripts.
 
-xref:deployment.adoc[Follow deployment instructions and code samples here].
+include::partial$deployment-scripts.adoc[]
 
 === How to use skETH and understanding permissions/access control
 
