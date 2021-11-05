@@ -12,7 +12,7 @@ Filestorage: `0x69362535ec535F0643cBf62D16aDeDCAf32Ee6F7`
 
 == Upgrade procedure
 
-. Deploy new Filestroage version on your SKALE Chain.
+. Deploy new Filestorage version on your SKALE Chain.
 . Send upgrade transaction to the pre-deployed Proxy Admin, containing the new address of Filestorage Implementation.
 . Admin calls the pre-deployed Filestorage Proxy contract and passes the new Filestorage address.
 . Proxy now points to the new Filestorage contract.
