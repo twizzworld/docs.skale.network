@@ -18,8 +18,7 @@ What you get:
 * 10GB of xref:filestorage::index.adoc[SKALE Filestorage]
 * xref:filestorage::web3-server.adoc[Web3 server]
 
-=== Overview of the IMA SDK
-  
+.Overview of the IMA SDK
 video::MYwRa4gw-so[youtube, start=155, end=214, height=450, width=800, opts="modest"]
 
 == Get Started with the IMA SDK
@@ -64,15 +63,15 @@ Names must be `ssl_key` and `ssl_cert`:
 cp privkey.pem ~/skale-ima-sdk/ssl/ssl_key
 cp cert.pem ~/skale-ima-sdk/ssl/ssl_cert
 ```
-
-
++
+[[additional-accounts]]
 . (OPTIONAL) Add additional accounts
 +
 [NOTE]
 This step is optional. Proceed to the next step if you need only 1 account with funds.
 +
 You can pass any number of additional accounts to the SDK.  
-All accounts will have pre-allocated ETH both on Mainnet and sChain sides. 
+All accounts will have pre-allocated ETH both on Mainnet and SKALE Chain sides. 
 To do that add `additional_accounts.json` file in the root of the project. Structure of the file:
 +
 ```json
@@ -192,14 +191,7 @@ at block: 40 (Mon Aug 16 2021 15:01:55 GMT-0700 (PDT))
 
 == Working with the SDK
 
-=== Access ABIs
-
-The ABIs generated for the IMA contracts deployed to Ganache and the SKALE Chain are found here:
-
-```shell
-skale-ima-sdk/contracts_data/proxyMainnet.json # Mainnet part
-skale-ima-sdk/contracts_data/proxySchain_Bob.json # SKALE Chain part
-```
+To deploy contracts and send transactions, you'll need to know which endpoints to use and how to use skETH on your SKALE Chain. To interact with the IMA bridge predeployed contracts, you'll also need the ABIs.
 
 === Endpoints
 
@@ -216,7 +208,26 @@ http://$DOMAIN_NAME/mainnet # if you have a domain name
 https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
 ```
 
-xref:deployment.adoc[Follow deployment instructions here].
+=== How to deploy
+
+Use the endpoints above along with your deployment scripts.
+
+include::partial$deployment-scripts.adoc[]
+
+=== How to use skETH and understanding permissions/access control
+
+The SKALE Chain owner is the only initial account allowed to deploy contracts. The owner is also the only account funded with skETH (unless you <<additional-accounts,specified additional accounts in this step)>>. 
+
+xref:skale-chain-access-control.adoc[Read about skETH and deployment permissions in SKALE Chain Access Control].
+
+=== Access ABIs
+
+The ABIs generated for the IMA contracts deployed to Ganache and the SKALE Chain are found here:
+
+```shell
+skale-ima-sdk/contracts_data/proxyMainnet.json # Mainnet part
+skale-ima-sdk/contracts_data/proxySchain_Bob.json # SKALE Chain part
+```
 
 == IMA-JS integration
 
