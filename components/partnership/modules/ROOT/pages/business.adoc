@@ -1,0 +1,55 @@
+= Business & Technology
+
+== What is SKALE
+
+* https://docs.skale.network/docs/#_about_skale_network[About SKALE Network]
+* https://skale.network/primer[The SKALE Network Primer]
+
+== Architecture & Security
+
+=== Protocol
+
+* https://docs.skale.network/learn/overview#_skale_network_what_it_does[Tokenomics]
+* https://skale.network/highlights[SKALE Network Highlights]
+
+=== Consensus
+* https://skale.network/blog/skale-consensus[Consensus]
+
+=== BLS Threshold Cryptography
+* https://skale.network/blog/bls-deep-dive[BLS Deep Dive]
+
+=== Containerization
+
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure[Containerization & The Future of Decentralized Infrastructure (Part 1 of 2)]
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization & The Future of Decentralized Infrastructure (Part 1 of 2)]
+
+=== Node Rotation
+
+* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 1 of 2)]
+* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling-part-2-of-2[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 2 of 2)]
+
+== Tokenomics & Validator Incentives
+
+* https://skale.network/tokenomics[Tokenomics]
+
+== Ecosystem
+
+* https://skale.network/blog/skale-network-ecosystem-for-ethereum-scaling[SKALE Ecosystem]
+
+
+== Get Access
+
+If you don't have a SKALE Chain for testing yet, you can get started with one of the SKALE SDK:
+
+* https://github.com/skalenetwork/skale-sdk[SKALE SDK]
+* https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK]
+
+Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the http://skale.chat[SKALE Network developer community on Discord].
+
+== Support and Resources
+
+* Discord - For development and validator-focused discussions, join the https://discord.gg/vvUtWJB[SKALE Network Discord channel].
+* Telegram - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
+* Twitter - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
+* YouTube - For video-tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
+* Blog - Follow and subscribe to the SKALE Network blog and newsletter https://skale.network/blog[here].
