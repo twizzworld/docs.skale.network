@@ -1,0 +1,102 @@
+= Integration
+
+Welcome to the Integration module for partnership onboarding. There best way to gain in-depth knowledge of building on the SKALE Network is by going through the https://skale.network/blog[Dev Portal, window=_blank] and testing out integrating the SKALE Network into a Web3 application.
+
+We have organized, some key integration points below that will help you gain a fundamental understanding of how to build on SKALE Network.
+
+Once you feel that you have acquired a good foundational integrating the SKALE Network, reach out to the SKALE Network team for a certification meeting for your team.
+
+First, Let's get you access to a SKALE Chain!
+
+== Get Access
+
+If you don't have a SKALE Chain for testing yet, you can get started with one of the SKALE SDKs:
+
+* https://github.com/skalenetwork/skale-sdk[SKALE SDK, window=_blank]
+* https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK, window=_blank]
+
+Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide, window=_blank] or reach out to the http://skale.chat[SKALE Network developer community on Discord, window=_blank].
+
+
+== Implementation and onboarding
+
+Next, use your SKALE Chain and deploy a smart contract and connect a wallet. You can find documentation on how to accomplish this in the link below:
+
+* https://docs.skale.network/develop/[Developing on SKALE, window=_blank]
+
+== SDK, dAppNet, TestNet and Mainnet
+
+Let's take a break from touching the code to learn a bit about the different development enviroments within the SKALE Network. We have 4, and you can find a breif description below, as well as within the developer documentation https://docs.skale.network/develop/network-details[here, window=_blank].
+
+=== SDK
+
+SDK is a local development environment providing a containerized Ganache chain for Ethereum-side IMA bridge operations, and a containerized SKALE Chain for SKALE-side IMA bridge operations. https://docs.skale.network/develop/ima-sdk[IMA SDK, window=_blank]
+
+=== DappNet
+
+DappNet is a live network of SKALE nodes with IMA connected to Rinkeby, for proving- and load tests prior to production deployments to mainnet.
+
+=== Testnet
+
+Testnet is currently a validator-specific test environment for validator training and testing/proving mainnet releases prior to pushing to mainnet. Chains are orchestrated by SKALE Manager deployed on Rinkeby.
+
+=== Mainnet
+
+Mainnet chains are production chains orchestrated by SKALE Manager on Ethereum Mainnet.
+
+== Interchain Messaging Agent (IMA)
+
+Alright, back to the code! The Interchain Messaging Agent is an important SKALE Network feature. It makes it possible for developers to manage tokens for end-users between Ethereum and the SKALE Network. With so many NFT projects being built, this is a desired feature for creating a truly user friendly experience for end users. Since the SKALE Network is a gas-less enviroment for end users, this allows developers to significantly reduce the cost for their users. You can learn more about the Interchain Messaging Agent (IMA), here:
+
+* https://docs.skale.network/ima/1.0.x[IMA Documentation, window=_blank]
+
+There are some key features that you will want to remember when integrating IMA within a Web3 application:
+
+=== Product Features (IMA)
+
+==== Chain access control
+
+You can manage who has access to the SKALE Chain. Read more here:
+
+* https://docs.skale.network/develop/skale-chain-access-control[Chain Access Control, window=_blank]
+
+IMA Bridge also has unique acces control features available to the SKALE Chain Owner. Read more here:
+
+* https://docs.skale.network/ima/1.0.x/access-control[IMA Access Control, window=_blank]
+
+==== Supported Token Standards
+
+The IMA Bridge contains out-of-the-box support for transfer of ETH, ERC20, ERC721, and ERC1155. . Read more here:
+
+* https://docs.skale.network/ima/1.0.x[IMA Documentation, window=_blank]
+
+==== Custom Token Support
+
+The IMA Bridge is expandable to any other arbitrary token/contract using the MessageProxy interface. Read more here:
+
+* https://docs.skale.network/ima/1.0.x/message-proxy[IMA Message Proxy, window=_blank]
+
+== Filestorage
+
+SKALE Filestorage is available on each SKALE Chain. This feature lets developers leverage specialized storage resources on the nodes that operate a SKALE Chain nodes to store data in a validated and secure manner that’s in addition to the on-chain data within the SKALE Chain. 
+
+Try storing some files directly onto your SKALE Chain. You can learn how in the documentation here:
+
+* https://docs.skale.network/filestorage[Filestorage, window=_blank]
+
+Now try accessing  the out-of-the-box web server to serve assets via the web. Learn how to here:
+
+* https://docs.skale.network/filestorage/web3-server[Fielstorage: Web3 Server, window=_blank]
+
+== Certification
+
+Ready to show off your new knowledge! Once you feel that you have acquired a good foundation for integrating the SKALE Network, reach out to the SKALE Network team for a certification meeting.
+
+
+== Support and Resources
+
+* Discord - For development and validator-focused discussions, join the https://discord.gg/vvUtWJB[SKALE Network Discord channel].
+* Telegram - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
+* Twitter - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
+* YouTube - For video-tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
+* Blog - Follow and subscribe to the SKALE Network blog and newsletter https://skale.network/blog[here].

@@ -4,7 +4,7 @@
 * Tools
 ** xref:ima-sdk.adoc[Setup the IMA SDK]
 ** xref:providers.adoc[Using Web3 Providers]
-** xref:using-truffle-box.adoc[Using Truffle Bpx]
+** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]

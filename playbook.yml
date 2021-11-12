@@ -28,6 +28,10 @@ content:
       branches: HEAD
       start_path: components/technology
 
+    - url: .
+      branches: HEAD
+      start_path: components/partnership
+
     - url: https://github.com/skalenetwork/skale-manager
       branches: docs-v*
       start_path: docs
