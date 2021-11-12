@@ -1,50 +1,50 @@
 = Business & Technology
 
+Welcome to the Business and Technology module for partnership onboarding. There is a lot of great context available on the SKALE Network https://skale.network/blog[blog, window=_blank] and https://skale.network[website, window=_blank], and we encourage you to read through the additional content available there.
+
+We have organized, some key articles below that will help you gain a fundamental understanding of how the SKALE Network is designed and works to support developers building Web3 applications.
+
+Once you feel that you have acquired a good foundational knowledge of the SKALE Network, reach out to the SKALE Network team for a certification meeting for your team.
+
 == What is SKALE
 
-* https://docs.skale.network/docs/#_about_skale_network[About SKALE Network]
-* https://skale.network/primer[The SKALE Network Primer]
+* https://docs.skale.network/docs/#_about_skale_network[About SKALE Network, window=_blank]
+* https://skale.network/primer[The SKALE Network Primer, window=_blank]
 
 == Architecture & Security
 
 === Protocol
 
-* https://docs.skale.network/learn/overview#_skale_network_what_it_does[Tokenomics]
-* https://skale.network/highlights[SKALE Network Highlights]
+* https://docs.skale.network/learn/overview#_skale_network_what_it_does[Tokenomics, window=_blank]
+* https://skale.network/highlights[SKALE Network Highlights, window=_blank]
 
 === Consensus
-* https://skale.network/blog/skale-consensus[Consensus]
+* https://skale.network/blog/skale-consensus[Consensus, window=_blank]
 
 === BLS Threshold Cryptography
-* https://skale.network/blog/bls-deep-dive[BLS Deep Dive]
+* https://skale.network/blog/bls-deep-dive[BLS Deep Dive, window=_blank]
 
 === Containerization
 
-* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure[Containerization & The Future of Decentralized Infrastructure (Part 1 of 2)]
-* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization & The Future of Decentralized Infrastructure (Part 1 of 2)]
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure[Containerization & The Future of Decentralized Infrastructure (Part 1 of 2), window=_blank]
+* https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization & The Future of Decentralized Infrastructure (Part 2 of 2), window=_blank]
 
 === Node Rotation
 
-* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 1 of 2)]
-* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling-part-2-of-2[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 2 of 2)]
+* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 1 of 2), window=_blank]
+* https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling-part-2-of-2[The SKALE Network: Why Randomness, Rotation, and Incentives are Critical for Secure Scaling (Part 2 of 2), window=_blank]
 
 == Tokenomics & Validator Incentives
 
-* https://skale.network/tokenomics[Tokenomics]
+* https://skale.network/tokenomics[Tokenomics, window=_blank]
 
 == Ecosystem
 
-* https://skale.network/blog/skale-network-ecosystem-for-ethereum-scaling[SKALE Ecosystem]
+* https://skale.network/blog/skale-network-ecosystem-for-ethereum-scaling[SKALE Ecosystem, window=_blank]
 
+== Certification
 
-== Get Access
-
-If you don't have a SKALE Chain for testing yet, you can get started with one of the SKALE SDK:
-
-* https://github.com/skalenetwork/skale-sdk[SKALE SDK]
-* https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK]
-
-Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the http://skale.chat[SKALE Network developer community on Discord].
+Ready to show off your new knowledge! Once you feel that you have acquired a good understanding of the SKALE Network, reach out to the SKALE Network team for a certification meeting.
 
 == Support and Resources
 

@@ -1,11 +1,11 @@
 = Overview
 
-The SKALE Channel Partner Program consists of hand selected blockchain strategy, services, and implementation teams that demonstrate a deep understanding of SKALE’s multichain network, enabling them to successfully sell, integrate and provide deployment services. Channel and strategic consulting partners are an integral extension of the SKALE team, and receive extensive training and support to ensure they are comfortable delivering the business and technology value proposition on SKALE’s behalf. 
+The SKALE Channel Partner Program consists of hand selected blockchain strategy, services, and implementation teams that demonstrate a deep understanding of SKALE’s multichain network, enabling them to successfully integrate and provide deployment services. Channel and strategic consulting partners are an integral extension of the SKALE team, and receive extensive training and support to ensure they are comfortable delivering the business and technology value proposition on SKALE’s behalf. 
 
 [NOTE]
 Note: Grants will be provided by the N.O.D.E. Anstalt which is an organizational component of the N.O.D.E. Foundation, which is the non-profit supportive entity behind the SKALE Network. SKALE Labs Inc. will be leading all training, education, and partnership execution services. 
 
-BAll partners are required to complete a training and certification plan as outlined in the following two modules. The partner is encouraged to include multiple team members in the self paced training program. 
+If you are interested in becoming a channel or strategic consulting partner, please reach out to us https://skale.network/technology-partnerships[here].
 
 == SKALE Overview
 
@@ -21,6 +21,11 @@ See more videos here: https://www.youtube.com/skale
 [.card-section]
 
 == Training Modules
+
+All partners are required to complete a training and certification plan as outlined in the following two modules. The partner is encouraged to include multiple team members in the self paced training program. 
+
+[NOTE]
+We plan to roll out an automated certification platform in the future. For now, the knowledge certification will be complete by connecting directly with the SKALE Labs team. After completion of each module, please reach out to the SKALE Labs team to finalize the certification.
 
 [.card.card-learn]
 --
