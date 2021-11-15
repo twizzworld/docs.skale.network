@@ -1,0 +1,64 @@
+= Multisig General Instructions
+
+[WARNING]
+Instructions provided here are for **general purposes only** on how to transition a SKALE Chain from a single owner account to a multisig. You are highly encouraged to apply your own security evaluation, process, and review to suit a multisig setup for your specific needs. 
+
+To use Gnosis Multisig for SKALE Chain owner administration, follow the instructions below, which are based on the tools and steps provided here: <https://github.com/gnosis/MultiSigWallet>.
+
+[NOTE]
+These instructions are for Gnosis' **MultiSigWallet**, which has been depreciated for Gnosis **SAFE**. At this time, Gnosis SAFE is yet not supported, and is planned for future releases.
+
+== SKALE Chain Setup
+
+[IMPORTANT]
+Before proceeding, be sure your SKALE Chain is deployed and assigned ownership to a single account and is funded with skETH. The SKALE Chain will have several predeployed contracts including Marionette and a predeployed Gnosis MultiSigWallet. These instructions detail how to interact with the predeployed multisig.
+
+. Add your SKALE Chain endpoint to Metamask.
+. Setup a Gnosis MultiSigWallet local server or use a ready-made instance on IPFS using this link: <https://github.com/gnosis/MultiSigWallet#an-instance-of-multisig-website-is-available-on-ipfs-at-httpsipfsinfuraioipfsqmfrd4guqzobni2nt2c77a3utq452ffwstr4fjejixugjf>
+. Select your SKALE Chain endpoint in Metamask.
+. Click `Unlock Metamask` in the MultiSig UI.
+. Click `Add` button.
+. Click `Restore deployed wallet` to add an already deployed multisig.
+. Add the name and address of the multisig and click `ok`.
+
+From here, 
+
+* You can now edit the required confirmations:
+image:./assets/multisig-confirmations.png[]
+
+* Add additional owners by clicking the multisig name,
+image:./assets/multisig-add-owners.png[]
++
+And then add additional owners:
+image:./assets/multisig-owners.png[]
+
+== Sending Multisig Transaction
+
+. Click the name of your deployed multisig to view the multisig details.
+. Click the `Add` button in the "Multisig transactions" box. A modal will appear with further inputs.
++
+image:./assets/multisig-add.png[]
++
+. Enter the contract address, name (optional), and paste in the contract ABI.
+. After a moment, the `Method` field should populate with the available methods.
+. Select the method to execute, and add any additional information.
+. Click `Send multisig transaction`.
+. The multisig will then request the various owners to sign off on the transaction.
+. Send the deployed multisig address to each owner so they each can load the multisig.
+
+== Signing off
+
+Each multisig signer should follow the instructions for signing off:
+
+. Add the SKALE Chain to Metamask.
+. Setup a local server or use a ready-made instance on IPFS using this link: <https://github.com/gnosis/MultiSigWallet#an-instance-of-multisig-website-is-available-on-ipfs-at-httpsipfsinfuraioipfsqmfrd4guqzobni2nt2c77a3utq452ffwstr4fjejixugjf>
+. Select the SKALE Chain endpoint in Metamask to which the multisig will be deployed.
+. Click `Unlock Metamask` in the MultiSig UI.
+. Click `Add` button to add a Multisig.
+. Click `Restore deployed wallet` to add an already deployed multisig.
+. Add the name and address of the multisig and click `ok`.
+. Click the multisig name and you should see the pending transaction.  
+. Click `confirm` to sign the transaction.
+. Wait until the other required signers signoff, and then the transaction will finally execute.
+image:./assets/multisig-signoff.png[]
+
