@@ -3,7 +3,7 @@
 [WARNING]
 Instructions provided here are for **general purposes only** on how to transition a SKALE Chain from a single owner account to a multisig. You are highly encouraged to apply your own security evaluation, process, and review to suit a multisig setup for your specific needs. 
 
-To use Gnosis Multisig for SKALE Chain owner administration, follow the instructions below, which are based on the tools and steps provided here: <https://github.com/gnosis/MultiSigWallet>.
+To use Gnosis **MultiSigWallet** for SKALE Chain owner administration, follow the instructions below, which are based on the tools and steps provided here: <https://github.com/gnosis/MultiSigWallet>.
 
 [NOTE]
 These instructions are for Gnosis' **MultiSigWallet**, which has been depreciated for Gnosis **SAFE**. At this time, Gnosis SAFE is yet not supported, and is planned for future releases.
@@ -18,7 +18,7 @@ Before proceeding, be sure your SKALE Chain is deployed and assigned ownership t
 . Select your SKALE Chain endpoint in Metamask.
 . Click `Unlock Metamask` in the MultiSig UI.
 . Click `Add` button.
-. Click `Restore deployed wallet` to add an already deployed multisig.
+. Click `Restore deployed wallet` to add the already deployed multisig.
 . Add the name and address of the multisig and click `ok`.
 
 From here, 

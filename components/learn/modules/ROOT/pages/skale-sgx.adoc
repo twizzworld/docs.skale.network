@@ -1,0 +1,21 @@
+= SKALE Network and TEE
+
+Trusted Execution Environments (TEE).
+
+== Intro to SGX
+
+Intel Software Guard Extensions (SGX) allow specific applications to provision a secure enclave that's isolated from the host operating system and kernel. Data can flow in and data can flow out of this enclave but what happens inside is secret to even the owner of the machine.
+
+== How SKALE uses SGX
+
+The SKALE Network nodes use BLS threshold cryptography to sign blocks on each SKALE Chain, and to sign messages received and sent to Ethereum using the IMA bridge. Block signing is fast and high throughput, up to subsecond blocktimes. Block signing is also performed in parallel, as each node can support multiple SKALE Chains. To support this high throughput of block signing, SKALE validators operate a special SGX-enabled machine running SGXWallet, which uses the SGX secure enclave to create and hold keys for the validator's nodes, including ECDSA and BLS private keys. The private keys never leave the enclave: messages are sent in to the enclave and leave the enclave signed.
+
+== Remote Attestation
+
+SKALE Network currently doesn't use any remote attestation features of SGX.
+
+== Safety of TEE
+
+TEEs like SGX don't magically solve all problems related to secure computing. There are limitations to TEE software and hardware, and if used improperly can result in critical vulnerabilities.
+
+The key protection that TEEs like SGX provide is _attack surface minimization._

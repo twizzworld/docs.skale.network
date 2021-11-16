@@ -1,0 +1,20 @@
+= SKALE Consensus
+
+SKALE Chains use a mathematically provable BFT consensus algorithm. 
+
+Details of how this consensus algorithm works are xref:technology::consensus-spec.adoc[available here]. We'll give a watered-down version here.
+
+== How it works
+
+SKALE Consensus works in two stages.
+
+=== Stage 1
+
+Each of the sixteen nodes either start with 0 or 1 and broadcast their values to the other nodes. If node X receives `0` from at least 1/3 + 1 of the nodes, then according to the Byzantine assumption, at least one good node has 0.  So you would then broadcast 0 to all others.
+
+
+=== Stage 2
+
+Stage 2 is a "pre-commit" stage. A node at this stage must wait until 2/3 + 1 nodes 
+
+
