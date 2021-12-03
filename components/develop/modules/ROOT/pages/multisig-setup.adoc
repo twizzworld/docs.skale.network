@@ -39,9 +39,9 @@ image:./assets/multisig-owners.png[]
 +
 image:./assets/multisig-add.png[]
 +
-. Enter the contract address, name (optional), and paste in the contract ABI.
+. Enter the contract address, name (optional), and paste in the contract ABI. For example, if you want to permit another address to deploy contracts, paste in the DeploymentControl ABI (https://github.com/skalenetwork/predeployed/blob/master/deploy-control/DeploymentController.abi) and contract address `0xD2002000000000000000000000000000000000D2`.
 . After a moment, the `Method` field should populate with the available methods.
-. Select the method to execute, and add any additional information.
+. Select the method to execute, and add any additional information. For example, select `addToWhitelist` and enter the address to allow deployment permissions.
 . Click `Send multisig transaction`.
 . The multisig will then request the various owners to sign off on the transaction.
 . Send the deployed multisig address to each owner so they each can load the multisig.
