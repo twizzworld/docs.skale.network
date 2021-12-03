@@ -8,7 +8,7 @@ SKALE Chain owners have special privileges for managing the SKALE Chain, Filesto
 ** xref:skale-chain-access-control.adoc#_skale_eth_sketh[skETH distribution]
 ** xref:skale-chain-access-control.adoc#_deployment_controller[deployment permissions]
 * Filestorage
-** space allocation - _coming soon_
+** xref:filestorage.js::index.adoc#_reserve_space[Filestorage space allocation]
 ** xref:filestorage::filestorage-upgrades.adoc[upgrades]
 * IMA Bridge
 ** xref:ima::ima-access-control.adoc[assigning IMA roles]
@@ -24,39 +24,4 @@ xref:multisig-setup.adoc[See Multisig setup for details.]
 
 === Chainlist
 
-SKALE Chain owners are encouraged to submit your chain information to https://chainlist.org/. Please open a pull request with chainlist and submit a json containing your SKALE Chain information.  
-
-For example:
-
-[source, json]
-----
-{
-  "name": "<YOUR-CHAIN-NAME>",
-  "chain": "SKALE-<YOUR-CHAIN-NAME>",
-  "network": "mainnet",
-  "icon": "<YOUR-ICON>",
-  "rpc": [
-    "https://<REVERSE-PROXY-TO-CHAIN>",
-    "wss://<REVERSE-PROXY-2>"
-  ],
-  "faucets": [],
-  "nativeCurrency": {
-    "name": "SKALE ETH",
-    "symbol": "skETH",
-    "decimals": 18
-  },
-  "infoURL": "https://skale.network",
-  "shortName": "SKL-<YOUR-CHAIN-SHORT-NAME>",
-  "chainId": 123456,
-  "networkId": 123456,
-  "explorers": [
-    {
-      "name": "<YOUR-BLOCK-EXPLORER-NAME>",
-      "url": "https://<YOUR-CHAIN-NAME>.explorer.mainnet.skalenodes.com",
-      "standard": "EIP3091"
-    }
-  ]
-}
-
-
-----
+SKALE Chain owners are encouraged to submit your chain information to https://chainlist.org/. 
