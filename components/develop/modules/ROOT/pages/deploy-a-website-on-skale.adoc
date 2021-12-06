@@ -23,7 +23,7 @@ Assuming you already have built a statically generated website (if not checkout 
 </html>
 ----
 +
-.Save this as `style.css`
+.Save this as `styles.css`
 [source, css]
 ----
 body {
