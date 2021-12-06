@@ -66,7 +66,7 @@ export default config;
 You can point your deployment scripts for your existing smart contracts to your SKALE Chain’s address and deploy using existing tooling (e.g.: hardhat). An example hardhat deployment command to deploy your smart contracts using the 'skale' network in the script above is:  
 
 ```shell
-hardhat run upgrageToSkale.ts --network skale
+hardhat run upgradeToSkale.ts --network skale
 ```
 
 --
