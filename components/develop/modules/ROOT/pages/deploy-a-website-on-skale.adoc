@@ -33,8 +33,9 @@ body {
 
 . Upload to your SKALE Chain
 +
-Assuming the `index.html` and `styles.css` files stored in a folder called `test-skale` and you have already performed `npm install @skalenetwork/filestorage.js~1.0.0`, then create a script file with the following code:
+Assuming the `index.html` and `styles.css`, or static site files are stored in a folder called `test-skale`, and you have already performed `npm install @skalenetwork/filestorage.js~1.0.0`, then create a script file with the following code:
 +
+.Save this as `filestorageUpload.js`.
 [source, javascript]
 ----
 #! /usr/bin/env node
@@ -72,6 +73,10 @@ upload();
 ----
 +
 When executing, your files are sent to the SKALE Chain endpoint, routed to one of the 16 nodes supporting your chain, and is fed into the EVM in chunks, with a specific header to indicate these EVM messages are for filestorage. These messages are broadcast to the other 15 nodes to reach state consensus. On each of these nodes, a specific predeployed contract called Filestorage will process these chunks and store them into specific partitions. This way your files are replicated across 16 nodes, and served using an nginx container on each of the nodes. 
+
+. Execute the script
++
+Be sure to add execution permissions: `chmod +x filestorageUpload.js` and then run `./filestorageUpload.js`.
 
 . Access your website
 +
