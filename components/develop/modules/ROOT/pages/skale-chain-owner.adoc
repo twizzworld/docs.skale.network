@@ -25,3 +25,7 @@ xref:multisig-setup.adoc[See Multisig setup for details.]
 === Chainlist
 
 SKALE Chain owners are encouraged to submit your chain information to https://chainlist.org/. 
+
+=== Snapshot
+
+You can integrate Snapshot by submitting your chain information by following the instructions here https://docs.snapshot.org/networks. Deploy the snapshot Multicall contract on your SKALE Chain, and submit its' address and your chain information by PR.
