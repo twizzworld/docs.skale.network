@@ -1,13 +1,2 @@
 <script src="{{{uiRootPath}}}/js/site.js"></script>
 <script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
-{{#if env.ALGOLIA_API_KEY}}
-{{#if page.home}}
-<script>
-window.addEventListener('load', function focusSearchInput () {
-  window.removeEventListener('load', focusSearchInput)
-  document.querySelector('#search-input').focus()
-})
-</script>
-
-{{/if}}
-{{/if}}
