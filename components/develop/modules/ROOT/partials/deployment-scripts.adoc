@@ -4,7 +4,7 @@ Hardhat::
 +
 --
 
-Hardhat is a popular way to deploy your smart contracts onto Ethereum, and can also be used to deploy your smart contracts onto SKALE. You can update your hardhat configuration file (hardhat.сonfig.js or hardhat.config.ts) with a configuration to deploy your smart contracts onto SKALE.  
+Hardhat is a popular way to deploy your smart contracts onto Ethereum, and can also be used to deploy your smart contracts onto SKALE. You can update your hardhat configuration file (`hardhat.сonfig.js` or `hardhat.config.ts`) with a configuration to deploy your smart contracts onto SKALE.  
 
 For more information on hardhat configuration files, please see https://hardhat.org/config/[Hardhat's Configuration Documentation].  
 
@@ -55,7 +55,11 @@ export default config;
 You can point your deployment scripts for your existing smart contracts to your SKALE Chain’s address and deploy using existing tooling (e.g.: hardhat). An example hardhat deployment command to deploy your smart contracts using the 'skale' network in the script above is:  
 
 ```shell
+<<<<<<< HEAD
 hardhat run upgrageToSkale.ts --network skale
+=======
+hardhat run upgradeToSkale.ts --network skale
+>>>>>>> develop
 ```
 
 --
@@ -133,8 +137,13 @@ For more information on using web3.js, please see https://web3js.readthedocs.io/
  *  @param {String} contractFileName - Complete filename of contract (i.e. MySmartContract.sol)
  */
 
+<<<<<<< HEAD
 const Web3 = require('web3'); // version 1.0.0-beta.35
 const solc = require('solc'); // version 0.5.4
+=======
+const Web3 = require('web3');
+const solc = require('solc');
+>>>>>>> develop
 const path = require('path');
 const fs = require('fs');
 
@@ -203,9 +212,16 @@ Smart contracts can be deployed using Remix and MetaMask. Follow the steps below
 
 For more information on using remix, please see https://remix.readthedocs.io/en/latest/[Remix Documentation].
 
+<<<<<<< HEAD
 **Connect to SKALE in MetaMask**
 
 To connect SKALE in MetaMask, create a new Custom RPC with your SKALE Chain endpoint.  
+=======
+. In Remix's image:deployAndRun.webp[Deploy & Run Transactions, 25, 25] tab, select menu:ENVIRONMENT[Injected Web3].
+. With MetaMask, select menu:Network[Custom RPC]
+. Enter your SKALE Chain endpoint
+. Enter your ChainID. 
+>>>>>>> develop
 
 image::https://assets.website-files.com/5be05ae542686c4ebf192462/5ce1657d7e30fb40711d2b31_rpc-metamask.gif[]
 
