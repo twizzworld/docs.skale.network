@@ -12,7 +12,9 @@ The ABI for the DeploymentController is available here: https://github.com/skale
 
 == SKALE ETH (skETH)
 
-The SKALE Chain owner (coinbase address) is allocated skETH when the SKALE Chain is created. This value is set in the genesis block of each SKALE Chain and therefore cannot be changed once set.
+The SKALE Chain owner (coinbase address) is the only account allocated skETH when the SKALE Chain is created (if using the SDK, you can add additional allocations during setup). The owner account is therefore responsible for distributing skETH to users.
+
+The total amount of skETH allocation is set in the genesis block of each SKALE Chain and therefore can't be changed once a chain is deployed.
 
 [NOTE]
 skETH, unlike ETH, has no value, but like ETH is used to meter transaction usage on SKALE Chains.
@@ -27,7 +29,7 @@ When addresses use skETH to perform transactions, the skETH fee used to conduct 
 SKALE Chain owners should carefully select how and how much skETH to distribute to addresses. How much might depend on various factors such as the number of addresses to distribute to, and the skETH transaction fees  performed by these addresses.
 
 [NOTE]
-To view Real ETH on SKALE Chains as transferred by the IMA bridge, you can use the _informational RPC ports_ for your endpoint.
+To view Real ETH on SKALE Chains as transferred by the IMA bridge, you can use the _informational RPC ports_ for your endpoint. The port information is presented when the SKALE Chain deployment is complete.
 
 == IMA Access Control
 

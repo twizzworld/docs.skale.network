@@ -10,9 +10,8 @@ There are several types of SKALE RPC endpoints to get depending on your developm
 
 **🧑‍💻 For quick development**, a single-node chain is sufficient and recommended to build and test your dApp on a SKALE Chain with IMA and Filestorage. 
 
-.Local and IMA-Bridge development environments
-* ⛓ SKALE Chain only: Run a single-node SKALE Chain in your local environment
-* ⛓ SKALE Chain + IMA Bridge: Run a single-node SKALE Chain with IMA in your local environment with IMA connected to Ethereum with the SKALE IMA SDK. See step-by-step xref:ima-sdk.adoc[instructions here].
+.Local and IMA-Bridge development environment
+* ⛓ SKALE Chain + IMA Bridge: xref:ima-sdk.adoc[Use the SDK instructions here].
 
 **✅ For network and load testing**, a multi-node chain is recommended.
 

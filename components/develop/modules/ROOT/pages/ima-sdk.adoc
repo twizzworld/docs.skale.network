@@ -1,45 +1,101 @@
-= Setup SKALE IMA SDK
+= Development with IMA-SDK
 
-The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 8545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
+IMA-SDK is a tool for dApp developers that emulates SKALE Node + IMA env on a single machine for dev purposes.  
+This article will demonstrate how to setup and use the IMA-SDK in combination with IMA-JS library for dApp development.
+
+The IMA SDK provides a locally hosted environment for developing with the SKALE IMA Bridge. Two chains are provided on different ports: on Ganache 1545, the Ethereum side IMA contracts such as DepositBoxes are deployed, and on SKALED Port 15000, the SKALE Chain side IMA contracts such as TokenManagers are deployed.
 
 This IMA SDK works for Mac, Windows, and 64-bit Linux.
+
+This is everything you need to develop a full dApp on SKALE with IMA Bridge and Filestorage. 
+
+What you get:
+
+* A SKALE Chain endpoint
+* An Ethereum Chain (Ganache) endpoint
+* Deployed IMA contracts on Ethereum (mainnet)
+* Deployed IMA contracts on SKALE Chain
+* 10GB of xref:filestorage::index.adoc[SKALE Filestorage]
+* xref:filestorage::web3-server.adoc[Web3 server]
+
+.Overview of the IMA SDK
+video::MYwRa4gw-so[youtube, start=155, end=214, height=450, width=800, opts="modest"]
 
 == Get Started with the IMA SDK
 
 . Ensure that the following prerequisites are installed:
-* Docker
+* docker
 * docker-compose (https://docs.docker.com/compose/install/)
-* nodejs (>12) 
+* nodejs (>12)
+* _optional: <<get_a_domain_name, domain name>> + <<get_ssl_certificates, SSL certificates>> if you wish to use https endpoints_
 
 . Clone the IMA SDK repository
-
++
 ```shell
 git clone https://github.com/skalenetwork/skale-ima-sdk
+cd skale-ima-sdk
 ```
 
-[start=3]
 . Copy the .env template and add your accounts:
-
++
 ```shell
 cp .env-compose-sample .env
 nano .env
-``` 
+```
++
+[NOTE]
+`SDK_PRIVATE_KEY` is used in the background by the SDK's IMA agent to conduct transactions on Ethereum (Ganache).
+`TEST_PRIVATE_KEY` is used by the end user to conduct general transactions. This is the only key you should use when conducting transactions.
+Both are automatically allocated funds by the SDK, and should be different keys.
 
 . Export the environment variables:
-
++
 ```shell
 export $(grep -v '^#' .env | xargs)
 ```
 
-. Startup the SDK and deploy IMA contracts to local ganache and Skaled:
+. (OPTIONAL) Place SSL cert & key in `ssl` folder:
++
+[NOTE]
+Names must be `ssl_key` and `ssl_cert`:
++
+```shell
+cp privkey.pem ~/skale-ima-sdk/ssl/ssl_key
+cp cert.pem ~/skale-ima-sdk/ssl/ssl_cert
+```
++
+[[additional-accounts]]
+. (OPTIONAL) Add additional accounts
++
+[NOTE]
+This step is optional. Proceed to the next step if you need only 1 account with funds.
++
+You can pass any number of additional accounts to the SDK.  
+All accounts will have pre-allocated ETH both on Mainnet and SKALE Chain sides. 
+To do that add `additional_accounts.json` file in the root of the project. Structure of the file:
++
+```json
+[
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    },
+    {
+        "private_key": "0x...",
+        "address": "0x.."
+    }
+    ...
+]
+```
 
+. Startup the SDK and deploy IMA contracts to local ganache and Skaled:
++
 ```shell
 WAIT=True bash scripts/run_sdk.sh
 ```
-
-
++
 Output:
-
++
 ```shell
 Updating skaled configuration file
 Will load JSON file "/Users/cskale/Projects/skale-ima-sdk/config0.json"...
@@ -58,28 +114,27 @@ Waiting for sChain contracts 1/100
 ...
 
 ```
-
-You can check that both the `ima_sdk_ganache` and `ima_sdk` containers are up by executing:
-
++
+You can check that the `ima_sdk_ganache`, `ima_sdk`, and `ima_sdk_nginx` containers are up by executing:
++
 ```shell
 docker ps -a
 ```
 
-[start=5]
 . Wait for completion of IMA contract deployments and startup of the IMA Agent. You can check the progress as follows:
-
++
 ```shell
 docker logs ima_sdk_ganache
 ```
-
-You should see this final line in the log outputs: `Listening on 0.0.0.0:8545`
-
++
+You should see this final line in the log outputs: `Listening on 0.0.0.0:1545`
++
 ```shell
 docker logs ima_sdk
 ```
-
++
 And you should see this complete final output before using the sdk:
-
++
 ```shell
 ...
 Will start SKALE Chain...
@@ -99,15 +154,15 @@ Successfully started IMA agent transfer loop
  
 Press any key to stop this docker container
 ```
-
++
 You can also test the Ganache using `geth attach`:
-
++
 ```shell
-geth attach http://127.0.0.1:8545
+geth attach http://127.0.0.1:1545
 ```
-
++
 Should output:
-
++
 ```shell
 Welcome to the Geth JavaScript console!
 
@@ -116,15 +171,15 @@ coinbase: 0x98664cee8831d7a61d394d7e10207df074e5a895
 at block: 0 (Mon Aug 16 2021 14:58:31 GMT-0700 (PDT))
  modules: eth:1.0 evm:1.0 net:1.0 personal:1.0 rpc:1.0 web3:1.0
 ```
-
++
 And attaching to the SKALE chain:
-
++
 ```shell
 geth attach http://127.0.0.1:15000
 ```
-
++
 Should output:
-
++
 ```shell
 Welcome to the Geth JavaScript console!
 
@@ -136,11 +191,51 @@ at block: 40 (Mon Aug 16 2021 15:01:55 GMT-0700 (PDT))
 
 == Working with the SDK
 
-_docs in progress_
+To deploy contracts and send transactions, you'll need to know which endpoints to use and how to use skETH on your SKALE Chain. To interact with the IMA bridge predeployed contracts, you'll also need the ABIs.
+
+=== Endpoints
+
+Use the following endpoints to deploy and transact with each chain.
+
+```shell
+# SKALE Chain
+http://$IP_ADDRESS:15000
+http://$DOMAIN_NAME/schain # if you have a domain name
+https://$DOMAIN_NAME/schain # if you have SSL certs and domain name
+# Ethereum (Ganache)
+http://$IP_ADDRESS:1545
+http://$DOMAIN_NAME/mainnet # if you have a domain name
+https://$DOMAIN_NAME/mainnet # if you have SSL certs and domain name
+```
+
+=== How to deploy
+
+Use the endpoints above along with your deployment scripts.
+
+include::partial$deployment-scripts.adoc[]
+
+=== How to use skETH and understanding permissions/access control
+
+The SKALE Chain owner is the only initial account allowed to deploy contracts. The owner is also the only account funded with skETH (unless you <<additional-accounts,specified additional accounts in this step)>>. 
+
+xref:skale-chain-access-control.adoc[Read about skETH and deployment permissions in SKALE Chain Access Control].
+
+=== Access ABIs
+
+The ABIs generated for the IMA contracts deployed to Ganache and the SKALE Chain are found here:
+
+```shell
+skale-ima-sdk/contracts_data/proxyMainnet.json # Mainnet part
+skale-ima-sdk/contracts_data/proxySchain_Bob.json # SKALE Chain part
+```
+
+== IMA-JS integration
+
+To start development of your dApp using IMA-SDK with IMA-JS refer to xref:ima::ima-js-sdk.adoc[this doc].
 
 == Using the IMA Bridge
 
-Please refer to the main xref:ima::index.adoc[IMA Bridge documentation here].
+Please refer to the xref:ima::index.adoc[IMA Bridge documentation here].
 
 == Stopping the SDK
 
@@ -148,8 +243,20 @@ Please refer to the main xref:ima::index.adoc[IMA Bridge documentation here].
 CLEANUP=True  bash scripts/stop_sdk.sh
 ```
 
+== Get a Domain Name
+
+See: https://www.noip.com/
+
+== Get SSL Certificates
+
+See: https://letsencrypt.org/ and https://certbot.eff.org/
+
 == Troubleshooting
 
-If you encounter any issues, be sure to stop and remove the docker containers, and execute `./clean.sh`.
+If you encounter any issues you can run cleanup and start from scratch:
 
-You can inspect the `data_dir/all_ima_*.txt` files for logs of the startup process.
+```shell
+CLEANUP=True  bash scripts/stop_sdk.sh
+```
+
+You can inspect the `data_dir/all_ima_*.txt` files for logs.
