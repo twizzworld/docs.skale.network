@@ -16,9 +16,51 @@ SKALE Chain owners have special privileges for managing the SKALE Chain, Filesto
 ** xref:ima::ima-access-control.adoc#_ima_skale_chain_permissions[settings for IMA SKALE Chain contracts]
 ** xref:ima::ima-access-control.adoc[upgrades for IMA SKALE Chain contracts]
 
-== Managing Ownership using a Multi-sig
+== Managing Ownership using a Multisig Contract
 
-xref:multisig-setup.adoc[See Multisig setup for details.]
+With newer SKALE Chains, you can assign Administrative and other Roles to Multisig control. There are several ways to do this: 
+
+* Use Gnosis SAFE on Ethereum. 
+* Use Gnosis MultiSigWallet on SKALE.
+* Use other custom contracts.
+
+You are free to explore both approaches or even use a mixture of these approaches.
+
+.Comparison of Multisig Approaches
+[cols="1a,1a"]
+|===
+|Gnosis SAFE on Ethereum |Gnosis Multisig on SKALE
+
+|Administration performed through Ethereum transactions
+|Limited administration performed through SKALE Chain transactions
+
+|Can administer:
+
+* SKALE Chain
+* FileStorage
+* IMA SKALE Chain contracts
+* IMA Mainnet contracts
+|Can administer:
+
+* SKALE Chain
+* FileStorage
+* IMA SKALE Chain contracts
+
+|Each transaction requires Mainnet Ethereum gas
+|Each transaction is zero-cost gas on SKALE
+
+|Uses the latest SAFE contracts and UI
+|Uses older and depreciated MultiSigWallet contracts and UI
+
+|Uses IMA Bridge to transfer SAFE messages to SKALE
+|Doesn't require the IMA Bridge
+
+|Fallback option to use the predeployed MultiSigWallet on SKALE
+|No fallback option
+|===
+
+* To use the Gnosis MultiSigWallet on SKALE, xref:multisig-setup.adoc[see Multisig setup for details.]
+* To use the Gnosis SAFE on Ethereum, xref:gnosis-safe-setup.adoc[see SAFE setup for details.]
 
 == Adding Integrations
 
