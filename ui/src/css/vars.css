@@ -33,6 +33,7 @@
   --body-font-weight-bold: 500;
   --monospace-font-family: "Play";
   --monospace-font-weight-bold: 700;
+  --code-font-family: "Space Mono", monospace;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-blue-white-gradient);
