@@ -15,7 +15,7 @@ If you don't have a SKALE Chain for testing yet, you can get started with one of
 * https://github.com/skalenetwork/skale-sdk[SKALE SDK, window=_blank]
 * https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK, window=_blank]
 
-Still not sure how to get started? Then head over to the link:/docs.skale.network/develop/[Getting Started guide, window=_blank] or reach out to the http://skale.chat[SKALE Network developer community on Discord, window=_blank].
+Still not sure how to get started? Then head over to the https://docs.skale.network/develop/[Getting Started guide, window=_blank] or reach out to the http://skale.chat[SKALE Network developer community on Discord, window=_blank].
 
 
 == Implementation and onboarding
