@@ -25,7 +25,7 @@ See more videos here: https://www.youtube.com/skale
 All partners are required to complete a training and certification plan as outlined in the following two modules. The partner is encouraged to include multiple team members in the self paced training program. 
 
 [NOTE]
-We plan to roll out an automated certification platform in the future. For now, the knowledge certification will be complete by connecting directly with the SKALE Labs team. After completion of each module, please reach out to the SKALE Labs team to finalize the certification.
+We plan to roll out an automated certification platform in the future. For now, the knowledge certification will be completed by connecting directly with the SKALE Labs team. After completion of each module, please reach out to the SKALE Labs team to finalize the certification.
 
 [.card.card-learn]
 --

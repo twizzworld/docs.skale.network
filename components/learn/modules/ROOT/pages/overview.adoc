@@ -41,7 +41,7 @@ SKALE Network uses a https://skale.network/blog/technical-highlights/[unique com
 
 SKALE Network is designed to work with all Ethereum compatible tools such as API-based wallets and monitoring and analytics. 
 
-link:/docs/developers/integrations[View integrations]
+link:/docs.skale.network/develop/providers[View integrations]
 
 == Get Access
 
