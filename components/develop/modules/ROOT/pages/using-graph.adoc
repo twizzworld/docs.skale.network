@@ -152,16 +152,17 @@ truffle test --network skale test/myToken.test.js
 ```
 +
 Output:
++
 ```shell
 ...
- MyBalance
-    ✓ enough account balance
+MyBalance
+  ✓ enough account balance
 
-  MyToken
-    ✓ deploys a contract
-    ✓ has a default token value (1042ms)
-    ✓ can update token value (1042ms)
+MyToken
+  ✓ deploys a contract
+  ✓ has a default token value (1042ms)
+  ✓ can update token value (1042ms)
 
 
-  4 passing (3s)
+4 passing (3s)
 ```
