@@ -166,3 +166,33 @@ MyToken
 
 4 passing (3s)
 ```
+
+. Check your GraphQL:
++
+http://localhost:8000/subgraphs/name/skaleToken/graphql
+
+. Perform a test query:
++
+```
+{
+  myTokens(orderBy: tokenValue, orderDirection: asc) {
+    id
+    owner
+  }
+}
+```
++
+Expected output:
++
+```
+{
+  "data": {
+    "myTokens": [
+      {
+        "id": "0x2",
+        "owner": "..."
+      }...
+    ]
+  }
+}
+```
