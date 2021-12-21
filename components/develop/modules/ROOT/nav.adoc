@@ -17,6 +17,7 @@
 * xref:ima::index.adoc[Ethereum <-> SKALE]
 * xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 * Indexing
+** xref:using-graph.adoc[Using The Graph]
 * xref:tutorials.adoc[Tutorials]
 ** xref:deploy-a-website-on-skale.adoc[Deploy a decentralized website using SKALE Filestorage]
 * xref:faq.adoc[FAQs]
