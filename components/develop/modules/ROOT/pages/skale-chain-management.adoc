@@ -1,0 +1,33 @@
+= Management of SKALE chain
+
+There are many aspects of SKALE chain that are managed by SKALE chain owner. All of them are controlled by smart contracts. Some of them are run on ethereum mainnet other ones on SKALE chain itself.
+
+During SKALE chain creation the owner specifies it's address. This address is used by smart contracts to authorize it.
+
+IMPORTANT: If SKALE chain owner uses multisig wallet on ethereum (for example Gnosis Safe) to control SKALE chain it is not able to make direct calls to smart contracts on SKALE chain.
+
+In this case to allow SKALE chain owner to call smart contracts on SKALE chain there is a `Marionette` smart contract. It is a representative of the multisig wallet on the SKALE chain and it is predeployed and setup from the very beginning of SKALE chain.
+
+`Marionette` listens to messages from IMA and if message sender is equal to SKALE chain owner address it decodes function call and performs it.
+
+Arbitrary contract calls can be encoded into IMA message using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
+
+== Example
+
+```
+Will be added here
+```
+
+== Fallback option
+
+There is a fallback option to control `Marionette` directly without using IMA. For this purpose there is `https://github.com/gnosis/MultiSigWallet`[Gnosis MultiSigWallet] predeployed on SKALE chain. Initially it has only 1 owner specified by SKALE chain owner during SKALE chain creation as `originator` address.
+
+IMPORTANT: There is an SKALE chain owner responsibility to add additional owners to predeployed `MultiSigWallet` after chain creation to support sufficient security level.
+
+Predeloyed `MultiSigWallet` has the same authorization level in `Marionette` as original SKALE chain owner multisig connected via IMA. It can send requests to `Marionette` to execute arbitrary smart contracts calls. This process can be simplified by using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
+
+== Example
+
+```
+Will be added here
+```

@@ -1,5 +1,6 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
+* xref:skale-chain-management.adoc[Management with multisig wallet]
 * xref:network-details.adoc[Network Details]
 * Tools
 ** xref:ima-sdk.adoc[Using the IMA SDK]
