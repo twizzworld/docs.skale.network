@@ -1,17 +1,22 @@
 = SKALE Chain Wallet
 
-The SKALE Network uses a "self-reimbursing" wallet system to make it easier for SKALE Chain Owners to reimburse certain node-related transactions. The use of self-recharging wallets is a requirement for testnet and mainnet.
+The SKALE Network uses a "self-reimbursing" wallet system to make it easier for SKALE Chain Owners to reimburse certain node-related transactions that are executed on Ethereum. The use of self-recharging wallets is a requirement for testnet and mainnet.
 
 The Wallets contract in SKALE Manager manages this functionality.
 
 Each SKALE Chain owner manages a wallet. This wallet must contain a balance of ETH and this balance is used to reimburse specific transactions performed by validator-nodes including certain IMA messages.
 
-Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withdraw funds from the SKALE Chain wallet if the SKALE Chain has been deleted.
+Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withdraw funds from the SKALE Chain wallet after the SKALE Chain has been deleted.
 
 == IMA Bridge
 
-If using the IMA bridge, the SKALE Chain owner and community must ensure the balance is sufficient to ensure proper bridge messaging. Each user reimburses validator-nodes for IMA messaging using the Community Pool contract. In the extraordinary situation where a user's Community Pool balance is insufficient, part or all the costs will be provided by the SKALE Chain wallet to ensure proper transaction processing. When this happens, the user will be locked from additional messages until the user reimburses the SKALE Chain wallet. 
+If using the IMA bridge with Ethereum, the SKALE Chain owner and community must ensure the ETH balance is sufficient to ensure proper bridge messaging and transaction gas reimbursement. 
 
-The minimum recommended balance for IMA messaging is (`MESSAGES_LENGTH * gasLimit * tx.gasPrice`) where global settings define `MESSAGES_LENGTH` as 10+1 and gasLimit as `1,000,000` gas. For example if the Ethereum network gas cost is 200 Gwei, the SKALE Chain Wallet balance must contain (`11 * 1000000 * 200`) = 2.2 ETH. If the network gas cost > 200 Gwei and the SKALE Chain wallet balance is ≤ 2.2 ETH, IMA messages will pause until the gas costs are ≤ 200 Gwei, or the SKALE Chain wallet balance is > 2.2 ETH.
+Each end-user reimburses validator-nodes for IMA messaging with Ethereum. This reimbursement is performed from the end-user's balance in the Community Pool contract on Ethereum mainnet. In the extraordinary situation where an end-user's Community Pool balance is insufficient, part or all the costs will be provided by the SKALE Chain wallet to ensure proper transaction processing. When this happens, the end-user will be locked from further exits until the end-user reimburses their Community Pool ETH balance. 
 
-Any community member can recharge the wallet with additional ETH or wait for the network gas costs to decrease. Once the wallet is recharged, stuck messages will resume. If there is a large queue, additional time will be required to clear the queue.
+[NOTE]
+For details on the end-user IMA exit process to Ethereum, see xref::ima:funding-exits.adoc[Funding Exits].
+
+The minimum recommended ETH balance in the SKALE Chain wallet for IMA messaging is (`MESSAGES_LENGTH * gasLimit * tx.gasPrice`) where global settings define `MESSAGES_LENGTH` as 10+1 and gasLimit as `1,000,000` gas. For example, if the Ethereum network gas cost is 200 Gwei, the SKALE Chain Wallet balance must contain (`11 * 1000000 * 200`) = 2.2 ETH. If the network gas cost > 200 Gwei and the SKALE Chain wallet balance is ≤ 2.2 ETH, IMA messages will pause until the gas costs are ≤ 200 Gwei, or the SKALE Chain wallet balance is > 2.2 ETH.
+
+Any community member can recharge the SKALE Chain wallet with additional ETH, or end-users may wait for the Ethereum network gas costs to decrease. Once the SKALE Chain wallet is recharged, stuck messages will resume. If there is a large queue, additional time will be required to clear the queue.
