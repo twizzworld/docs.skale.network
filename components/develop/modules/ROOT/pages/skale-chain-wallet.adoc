@@ -3,7 +3,30 @@
 [plantuml]
 ....
 @startuml
-[Ethereum] --> [SKALE Chain]
+
+interface "SKALE Node" as SN
+component "SKALE Chain" as SC {
+    component "other predeploys"
+    component "IMA SKALE Chain" {
+        component "Community Locker"
+        component "Token Managers"
+    }
+}
+
+component Ethereum {
+    component "SKALE Manager" as SM {
+        component Wallets
+    }
+    component "IMA Mainnet" as IM {
+        component "Deposit Boxes"
+        component "Community Pool"
+    }
+}
+
+IM <--> Geth
+SM <-- Geth
+Geth <--> SN
+SN <--> SC 
 @enduml
 ....
 
