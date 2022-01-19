@@ -1,5 +1,12 @@
 = SKALE Chain Wallet
 
+[plantuml]
+....
+@startuml
+[Ethereum] --> [SKALE Chain]
+@enduml
+....
+
 The SKALE Network uses a "self-reimbursing" wallet system to make it easier for SKALE Chain Owners to reimburse certain node-related transactions that are executed on Ethereum. The use of self-recharging wallets is a requirement for testnet and mainnet.
 
 The Wallets contract in SKALE Manager manages this functionality.
