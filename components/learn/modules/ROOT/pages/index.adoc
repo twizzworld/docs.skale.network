@@ -10,9 +10,9 @@ Read up on what is the SKALE Network, what development tools can you use, how to
 
 SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
 
-== SKALE Chain ETH
+== SKALE Chain FUEL
 
-SKALE Chains operate with skETH, which unlike ETH has no monetary value, but like ETH is used to conduct transactions. xref:skale-chain-eth.adoc[Learn more about managing skETH on your SKALE Chain].
+SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but like ETH is used to conduct transactions. xref:skale-chain-fuel.adoc[Learn more about managing sFUEL on your SKALE Chain].
 
 == Providers
 
