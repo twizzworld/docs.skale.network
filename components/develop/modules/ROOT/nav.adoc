@@ -2,10 +2,11 @@
 * xref:deployment.adoc[Deploying on SKALE]
 * xref:network-details.adoc[Network Details]
 * Tools
-** xref:ima-sdk.adoc[Setup the IMA SDK]
+** xref:ima-sdk.adoc[Using the IMA SDK]
 ** xref:providers.adoc[Using Web3 Providers]
-** xref:using-truffle-box.adoc[Using Truffle Bpx]
+** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
+** xref:event-subscriptions.adoc[Subscribing to Events]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
@@ -16,5 +17,7 @@
 * xref:ima::index.adoc[Ethereum <-> SKALE]
 * xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 * Indexing
-* Tutorials
+** xref:using-graph.adoc[Using The Graph]
+* xref:tutorials.adoc[Tutorials]
+** xref:deploy-a-website-on-skale.adoc[Deploy a decentralized website using SKALE Filestorage]
 * xref:faq.adoc[FAQs]

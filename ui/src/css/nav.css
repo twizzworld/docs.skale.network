@@ -58,6 +58,13 @@
   display: flex;
   flex-direction: column;
   height: inherit;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.panels::-webkit-scrollbar {
+  display: none;
 }
 
 html.is-clipped--nav {

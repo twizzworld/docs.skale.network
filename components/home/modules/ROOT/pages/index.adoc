@@ -1,9 +1,40 @@
+[.card-section]
 = Documentation
 
 Explore documentation about the SKALE Network, developing on SKALE, validating and delegating, and about SKALE's technologies.
 
-[NOTE]
-xref:validators::delegation.adoc[How does SKALE delegation work? Read here.]
+[.card.card-learn]
+--
+xref:_ethereum_native[[.card-title]#Ethereum Native# [.card-body]#pass:q[Built, supported and aligned with Ethereum.]#]
+--
+[.card.card-learn]
+--
+xref:_multichain[[.card-title]#Multichain# [.card-body]#pass:q[Supports an unlimited number of chains.]#]
+--
+[.card.card-learn]
+--
+xref:skaled::index.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Enabling dApps to run decentralized, fast and cost-effectively.]#]
+--
+[.card.card-learn]
+--
+xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A Web3 storage layer available on each chain.]#]
+--
+[.card.card-learn]
+--
+xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptograph.]#]
+--
+[.card.card-learn]
+--
+xref:validators::delegation.adoc[[.card-title]#Delegation# [.card-body]#pass:q[Delegate SKL tokens to validators.]#]
+--
+[.card.card-learn]
+--
+xref:validators::index.adoc[[.card-title]#Validators# [.card-body]#pass:q[Run SKALE Nodes to support the SKALE Network.]#]
+--
+[.card.card-learn]
+--
+link:https://github.com/skalenetwork[[.card-title]#Open Source# [.card-body]#pass:q[Code and development is open sourced.]#]
+--
 
 == About SKALE Network
 

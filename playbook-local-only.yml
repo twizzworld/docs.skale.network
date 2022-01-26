@@ -1,0 +1,42 @@
+site:
+  title: SKALE Network Documentation 
+  start_page: docs::index.adoc
+  robots: allow
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: components/home
+
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+
+    - url: .
+      branches: HEAD
+      start_path: components/validators
+
+    - url: .
+      branches: HEAD
+      start_path: components/develop
+
+    - url: .
+      branches: HEAD
+      start_path: components/filestorage
+
+    - url: .
+      branches: HEAD
+      start_path: components/technology
+      
+ui:
+  bundle:
+    url: ./ui/build/sn-docs-ui-bundle.zip
+  supplemental_files: ./ui/static
+    # snapshot: true
+asciidoc:
+  attributes:
+    :plantuml-server-url: http://www.plantuml.com/plantuml
+  extensions:
+  - ./lib/tabs-block.js
+  - '@djencks/asciidoctor-mathjax'
+  - asciidoctor-kroki

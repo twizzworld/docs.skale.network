@@ -12,3 +12,10 @@ Example:
 ```shell
 https://node1.validator.com/fluffy-marsupial/77333Da3492C4BBB9CCF3EA5BB63D6202F86CDA8/directoryA/random_text.txt
 ```
+
+The NGINX config is as follows:
+
+[source]
+----
+include::network::example$nginx.conf.j2[]
+----

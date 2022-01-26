@@ -6,6 +6,11 @@ Here are a few notes about getting started with SKALE chains.
 
 Read up on what is the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:overview.adoc[in our Basics doc].
 
+video::Anb0ZSruWlw[youtube, height=450, width=800, opts="modest"]
+// video::Twe_hPFGlbY[youtube, height=450, width=800, opts="modest"]
+
+See more videos here: https://www.youtube.com/skale
+
 == SKALE Chain Sizes
 
 SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
@@ -16,15 +21,15 @@ SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but lik
 
 == Providers
 
-You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:providers.adoc[Read more about this here].
+You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:develop::providers.adoc[Read more about this here].
 
 == Using Remix
 
-You can use Remix as an IDE for deploying to SKALE Chains. xref:using-remix.adoc[Read more about using Remix here].
+You can use Remix as an IDE for deploying to SKALE Chains. xref:develop::using-remix.adoc[Read more about using Remix here].
 
 == Deployment
 
-You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Truffle, Node.js, and Remix. xref:deployment.adoc[Read more about deployment scripts here].
+You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Truffle, Node.js, and Remix. xref:develop::deployment.adoc[Read more about deployment scripts here].
 
 == Other
 
