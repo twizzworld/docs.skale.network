@@ -103,14 +103,14 @@ The SKALE Network has a few ways to handle DDoS protections, xref:skaled::index.
 
 High load monitoring and prevention outlined in the above documentation under the DDoS Protection section provides a detailed explanation of the feature.
 
-Additionally, SKALE Chains still have SKALE chain-specific ETH (skETH) that helps to prevent malicious activity. Here is an excerpt from the dev documentation above:
+Additionally, SKALE Chains have SKALE chain-specific sFUEL (sFUEL) that helps to prevent malicious activity. Here is an excerpt from the dev documentation above:
 
 ```
 Transactions on SKALE Chain run in a gas-free way. This means there is gas on 
 SKALE Chains just like on Ethereum, but it's powered by what's called SKALE ETH
-(skETH), which has no monetary value. In this way, executing transactions and 
-state changes don't incur costs but require consuming gas in skETH, which is 
-value-less. SKALE Chain gas in the form of skETH provides a way to meter and/or 
+(sFUEL), which has no monetary value. In this way, executing transactions and 
+state changes don't incur costs but require consuming gas in sFUEL, which is 
+value-less. SKALE Chain gas in the form of sFUEL provides a way to meter and/or 
 limit transactions on the SKALE Chain so as to forestall and prevent malicious 
 execution.
 ```
