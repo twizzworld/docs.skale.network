@@ -1,6 +1,7 @@
 build
 public
 ui/public/**
+ui/public/_/**
 # Logs
 logs
 *.log
@@ -16,3 +17,4 @@ node_modules/
 
 .vale.ini
 styles
+

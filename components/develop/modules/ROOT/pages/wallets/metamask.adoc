@@ -26,8 +26,8 @@ let switchToSKALE = {
   chainName: "SKALE Network Testnet",
   rpcUrls: ["https://dev-testnet-v1-0.skalelabs.com"],
   nativeCurrency: {
-    name: "SKALE ETH",
-    symbol: "skETH",
+    name: "SKALE FUEL",
+    symbol: "sFUEL",
     decimals: 18
   },
   blockExplorerUrls: [
