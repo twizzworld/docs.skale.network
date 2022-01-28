@@ -1,6 +1,6 @@
 = SKALE Chain Access Control
 
-SKALE Chains have several ways to manage access control, meaning who is capable of sending a transaction to the SKALE Chain or who is capable of deploying new contracts. Two methods manage access: distribution of skETH to SKALE Chain users and the DeploymentController contract, which authorizes specific contracts to deploy new contracts (CREATE2).
+SKALE Chains have several ways to manage access control, meaning who is capable of sending a transaction to the SKALE Chain or who is capable of deploying new contracts. Two methods manage access: distribution of sFUEL to SKALE Chain users and the DeploymentController contract, which authorizes specific contracts to deploy new contracts (CREATE2).
 
 == Deployment Controller
 
@@ -10,23 +10,23 @@ The predeployed DeploymentController contract's address is `0xD20020000000000000
 
 The ABI for the DeploymentController is available here: https://github.com/skalenetwork/predeployed/blob/master/deploy-control/DeploymentController.abi[DeploymentController.abi].
 
-== SKALE ETH (skETH)
+== SKALE FUEL (sFUEL)
 
-The SKALE Chain owner (coinbase address) is the only account allocated skETH when the SKALE Chain is created (if using the SDK, you can add additional allocations during setup). The owner account is therefore responsible for distributing skETH to users.
+The SKALE Chain owner (coinbase address) is the only account allocated sFUEL when the SKALE Chain is created (if using the SDK, you can add additional allocations during setup). The owner account is therefore responsible for distributing sFUEL to users.
 
-The total amount of skETH allocation is set in the genesis block of each SKALE Chain and therefore can't be changed once a chain is deployed.
+The total amount of sFUEL allocation is set in the genesis block of each SKALE Chain and therefore can't be changed once a chain is deployed.
 
 [NOTE]
-skETH, unlike ETH, has no value, but like ETH is used to meter transaction usage on SKALE Chains.
+sFUEL, unlike ETH, has no value, but like ETH is used to meter transaction usage on SKALE Chains.
 
-SKALE Chain owners can apply a variety of methods to distribute skETH to users:
+SKALE Chain owners can apply a variety of methods to distribute sFUEL to users:
 * direct transaction from the owner to an address
-* sending an allocation of skETH to a SKALE Chain contract, which applies some logic to distribute skETH to address.
+* sending an allocation of sFUEL to a SKALE Chain contract, which applies some logic to distribute sFUEL to address.
 
-When addresses use skETH to perform transactions, the skETH fee used to conduct the transaction is recirculated back to the coinbase address.
+When addresses use sFUEL to perform transactions, the sFUEL fee used to conduct the transaction is recirculated back to the coinbase address.
 
 [IMPORTANT]
-SKALE Chain owners should carefully select how and how much skETH to distribute to addresses. How much might depend on various factors such as the number of addresses to distribute to, and the skETH transaction fees  performed by these addresses.
+SKALE Chain owners should carefully select how and how much sFUEL to distribute to addresses. How much might depend on various factors such as the number of addresses to distribute to, and the sFUEL transaction fees  performed by these addresses.
 
 [NOTE]
 To view Real ETH on SKALE Chains as transferred by the IMA bridge, you can use the _informational RPC ports_ for your endpoint. The port information is presented when the SKALE Chain deployment is complete.
