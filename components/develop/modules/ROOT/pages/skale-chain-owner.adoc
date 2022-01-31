@@ -5,7 +5,7 @@ SKALE Chain owners have special privileges for managing the SKALE Chain, Filesto
 == Summary
 
 * SKALE Chains
-** xref:skale-chain-access-control.adoc#_skale_eth_sketh[skETH distribution]
+** xref:skale-chain-access-control.adoc#_skale_eth_sketh[sFUEL distribution]
 ** xref:skale-chain-access-control.adoc#_deployment_controller[deployment permissions]
 * Filestorage
 ** xref:filestorage.js::index.adoc#_reserve_space[Filestorage space allocation]
