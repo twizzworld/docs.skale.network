@@ -16,7 +16,9 @@
 ** xref:wallets/magic-wallet.adoc[Magic]
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
 * xref:ima::index.adoc[Ethereum <-> SKALE]
-* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
+* xref:skale-chain-owner.adoc[Managing SKALE Chain Ownership]
+** xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
+* xref:multisig-setup.adoc[Multisig Owner Setup]
 * Indexing
 ** xref:using-graph.adoc[Using The Graph]
 * xref:tutorials.adoc[Tutorials]
