@@ -19,7 +19,7 @@ Assume there is a Gnosis Safe multisig wallet that owns SKALE chain with name `e
 Running of a command
 
 ```bash
-npx msig encodeData example-chain DepoymentController addToWhitelist <ethereum-address>
+npx msig encodeData example-chain DeploymentController addToWhitelist <ethereum-address>
 ```
 
 will print hex string that represent a data of a transaction that needs to be sent to `IMA` to trigger execution of `addToWhitelist` function of `DepoymentController` smart contract.
@@ -41,7 +41,7 @@ First step is to set SKALE chain endpoint and MultiSigWallet owner private key. 
 Second step is to execute a command
 
 ```bash
-npx msig submitTransaction DepoymentController addToWhitelist <ethereum-address>
+npx msig submitTransaction DeploymentController addToWhitelist <ethereum-address>
 ```
 
 As a result needed transaction will be encoded and added to the `MultiSigWallet`. Further signing and execution can be done neither via `multisigwallet-cli` or https://ipfs.infura.io/ipfs/QmfRD4GuqZobNi2NT2C77a3UTQ452ffwstr4fjEJixUgjf[Gnosis MultiSigWallet UI]
