@@ -1,1 +1,11 @@
 = Gnosis SAFE General Instructions
+
+In spite of Gnosis Safe smart contact do not present on SKALE chain it's still possible to use it for xref:skale-chain-owner.adoc[administration functions] directly on SKALE chain using IMA.
+
+== Preparation to SKALE chain creation
+
+No custom steps are required to create SKALE chain that are controlled by Gnosis Safe. Ensure you know an address of Gnosis Safe deployed on Ethereum mainnet. If you don't have one follow https://help.gnosis-safe.io/en/articles/3876461-create-a-safe[standard instructions] to create it.
+
+Once you have deployed Gnosis Safe use it's address as SKALE chain owner and create a chain as usual.
+
+IMPORTANT: SKALE chain owner address cannot be changed later.
