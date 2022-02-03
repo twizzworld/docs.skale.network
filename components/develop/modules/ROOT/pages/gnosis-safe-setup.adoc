@@ -9,3 +9,103 @@ No custom steps are required to create SKALE chain that are controlled by Gnosis
 Once you have deployed Gnosis Safe use it's address as SKALE chain owner and create a chain as usual.
 
 IMPORTANT: SKALE chain owner address cannot be changed later.
+
+== Calling function on SKALE chain
+
+To simplify process https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli] may be used.
+
+=== Installation
+
+Clone and install `multisigwallet-cli`.
+
+```bash
+git clone https://github.com/skalenetwork/multisigwallet-cli.git
+yarn install
+```
+
+=== Setup
+
+Go to `multisigwallet-cli`` folder and create `.env` file:
+
+```bash
+cd multisigwallet-cli
+touch .env
+```
+
+Add following environment variables to `.env` file:
+
+```
+ENDPOINT=http://localhost:8545
+PRIVATE_KEY_1={private key}
+```
+
+NOTE: In current case any values can be set. See https://github.com/skalenetwork/multisigwallet-cli/issues/5[this issue]
+
+=== Prepare transaction data
+
+Call https://github.com/skalenetwork/multisigwallet-cli#encodedata[encodeData] command of `multisigwallet-cli`.
+
+For example to prepare call of `grantRole` function of `Etherbase` smart contract on SKALE chain `example-chain` with parameters `grantRole(0xe0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046, 0xd2D2D2D2d2d2d2d2D2d2d2d2D2d2D2d2D2d2D2d2)` (where `0xe0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046` is an id of `ETHER_MANAGER_ROLE`) execute follows:
+
+```bash
+npx msig encodeData example-chain Etherbase grantRole 0xe0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046 0xd2D2D2D2d2d2d2d2D2d2d2d2D2d2D2d2D2d2D2d2
+```
+
+It will print long hex string.
+
+=== Submitting transaction to Gnosis Safe
+
+1. Go to https://gnosis-safe.io/app/[Gnosis Safe UI] and click `New transaction` -> `Contract interaction`
+
+2. Enable checkbox `Use custom data (hex encoded)`
+
+3. Put IMA address to the `Contract address` field. For mainnet it's `0x8629703a9903515818C2FeB45a6f6fA5df8Da404`
+
+    NOTE: Most likely this address will never be changed but it's better to ensure visiting https://github.com/skalenetwork/skale-network/tree/master/releases[Releases repo]. Also there can be found addresses of IMA on different Ethereum testnets.
+
+4. Put `0` in the `Value` field
+
+5. Copy hex string obtained in previous step from `multisigwallet-cli` to the `Data` field
+
+6. Review and submit transaction as usual
+
+=== Execution of the transaction
+
+After signing execute the transaction. Be patient and wait while IMA pick up and execute the call. It can take up to several minutes.
+
+
+=== Deeper explanation
+
+The following is not necessary to control SKALE chain with Gnosis Safe via `multisigwallet-cli` but may be useful for integration with other products. It describes how to encode a transaction to send it to IMA.
+
+==== Marionette
+
+There is a https://github.com/skalenetwork/marionette/blob/develop/contracts/Marionette.sol[Marionette] smart contract that are predeployed on any SKALE chain on address `0xD2c0DeFACe000000000000000000000000000000`.
+It is granted with all administration rights of SKALE chain owner and serves as a proxy to forward calls sent via IMA.
+
+It has a function `postMessage(bytes32 sourceChain, address sender,bytes calldata encodedCall)` that is called by IMA. It checks that a sender is a SKALE chain owner and performs a call encoded in `encodedCall` parameter.
+
+`encodedCall` is a triplet `(address receiver, uint value, bytes calldata data)` encoded to bytes as arguments according to https://docs.soliditylang.org/en/latest/abi-spec.html#argument-encoding[Contract ABI Specification] (See https://github.com/skalenetwork/marionette/blob/develop/contracts/Marionette.sol#L113[encodeFunctionCall] function of `Marionette`).
+
+Here:
+
+- `receiver` is a target contract
+- `value` is amount of sFuel transferred in the transaction
+- `data` is a call data
+
+In the example above we called function `grantRole` of `Etherbase` smart contract. In this case:
+
+- `receiver` is `0xd2bA3e0000000000000000000000000000000000` (the address of `Etherbase`)
+- value is equal to `0` because we do not pass any sFuel
+- data is equal to `0x2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046000000000000000000000000d2D2D2D2d2d2d2d2D2d2d2d2D2d2D2d2D2d2D2d2` (`grantRole` function selector `0x2f2ff15d` + `ETHER_MANAGER_ROLE` id `0xe0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046` + padded address parameter `0x000000000000000000000000d2D2D2D2d2d2d2d2D2d2d2d2D2d2D2d2D2d2D2d2`).
+
+Accordingly `encodedCall` is `abi.encode(receiver, value, data)` and equals to
+```
+000000000000000000000000d2ba3e0000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000060
+0000000000000000000000000000000000000000000000000000000000000044
+2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569eb
+fa15f046000000000000000000000000d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+d2d2d2d200000000000000000000000000000000000000000000000000000000
+```
