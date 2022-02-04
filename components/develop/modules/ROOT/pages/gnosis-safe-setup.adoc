@@ -76,7 +76,7 @@ After signing execute the transaction. Be patient and wait while IMA pick up and
 
 === Deeper explanation
 
-The following is not necessary to control SKALE chain with Gnosis Safe via `multisigwallet-cli` but may be useful for integration with other products. It describes how to encode a transaction to send it to IMA.
+The following is not necessary to control SKALE chain with Gnosis Safe via `multisigwallet-cli` but may be useful for integration with other products. It describes how to encode a call to a smart contract on SKALE chain into transaction on Ethereum for sending to IMA.
 
 ==== Marionette
 
@@ -108,4 +108,80 @@ Accordingly `encodedCall` is `abi.encode(receiver, value, data)` and equals to
 2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569eb
 fa15f046000000000000000000000000d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
 d2d2d2d200000000000000000000000000000000000000000000000000000000
+```
+
+==== IMA
+
+Omitting details there is a https://etherscan.io/address/0x8629703a9903515818C2FeB45a6f6fA5df8Da404[MessageProxyForMainnet] smart contract deployed on Ethereum with function `postOutgoingMessage(bytes32 targetChainHash, address targetContract, bytes memory data)`. Call of this function causes execution of function `postMessage` of a smart contract with address `targetContract` on SKALE chain where hash of its name is `targetChainHash`.
+
+In considered example `postOutgoingMessage` receives following parameters:
+
+- targetChainHash - `0x7e67eb6444a60ce618f250a380d5b7b32e7b5dbb96b0d43506047b1f15c8f23c` - keccak256 hash of SKALE chain name `example-chain`
+
+- targetContract - `0xD2c0DeFACe000000000000000000000000000000` address of `Marionette` smart contract
+
+- data - encoded call to `grantRole` function of `Etherbase` smart contract (see previous section)
+
+===== Summary
+
+Sending transaction with data
+
+```
+94489202
+7e67eb6444a60ce618f250a380d5b7b32e7b5dbb96b0d43506047b1f15c8f23c
+000000000000000000000000d2c0deface000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000060
+00000000000000000000000000000000000000000000000000000000000000e0
+000000000000000000000000d2ba3e0000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000060
+0000000000000000000000000000000000000000000000000000000000000044
+2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569eb
+fa15f046000000000000000000000000d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2
+d2d2d2d200000000000000000000000000000000000000000000000000000000
+```
+
+from Gnosis Safe to `MessageProxyForMainnet` calls
+
+```
+postOutgoingMessage(
+    "0x7e67eb6444a60ce618f250a380d5b7b32e7b5dbb96b0d43506047b1f15c8f23c", // SKALE chain name hash
+    "0xD2c0DeFACe000000000000000000000000000000" // Marionette address,
+    "0x0000000000000000000000000000000000000000000000000000000000000060" +    
+    "00000000000000000000000000000000000000000000000000000000000000e0" +
+    "000000000000000000000000d2ba3e0000000000000000000000000000000000" +
+    "0000000000000000000000000000000000000000000000000000000000000000" +
+    "0000000000000000000000000000000000000000000000000000000000000060" +
+    "0000000000000000000000000000000000000000000000000000000000000044" +
+    "2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569eb" +
+    "fa15f046000000000000000000000000d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2" +
+    "d2d2d2d200000000000000000000000000000000000000000000000000000000" // encoded call to grantRole of Etherbase
+)
+```
+
+On the next step IMA securely transfers message to `example-chain` and triggers execution of `Marionette` function:
+
+```
+postMessage(
+    {mainnet id}, // source chain
+    {Gnosis Safe address}, // message sender address,
+    "0x0000000000000000000000000000000000000000000000000000000000000060" +    
+    "00000000000000000000000000000000000000000000000000000000000000e0" +
+    "000000000000000000000000d2ba3e0000000000000000000000000000000000" +
+    "0000000000000000000000000000000000000000000000000000000000000000" +
+    "0000000000000000000000000000000000000000000000000000000000000060" +
+    "0000000000000000000000000000000000000000000000000000000000000044" +
+    "2f2ff15de0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569eb" +
+    "fa15f046000000000000000000000000d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2" +
+    "d2d2d2d200000000000000000000000000000000000000000000000000000000" // encoded call to grantRole of Etherbase
+)
+```
+
+Then `Marionette` checks permissions and decodes the call and perform it. In our case it calls `Etherbase`:
+
+```
+grantRole(
+    "0xe0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046", // id of ETHER_MANAGER_ROLE
+    "0xd2D2D2D2d2d2d2d2D2d2d2d2D2d2D2d2D2d2D2d2" // target address
+)
 ```
