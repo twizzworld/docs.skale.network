@@ -1,47 +1,47 @@
-= Management of SKALE chain
+= SKALE chain Management
 
-There are many aspects of SKALE chain that are managed by SKALE chain owner. All of them are controlled by smart contracts. Some of them are run on ethereum mainnet other ones on SKALE chain itself.
+The SKALE chain owner manages many settings of the SKALE chain and IMA bridge. Smart contracts control these settings, and some of these settings are configured on Ethereum and others on the SKALE chain itself.
 
-During SKALE chain creation the owner specifies it's address. This address is used by smart contracts to authorize it.
+During SKALE chain creation, the owner specifies its address, which is used by smart contracts to authorize it.
 
-IMPORTANT: If SKALE chain owner uses multisig wallet on ethereum (for example Gnosis Safe) to control SKALE chain it is not able to make direct calls to smart contracts on SKALE chain.
+IMPORTANT: If the SKALE chain owner uses a multisig wallet on Ethereum (for example, Gnosis Safe) to control a SKALE chain, it can't make direct calls to smart contracts on the SKALE chain.
 
-In this case to allow SKALE chain owner to call smart contracts on SKALE chain there is a `Marionette` smart contract. It is a representative of the multisig wallet on the SKALE chain and it is predeployed and setup from the very beginning of SKALE chain.
+In this case, there is a `Marionette` smart contract to allow the SKALE chain owner to call smart contracts on a SKALE chain. It's a representative of the multisig wallet on the SKALE chain, and it's predeployed and set up from the beginning of the SKALE chain.
 
-`Marionette` listens to messages from IMA and if message sender is equal to SKALE chain owner address it decodes function call and performs it.
+`Marionette` listens to messages from IMA, and if the message sender is equal to the SKALE chain owner address, it decodes function call and performs it.
 
-Arbitrary contract calls can be encoded into IMA message using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
+Arbitrary contract calls can be encoded into an IMA message using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
 
 == Example
 
-Assume there is a Gnosis Safe multisig wallet that owns SKALE chain with name `example-chain`.
+Assume a Gnosis Safe multisig wallet owns the SKALE chain with the name `example-chain`.
 
-Running of a command
+Running this command:
 
-```bash
+```shell
 npx msig encodeData example-chain DeploymentController addToWhitelist <ethereum-address>
 ```
 
-will print hex string that represent a data of a transaction that needs to be sent to `IMA` to trigger execution of `addToWhitelist` function of `DepoymentController` smart contract.
+will print a hex string representing transaction data that needs to be sent to `IMA` to trigger the `addToWhitelist` function of the `DepoymentController` smart contract.
 
-Further creation, signing and execution of a regular Safe transaction with the data will eventually perform needed changes on the SKALE chain.
+Further creation, signing, and execution of a regular Safe transaction with the data will eventually perform needed changes on the SKALE chain.
 
 == Fallback option
 
-There is a fallback option to control `Marionette` directly without using IMA. For this purpose there is https://github.com/gnosis/MultiSigWallet[Gnosis MultiSigWallet] predeployed on SKALE chain. Initially it has only 1 owner specified by SKALE chain owner during SKALE chain creation as `originator` address.
+There is a fallback option to control `Marionette` directly without using IMA. For this purpose, https://github.com/gnosis/MultiSigWallet[Gnosis MultiSigWallet] is predeployed on the SKALE chain. Initially, it has only one owner specified by the SKALE chain owner during SKALE chain creation as the `originator` address.
 
-IMPORTANT: There is an SKALE chain owner responsibility to add additional owners to predeployed `MultiSigWallet` after chain creation to support sufficient security level.
+IMPORTANT: It's the SKALE chain owner's responsibility to add additional owners to predeployed `MultiSigWallet` after chain creation to support sufficient security level.
 
-Predeployed `MultiSigWallet` has the same authorization level in `Marionette` as original SKALE chain owner multisig connected via IMA. It can send requests to `Marionette` to execute arbitrary smart contracts calls. This process can be simplified by using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
+Predeployed `MultiSigWallet` has the same authorization level in `Marionette` as the original SKALE chain owner multisig connected via IMA. The `MultiSigWallet` can send requests to `Marionette` to execute arbitrary smart contracts calls. This process can be simplified by using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
 
 == Example
 
-First step is to set SKALE chain endpoint and MultiSigWallet owner private key. (See https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli readme])
+The first step is to set the SKALE chain endpoint and MultiSigWallet owner private key. (See https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli readme])
 
-Second step is to execute a command
+The second step is to execute:
 
-```bash
+```shell
 npx msig submitTransaction DeploymentController addToWhitelist <ethereum-address>
 ```
 
-As a result needed transaction will be encoded and added to the `MultiSigWallet`. Further signing and execution can be done neither via `multisigwallet-cli` or https://ipfs.infura.io/ipfs/QmfRD4GuqZobNi2NT2C77a3UTQ452ffwstr4fjEJixUgjf[Gnosis MultiSigWallet UI]
+This transaction will be encoded and added to the `MultiSigWallet`. Further signing and execution can be done either via `multisigwallet-cli` or https://ipfs.infura.io/ipfs/QmfRD4GuqZobNi2NT2C77a3UTQ452ffwstr4fjEJixUgjf[Gnosis MultiSigWallet UI]
