@@ -1,6 +1,10 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
-* xref:skale-chain-management.adoc[Management with multisig wallet]
+* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
+* Multisig Administration
+** xref:admin-overview.adoc[Overview]
+** xref:skale-chain-management.adoc[Management with multisig wallet]
+** xref:multisig-setup.adoc[Multisig Owner Setup]
 * xref:network-details.adoc[Network Details]
 * Tools
 ** xref:ima-sdk.adoc[Using the IMA SDK]
@@ -16,9 +20,6 @@
 ** xref:wallets/magic-wallet.adoc[Magic]
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
 * xref:ima::index.adoc[Ethereum <-> SKALE]
-* xref:skale-chain-owner.adoc[Managing SKALE Chain Ownership]
-** xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
-* xref:multisig-setup.adoc[Multisig Owner Setup]
 * Indexing
 ** xref:using-graph.adoc[Using The Graph]
 * xref:tutorials.adoc[Tutorials]

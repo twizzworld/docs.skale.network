@@ -4,7 +4,7 @@ The SKALE chain owner manages many settings of the SKALE chain and IMA bridge. S
 
 During SKALE chain creation, the owner specifies its address, which is used by smart contracts to authorize it.
 
-IMPORTANT: If the SKALE chain owner uses a multisig wallet on Ethereum (for example, Gnosis Safe) to control a SKALE chain, it can't make direct calls to smart contracts on the SKALE chain.
+IMPORTANT: If the SKALE chain owner uses a multisig wallet on Ethereum (for example, Gnosis SAFE) to control a SKALE chain, it can't make direct calls to smart contracts on the SKALE chain.
 
 In this case, there is a `Marionette` smart contract to allow the SKALE chain owner to call smart contracts on a SKALE chain. It's a representative of the multisig wallet on the SKALE chain, and it's predeployed and set up from the beginning of the SKALE chain.
 
@@ -14,7 +14,7 @@ Arbitrary contract calls can be encoded into an IMA message using https://github
 
 == Example
 
-Assume a Gnosis Safe multisig wallet owns the SKALE chain with the name `example-chain`.
+Assume a Gnosis SAFE multisig wallet owns a SKALE chain named `example-chain`.
 
 Running this command:
 
