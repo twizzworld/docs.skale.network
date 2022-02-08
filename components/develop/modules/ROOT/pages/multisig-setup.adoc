@@ -63,20 +63,20 @@ Before proceeding, be sure your SKALE Chain is deployed and assigned ownership t
 From here, 
 
 * You can now edit the required confirmations:
-image:./assets/multisig-confirmations.png[]
+image:multisig-confirmations.png[]
 
 * Add additional owners by clicking the multisig name,
-image:./assets/multisig-add-owners.png[]
+image:multisig-add-owners.png[]
 +
 And then add additional owners:
-image:./assets/multisig-owners.png[]
+image:multisig-owners.png[]
 
 == Sending Multisig Transaction
 
 . Click the name of your deployed multisig to view the multisig details.
 . Click btn:[Add] in the "Multisig transactions" box. A modal will appear with further inputs.
 +
-image:./assets/multisig-add.png[]
+image:multisig-add.png[]
 +
 . Enter the contract address, name (optional), and paste in the contract ABI. For example, if you want to permit another address to deploy contracts, paste in the DeploymentControl ABI (https://github.com/skalenetwork/predeployed/blob/master/deploy-control/DeploymentController.abi) and contract address `0xD2002000000000000000000000000000000000D2`.
 . After a moment, the `Method` field should populate with the available methods.
@@ -99,7 +99,7 @@ Each multisig signer should follow the instructions for signing transactions:
 . Click the multisig name and you should see the pending transaction.  
 . Click btn:[Confirm] to sign the transaction.
 . Wait until the other required signers signoff, and then the transaction will finally execute.
-image:./assets/multisig-signoff.png[]
+image:multisig-signoff.png[]
 
 == SKALE Chain Administration with Multisig
 

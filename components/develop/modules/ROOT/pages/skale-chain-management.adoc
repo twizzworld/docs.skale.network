@@ -10,6 +10,8 @@ IMPORTANT: If the SKALE chain owner uses a multisig wallet on Ethereum (for exam
 
 In this case, there is a `Marionette` smart contract to allow the SKALE chain owner to call smart contracts on a SKALE chain. It's a representative of the multisig wallet on the SKALE chain, and it's predeployed and set up from the beginning of the SKALE chain.
 
+NOTE: SKALE chains deployed before V2 release don't have Marionette functionality.
+
 `Marionette` listens to messages from IMA, and if the message sender is equal to the SKALE chain owner address, it decodes function call and performs it.
 
 Arbitrary contract calls can be encoded into an IMA message using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
