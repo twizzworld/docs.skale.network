@@ -5,7 +5,7 @@ SKALE Chain owners have special privileges for managing their SKALE Chain, Files
 * SKALE Chains
 ** xref:skale-chain-access-control.adoc#_skale_fuel_sfuel[managing sFUEL distribution]
 ** xref:skale-chain-access-control.adoc#_deployment_controller[setting deployment permissions]
-** xref:skale-manager:api:schains.adoc#_deleteschain_deleteschainaddress_from_string_name_external[delete SKALE chain]
+** xref:1.8.x@skale-manager:api:schains.adoc#_deleteschain_deleteschainaddress_from_string_name_external[delete SKALE chain]
 * Filestorage
 ** xref:filestorage.js::index.adoc#_reserve_space[setting space allocation]
 ** xref:filestorage::filestorage-upgrades.adoc[performing upgrades]
