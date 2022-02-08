@@ -3,6 +3,53 @@
 
 You can use Ethereum-based Gnosis SAFE with IMA for SKALE chain xref:skale-chain-owner.adoc[administration functions].
 
+.Diagram of Gnosis SAFE administration of SKALE Chains
+ifdef::env-github[image::https://www.plantuml.com/plantuml/png/VP71ReCm38RlUGgBEuVb0QPoeDEqiGl7gfe2k2LQubH9q2fDVVU1QGJQL7Bwum-ipyukHENZO8qGhN531sNiqUDWuKV0U5fdBuwG8cGlv88EK1VxCcCw7uzjL7GsoEJfGLro_VQtvsjLGAKq4SOCL01jnMqqKRw3-gruBpy_C7ux_vLiM373gx8NWtdRAqty7xOheyFKjMPuvAPXGNjjC4JdrHcPdLQCHszKc0as2wcKruumnXbPIjCiJeJNk1AYRI6vPIGVAyaDf_MAfotoSq2UFuEsV97feYtaXqw57hlZMB7qloA59VuScvHE8IKz9Nd7CcKslsSUKUoGki6QNm00[]]
+ifndef::env-github[]
+[plantuml]
+....
+@startuml
+
+cloud Ethereum {
+    component "Gnosis SAFE" {
+        rectangle SAFE1
+        rectangle SAFE2
+    }
+    component "IMA Mainnet" as im
+}
+
+card SKALE_Network {
+    cloud "example-chain" as ec {
+        [IMA Schain] as is
+        [Filestorage] as fs
+        [Etherbase] as eb
+        [Marionette] as mn
+    }
+    cloud "next-chain" as nc {
+        [IMA Schain] as is2
+        [Filestorage] as fs2
+        [Etherbase] as eb2
+        [Marionette] as mn2
+    }
+    
+}
+
+SAFE1 --> im
+SAFE2 --> im
+im -[dashed]-> mn
+im -[dashed]-> mn2
+mn --> eb
+mn --> fs
+mn --> is
+mn2 --> eb2
+mn2 --> fs2
+mn2 --> is2
+
+@enduml
+....
+
+endif::[]
+
 == Preparation to SKALE chain creation
 
 No custom steps are required to create a SKALE chain that Gnosis SAFE controls. Ensure that you know the address of your Gnosis SAFE deployed on Ethereum mainnet; if you don't have one follow https://help.gnosis-safe.io/en/articles/3876461-create-a-safe to create it.
