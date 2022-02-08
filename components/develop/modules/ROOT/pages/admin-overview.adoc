@@ -1,4 +1,4 @@
-= SKALE Chain Administration Overview
+= Administration Overview
 
 SKALE Chain owners have special privileges for managing their SKALE Chain, Filestorage, and IMA Bridge settings. The following is a summary of those settings:
 
@@ -9,20 +9,21 @@ SKALE Chain owners have special privileges for managing their SKALE Chain, Files
 ** xref:filestorage.js::index.adoc#_reserve_space[setting space allocation]
 ** xref:filestorage::filestorage-upgrades.adoc[performing upgrades]
 * IMA Bridge
-** xref:ima::ima-access-control.adoc[assigning IMA roles]
-** xref:ima::ima-access-control.adoc#_owner_ima_mainnet_permissions[configuring IMA Mainnet contracts]
-** xref:ima::ima-access-control.adoc#_ima_skale_chain_permissions[configuring IMA SKALE chain contracts]
-** xref:ima::ima-access-control.adoc[upgrading IMA SKALE chain contracts]
+** xref:ima::access-control.adoc[assigning IMA roles]
+** xref:ima::access-control.adoc#_owner_ima_mainnet_permissions[configuring IMA Mainnet contracts]
+** xref:ima::access-control.adoc#_ima_skale_chain_permissions[configuring IMA SKALE chain contracts]
+** xref:ima::access-control.adoc[upgrading IMA SKALE chain contracts]
 
 == Managing Ownership using a Multisig Contract
 
-With newer SKALE Chains, you can assign administrative and other roles to Multisig control. There are several ways to do this: 
+With newer SKALE Chains, you can assign administrative and other roles to a Multisig contract where a predefined number of signatures are required to confirm and execute transactions.
 
-* Use Gnosis SAFE on Ethereum. 
-* Use Gnosis MultiSigWallet on SKALE.
+There are several ways to do this: 
+
+* xref:gnosis-safe-setup.adoc[Use a Gnosis SAFE on Ethereum]. 
+* xref:multisig-setup.adoc[Use the predeployed Gnosis MultiSigWallet on SKALE].
 * Use other custom contracts.
-
-You are free to explore both approaches or even use a mixture of these approaches.
+* Use a mixture of the approve approaches.
 
 .Comparison of Multisig Approaches
 [cols="1a,1a"]
@@ -34,20 +35,20 @@ You are free to explore both approaches or even use a mixture of these approache
 
 |Can administer:
 
-* SKALE Chain
-* FileStorage
-* IMA SKALE Chain contracts
-* IMA Mainnet contracts
+* SKALE chain
+* Filestorage
+* IMA SKALE chain contracts
+* IMA mainnet contracts
 |Can administer:
 
 * SKALE Chain
-* FileStorage
-* IMA SKALE Chain contracts
+* Filestorage
+* IMA SKALE chain contracts
 
 |Each transaction requires Mainnet Ethereum gas
 |Each transaction is zero-cost gas on SKALE
 
-|Uses the latest SAFE contracts and UI
+|Uses the latest Gnosis SAFE contracts and UI
 |Uses older and depreciated MultiSigWallet contracts and UI
 
 |Uses IMA Bridge to transfer SAFE messages to SKALE

@@ -1,7 +1,7 @@
-= Gnosis SAFE General Instructions
+= Using Gnosis SAFE Multisig
 :experimental:
 
-You can use Ethereum-based Gnosis SAFE with IMA for SKALE chain xref:skale-chain-owner.adoc[administration functions].
+You can use Ethereum-based Gnosis SAFE with IMA for SKALE chain xref:skale-chain-management.adoc[administration functions].
 
 .Diagram of Gnosis SAFE administration of SKALE Chains
 ifdef::env-github[image::https://www.plantuml.com/plantuml/png/VP71ReCm38RlUGgBEuVb0QPoeDEqiGl7gfe2k2LQubH9q2fDVVU1QGJQL7Bwum-ipyukHENZO8qGhN531sNiqUDWuKV0U5fdBuwG8cGlv88EK1VxCcCw7uzjL7GsoEJfGLro_VQtvsjLGAKq4SOCL01jnMqqKRw3-gruBpy_C7ux_vLiM373gx8NWtdRAqty7xOheyFKjMPuvAPXGNjjC4JdrHcPdLQCHszKc0as2wcKruumnXbPIjCiJeJNk1AYRI6vPIGVAyaDf_MAfotoSq2UFuEsV97feYtaXqw57hlZMB7qloA59VuScvHE8IKz9Nd7CcKslsSUKUoGki6QNm00[]]

@@ -1,4 +1,4 @@
-= Multisig General Instructions:
+= Using Predeployed Multisig
 :experimental:
 
 [WARNING]
@@ -7,12 +7,50 @@ Instructions provided here are for **general purposes only** on how to transitio
 To use Gnosis **MultiSigWallet** for SKALE Chain owner administration, follow the instructions below, which are based on the tools and steps provided here: <https://github.com/gnosis/MultiSigWallet>.
 
 [NOTE]
-These instructions are for Gnosis' **MultiSigWallet**, which has been depreciated for Gnosis **SAFE**. At this time, Gnosis SAFE is yet not supported and is planned for future releases.
+These instructions are for Gnosis' **MultiSigWallet**, which has been depreciated for Gnosis **SAFE**. xref:gnosis-safe-setup.adoc[See here for instructions using Gnosis SAFE].
+
+ifdef::env-github[image::[]]
+ifndef::env-github[]
+[plantuml]
+....
+@startuml
+
+card SKALE_Network {
+    cloud "example-chain" as ec {
+        [IMA Schain] as is
+        [Filestorage] as fs
+        [Etherbase] as eb
+        [Marionette] as mn
+        [MultiSigWallet] as ms
+    }
+    cloud "next-chain" as nc {
+        [IMA Schain] as is2
+        [Filestorage] as fs2
+        [Etherbase] as eb2
+        [Marionette] as mn2
+        [MultiSigWallet] as ms2
+    }
+    
+}
+
+ms --> mn
+mn --> eb
+mn --> fs
+mn --> is
+ms2 --> mn2
+mn2 --> eb2
+mn2 --> fs2
+mn2 --> is2
+
+@enduml
+....
+
+endif::[]
 
 == SKALE Chain Setup
 
 [IMPORTANT]
-Before proceeding, be sure your SKALE Chain is deployed and assigned ownership to a single account and is funded with skETH. The SKALE Chain will have several predeployed contracts including Marionette and a predeployed Gnosis MultiSigWallet. These instructions detail how to interact with the predeployed multisig.
+Before proceeding, be sure your SKALE Chain is deployed and assigned ownership to a single account and is funded with sFUEL. The SKALE Chain will have several predeployed contracts including Marionette and a predeployed Gnosis MultiSigWallet. These instructions detail how to interact with the predeployed multisig.
 
 . Add your SKALE Chain endpoint to Metamask.
 . Setup a Gnosis MultiSigWallet local server or use a ready-made instance on IPFS using this link: <https://github.com/gnosis/MultiSigWallet#an-instance-of-multisig-website-is-available-on-ipfs-at-httpsipfsinfuraioipfsqmfrd4guqzobni2nt2c77a3utq452ffwstr4fjejixugjf>
