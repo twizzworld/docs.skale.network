@@ -26,7 +26,7 @@ SKALE Chain owners can apply a variety of methods to distribute sFUEL to users:
 When addresses use sFUEL to perform transactions, the sFUEL fee used to conduct the transaction is recirculated back to the coinbase address.
 
 [IMPORTANT]
-SKALE Chain owners should carefully select how and how much sFUEL to distribute to addresses. How much might depend on various factors such as the number of addresses to distribute to, and the sFUEL transaction fees  performed by these addresses.
+SKALE Chain owners should select how and how much sFUEL to distribute to addresses. How much might depend on various factors such as the number of addresses to distribute to, and the sFUEL transaction fees  performed by these addresses.
 
 [NOTE]
 To view Real ETH on SKALE Chains as transferred by the IMA bridge, you can use the _informational RPC ports_ for your endpoint. The port information is presented when the SKALE Chain deployment is complete.

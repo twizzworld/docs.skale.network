@@ -1,0 +1,9 @@
+= SKALE Gas Token
+
+sFUEL is the native token of SKALE. This is similar (but different!) to Ether in Ethereum. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no value: it's FREE. There is no payment/cost required for transactions since sFUEL is FREE.
+
+Getting sFUEL on a SKALE chain is done through a number of ways. Again because sFUEL is **free and has no economic value**, there is no way to purchase it or find it on exchanges.
+
+The SKALE chain owner is allocated a massive amount of sFUEL and is responsible for distributing sFUEL to users in a way that's best served for their users' experience. Some SKALE chain owners choose to send sFUEL to each user who completes an onboarding event. Other owners choose to provide a sFUEL faucet, and others allow users to mine gas natively in a browser. See https://github.com/skalenetwork/pow-demo for an example of mining gas on SKALE.
+
+For further develop details on distributing and developing with sFUEL, see xref:skale-chain-access-control.adoc[Access Control].
