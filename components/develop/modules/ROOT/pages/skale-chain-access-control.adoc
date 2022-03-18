@@ -8,21 +8,21 @@ New SKALE Chains are set only to allow the SKALE Chain owner and CREATE/CREATE2 
 
 The predeployed ConfigController contract's address is `0xD2002000000000000000000000000000000000D2` and contains six methods: `enableFreeContractDeployment()`,  `disableFreeContractDeployment()`, `addToWhitelist(address)`,  `removeFromWhitelist(address)`, `enableMTM()`,    `disableMTM()`. 
 
-**Free Contract Deployment**
+=== Free Contract Deployment
 - allows any account to deploy contracts on the SKALE Chain. Also you must be assigned as DEPLOYER_ADMIN_ROLE - only in this way you can run these methods. You can configure your own SKALE Chain enable/disable this mode.
 
 `enableFreeContractDeployment()` - enables Free Contract Deployment 
 
 `disableFreeContractDeployment()` - disables Free Contract Deployment
 
-**Whitelist** 
+=== Whitelist 
 - is a list of accounts, that are allowed to deploy contracts. Whitelist is enables automatically when Free Contract Deployment disables. Also you must be assigned as DEPLOYER_ADMIN_ROLE or SKALE Chain owner to add account to Whitelist which means that account will be assigned as a DEPLOYER_ROLE.  
 
 `addToWhitelist(address addr)` -  add accounts that are allowed to deploy contracts
 
 `removeFromWhitelist(address addr)` - remove accounts that are allowed to deploy contracts
 
-**Multi Transaction Mode (MTM)**
+=== Multi Transaction Mode (MTM)
 - allows multiple transactions from the same account been included in the one block. It's implemented in the same way as it works on popular blockchain networks (Ethereum, Bitcoin). Also you must be assigned as MTM_ADMIN_ROLE - only in this way you can run these methods. You can configure your own SKALE Chain enable/disable this mode. 
 
 `enableMTM()` - enables MTM on SKALE Chain 
@@ -30,7 +30,7 @@ The predeployed ConfigController contract's address is `0xD200200000000000000000
 `disableMTM()` - disables MTM on SKALE Chain 
 
 [NOTE]
-MTM functionality is currently not available.
+MTM functionality works but it cannot be enabled/disabled yet from the config-controller (so when it's set, it's always enabled).
 
 The ABI for the ConfigController is available at the https://github.com/skalenetwork/config-controller/releases[release packages].
 
