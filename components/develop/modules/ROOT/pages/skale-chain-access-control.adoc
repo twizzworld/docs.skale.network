@@ -1,12 +1,36 @@
 = SKALE Chain Access Control
 
-SKALE Chains have several ways to manage access control, meaning who is capable of sending a transaction to the SKALE Chain or who is capable of deploying new contracts. There are several methods manage access: distribution of sFUEL to SKALE Chain users and the ConfigController contract, which authorizes specific contracts to deploy new contracts (CREATE2), enables Multi Transaction Mode and enables Free Contract Deployment.
+SKALE Chains have several ways to manage access control, meaning who is capable of sending a transaction to the SKALE Chain or who is capable of deploying new contracts. There are several methods manage access: distribution of sFUEL to SKALE Chain users and the ConfigController contract, which authorizes specific contracts to deploy new contracts (CREATE2), enables Multi Transaction Mode and enables Free Contract Deployment. The next paragraph will describe listed methods.
 
 == Config Controller
 
 New SKALE Chains are set only to allow the SKALE Chain owner and CREATE/CREATE2 opcodes the ability to deploy new contracts. Other addresses can be permitted on the fly to deploy contracts by whitelisting addresses.
 
-The predeployed ConfigController contract's address is `0xD2002000000000000000000000000000000000D2` and contains six methods: `addToWhitelist(address)`, `removeFromWhitelist(address)`, `enableMTM()`, `disableMTM()`, `disableMTM()`, `enableFreeContractDeployment()`, `disableFreeContractDeployment()`.
+The predeployed ConfigController contract's address is `0xD2002000000000000000000000000000000000D2` and contains six methods: `enableFreeContractDeployment()`,  `disableFreeContractDeployment()`, `addToWhitelist(address)`,  `removeFromWhitelist(address)`, `enableMTM()`,    `disableMTM()`. 
+
+**Free Contract Deployment**
+- allows any account to deploy contracts on the SKALE Chain. Also you must be assigned as DEPLOYER_ADMIN_ROLE - only in this way you can run these methods. You can configure your own SKALE Chain enable/disable this mode.
+
+`enableFreeContractDeployment()` - enables Free Contract Deployment 
+
+`disableFreeContractDeployment()` - disables Free Contract Deployment
+
+**Whitelist** 
+- is a list of accounts, that are allowed to deploy contracts. Whitelist is enables automatically when Free Contract Deployment disables. Also you must be assigned as DEPLOYER_ADMIN_ROLE or SKALE Chain owner to add account to Whitelist which means that account will be assigned as a DEPLOYER_ROLE.  
+
+`addToWhitelist(address addr)` -  add accounts that are allowed to deploy contracts
+
+`removeFromWhitelist(address addr)` - remove accounts that are allowed to deploy contracts
+
+**Multi Transaction Mode (MTM)**
+- allows multiple transactions from the same account been included in the one block. It's implemented in the same way as it works on popular blockchain networks (Ethereum, Bitcoin). Also you must be assigned as MTM_ADMIN_ROLE - only in this way you can run these methods. You can configure your own SKALE Chain enable/disable this mode. 
+
+`enableMTM()` - enables MTM on SKALE Chain 
+
+`disableMTM()` - disables MTM on SKALE Chain 
+
+[NOTE]
+MTM functionality is currently not available.
 
 The ABI for the ConfigController is available at the https://github.com/skalenetwork/config-controller/releases[release packages].
 
