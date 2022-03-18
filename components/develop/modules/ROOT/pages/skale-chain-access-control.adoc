@@ -6,7 +6,7 @@ SKALE Chains have several ways to manage access control, meaning who is capable 
 
 New SKALE Chains are set only to allow the SKALE Chain owner and CREATE/CREATE2 opcodes the ability to deploy new contracts. Other addresses can be permitted on the fly to deploy contracts by whitelisting addresses.
 
-The predeployed ConfigController contract's address is `0xD2002000000000000000000000000000000000D2` and contains several settings covered below: `enableFreeContractDeployment()`,  `disableFreeContractDeployment()`, `addToWhitelist(address)`,  `removeFromWhitelist(address)`, `enableMTM()`,    `disableMTM()`. 
+The predeployed ConfigController contract's address is `0xD2002000000000000000000000000000000000D2` and contains several settings covered below: 
 
 === Free Contract Deployment
 - allows any account to deploy contracts on the SKALE Chain. Also you must be assigned as DEPLOYER_ADMIN_ROLE - only in this way you can run these methods. You can configure your own SKALE Chain enable/disable this mode.
