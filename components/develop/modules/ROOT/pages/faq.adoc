@@ -2,7 +2,7 @@
 
 == Are transactions free on SKALE?
 
-Transactions on SKALE Chain run in a cost-free way. This means there is gas on SKALE Chains just like on Ethereum, but it's powered by SKALE ETH (skETH), which has no monetary value. In this way, executing transactions and state changes don't incur costs but require consuming gas in skETH, which is zero-cost. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
+Transactions on SKALE Chain run in a cost-free way. This means there is gas on SKALE Chains just like on Ethereum, but it's powered by sFUEL (SKALE FUEL), a gas token which has no monetary value. In this way, executing transactions and state changes don't incur costs but require consuming gas in sFUEL, which is zero-cost. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
 
 == Can files be stored on SKALE?
 
@@ -61,7 +61,3 @@ The SKALE execution model is fully compatible with the Ethereum Virtual Machine 
 Because the SKALE Network uses the Ethereum EVM, it also has full Solidity support and works with most of the Ethereum developer toolset. These include connecting to the Network via web3.js and web3.py and supporting tools such as Truffle, Hardhat, and Remix. The SKALE Network supports all major Ethereum token standards, including ETH, ERC20, ERC721, ERC1155, USDC, Dai, USDT. 
 
 In addition, the SKALE Network supports many popular crypto wallets and browser plugins, and bridges. These include Bitski, Fortmatic, Metamask, Portis, Torus. These interface components are well-regarded in the community and used by thousands of developers. Lastly, the SKALE Network is easy to use. The steps to provision one or more SKALE chains are simple, with options to select sidechain size (small, medium, large), chain duration, storage options, and more.
-
-== How do you differentiate skETH and ETH in a wallet on a SKALE Chain?
-
-When users connect to a SKALE Chain, the default balance in their wallets is skETH. Users may also connect to the same SKALE Chain using a special _informational RPC port_, here the balance in their wallets is real ETH locked in IMA. See xref:skaled::skale-chain-eth.adoc#_real_eth_on_skale_chains[here for more information].

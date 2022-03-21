@@ -48,7 +48,7 @@ image::https://user-images.githubusercontent.com/12778980/111384112-82e5d100-867
 Your account field in Remix should populate after Remix connects through MetaMask to your SKALE Chain. 
 +
 [NOTE]
-Be sure to use the SKALE Chain owner account and have xref:skale-chain-access-control.adoc#_skale_eth_skETH[skETH] to deploy your contracts, unless you've set up xref:skale-chain-access-control.adoc#_deployment_controller[additional deployer addresses].
+Be sure to use the SKALE Chain owner account and have xref:skale-chain-access-control.adoc#_skale_eth_sFUEL[sFUEL] to deploy your contracts, unless you've set up xref:skale-chain-access-control.adoc#_deployment_controller[additional deployer addresses].
 +
 image::https://user-images.githubusercontent.com/12778980/111390822-c5aca680-8689-11eb-84a7-c86d35161e38.png[]
 
