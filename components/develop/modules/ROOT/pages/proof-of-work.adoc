@@ -16,7 +16,7 @@ SKALE chain owner has several methods to top up any address with sFUEL: directly
 
 1. Client generates random 256-bit *X* by Formula which is equal a unique gasPrice value
 
-//image:https://github.com/skalenetwork 
+image:https://github.com/skalenetwork/docs.skale.network/blob/master/components/develop/modules/ROOT/images/pow-free-gas-formula.png
 
 2. Check whether *X* is allow to run transaction:
 
