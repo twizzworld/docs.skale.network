@@ -37,7 +37,7 @@ freeGas(X) > estimateGas(tx)
 ++++
 
 
-a) If not, then you need to generate another one
+a) If not, then back to the first step
 
 b) If the condition is met - send the transaction with gasPrice = *X* and gasAmount = freeGas
 
