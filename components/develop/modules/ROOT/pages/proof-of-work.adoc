@@ -1,5 +1,7 @@
 = Proof of work (PoW) 
 
+:stem: asciimath
+
 SKALE chain owner has several methods to top up any address with sFUEL: directly send sFUEL from the account, send transaction to Etherbase to recharge sFUEL to any address or use PoW. PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address does not have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
 
 == PoW Usage
@@ -16,12 +18,22 @@ SKALE chain owner has several methods to top up any address with sFUEL: directly
 
 1. Client generates random 256-bit *X* by Formula which is equal a unique gasPrice value
 
-image:https://github.com/skalenetwork/docs.skale.network/blob/master/components/develop/modules/ROOT/images/pow-free-gas-formula.png
+[latexmath]
+++++
+hash = sha(address)\oplus sha3(nonce)\oplus sha3(gasPrice)
+
+freeGas = ( 2^256 - 1)/hash/difficulty
+++++
 
 2. Check whether *X* is allow to run transaction:
 
-  freeGas(X) > estimateGas(tx)
+[latexmath]
+++++
 
+freeGas(X) > estimateGas(tx)
+
+++++
+  
 a) If not, then you need to generate another one
 
 b) If the condition is met - send the transaction with gasPrice = *X* and gasAmount = freeGas
