@@ -40,7 +40,7 @@ Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withd
 
 == IMA Bridge
 
-If using the IMA bridge with Ethereum, the SKALE Chain owner and community must ensure the ETH balance is sufficient to ensure proper bridge messaging and transaction gas reimbursement. 
+If using the IMA bridge with Ethereum, the SKALE Chain owner and community must ensure the SKALE Chain owner ETH balance is sufficient to ensure proper bridge messaging and transaction gas reimbursement. 
 
 Each end-user reimburses validator-nodes for IMA messaging with Ethereum. This reimbursement is performed from the end-user's balance in the Community Pool contract on Ethereum mainnet. In the extraordinary situation where an end-user's Community Pool balance is insufficient, part or all the costs will be provided by the SKALE Chain wallet to ensure proper transaction processing. When this happens, the end-user will be locked from further exits until the end-user reimburses their Community Pool ETH balance. 
 
