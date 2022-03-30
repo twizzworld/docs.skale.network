@@ -29,10 +29,11 @@
   --body-font-size--print: 0.9375em; /* 15px */
   --body-line-height: 1.15;
   --body-font-color: var(--color-white);
-  --body-font-family: "Graphik";
+  --body-font-family: "Roboto";
   --body-font-weight-bold: 500;
-  --monospace-font-family: "Space Mono", monospace;
+  --monospace-font-family: "Play";
   --monospace-font-weight-bold: 700;
+  --code-font-family: "Space Mono", monospace;
   /* base */
   --body-background: var(--color-white);
   --panel-background: var(--color-blue-white-gradient);
