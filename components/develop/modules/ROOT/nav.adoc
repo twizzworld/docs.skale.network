@@ -1,7 +1,6 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
 * xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
-* xref:network-details.adoc[Network Details]
 * Network Details
 ** xref:networks.adoc[Networks]
 ** xref:sfuel-gas-token.adoc[SKALE Gas Token]
