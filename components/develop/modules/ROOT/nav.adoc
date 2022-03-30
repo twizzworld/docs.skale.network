@@ -28,4 +28,5 @@
 ** xref:skale-chain-management.adoc[Management with Multisig wallet]
 ** xref:gnosis-safe-setup.adoc[Using Ethereum Gnosis SAFE]
 ** xref:multisig-setup.adoc[Using SKALE Predeployed Multisig]
+** xref:skale-chain-wallet.adoc[Managing SKALE Chain Wallet]
 * xref:faq.adoc[FAQs]
