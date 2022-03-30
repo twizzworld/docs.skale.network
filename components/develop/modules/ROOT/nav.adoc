@@ -10,6 +10,7 @@
 ** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
 ** xref:event-subscriptions.adoc[Subscribing to Events]
+** xref:skaled::oracle.adoc[Using SKALE Oracle]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
