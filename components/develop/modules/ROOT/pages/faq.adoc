@@ -2,7 +2,7 @@
 
 == Are transactions free on SKALE?
 
-Transactions on SKALE Chain run in a cost-free way. This means there is gas on SKALE Chains just like on Ethereum, but it's powered by SKALE ETH (skETH), which has no monetary value. In this way, executing transactions and state changes don't incur costs but require consuming gas in skETH, which is zero-cost. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
+Transactions on SKALE Chain run in a cost-free way. This means there is gas on SKALE Chains just like on Ethereum, but it's powered by sFUEL (SKALE FUEL), a gas token which has no monetary value. In this way, executing transactions and state changes don't incur costs but require consuming gas in sFUEL, which is zero-cost. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
 
 == Can files be stored on SKALE?
 

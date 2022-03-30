@@ -21,7 +21,7 @@ xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A We
 --
 [.card.card-learn]
 --
-xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptograph.]#]
+xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptography.]#]
 --
 [.card.card-learn]
 --
@@ -56,7 +56,7 @@ SKALE Network can support an unlimited number of chains that are purpose-built f
 
 === SKALE Chains
 
-A scalable Web3 sidechain instance sharing resources across a randomized set of 16 nodes, enabling dApps to run fast and cost-effectively in a 16-node decentralized manner.
+A scalable Web3 instance sharing resources across a randomized set of 16 nodes, enabling dApps to run fast and cost-effectively in a 16-node decentralized manner.
 
 === Filestorage
 
