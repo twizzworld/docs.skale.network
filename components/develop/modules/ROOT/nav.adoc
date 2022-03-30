@@ -12,6 +12,7 @@
 ** xref:event-subscriptions.adoc[Subscribing to Events]
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
+** xref:ima::index.adoc[Performing IMA Bridge transfers]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
@@ -19,7 +20,8 @@
 ** xref:wallets/torus.adoc[Torus]
 ** xref:wallets/magic-wallet.adoc[Magic]
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
-* xref:ima::index.adoc[Ethereum <-> SKALE]
+* xref:ima::index.adoc[Ethereum &harr; SKALE]
+* xref:ima::index.adoc[SKALE Chain &harr; SKALE Chain]
 * Indexing
 ** xref:using-graph.adoc[Using The Graph]
 * xref:tutorials.adoc[Tutorials]
