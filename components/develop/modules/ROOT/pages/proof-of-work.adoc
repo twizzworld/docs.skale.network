@@ -2,43 +2,47 @@
 
 :stem: asciimath
 
-SKALE chain owner has several methods to top up any address with sFUEL: directly send sFUEL from the account, send transaction to Etherbase to recharge sFUEL to any address or use PoW. PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address does not have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
+SKALE chain owner has several methods to top up any address with sFUEL:
+* directly send sFUEL from the account,
+* send transaction to Etherbase to recharge sFUEL to any address, or 
+* use PoW.
+
+PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address does not have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
 
 == PoW Usage
 
-* Client should generate unique gasPrice value based on transaction data (Algorithm will be described below)
+. The client generates a unique gasPrice value based on the transaction data (<<pow-algorithm, the algorithm is described below>>).
 
-* Client send transaction with unique gasPrice value and required gasAmount which was calculated during the algorithm
+. The client sends transaction with a unique gasPrice value and the required gasAmount, which was calculated during the algorithm.
 
-* GasPrice and gasAmount of this transaction will be checked on SKALE chain side by the same check in the algorithm
+. GasPrice and gasAmount of this transaction will be checked on the SKALE chain side by the same check in the algorithm.
 
-* Transaction would be executed even without sFUEL on clients account
+. Transaction is executed, even without sFUEL in the client's account.
 
 == PoW algorithm
 
-By the first step сlient generates random 256-bit *X* by Formula which is equal a unique gasPrice value
-
+. The сlient generates a random 256-bit *X* by Formula which is equal a unique gasPrice value
++
 [latexmath]
 ++++
 hash = sha(address)\oplus sha3(nonce)\oplus sha3(gasPrice)
 ++++
-
++
 [latexmath]
 ++++
 freeGas = ( 2^{256} - 1)/hash/difficulty
 ++++
 
 
-On the second step it's necessary to check whether *X* is allow to run transaction:
-
+. Check whether *X* is allow to run transaction:
++
 [latexmath]
 ++++
 freeGas(X) > estimateGas(tx)
 ++++
-
-
++
 a) If not, then back to the first step
-
++
 b) If the condition is met - send the transaction with gasPrice = *X* and gasAmount = freeGas
 
 == Control PoW on SKALE chain
@@ -49,13 +53,13 @@ b) If the condition is met - send the transaction with gasPrice = *X* and gasAmo
 
 == PoW browser usage
 
-* Browser wallet couldn’t send PoW transactions 
+* Browser wallets cannot send PoW transactions.
 
-* You should generate sessionKeyPair inside browser
+* You should generate `sessionKeyPair` inside the browser
 
-* Build a transaction and run PoW client script by sessionAddress
+* Build a transaction and run PoW client script by `sessionAddress`
 
-* Sign and send transaction from browser signed by sessionKey
+* Sign and send transaction from browser signed by `sessionKey`
 
 == Examples
 
