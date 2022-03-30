@@ -1,5 +1,7 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
+* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
+* xref:network-details.adoc[Network Details]
 * Network Details
 ** xref:networks.adoc[Networks]
 ** xref:sfuel-gas-token.adoc[SKALE Gas Token]
@@ -17,9 +19,13 @@
 ** xref:wallets/magic-wallet.adoc[Magic]
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
 * xref:ima::index.adoc[Ethereum <-> SKALE]
-* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 * Indexing
 ** xref:using-graph.adoc[Using The Graph]
 * xref:tutorials.adoc[Tutorials]
 ** xref:deploy-a-website-on-skale.adoc[Deploy a decentralized website using SKALE Filestorage]
+* SKALE Chain Administration
+** xref:admin-overview.adoc[Overview]
+** xref:skale-chain-management.adoc[Management with Multisig wallet]
+** xref:gnosis-safe-setup.adoc[Using Ethereum Gnosis SAFE]
+** xref:multisig-setup.adoc[Using SKALE Predeployed Multisig]
 * xref:faq.adoc[FAQs]
