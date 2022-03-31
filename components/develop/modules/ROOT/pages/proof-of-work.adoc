@@ -3,6 +3,7 @@
 :stem: asciimath
 
 SKALE chain owner has several methods to top up any address with sFUEL:
+
 * directly send sFUEL from the account,
 * send transaction to Etherbase to recharge sFUEL to any address, or 
 * use PoW.
