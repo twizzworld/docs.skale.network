@@ -25,12 +25,12 @@ PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of s
 +
 [latexmath]
 ++++
-hash = sha(address)\oplus sha3(nonce)\oplus sha3(gasPrice)
+X = sha3(address)\oplus sha3(nonce)\oplus sha3(gasPrice)
 ++++
 +
 [latexmath]
 ++++
-freeGas = ( 2^{256} - 1)/hash/difficulty
+freeGas = ( 2^{256} - 1)/X/difficulty
 ++++
 
 
@@ -43,7 +43,9 @@ freeGas(X) > estimateGas(tx)
 +
 a) If not, then back to the first step
 +
-b) If the condition is met - send the transaction with gasPrice = *X* and gasAmount = freeGas
+b) If the condition is met - send the transaction with gasPrice = X and gasAmount = freeGas(X)
+
+IMPORTANT: KECCAK256(SHA3) hashing algorithm should be used.
 
 == Control PoW on SKALE chain
 
@@ -53,13 +55,17 @@ b) If the condition is met - send the transaction with gasPrice = *X* and gasAmo
 
 == PoW browser usage
 
-* Browser wallets cannot send PoW transactions.
+Metamask and unlikely others browser wallets (Portis, Bitski etc) with which the SKALE Сhains is compatible cannot send PoW transactions. It happens because usually browser wallets limit a variable gasPrice and does not allow to set it higher than some threshold as it necessary for PoW.
 
-* You should generate `sessionKeyPair` inside the browser
+Otherwise it is possible to top up an account from the browser wallet. There are several methods to top up an account with sFUEL, but we need to have a methods which wouldn’t require an access to the address with sFUEL.
 
-* Build a transaction and run PoW client script by `sessionAddress`
+It is possible to generate a new Ethereum account and execute transactions with PoW mechanism by the web3/ethers libraries in browser running scripts. So if it would be a contract which allows to send sFUEL to an account and can be executed by any account from the network(with sFUEL or using PoW mechanism) then we can top up an account from the any web3 browser wallets.
 
-* Sign and send transaction from browser signed by `sessionKey`
+== PoW browser usage algorithm
+
+1. A contract with a function which can transfer funds to some address as a “Payer” contract in an example should be deployed by SKALE chain owner address
+2. New Ethereum account (sessionKey) should be created outside of browser wallet 
+3. Sign & Send transaction from this new Ethereum account (sessionKey) to execute a function in a contract with using PoW mechanism.
 
 == Examples
 
