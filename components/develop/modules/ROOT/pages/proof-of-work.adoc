@@ -1,0 +1,121 @@
+= Proof of work (PoW) 
+
+:stem: asciimath
+
+SKALE chain owner has several methods to top up any address with sFUEL:
+
+* directly send sFUEL from the account,
+* send transaction to Etherbase to recharge sFUEL to any address, or 
+* use PoW.
+
+PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address doesn't have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
+
+== PoW Usage
+
+. The client generates a unique gasPrice value based on the transaction data (<<pow-algorithm, the algorithm is described below>>).
+
+. The client sends transaction with a unique gasPrice value and the required gasAmount, which was calculated during the algorithm.
+
+. GasPrice and gasAmount of this transaction will be checked on the SKALE chain side by the same check in the algorithm.
+
+. Transaction is executed, even without sFUEL in the client's account.
+
+== PoW algorithm
+
+. The сlient generates a random 256-bit *X* by Formula which is equal a unique gasPrice value
++
+[latexmath]
+++++
+X = sha3(address)\oplus sha3(nonce)\oplus sha3(gasPrice)
+++++
++
+[latexmath]
+++++
+freeGas = ( 2^{256} - 1)/X/difficulty
+++++
+
+
+. Check whether *X* is allow to run transaction:
++
+[latexmath]
+++++
+freeGas(X) > estimateGas(tx)
+++++
++
+a) If not, then back to the first step
++
+b) If the condition is met - send the transaction with gasPrice = X and gasAmount = freeGas(X)
+
+IMPORTANT: KECCAK256(SHA3) hashing algorithm should be used.
+
+== Control PoW on SKALE chain
+
+* set difficulty for SKALE chain to turn on PoW mechanism
+
+* difficulty sets the complexity of getting free gas by PoW
+
+== PoW browser usage
+
+Metamask and most other browser wallets (Portis, Bitski etc) with which SKALE Chains are compatible, can't be used to send PoW transactions. This is because most browser wallets limit the gasPrice parameter and don't allow gasPrice to be higher than some threshold as it necessary for this PoW feature.
+
+== PoW browser usage algorithm
+
+. Here is an example contract which a SKALE chain owner can deploy first:
++
+```javascript
+contract Payer {
+    constructor () payable {
+    }
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {}
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {}
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
+    function pay(address payable receiver) external payable {
+        receiver.transfer(1 ether);
+    }
+}
+```
+
+. In a browser you need to create a new Ethereum address:
++
+```javascript
+web3 = new Web3(window.ethereum);
+userAccount = window.ethereum.selectedAddress;
+let sessionKeyCredentials = await _web3.eth.accounts.create()
+window.sessionKey = sessionKeyCredentials.privateKey;
+window.sessionKeyAddress = sessionKeyCredentials.address;
+console.log('New sessionKey generated: ' + sessionKeyCredentials.address);
+```
+
+. Create a transaction to contract "Payer" to top-up your account from the browser wallet:
++
+```javascript
+let nonce = await web3.eth.getTransactionCount(window.sessionKeyAddress)
+let userAccount = window.ethereum.selectedAddress;
+let tx =  {
+    from: window.sessionKeyAddress,
+    to: contractPayerAddress,
+    data: "0x0c11dedd000000000000000000000000"+userAccount,
+    nonce: nonce
+}
+```
+
+. Use PoW from skale-miner.js and send transaction:
++
+```javascript
+await mineGasForTransaction(web3, tx);
+let signed = await web3.eth.accounts.signTransaction(tx, window.sessionKey)
+web3.eth.sendSignedTransaction(signed.rawTransaction)
+```
+
+== Examples
+
+https://github.com/skalenetwork/pow-demo/blob/main/skale-miner.js[Example of PoW algorithm on JS]
+
+https://github.com/skalenetwork/pow-demo/blob/main/pow-test.js[Exapmle of sending transaction with PoW on JS]
+
+https://github.com/skalenetwork/pow-demo/blob/main/demo.html[Example of sending transaction with PoW in browser]
+
