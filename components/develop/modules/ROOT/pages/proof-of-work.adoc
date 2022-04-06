@@ -12,7 +12,7 @@ PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of s
 
 == PoW Usage
 
-. The client generates a unique gasPrice value based on the transaction data (<<pow-algorithm, the algorithm is described below>>).
+. The client generates a unique gasPrice value based on the transaction data (<<_pow_algorithm, the algorithm is described below>>).
 
 . The client sends transaction with a unique gasPrice value and the required gasAmount, which was calculated during the algorithm.
 
