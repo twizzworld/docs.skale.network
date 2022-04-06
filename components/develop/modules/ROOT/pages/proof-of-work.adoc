@@ -8,7 +8,7 @@ SKALE chain owner has several methods to top up any address with sFUEL:
 * send transaction to Etherbase to recharge sFUEL to any address, or 
 * use PoW.
 
-PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address does not have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
+PoW is a mechanism which allows SKALE chain owner to mine sufficient amount of sFUEL to any address to send transaction, if address doesn't have enough amount of sFUEL. The next paragraphs will describe specifics of the mechanism.
 
 == PoW Usage
 
@@ -56,17 +56,17 @@ IMPORTANT: KECCAK256(SHA3) hashing algorithm should be used.
 
 == PoW browser usage
 
-Metamask and unlikely others browser wallets (Portis, Bitski etc) with which the SKALE Сhains is compatible cannot send PoW transactions. It happens because usually browser wallets limit a variable gasPrice and does not allow to set it higher than some threshold as it necessary for PoW.
+Metamask and most other browser wallets (Portis, Bitski etc) with which SKALE Chains are compatible, can't be used to send PoW transactions. This is because most browser wallets limit the gasPrice parameter and don't allow gasPrice to be higher than some threshold as it necessary for this PoW feature.
 
-Otherwise it is possible to top up an account from the browser wallet. There are several methods to top up an account with sFUEL, but we need to have a methods which wouldn’t require an access to the address with sFUEL.
+Otherwise it's possible to top up an account from the browser wallet. There are several methods to top up an account with sFUEL, but you may require methods which wouldn’t require an access to the address with sFUEL.
 
-It is possible to generate a new Ethereum account and execute transactions with PoW mechanism by the web3/ethers libraries in browser running scripts. So if it would be a contract which allows to send sFUEL to an account and can be executed by any account from the network(with sFUEL or using PoW mechanism) then we can top up an account from the any web3 browser wallets.
+It's possible to generate a new Ethereum account and execute transactions with PoW mechanism by the web3/ethers libraries in browser by running scripts. So if it would be a contract which allows to send sFUEL to an account and can be executed by any account from the network (with sFUEL or using PoW mechanism) then you can top up an account from the any web3 browser wallets.
 
 == PoW browser usage algorithm
 
-1. A contract with a function which can transfer funds to some address as a “Payer” contract in an example should be deployed by SKALE chain owner address
-2. New Ethereum account (sessionKey) should be created outside of browser wallet 
-3. Sign & Send transaction from this new Ethereum account (sessionKey) to execute a function in a contract with using PoW mechanism.
+. A contract with a function which can transfer funds to some address as a “Payer” contract in an example should be deployed by SKALE chain owner address
+. New Ethereum account (sessionKey) should be created outside of browser wallet 
+. Sign & Send transaction from this new Ethereum account (sessionKey) to execute a function in a contract with using PoW mechanism.
 
 == Examples
 
