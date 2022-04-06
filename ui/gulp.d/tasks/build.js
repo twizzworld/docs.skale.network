@@ -48,7 +48,7 @@ module.exports = (src, dest, preview) => () => {
         },
       },
       {
-        filter: '**/**/fonts/*',
+        filter: '**/**/fonts/**',
         url: (asset) => {
           const relpath = asset.pathname
           const basename = ospath.basename(relpath)

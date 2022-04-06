@@ -5,14 +5,14 @@
 
 .hljs-comment,
 .hljs-quote {
-  color: rgb(129, 142, 150);
+  color: #efefef;
   font-style: italic;
 }
 
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: rgb(186, 53, 210);
+  color: #fc877c;
   font-weight: var(--monospace-font-weight-bold);
 }
 
@@ -26,13 +26,13 @@
 
 .hljs-string,
 .hljs-doctag {
-  color: #afff00;
+  color: #29ff94;
 }
 
 .hljs-title,
 .hljs-section,
 .hljs-selector-id {
-  color: rgb(73, 138, 255);
+  color: #8bfcd9;
   font-weight: var(--monospace-font-weight-bold);
 }
 
@@ -42,25 +42,25 @@
 
 .hljs-type,
 .hljs-class .hljs-title {
-  color: #458;
+  color: #00baff;
   font-weight: var(--monospace-font-weight-bold);
 }
 
 .hljs-tag,
 .hljs-name,
 .hljs-attribute {
-  color: #000080;
+  color: #ff442a;
   font-weight: normal;
 }
 
 .hljs-regexp,
 .hljs-link {
-  color: #009926;
+  color: #8bfcd9;
 }
 
 .hljs-symbol,
 .hljs-bullet {
-  color: #990073;
+  color: #ff7145;
 }
 
 .hljs-built_in,
