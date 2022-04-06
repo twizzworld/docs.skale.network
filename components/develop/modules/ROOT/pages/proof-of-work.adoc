@@ -58,15 +58,58 @@ IMPORTANT: KECCAK256(SHA3) hashing algorithm should be used.
 
 Metamask and most other browser wallets (Portis, Bitski etc) with which SKALE Chains are compatible, can't be used to send PoW transactions. This is because most browser wallets limit the gasPrice parameter and don't allow gasPrice to be higher than some threshold as it necessary for this PoW feature.
 
-Otherwise it's possible to top up an account from the browser wallet. There are several methods to top up an account with sFUEL, but you may require methods which wouldn’t require an access to the address with sFUEL.
-
-It's possible to generate a new Ethereum account and execute transactions with PoW mechanism by the web3/ethers libraries in browser by running scripts. So if it would be a contract which allows to send sFUEL to an account and can be executed by any account from the network (with sFUEL or using PoW mechanism) then you can top up an account from the any web3 browser wallets.
-
 == PoW browser usage algorithm
 
-. A contract with a function which can transfer funds to some address as a “Payer” contract in an example should be deployed by SKALE chain owner address
-. New Ethereum account (sessionKey) should be created outside of browser wallet 
-. Sign & Send transaction from this new Ethereum account (sessionKey) to execute a function in a contract with using PoW mechanism.
+. Here is an example contract which a SKALE chain owner can deploy first:
++
+```javascript
+contract Payer {
+    constructor () payable {
+    }
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {}
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {}
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
+    function pay(address payable receiver) external payable {
+        receiver.transfer(1 ether);
+    }
+}
+```
+
+. In a browser you need to create a new Ethereum address:
++
+```javascript
+web3 = new Web3(window.ethereum);
+userAccount = window.ethereum.selectedAddress;
+let sessionKeyCredentials = await _web3.eth.accounts.create()
+window.sessionKey = sessionKeyCredentials.privateKey;
+window.sessionKeyAddress = sessionKeyCredentials.address;
+console.log('New sessionKey generated: ' + sessionKeyCredentials.address);
+```
+
+. Create a transaction to contract "Payer" to top-up your account from the browser wallet:
++
+```javascript
+let nonce = await web3.eth.getTransactionCount(window.sessionKeyAddress)
+let userAccount = window.ethereum.selectedAddress;
+let tx =  {
+    from: window.sessionKeyAddress,
+    to: contractPayerAddress,
+    data: "0x0c11dedd000000000000000000000000"+userAccount,
+    nonce: nonce
+}
+```
+
+. Use PoW from skale-miner.js and send transaction:
++
+```javascript
+await mineGasForTransaction(web3, tx);
+let signed = await web3.eth.accounts.signTransaction(tx, window.sessionKey)
+web3.eth.sendSignedTransaction(signed.rawTransaction)
+```
 
 == Examples
 
