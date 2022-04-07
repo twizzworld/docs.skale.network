@@ -33,7 +33,7 @@ body {
 
 . Upload to your SKALE Chain
 +
-Assuming the `index.html` and `styles.css`, or static site files are stored in a folder called `test-skale`, and you have already performed `npm install @skalenetwork/filestorage.js~1.0.0`, then create a script file with the following code:
+Assuming the `index.html` and `styles.css`, or static site files are stored in a folder called `test-skale`, and you have already performed `npm install @skalenetwork/filestorage.js dotenv`, then create a script file with the following code:
 +
 .Save this as `filestorageUpload.js`.
 [source, javascript]
@@ -43,13 +43,16 @@ Assuming the `index.html` and `styles.css`, or static site files are stored in a
 const Filestorage = require('@skalenetwork/filestorage.js');
 const fs = require('fs');
 const Web3 = require('web3');
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 // If not using the SDK, replace the endpoint below with your SKALE Chain endpoint
 let filestorage = new Filestorage('http://localhost:15000'); 
 
 // If not using the SDK, replace with the SKALE Chain owner key and address.
-let privateKey = process.env.TEST_PRIVATE_KEY || '<SKALE CHAIN OWNER KEY>';
-let address = process.env.TEST_ADDRESS || '<SKALE CHAIN OWNER ADDRESS>';
+let privateKey = process.env.PRIVATE_KEY || '<SKALE CHAIN OWNER KEY>';
+let address = process.env.ADDRESS || '<SKALE CHAIN OWNER ADDRESS>';
 
 let directoryPath = 'test-skale';
 
