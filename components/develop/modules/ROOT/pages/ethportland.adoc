@@ -12,9 +12,25 @@ Do I need sFUEL?
 
 > Yes, you and any users will need sFUEL to deploy. Please use the faucet to grab free sFUEL.  Enter the endpoint you are using and an address and click Get sFUEL.
 
+== Filestorage
+
 How do I use filestorage? 
 
 > An uploader to filestorage will first need to reserve Space. Please use the faucet to reserve space by entering the endpoint you are using and the address of the uploader and click reserve Space.
+
+== RNG Endpoint
+
+How do I use that RNG Endpoint?
+
+> See here: https://docs.skale.network/skaled/3.14.x/random-number-generator
+
+== Oracle API
+
+How do I use that Oracle API?
+
+> See here: https://docs.skale.network/skaled/3.14.x/oracle
+
+== IMA Bridge
 
 How do I use the bridge? 
 
