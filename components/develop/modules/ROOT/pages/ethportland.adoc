@@ -1,44 +1,44 @@
 = EthPortland Notes
 
-Which chain should I use?
+.Which chain should I use?
 
-> 4 chains are available, feel free to use any chain as needed.
+4 chains are available, feel free to use any chain as needed.
 
-Do I need to set Access Control? 
+.Do I need to set Access Control? 
 
-> For EthPortland chains no - anyone can deploy. On production chains, deployers need to be added using the config-controller.
+For EthPortland chains no - anyone can deploy. On production chains, deployers need to be added using the config-controller.
 
-Do I need sFUEL? 
+.Do I need sFUEL? 
 
-> Yes, you and any users will need sFUEL to deploy. Please use the faucet to grab free sFUEL.  Enter the endpoint you are using and an address and click Get sFUEL.
+Yes, you and any users will need sFUEL to deploy. Please use the faucet to grab free sFUEL.  Enter the endpoint you are using and an address and click Get sFUEL.
 
 == Filestorage
 
-How do I use filestorage? 
+.How do I use filestorage? 
 
-> An uploader to filestorage will first need to reserve Space. Please use the faucet to reserve space by entering the endpoint you are using and the address of the uploader and click reserve Space.
+An uploader to filestorage will first need to reserve Space. Please use the faucet to reserve space by entering the endpoint you are using and the address of the uploader and click reserve Space.
 
 == RNG Endpoint
 
-How do I use that RNG Endpoint?
+.How do I use that RNG Endpoint?
 
-> See here: https://docs.skale.network/skaled/3.14.x/random-number-generator
+See here: https://docs.skale.network/skaled/3.14.x/random-number-generator
 
 == Oracle API
 
-How do I use that Oracle API?
+.How do I use that Oracle API?
 
-> See here: https://docs.skale.network/skaled/3.14.x/oracle
+See here: https://docs.skale.network/skaled/3.14.x/oracle
 
 == IMA Bridge
 
-How do I use the bridge? 
+.How do I use the bridge? 
 
-> Bridge ABIs for EthPortland chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-portland
+Bridge ABIs for EthPortland chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-portland
 
-How is the EthPortland bridge configured?
+.How is the EthPortland bridge configured?
 
-> IMA Bridge for EthPortland has the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
+IMA Bridge for EthPortland has the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
 
 [IMPORTANT]
 ====
