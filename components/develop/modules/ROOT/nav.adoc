@@ -2,6 +2,7 @@
 * xref:deployment.adoc[Deploying on SKALE]
 * xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 * Network Details
+** xref:ethportland.adoc[EthPortland Notes]
 ** xref:networks.adoc[Networks]
 ** xref:sfuel-gas-token.adoc[SKALE Gas Token]
 ** xref:proof-of-work.adoc[Proof of Work]
