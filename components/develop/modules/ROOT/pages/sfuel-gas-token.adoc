@@ -8,13 +8,15 @@ The SKALE chain owner is allocated a massive amount of sFUEL and is responsible 
 
 == Etherbase contract
 
-For SKALE chains deployed after April 2022, the Etherbase predeployed contract stores and manages sFUEL received from block rewards and spent gas fees. At deployment, the SKALE Chain owner is assigned as the `DEFAULT_ADMIN_ROLE` and `ETHER_MANAGER_ROLE`. The owner can transfer these roles to other accounts, multisigs, or contracts.
+For SKALE chains launched after April 2022, the Etherbase predeployed contract stores and manages sFUEL received from block rewards and spent gas fees. At deployment, the SKALE Chain owner is assigned as the `DEFAULT_ADMIN_ROLE` and `ETHER_MANAGER_ROLE`. The owner can transfer these roles to other accounts, multisigs, or contracts.
+
+NOTE: sFUEL received from block rewards only for second generation SKALE chains (V2 realise)
 
 The contract is predeployed at: `0xd2bA3e0000000000000000000000000000000000` with ABIs available here: https://github.com/skalenetwork/etherbase/releases/download/1.0.0-stable.0/etherbase-1.0.0-stable.0-abi.json. 
 
 Initial sFUEL allocation:
 
-* **Etherbase**: 5.79e+58 sFUEL
+* **Etherbase**: 5.79e+58 sFUEL 
 * **SKALE Chain Owner**: 1e+12 sFUEL 
 
 Two methods are available: 
@@ -22,13 +24,64 @@ Two methods are available:
 * *retrieve(receiver)* - Retrieve the entire sFUEL balance in Etherbase to receiver address.
 * *partiallyRetrieve(receiver, amount)* - retrieve an amount of sFUEL in Etherbase to the receiver address.
 
+== Etherbase Solidity usage example
+
+```
+pragma solidity ^0.8.0;
+
+interface IEtherbase {
+    receive() external payable;
+    function retrieve(address payable receiver) external;
+    function partiallyRetrieve(address payable receiver, uint amount) external;
+}
+
+contract EtherbaseUsage {
+
+    uint256 MIN_AMOUNT = 1000000000000000;
+
+    modifier topUp {
+        if (msg.sender.balance < MIN_AMOUNT) {
+            partiallyRetrieve(payable(msg.sender), MIN_AMOUNT);
+        }
+        _;
+    }
+
+    function retrieve(address payable receiver) public {
+        getEtherbase().retrieve(receiver);
+    }
+
+    function partiallyRetrieve(address payable receiver, uint amount) public {
+        getEtherbase().partiallyRetrieve(receiver, amount);
+    }
+
+    function sendToEtherbase() public payable {
+        getEtherbaseAddress().transfer(msg.value);
+    }
+
+    function getEtherbase() public pure returns (IEtherbase) {
+        return IEtherbase(getEtherbaseAddress());
+    }
+
+    function getEtherbaseAddress() public pure returns (address payable) {
+        return payable(0xd2bA3e0000000000000000000000000000000000);
+    }
+}
+
+contract YourContract is EtherbaseUsage {
+
+    function yourFunction(address payable receiver, uint amount) external payable topUp {
+        partiallyRetrieve(receiver, amount);
+        retrieve(receiver);
+        sendToEtherbase();
+    }
+}
+
+```
 == Automatic sFUEL top-up
 
 ```javascript
 //  TODO
 
 ```
-
-
 
 For further develop details on distributing and developing with sFUEL, see xref:skale-chain-access-control.adoc[Access Control].
