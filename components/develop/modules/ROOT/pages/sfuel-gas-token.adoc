@@ -10,8 +10,6 @@ The SKALE chain owner is allocated a massive amount of sFUEL and is responsible 
 
 For SKALE chains launched after April 2022, the Etherbase predeployed contract stores and manages sFUEL received from block rewards and spent gas fees. At deployment, the SKALE Chain owner is assigned as the `DEFAULT_ADMIN_ROLE` and `ETHER_MANAGER_ROLE`. The owner can transfer these roles to other accounts, multisigs, or contracts.
 
-NOTE: sFUEL received from block rewards only for second generation SKALE chains (V2 realise)
-
 The contract is predeployed at: `0xd2bA3e0000000000000000000000000000000000` with ABIs available here: https://github.com/skalenetwork/etherbase/releases/download/1.0.0-stable.0/etherbase-1.0.0-stable.0-abi.json. 
 
 Initial sFUEL allocation:
@@ -25,6 +23,10 @@ Two methods are available:
 * *partiallyRetrieve(receiver, amount)* - retrieve an amount of sFUEL in Etherbase to the receiver address.
 
 == Etherbase Solidity usage example
+
+The following example illustrates how you can incorporate an automatic top-up modifier to ensure users have sufficient sFUEL to transact. 
+
+NOTE: Example assumes that users have already been provisioned some initial sFUEL.
 
 ```
 pragma solidity ^0.8.0;
@@ -75,12 +77,6 @@ contract YourContract is EtherbaseUsage {
         sendToEtherbase();
     }
 }
-
-```
-== Automatic sFUEL top-up
-
-```javascript
-//  TODO
 
 ```
 
