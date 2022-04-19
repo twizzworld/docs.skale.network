@@ -28,6 +28,7 @@ The following example illustrates how you can incorporate an automatic top-up mo
 
 NOTE: Example assumes that users have already been provisioned some initial sFUEL.
 
+
 ```
 pragma solidity ^0.8.0;
 
@@ -79,5 +80,7 @@ contract YourContract is EtherbaseUsage {
 }
 
 ```
+
+NOTE: YourContract example above must be granted with ETHER_MANAGER_ROLE.
 
 For further develop details on distributing and developing with sFUEL, see xref:skale-chain-access-control.adoc[Access Control].
