@@ -1,12 +1,12 @@
-= EthPortland Notes
+= EthAmsterdam Notes
 
 .Which chain should I use?
 
-4 chains are available, feel free to use any chain as needed.
+2 chains are available, feel free to use any chain as needed.
 
 .Do I need to set Access Control? 
 
-For EthPortland chains no - anyone can deploy. On production chains, deployers need to be added using the config-controller.
+For EthAmsterdam chains no - anyone can deploy.
 
 .Do I need sFUEL? 
 
@@ -34,11 +34,11 @@ See here: https://docs.skale.network/skaled/3.14.x/oracle
 
 .How do I use the bridge? 
 
-Bridge ABIs for EthPortland chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-portland
+Bridge ABIs for EthAmsterdam chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-amsterdam
 
-.How is the EthPortland bridge configured?
+.How is the EthAmsterdam bridge configured?
 
-IMA Bridge for EthPortland has the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
+IMA Bridge for EthAmsterdam has the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
 
 [IMPORTANT]
 ====
