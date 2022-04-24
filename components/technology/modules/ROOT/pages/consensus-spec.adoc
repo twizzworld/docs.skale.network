@@ -255,7 +255,7 @@ When a node commits a block to its blockchain, if will remove the matching trans
 
 === Gas fees
 
-Each transaction requires payment of a gas fee, compatible with ETH gas fee. The gas fee can be paid in native currency of the schain or in Proof of Work. The gas price is adjusted after each committed block. It is decreased if the block has been underloaded, meaning that the number of transactions in the block is less than 70 percent of the maximum number of transactions per block, and is decreased if the block has been underloaded.
+Each transaction requires payment of a gas fee, compatible with ETH gas fee. The gas fee can be paid in native currency of the SKALE chain (sFUEL) or in Proof of Work. The gas price is adjusted after each committed block. It is decreased if the block has been underloaded, meaning that the number of transactions in the block is less than 70 percent of the maximum number of transactions per block, and is increased if the block has been overloaded.
 
 === Compressed block proposal communication
 
