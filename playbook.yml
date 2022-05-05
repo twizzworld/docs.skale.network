@@ -76,3 +76,5 @@ asciidoc:
   - ./lib/tabs-block.js
   - '@djencks/asciidoctor-mathjax'
   - asciidoctor-kroki
+urls:
+  redirect_facility: netlify
