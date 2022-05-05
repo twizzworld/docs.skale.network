@@ -1,4 +1,6 @@
 = SKALE Consensus
+:page-aliases: skale-consensus.adoc
+
 
 == Definitions and assumptions
 
@@ -209,19 +211,19 @@ Block header is a JSON object that includes the following:
 
 1. `*BLOCK~ID~*` - integer id of the current block, starting from 0 and incremented by 1
 
-2.  $BLOCK\ PROPOSER$ - integer id of the node that proposed the block.
+2.  `*BLOCK PROPOSER*` - integer id of the node that proposed the block.
 
-3.  $PREVIOUS\ BLOCK\ HASH$ - sha-3 hash of the previous block
+3.  `*PREVIOUS BLOCK HASH*` - SHA-3 hash of the previous block
 
-4.  $CURRENT\ BLOCK\ HASH$ - the hash of the current block
+4.  `*CURRENT BLOCK HASH*` - the hash of the current block
 
-5.  $TRANSACTION\ COUNT$ - count of transactions in the current block
+5.  `*TRANSACTION COUNT*` - count of transactions in the current block
 
-6.  $TRANSACTION\ SIZES$ - an array of transaction sizes in the current block
+6.  `*TRANSACTION SIZES*` - an array of transaction sizes in the current block
 
-7.  $CURRENT\ BLOCK\ PROPOSER\ SIG$ - ECDSA signature of the proposer of the current block
+7.  `*CURRENT BLOCK PROPOSER SIG*` - ECDSA signature of the proposer of the current block
 
-8.  $CURRENT\ BLOCK\ TSIG$ - BLS supermajority threshold signature of the current block
+8.  `*CURRENT BLOCK T~SIG*` - BLS supermajority threshold signature of the current block
 
 Note: All integers in this spec are unsigned 64-bit integers unless specified otherwise.
 
