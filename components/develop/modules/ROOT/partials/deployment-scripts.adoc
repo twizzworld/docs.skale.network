@@ -119,7 +119,7 @@ Node.jsSmart contracts can be deployed with just the use of web3.js as well. Bel
 
 NOTE: Web3 and solc versions matter for compatibility. Web3 1.0.0-beta.35 and solc version 0.5.4 work well together, but other version combinations can cause unexpected errors.  
 
-For more information on using web3.js, please see https://web3js.readthedocs.io/en/1.0/getting-started.html[Web3.js Getting Started Documentation].  
+For more information on using web3.js, please see https://web3js.readthedocs.io/[Web3.js Ethereum JavaScript API].  
 
 [source,javascript]
 ----

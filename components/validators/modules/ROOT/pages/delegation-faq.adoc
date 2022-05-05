@@ -22,7 +22,7 @@ You can use the ConsenSys Activate Calculator here:
 https://activate.codefi.network/staking/skale/calculator
 
 or you can use the Staking Rewards calculator here:
-https://www.stakingrewards.com/calculator/skale
+https://www.stakingrewards.com/calculator/?asset=skale
 
 == How often can rewards be claimed?
 
