@@ -17,14 +17,19 @@ SKALE Chain owners have special privileges for managing their SKALE Chain, Files
 
 == Managing Ownership using a Multisig Contract
 
-With newer SKALE Chains, you can assign administrative and other roles to a Multisig contract where a predefined number of signatures are required to confirm and execute transactions.
+With newer SKALE Chains, you can assign administrative and other roles to a Multisig contract and define a threshold number of signatures required to confirm and execute transactions.
 
 There are several ways to do this: 
 
-* xref:gnosis-safe-setup.adoc[Use a Gnosis SAFE on Ethereum]. 
+* xref:gnosis-safe-setup.adoc[Use Gnosis SAFE on Ethereum]. <- RECOMMENDED
 * xref:multisig-setup.adoc[Use the predeployed Gnosis MultiSigWallet on SKALE].
-* Use other custom contracts.
+* Use other custom contracts or multisigs.
 * Use a mixture of the above approaches (Use Gnosis SAFE for IMA Mainnet contracts, and SKALE chain predeployed Multisig for IMA contracts on SKALE.)
+
+Using Gnosis SAFE on Ethereum is the recommend approach to assigning SKALE Chain ownership since it provides the greatest flexibility to owners.
+
+[IMPORTANT]
+Once SKALE Chain ownership is assigned to an address, that address cannot be changed for SKALE Chain specific SKALE Manager and IMA Mainnet administration methods. Assigning ownership to a Gnosis SAFE address offers that SAFE's owners the ability to modify signers/owners at any time.
 
 .Comparison of Multisig Approaches
 [cols="1a,1a"]
@@ -36,13 +41,17 @@ There are several ways to do this:
 
 |Can administer:
 
-* SKALE chain
+* SKALE Manager (e.g. deleteSchain, schainOwnerWallet)
+* SKALE Chain configs
+* Etherbase
 * Filestorage
 * IMA SKALE chain contracts
 * IMA mainnet contracts
+
 |Can administer:
 
-* SKALE Chain
+* SKALE Chain configs
+* Etherbase
 * Filestorage
 * IMA SKALE chain contracts
 
@@ -59,5 +68,6 @@ There are several ways to do this:
 |No fallback option
 |===
 
-* To use the Gnosis MultiSigWallet on SKALE, xref:multisig-setup.adoc[see Multisig setup for details.]
 * To use the Gnosis SAFE on Ethereum, xref:gnosis-safe-setup.adoc[see SAFE setup for details.]
+* To use the Gnosis MultiSigWallet on SKALE, xref:multisig-setup.adoc[see Multisig setup for details.]
+
