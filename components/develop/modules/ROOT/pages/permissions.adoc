@@ -78,6 +78,7 @@ IMPORTANT: Do not revoke this role from MessageProxyForSchain otherwise IMA will
 
 ** execute() - executes data on destination contract.
 ** postMessage() - receives message from sender (`PUPPETEER_ROLE`)
+** sendEth() - sends sFUEL from Marionette contract.
 
 === IMA SKALE Chain
 
