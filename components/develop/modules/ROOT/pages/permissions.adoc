@@ -92,7 +92,7 @@ WARNING: enabling this is not recommended as it may introduce incorrect behavior
 
 * _CHAIN_CONNECTOR_ROLE_
 +
-NOTE: This is for custom messaging. For general SKALE to SKALE chain transfers, see `TOKEN_REGISTRAR_ROLE` below.
+NOTE: This is for custom messaging. For general SKALE to SKALE chain transfers, see `REGISTRAR_ROLE` below.
 
 ** MessageProxyForSchain.addConnectedChain() - add a chain for custom messages.
 ** MessageProxyForSchain.removeConnectedChain()
