@@ -37,16 +37,32 @@ All roles below are granted to Marionette at chain deployment(`0xD2c0DeFACe00000
 +
 WARNING: Changing this setting may introduce security risks. Suggested to use temporarily only.
 
-** enableFreeContractDeployment() - enable any msg.sender to deploy contracts
-** disableFreeContractDeployment()
+** enableFreeContractDeployment(), funcSig: `0x56436fb7` - enable any msg.sender to deploy contracts
+** disableFreeContractDeployment(), funcSig: `0x84f0b791`
 
 * _MTM_ADMIN_ROLE_ (hash: `4a674ad8ca91697aae9afc0f1850245e64feae02b627092a64943ed941e4d09f`)
-** enableMTM() - enable multi-transaction mode (speedy game mode)
-** disableMTM()
+** enableMTM(), funcSig: `0x3367905e` - enable multi-transaction mode (speedy game mode)
+** disableMTM(), funcSig: `0x0acba068`
 
 * _DEPLOYER_ROLE_ (hash: `fc425f2263d0df187444b70e47283d622c70181c5baebb1306a01edba1ce184c`)
-** addToWhitelist(address) - add an address to list that can deploy contracts
-** removeFromWhitelist(address)
+** addToWhitelist(address), funcSig: `0xe43252d7`- add an address to list that can deploy contracts
+** removeFromWhitelist(address), funcSig: `0x8ab1d681`
++
+[TIP]
+====
+*Execution from Ethereum*
+
+Run `npx msig encodeData my-schain-name ConfigController addToWhitelist 0xDBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+
+Result payload for SAFE:
+`0x94489202b09dd40ba18009e4102e7c94986bf5052ed8e02c49570ecce386e3d11c358968000000000000000000000000d2c0deface000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000d2002000000000000000000000000000000000d2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000024e43252d7000000000000000000000000DBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD600000000000000000000000000000000000000000000000000000000`
+
+*Execution from SKALE*
+
+Run `npx msig encodeDataWithoutIMA ConfigController addToWhitelist 0xDBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+
+Result payload for Marionette execute(): `0xe43252d7000000000000000000000000DBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+====
 
 === Etherbase
 
@@ -55,12 +71,12 @@ WARNING: Changing this setting may introduce security risks. Suggested to use te
 
 * _ETHER_MANAGER_ROLE_ (hash: `e0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046`)
 +
-NOTE: Assigned to MessageProxyForSchain)
+NOTE: Assigned to MessageProxyForSchain
 +
 IMPORTANT: Do not revoke this role from MessageProxyForSchain otherwise IMA will eventually stop working.
 
-** retrieve() - retrieve entire sFUEL balance from Etherbase.
-** partiallyRetrieve() - retrieve amount of sFUEL from Etherbase.
+** retrieve(address), funcSig: `0x0a79309b` - retrieve entire sFUEL balance from Etherbase.
+** partiallyRetrieve(address, amount), funcSig: `0x204a3e93` - retrieve amount of sFUEL from Etherbase.
 
 === Filestorage
 
@@ -128,8 +144,23 @@ NOTE: This is for custom messaging. For general SKALE to SKALE chain transfers, 
 ** TokenManagerLinker.disconnectSchain()
 
 * _TOKEN_REGISTRAR_ROLE_ (hash: `fda70c2cc66a36c14884ee85424961f51b1d92b4494751699b6d105b3bcbcba8`)
-** TokenManagerERC*.addERC*TokenByOwner() - add an ERC token mapping.
+** TokenManagerERC*.addERC*TokenByOwner(), funcSigs: `0xeafd15c8` - add an ERC token mapping.
 
+[TIP]
+====
+*Execution from Ethereum*
+
+Run `npx msig encodeData my-schain-name TokenManagerERC20 addERC20TokenByOwner target-schain-name 0x39585130cB54A0AC0520e470185DB61AB1D3faD3 0xE54a6Aec03fE1C4b485861F307eFd6Af6a3f748a`
+
+Result payload for SAFE:
+`0x94489202b09dd40ba18009e4102e7c94986bf5052ed8e02c49570ecce386e3d11c358968000000000000000000000000d2c0deface00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000140000000000000000000000000d2aaa005000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a4eafd15c8000000000000000000000000000000000000000000000000000000000000006000000000000000000000000039585130cb54a0ac0520e470185db61ab1d3fad3000000000000000000000000e54a6aec03fe1c4b485861f307efd6af6a3f748a00000000000000000000000000000000000000000000000000000000000000127461726765742d73636861696e2d6e616d65000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+
+*Execution from SKALE*
+
+Run `npx msig encodeDataWithoutIMA TokenManagerERC20 addERC20TokenByOwner target-schain-name 0x39585130cB54A0AC0520e470185DB61AB1D3faD3 0xE54a6Aec03fE1C4b485861F307eFd6Af6a3f748a`
+
+Result payload for Marionette execute(): `0xeafd15c8000000000000000000000000000000000000000000000000000000000000006000000000000000000000000039585130cb54a0ac0520e470185db61ab1d3fad3000000000000000000000000e54a6aec03fe1c4b485861f307efd6af6a3f748a00000000000000000000000000000000000000000000000000000000000000127461726765742d73636861696e2d6e616d650000000000000000000000000000`
+====
 
 
 
