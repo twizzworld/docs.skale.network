@@ -54,6 +54,8 @@ WARNING: changing this setting will introduce security risks!
 * ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
 
 * _ETHER_MANAGER_ROLE_ (Assigned to MessageProxyForSchain)
++
+IMPORTANT: Do not revoke this role from MessageProxyForSchain otherwise IMA will eventually stop working.
 
 ** retrieve() - retrieve entire sFUEL balance from Etherbase.
 ** partiallyRetrieve() - retrieve amount of sFUEL from Etherbase.
