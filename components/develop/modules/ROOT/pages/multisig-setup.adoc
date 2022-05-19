@@ -2,7 +2,7 @@
 :experimental:
 
 [WARNING]
-Instructions provided here are for **general purposes only** on how to transition a SKALE Chain from a single owner account to a multisig. You are highly encouraged to apply your own security evaluations, processes, and reviews to suit a multisig setup to your specific security needs. 
+Instructions provided here are for **general purposes only** on how to use the predeployed multisig. You are highly encouraged to apply your own security evaluations, processes, and reviews to suit a multisig setup to your specific security needs. 
 
 To use Gnosis **MultiSigWallet** for SKALE Chain owner administration, follow the instructions below, which are based on the tools and steps provided here: <https://github.com/gnosis/MultiSigWallet>.
 
@@ -17,30 +17,22 @@ ifndef::env-github[]
 
 card SKALE_Network {
     cloud "example-chain" as ec {
+        [Config Controller] as cc
         [IMA Schain] as is
         [Filestorage] as fs
         [Etherbase] as eb
         [Marionette] as mn
-        [MultiSigWallet] as ms
-    }
-    cloud "next-chain" as nc {
-        [IMA Schain] as is2
-        [Filestorage] as fs2
-        [Etherbase] as eb2
-        [Marionette] as mn2
-        [MultiSigWallet] as ms2
+        [Backup Multisig] as msp
     }
     
 }
 
-ms --> mn
+mn --> cc
 mn --> eb
 mn --> fs
 mn --> is
-ms2 --> mn2
-mn2 --> eb2
-mn2 --> fs2
-mn2 --> is2
+msp --> mn
+
 
 @enduml
 ....
@@ -50,7 +42,7 @@ endif::[]
 == SKALE Chain Setup
 
 [IMPORTANT]
-Before proceeding, be sure your SKALE Chain is deployed and assigned ownership to a single account and is funded with sFUEL. The SKALE Chain will have several predeployed contracts including Marionette and a predeployed Gnosis MultiSigWallet. These instructions detail how to interact with the predeployed multisig.
+Before proceeding, be sure your SKALE Chain is deployed and you have access to an owner on the predeployed multisig and are funded with sFUEL. The SKALE Chain will have several predeployed contracts including Marionette and a predeployed Gnosis MultiSigWallet. These instructions detail how to interact with the predeployed multisig.
 
 . Add your SKALE Chain endpoint to Metamask.
 . Setup a Gnosis MultiSigWallet local server or use a ready-made instance on IPFS using this link: <https://github.com/gnosis/MultiSigWallet#an-instance-of-multisig-website-is-available-on-ipfs-at-httpsipfsinfuraioipfsqmfrd4guqzobni2nt2c77a3utq452ffwstr4fjejixugjf>
@@ -58,7 +50,7 @@ Before proceeding, be sure your SKALE Chain is deployed and assigned ownership t
 . Click btn:[Unlock Metamask] in the MultiSig UI.
 . Click btn:[Add] button.
 . Click btn:[Restore deployed wallet] to add the already deployed multisig.
-. Add the name and address of the multisig and click btn:[OK].
+. Add the name and address of the multisig (`0xD244519000000000000000000000000000000000`) and click btn:[OK].
 
 From here, 
 
@@ -78,9 +70,9 @@ image:multisig-owners.png[]
 +
 image:multisig-add.png[]
 +
-. Enter the contract address, name (optional), and paste in the contract ABI. For example, if you want to permit another address to deploy contracts, paste in the DeploymentControl ABI (https://github.com/skalenetwork/predeployed/blob/master/deploy-control/DeploymentController.abi) and contract address `0xD2002000000000000000000000000000000000D2`.
+. Enter the contract address, name (optional), and paste in the contract ABI. For example, if you want to permit another address to deploy contracts, first paste in the Marionettea address `0xD2c0DeFACe000000000000000000000000000000` and ABI: https://github.com/skalenetwork/marionette/releases/download/1.0.0-stable.0/marionette-1.0.0-stable.0-abi.json
 . After a moment, the `Method` field should populate with the available methods.
-. Select the method to execute, and add any additional information. For example, select `addToWhitelist` and enter the address to allow deployment permissions.
+. Select the method `execute`, and add additional fields. In this example, for target enter the config-deployer address `0xD2002000000000000000000000000000000000d2`, value: `0`, and for data, enter `0x` followed by the funcSig for addToWhitelist (`e43252d7`), followed by 16 zeros, and then the address to add. For example: `0xe43252d7000000000000000033b5455B13148116189e8c50228B595DC062aB74`
 . Click btn:[Send multisig transaction].
 . The multisig will then request the various owners to sign off on the transaction.
 . Send the deployed multisig address to each owner so they each can load the multisig.
@@ -100,35 +92,3 @@ Each multisig signer should follow the instructions for signing transactions:
 . Click btn:[Confirm] to sign the transaction.
 . Wait until the other required signers signoff, and then the transaction will finally execute.
 image:multisig-signoff.png[]
-
-== SKALE Chain Administration with Multisig
-
-Assuming that your Multisig is setup, the following example demonstrates performing administrative actions. Say you want to `enableAutomaticDeploy` in the TokenManagerERC20 IMA SKALE Chain contract.
-
-. Transfer Admin role to the Multisig
-+
-To transfer admin of the contract to the multisig, you can use Hardhat console (https://hardhat.org/guides/hardhat-console.html) using the SKALE Chain owner address assigned at deployment. First, grant the admin role to the multisig, then follow by revoking the admin role from the original owner address at deployment.
-+
-[source, shell]
-----
-> const multisigWalletAddress = '<DEPLOYED-MULTISIG-ADDRESS';
-undefined
-
-> await tokenManagerERC20.grantRole(await tokenManagerERC20.DEFAULT_ADMIN_ROLE(), multisigWalletAddress)
-undefined
-
->await tokenManagerERC20.revokeRole(await tokenManagerERC20.DEFAULT_ADMIN_ROLE(), schainOwner.address);
-undefined
-----
-
-. Enable Automatic Deployment using Multisig
-+
-Now that the multisig is granted the admin role, you can issue the transaction to enable automatic deployment. First you might want to check whether it's enabled or now, again using Hardhat console:
-+
-[source, shell]
-----
-> await tokenManagerERC20.automaticDeploy()
-false
-----
-+
-Assuming this returns `false`, then proceed under xref:_sending_multisig_transaction[Sending MultiSig Transaction] and use the ABI for the TokenManagerERC20, and select `enableAutomaticDeploy`.
