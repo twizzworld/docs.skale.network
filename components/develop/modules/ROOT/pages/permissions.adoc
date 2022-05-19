@@ -33,103 +33,89 @@ All roles below are granted to Marionette at chain deployment(`0xD2c0DeFACe00000
 * Address: `0xD2002000000000000000000000000000000000d2`
 * ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
 
-==== DEPLOYER_ADMIN_ROLE
-
+* _DEPLOYER_ADMIN_ROLE_
++
 WARNING: changing this setting will introduce security risks!
 
-* enableFreeContractDeployment() - enable any msg.sender to deploy contracts
-* disableFreeContractDeployment()
+** enableFreeContractDeployment() - enable any msg.sender to deploy contracts
+** disableFreeContractDeployment()
 
-==== MTM_ADMIN_ROLE
+* _MTM_ADMIN_ROLE_
+** enableMTM() - enable multi-transaction mode (speedy game mode)
+** disableMTM()
 
-* enableMTM() - enable multi-transaction mode (speedy game mode)
-* disableMTM()
-
-==== DEPLOYER_ROLE
-
-* addToWhitelist(address) - add an address to list that can deploy contracts
-* removeFromWhitelist(address)
+* _DEPLOYER_ROLE_
+** addToWhitelist(address) - add an address to list that can deploy contracts
+** removeFromWhitelist(address)
 
 === Etherbase
 
-Address: `0xd2bA3e0000000000000000000000000000000000`
-ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
+* Address: `0xd2bA3e0000000000000000000000000000000000`
+* ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
 
-==== ETHER_MANAGER_ROLE
+* _ETHER_MANAGER_ROLE_ (Assigned to MessageProxyForSchain)
 
-Assigned to MessageProxyForSchain.
-
-* retrieve() - retrieve entire sFUEL balance from Etherbase.
-* partiallyRetrieve() - retrieve amount of sFUEL from Etherbase.
+** retrieve() - retrieve entire sFUEL balance from Etherbase.
+** partiallyRetrieve() - retrieve amount of sFUEL from Etherbase.
 
 === Filestorage
 
-Address: `0xD3002000000000000000000000000000000000d3`
-
-==== ALLOCATOR_ROLE
-
-NOTE: Not assigned at deployment.
-
-* reserveSpace() - allocate filestorage space to an address.
+* Address: `0xD3002000000000000000000000000000000000d3`
+* _ALLOCATOR_ROLE_ (Not assigned at deployment)
+** reserveSpace() - allocate filestorage space to an address.
 
 === Marionette
 
-Address: `0xD2c0DeFACe000000000000000000000000000000`
-ABI: https://github.com/skalenetwork/marionette/releases/download/1.0.0-stable.0/marionette-1.0.0-stable.0-abi.json
+* Address: `0xD2c0DeFACe000000000000000000000000000000`
+* ABI: https://github.com/skalenetwork/marionette/releases/download/1.0.0-stable.0/marionette-1.0.0-stable.0-abi.json
 
-==== IMA_ROLE
+* _IMA_ROLE_ (Assigned to MessageProxyForSchain)
+** postMessage() - receives message from msg.sender (`IMA_ROLE`) 
 
-Assigned to MessageProxyForSchain.
+* _PUPPETEER_ROLE_ (Assigned to Ethereum SKALE Owner (Gnosis SAFE), and to SKALE Chain predeployed multisigwallet(`0xD244519000000000000000000000000000000000`))
 
-* postMessage() - receives message from msg.sender (`IMA_ROLE`) 
-
-==== PUPPETEER_ROLE
-
-Assigned to Ethereum SKALE Owner (Gnosis SAFE), and to SKALE Chain predeployed multisigwallet(`0xD244519000000000000000000000000000000000`)
-
-* execute() - executes data on destination contract.
-* postMessage() - receives message from sender (`PUPPETEER_ROLE`)
+** execute() - executes data on destination contract.
+** postMessage() - receives message from sender (`PUPPETEER_ROLE`)
 
 === IMA SKALE Chain
 
-NOTE: The following is not assigned at deployment.
+NOTE: The following roles are not assigned at deployment.
 
-ABIs: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/IMA/1.3.0/schain
+* ABIs: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/IMA/1.3.0/schain
 
-==== AUTOMATIC_DEPLOY_ROLE
-
+* _AUTOMATIC_DEPLOY_ROLE_
++
 WARNING: enabling this is not recommended as it may introduce incorrect behaviors and is not compatible with all tokens.
 
-* TokenManagerERC*.enableAutomaticDeploy() - enable automatic deployment.
-* TokenManagerERC*.disableAutomaticDeploy()
+** TokenManagerERC*.enableAutomaticDeploy() - enable automatic deployment.
+** TokenManagerERC*.disableAutomaticDeploy()
 
-==== CHAIN_CONNECTOR_ROLE
-
+* _CHAIN_CONNECTOR_ROLE_
++
 NOTE: This is for custom messaging. For general SKALE to SKALE chain transfers, see `TOKEN_REGISTRAR_ROLE` below.
 
-* MessageProxyForSchain.addConnectedChain() - add a chain for custom messages.
-* MessageProxyForSchain.removeConnectedChain()
+** MessageProxyForSchain.addConnectedChain() - add a chain for custom messages.
+** MessageProxyForSchain.removeConnectedChain()
 
-==== CONSTANT_SETTER_ROLE
+* _CONSTANT_SETTER_ROLE_
 
-* CommunityLocker.setTimeLimitPerMessage() - change the required time between exit messages.
-* MessageProxyForSchain.setNewGasLimit() - change the gas limit for Message Proxy.
+** CommunityLocker.setTimeLimitPerMessage() - change the required time between exit messages.
+** MessageProxyForSchain.setNewGasLimit() - change the gas limit for Message Proxy.
 
-==== EXTRA_CONTRACT_REGISTRAR_ROLE
+* _EXTRA_CONTRACT_REGISTRAR_ROLE_
 
-* MessageProxyForSchain.registerExtraContract() - register a contract for sending Messages.
-* MessageProxyForSchain.removeExtraContract()
+** MessageProxyForSchain.registerExtraContract() - register a contract for sending Messages.
+** MessageProxyForSchain.removeExtraContract()
 
-==== REGISTRAR_ROLE
+* _REGISTRAR_ROLE_
 
-* TokenManagerLinker.registerTokenManager() - register a token manager contract.
-* TokenManagerLinker.removeTokenManager()
-* TokenManagerLinker.connectSchain() - connect a chain for S2S transfers.
-* TokenManagerLinker.disconnectSchain()
+** TokenManagerLinker.registerTokenManager() - register a token manager contract.
+** TokenManagerLinker.removeTokenManager()
+** TokenManagerLinker.connectSchain() - connect a chain for S2S transfers.
+** TokenManagerLinker.disconnectSchain()
 
-==== TOKEN_REGISTRAR_ROLE
-
-* TokenManagerERC*.addERC*TokenByOwner() - add an ERC token mapping.
+* _TOKEN_REGISTRAR_ROLE_
+** TokenManagerERC*.addERC*TokenByOwner() - add an ERC token mapping.
 
 
 
