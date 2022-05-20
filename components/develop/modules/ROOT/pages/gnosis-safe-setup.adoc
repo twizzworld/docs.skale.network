@@ -1,49 +1,47 @@
 = Using Gnosis SAFE Multisig
 :experimental:
 
-You can use Ethereum-based Gnosis SAFE with IMA for SKALE chain xref:skale-chain-management.adoc[administration functions].
+You can use Ethereum-based Gnosis SAFE to assign SKALE Chain ownership and use it to cross-chain configure the SKALE Chain using the IMA bridge. xref:skale-chain-management.adoc[administration functions].
 
 .Diagram of Gnosis SAFE administration of SKALE Chains
-ifdef::env-github[image::https://www.plantuml.com/plantuml/png/VP71ReCm38RlUGgBEuVb0QPoeDEqiGl7gfe2k2LQubH9q2fDVVU1QGJQL7Bwum-ipyukHENZO8qGhN531sNiqUDWuKV0U5fdBuwG8cGlv88EK1VxCcCw7uzjL7GsoEJfGLro_VQtvsjLGAKq4SOCL01jnMqqKRw3-gruBpy_C7ux_vLiM373gx8NWtdRAqty7xOheyFKjMPuvAPXGNjjC4JdrHcPdLQCHszKc0as2wcKruumnXbPIjCiJeJNk1AYRI6vPIGVAyaDf_MAfotoSq2UFuEsV97feYtaXqw57hlZMB7qloA59VuScvHE8IKz9Nd7CcKslsSUKUoGki6QNm00[]]
+ifdef::env-github[image::https://www.plantuml.com/plantuml/svg/VP11Qm8n48Nl-HN3tlVGQob5RRMKTjk2Hv4Ii-CQJ2OXaqMb-D-xcx2i5Mak-zZlpMFcJJZA45jhX536jJNCumu3jXP-17HFEUiT8KKebc_JzpbKacI3eG39mFRQyqAEDSDokfWNEI6zW2fAQWmcSfV-dwzdNwjfbww9CAPqRMycFADthEFC7P5xM-rlc2fabWr-1NSyzIQRJMTn5aB9K4Cwvli3uy65_N1hAg30exJUOAbsKbFQ1DN59gidHrlTGFU9mHc3OTrxb1eT_INBD9wGvX4jj46EBiW64zjUi5JzHd8ck1b99ODsX35cP6b4CwdshOUgDL6pRZ9dVr5nVtEg7SfLBNc7zRfyx1jX2mzb2PdTWoDpobj_7WY3gFs_sFg_UIGiGTaffGQ5cq5jUL2wKzoDvX4nGQfRQtu1[]]
 ifndef::env-github[]
 [plantuml]
 ....
 @startuml
 
 cloud Ethereum {
+    component "SKALE Manager" as sm
     component "Gnosis SAFE" {
         rectangle SAFE1
-        rectangle SAFE2
     }
-    component "IMA Mainnet" as im
+    component "IMA Mainnet" as im {
+        rectangle DepositBoxes as dp
+        rectangle MessageProxy as mp
+    }
 }
 
 card SKALE_Network {
     cloud "example-chain" as ec {
+        [Config Controller] as cc
         [IMA Schain] as is
         [Filestorage] as fs
         [Etherbase] as eb
         [Marionette] as mn
-    }
-    cloud "next-chain" as nc {
-        [IMA Schain] as is2
-        [Filestorage] as fs2
-        [Etherbase] as eb2
-        [Marionette] as mn2
+        [Backup Multisig] as msp
     }
     
 }
 
-SAFE1 --> im
-SAFE2 --> im
-im -[dashed]-> mn
-im -[dashed]-> mn2
+SAFE1 -[dashed]-> mp
+sm <-- SAFE1 : onlySchainOwner
+dp <-- SAFE1 : onlySchainOwner
+mp -[dashed]-> mn
+mn --> cc
 mn --> eb
 mn --> fs
 mn --> is
-mn2 --> eb2
-mn2 --> fs2
-mn2 --> is2
+msp --> mn
 
 @enduml
 ....
@@ -54,9 +52,12 @@ endif::[]
 
 No custom steps are required to create a SKALE chain that Gnosis SAFE controls. Ensure that you know the address of your Gnosis SAFE deployed on Ethereum mainnet; if you don't have one follow https://help.gnosis-safe.io/en/articles/3876461-create-a-safe to create it.
 
-Once you have deployed a Gnosis SAFE, you can use its address as the SKALE chain owner and create a chain as usual.
+Once you have deployed a Gnosis SAFE, you can use its address as the SKALE chain owner. If you assign ownership to a SAFE or any other contract, you must also provide a backup address which is assigned as the owner of the backup (predeployed) Multisig on the SKALE Chain.
 
 IMPORTANT: SKALE chain owner address can't change after deployment.
+
+[NOTE]
+When assigning SKALE Chain ownership to a SAFE, the ADMIN Roles for all predeployed contracts on the SKALE Chain are assigned to Marionette AND to the Backup multisig. 
 
 == Calling functions on a SKALE chain
 
@@ -128,7 +129,7 @@ The following section isn't necessary to control a SKALE chain with Gnosis SAFE 
 ==== Marionette
 
 There is a https://github.com/skalenetwork/marionette/blob/develop/contracts/Marionette.sol[Marionette] smart contract that's predeployed on SKALE chains at address `0xD2c0DeFACe000000000000000000000000000000`.
-It's granted all SKALE chain owner's administration rights and serves as a proxy to forward calls sent via IMA.
+It's granted all administration rights to all ADMIN roles of SKALE Chain predeployed contracts and serves as a proxy to forward calls sent via IMA.
 
 Marionette has a function `postMessage(bytes32 sourceChain, address sender,bytes calldata encodedCall)` that IMA calls. It checks that a sender is a SKALE chain owner and performs a call encoded in `encodedCall` parameter.
 

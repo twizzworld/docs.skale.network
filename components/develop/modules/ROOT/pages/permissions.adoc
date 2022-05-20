@@ -1,0 +1,166 @@
+= List of Permissions & Roles
+
+IMPORTANT: All ABIs listed here are for Mainnet chains.
+
+== Non-grantable permissions
+
+The following methods are non-grantable permissions assigned and only allowed only by the SKALE Chain owner, and are not changeable. Notice that these all apply to Ethereum-side contract methods.
+
+=== SKALE Manager
+* xref:skale-manager:api:Schains.adoc#_deleteschain_deleteschainaddress_from_string_name_external[Schains.deleteSchain()]
+* xref:skale-manager:api:Wallets.adoc#_withdrawfundsfromschainwallet_withdrawfundsfromschainwalletaddress_payable_schainowner_bytes32_schainhash_external[Wallets.withdrawFundsFromSchainWallet()]
+
+=== IMA Mainnet
+
+* DepositBox*.enableWhitelist()
+* DepositBox*.disableWhitelist()
+* DepositBox*.getFunds()
+* DepositBoxERC*.addERC*TokenByOwner()
+* DepositBoxEth.enableActiveEthTransfers()
+* DepositBoxEth.disableActiveEthTransfers()
+* MessageProxyForMainnet.registerExtraContract()
+* MessageProxyForMainnet.removeExtraContract()
+* Linker.kill()
+
+== Grantable permissions
+
+The following methods are grantable permissions and are changeable. Notice that these all apply to SKALE Chain-side contract methods and use OpenZeppelin's AccessControlEnumerable framework.
+
+All roles below are granted to Marionette at chain deployment(`0xD2c0DeFACe000000000000000000000000000000`).
+
+=== Config Controller
+
+* Address: `0xD2002000000000000000000000000000000000d2`
+* ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0/config-controller-1.0.0-abi.json
+
+* _DEPLOYER_ADMIN_ROLE_ (hash: `9544cf69999ca161b850d3ca69235f410d88604f143ae3be6650b68b133a5dae`)
++
+WARNING: Changing this setting may introduce security risks. Suggested to use temporarily only.
+
+** enableFreeContractDeployment(), funcSig: `0x56436fb7` - enable any msg.sender to deploy contracts
+** disableFreeContractDeployment(), funcSig: `0x84f0b791`
+
+* _MTM_ADMIN_ROLE_ (hash: `4a674ad8ca91697aae9afc0f1850245e64feae02b627092a64943ed941e4d09f`)
+** enableMTM(), funcSig: `0x3367905e` - enable multi-transaction mode (speedy game mode)
+** disableMTM(), funcSig: `0x0acba068`
+
+* _DEPLOYER_ROLE_ (hash: `fc425f2263d0df187444b70e47283d622c70181c5baebb1306a01edba1ce184c`)
+** addToWhitelist(address), funcSig: `0xe43252d7`- add an address to list that can deploy contracts
+** removeFromWhitelist(address), funcSig: `0x8ab1d681`
++
+[TIP]
+====
+*Execution from Ethereum*
+
+Run `npx msig encodeData my-schain-name ConfigController addToWhitelist 0xDBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+
+Result payload for SAFE:
+`0x94489202b09dd40ba18009e4102e7c94986bf5052ed8e02c49570ecce386e3d11c358968000000000000000000000000d2c0deface000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000c0000000000000000000000000d2002000000000000000000000000000000000d2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000024e43252d7000000000000000000000000DBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD600000000000000000000000000000000000000000000000000000000`
+
+*Execution from SKALE*
+
+Run `npx msig encodeDataWithoutIMA ConfigController addToWhitelist 0xDBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+
+Result payload for Marionette execute(): `0xe43252d7000000000000000000000000DBC05B1ECB4FDAEF943819C0B04E9EF6DF4BABD6`
+====
+
+=== Etherbase
+
+* Address: `0xd2bA3e0000000000000000000000000000000000`
+* ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
+
+* _ETHER_MANAGER_ROLE_ (hash: `e0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046`)
++
+NOTE: Assigned to MessageProxyForSchain
++
+IMPORTANT: Do not revoke this role from MessageProxyForSchain otherwise IMA will eventually stop working.
+
+** retrieve(address), funcSig: `0x0a79309b` - retrieve entire sFUEL balance from Etherbase.
+** partiallyRetrieve(address, amount), funcSig: `0x204a3e93` - retrieve amount of sFUEL from Etherbase.
+
+=== Filestorage
+
+* Address: `0xD3002000000000000000000000000000000000d3`
+* ABI: https://github.com/skalenetwork/filestorage/releases/download/1.0.1/filestorage-1.0.1-abi.json
+* _ALLOCATOR_ROLE_ (hash: `68bf109b95a5c15fb2bb99041323c27d15f8675e11bf7420a1cd6ad64c394f46`)
++
+NOTE: Not assigned at deployment
+** reserveSpace() - allocate filestorage space to an address.
+
+=== Marionette
+
+* Address: `0xD2c0DeFACe000000000000000000000000000000`
+* ABI: https://github.com/skalenetwork/marionette/releases/download/1.0.0-stable.0/marionette-1.0.0-stable.0-abi.json
+
+* _IMA_ROLE_ (hash: `18f7915ceb1a15dd0c3170ef6d30ba89e0bcb07f4fb55858579385663709107e`)
++
+NOTE: Assigned to MessageProxyForSchain
+
+** postMessage() - receives message from msg.sender (`IMA_ROLE`) 
+
+* _PUPPETEER_ROLE_ (hash: `dbe8b307f60c9ed0e3764e9100b17f1d4c5fd58ba7889d208d166f481302d4cf`)
++
+NOTE: Assigned to Ethereum SKALE Owner (Gnosis SAFE), and to SKALE Chain predeployed multisigwallet(`0xD244519000000000000000000000000000000000`)
+
+** execute() - executes data on destination contract.
+** postMessage() - receives message from sender (`PUPPETEER_ROLE`)
+** sendEth() - sends sFUEL from Marionette contract.
+
+=== IMA SKALE Chain
+
+NOTE: The following roles are not assigned at deployment.
+
+* ABIs: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/IMA/1.3.0/schain
+
+* _AUTOMATIC_DEPLOY_ROLE_ (hash: `7164765a3c8bd2513bdfa0c90f1bee9606e920fbf2c9071f310263fbd818684b`)
++
+WARNING: enabling this is not recommended as it may introduce incorrect behaviors and is not compatible with all tokens.
+
+** TokenManagerERC*.enableAutomaticDeploy() - enable automatic deployment.
+** TokenManagerERC*.disableAutomaticDeploy()
+
+* _CHAIN_CONNECTOR_ROLE_ (hash: `2785f35fe7d8743aa971942d8474737bb31895d396eff2cc688a481e0221e191`)
++
+NOTE: This is for custom messaging. For general SKALE to SKALE chain transfers, see `REGISTRAR_ROLE` below.
+
+** MessageProxyForSchain.addConnectedChain() - add a chain for custom messages.
+** MessageProxyForSchain.removeConnectedChain()
+
+* _CONSTANT_SETTER_ROLE_ (hash: `96e3fc3be15159903e053027cff8a23f39a990e0194abcd8ac1cf1b355b8b93c`)
+
+** CommunityLocker.setTimeLimitPerMessage() - change the required time between exit messages.
+** MessageProxyForSchain.setNewGasLimit() - change the gas limit for Message Proxy.
+
+* _EXTRA_CONTRACT_REGISTRAR_ROLE_ (hash: `6155b5aac15ce9aa193c0527a6f43be0a36a7e2e7496c2b615c0e5f922842773`)
+
+** MessageProxyForSchain.registerExtraContract() - register a contract for sending Messages.
+** MessageProxyForSchain.removeExtraContract()
+
+* _REGISTRAR_ROLE_ (hash: `edcc084d3dcd65a1f7f23c65c46722faca6953d28e43150a467cf43e5c309238`)
+
+** TokenManagerLinker.registerTokenManager() - register a token manager contract.
+** TokenManagerLinker.removeTokenManager()
+** TokenManagerLinker.connectSchain() - connect a chain for S2S transfers.
+** TokenManagerLinker.disconnectSchain()
+
+* _TOKEN_REGISTRAR_ROLE_ (hash: `fda70c2cc66a36c14884ee85424961f51b1d92b4494751699b6d105b3bcbcba8`)
+** TokenManagerERC*.addERC*TokenByOwner(), funcSigs: `0xeafd15c8` - add an ERC token mapping.
+
+[TIP]
+====
+*Execution from Ethereum*
+
+Run `npx msig encodeData my-schain-name TokenManagerERC20 addERC20TokenByOwner target-schain-name 0x39585130cB54A0AC0520e470185DB61AB1D3faD3 0xE54a6Aec03fE1C4b485861F307eFd6Af6a3f748a`
+
+Result payload for SAFE:
+`0x94489202b09dd40ba18009e4102e7c94986bf5052ed8e02c49570ecce386e3d11c358968000000000000000000000000d2c0deface00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000140000000000000000000000000d2aaa005000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000a4eafd15c8000000000000000000000000000000000000000000000000000000000000006000000000000000000000000039585130cb54a0ac0520e470185db61ab1d3fad3000000000000000000000000e54a6aec03fe1c4b485861f307efd6af6a3f748a00000000000000000000000000000000000000000000000000000000000000127461726765742d73636861696e2d6e616d65000000000000000000000000000000000000000000000000000000000000000000000000000000000000`
+
+*Execution from SKALE*
+
+Run `npx msig encodeDataWithoutIMA TokenManagerERC20 addERC20TokenByOwner target-schain-name 0x39585130cB54A0AC0520e470185DB61AB1D3faD3 0xE54a6Aec03fE1C4b485861F307eFd6Af6a3f748a`
+
+Result payload for Marionette execute(): `0xeafd15c8000000000000000000000000000000000000000000000000000000000000006000000000000000000000000039585130cb54a0ac0520e470185db61ab1d3fad3000000000000000000000000e54a6aec03fe1c4b485861f307efd6af6a3f748a00000000000000000000000000000000000000000000000000000000000000127461726765742d73636861696e2d6e616d650000000000000000000000000000`
+====
+
+
+

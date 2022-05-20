@@ -34,4 +34,5 @@
 ** xref:gnosis-safe-setup.adoc[Using Ethereum Gnosis SAFE]
 ** xref:multisig-setup.adoc[Using SKALE Predeployed Multisig]
 ** xref:skale-chain-wallet.adoc[Managing SKALE Chain Wallet]
+** xref:permissions.adoc[List of Permissions]
 * xref:faq.adoc[FAQs]
