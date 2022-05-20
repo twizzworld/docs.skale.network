@@ -72,7 +72,7 @@ image:multisig-add.png[]
 +
 . Enter the contract address, name (optional), and paste in the contract ABI. For example, if you want to permit another address to deploy contracts, first paste in the Marionettea address `0xD2c0DeFACe000000000000000000000000000000` and ABI: https://github.com/skalenetwork/marionette/releases/download/1.0.0-stable.0/marionette-1.0.0-stable.0-abi.json
 . After a moment, the `Method` field should populate with the available methods.
-. Select the method `execute`, and add additional fields. In this example, for target enter the config-deployer address `0xD2002000000000000000000000000000000000d2`, value: `0`, and for data, enter `0x` followed by the funcSig for addToWhitelist (`e43252d7`), followed by 16 zeros, and then the address to add. For example: `0xe43252d7000000000000000033b5455B13148116189e8c50228B595DC062aB74`
+. Select the method `execute`, and add additional fields. In this example, for target enter the config-deployer address `0xD2002000000000000000000000000000000000d2`, value: `0`, and for data, enter `0x` followed by the funcSig for addToWhitelist (`e43252d7`), followed by 24 zeros, and then the address to add. For example: `0xe43252d700000000000000000000000033b5455b13148116189e8c50228b595dc062ab74`
 . Click btn:[Send multisig transaction].
 . The multisig will then request the various owners to sign off on the transaction.
 . Send the deployed multisig address to each owner so they each can load the multisig.
