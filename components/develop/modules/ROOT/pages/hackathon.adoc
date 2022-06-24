@@ -1,4 +1,4 @@
-= EthAmsterdam Notes
+= Hackathon Notes
 
 .Which chain should I use?
 
@@ -6,7 +6,7 @@
 
 .Do I need to set Access Control? 
 
-For EthAmsterdam chains no - anyone can deploy.
+For Hackathon chains no - anyone can deploy.
 
 .Do I need sFUEL? 
 
@@ -24,21 +24,15 @@ An uploader to filestorage will first need to reserve Space. Please use the fauc
 
 See here: https://docs.skale.network/skaled/3.14.x/random-number-generator
 
-== Oracle API
-
-.How do I use that Oracle API?
-
-See here: https://docs.skale.network/skaled/3.14.x/oracle
-
 == IMA Bridge
 
 .How do I use the bridge? 
 
-Bridge ABIs for EthAmsterdam chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-amsterdam
+Bridge ABIs for Hackathon chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-nyc
 
-.How is the EthAmsterdam bridge configured?
+.How is the Hackathon bridge configured?
 
-IMA Bridge for EthAmsterdam has the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
+IMA Bridge for Hackathons have the *whitelist enabled* and *automatic deployment* is turned on. This means that you will not need to manually map tokens. As soon as tokens are deposited, a basic clone will be created on your chain.
 
 [IMPORTANT]
 ====
