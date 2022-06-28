@@ -6,9 +6,9 @@ The SKALE Chain owner can upgrade pre-deployed Filestorage contracts. The Filest
 
 Proxy Admin: `0xD3001000000000000000000000000000000000D3`
 
-Proxy Contract: `0xD4001000000000000000000000000000000000D4`
+Proxy Contract: `0xD3003000000000000000000000000000000000D3`
 
-Filestorage: `0x69362535ec535F0643cBf62D16aDeDCAf32Ee6F7`
+Filestorage Implementation: `0xD3002000000000000000000000000000000000d3`
 
 == Upgrade procedure
 

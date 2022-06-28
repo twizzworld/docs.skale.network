@@ -72,6 +72,14 @@ No, filestorage is suitable for static content only, like files, photos, videos.
 
 Dynamic websites rely on server-side processing, and currently SKALE filestorage does not support server-side scripting.
 
+=== Where is the Filestorage ABI? 
+
+You can find the latest ABIs here: https://github.com/skalenetwork/filestorage/releases
+
+=== Why can't I allocate space? 
+
+Ensure that the ALLOCATOR_ROLE has been granted to the address performing `reserveSpace()`.
+
 == Other Features
 
 **Want to see another feature listed here? https://skale.network/roadmap[Submit an idea] to the SKALE Community roadmap!**
