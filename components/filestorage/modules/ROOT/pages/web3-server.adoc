@@ -2,15 +2,24 @@
 
 SKALE Chain nodes run a special NGINX Webserver that provides read-only access to each file uploaded using SKALE Chain Filestorage.
 
-To access the file, use the following URL convention:
+To access the file, use the following URL conventions depending on the endpoint you are using:
 
-`http(s):/NODE_DOMAIN_NAME/SKALE_CHAIN_NAME/FILESTORAGE_FULL_PATH`
+If using the reverse proxy load balancer:
 
+`http(s)://REVERSE_PROXY_ENDPOINT/fs/SKALE_CHAIN_NAME/FILESTORAGE_FULL_PATH`
+
+If connecting directly to a single node:
+`http(s)://NODE_DOMAIN_NAME/SKALE_CHAIN_NAME/FILESTORAGE_FULL_PATH`
+
+[NOTE]
+The uploader address in the URLs **MUST omit the 0x prefix AND be in lowercase**. For example: `0x77333Da3492C4BBB9CCF3EA5BB63D6202F86CDA8` must be entered as `77333da3492c4BBB9ccf3Ea5bb63d6202f86cda8`
 
 Example:
 
 ```shell
-https://node1.validator.com/fluffy-marsupial/77333Da3492C4BBB9CCF3EA5BB63D6202F86CDA8/directoryA/random_text.txt
+https://network.skalenodes.com/fs/chubby-sadr/77333da3492c4BBB9ccf3Ea5bb63d6202f86cda8/directoryA/random_text.txt # reverse-proxy
+https://node1.validator.com/fluffy-marsupial/77333da3492c4BBB9ccf3Ea5bb63d6202f86cda8/directoryA/random_text.txt # node
+
 ```
 
 The NGINX config is as follows:
