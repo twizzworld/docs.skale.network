@@ -130,7 +130,8 @@ Arguments:
 
 - `ENV_FILEPATH` - path to env file where parameters are defined
 
-> NOTE: You can just update a file with environment variables used during `skale sync-node init`.
+[NOTE]
+You can just update a file with environment variables used during `skale sync-node init`.
 
 
 === Maintenance
