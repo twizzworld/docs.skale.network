@@ -12,6 +12,7 @@
 ** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
 ** xref:event-subscriptions.adoc[Subscribing to Events]
+** xref:full-sync-node.adoc[Using Full-sync node]
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
 ** xref:ima::index.adoc[Performing IMA Bridge transfers]
