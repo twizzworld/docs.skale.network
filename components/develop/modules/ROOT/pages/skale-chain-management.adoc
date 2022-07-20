@@ -14,7 +14,8 @@ NOTE: SKALE chains deployed before V2 release don't have Marionette functionalit
 
 `Marionette` listens to messages from IMA, and if the message sender is equal to the SKALE chain owner address, it decodes function call and performs it.
 
-Arbitrary contract calls can be encoded into an IMA message using https://github.com/skalenetwork/multisigwallet-cli[multisigwallet-cli].
+[TIP]
+Arbitrary contract calls can be encoded into an IMA message using https://github.com/skalenetwork/multisigwallet-cli.
 
 == Example using Gnosis SAFE
 
