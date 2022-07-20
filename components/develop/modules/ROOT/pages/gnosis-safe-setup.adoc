@@ -108,10 +108,10 @@ It will return a long hex string.
 
 . Enable the checkbox `Use custom data (hex encoded)`.
 
-. Put the IMA address for `message_proxy_mainnet_address` to the `Contract address` field. For Ethereum this is `0x8629703a9903515818C2FeB45a6f6fA5df8Da404`
+. Put the IMA address for `message_proxy_mainnet_address` to the `Contract address` field. **For Ethereum this is `0x8629703a9903515818C2FeB45a6f6fA5df8Da404`**
 +
-NOTE: This address probably won't change, but it's better to ensure visiting https://github.com/skalenetwork/skale-network/tree/master/releases[Releases repo]. In this repo, you can find the addresses of IMA on different Ethereum testnets.
-
+[IMPORTANT]
+**This MessageProxy Mainnet address** probably won't change, but it's better to ensure visiting https://github.com/skalenetwork/skale-network/tree/master/releases[Releases repo]. In this repo, you can find the addresses of IMA on different Ethereum testnets.
 . Enter `0` in the `Value` field.
 
 . Copy the hex string obtained in the previous step from `multisigwallet-cli` to the `Data` field.
