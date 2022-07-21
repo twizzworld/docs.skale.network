@@ -1,0 +1,47 @@
+= Using MTM Mode
+
+MTM mode (Multi-Transaction Mode) allows accounts to send multiple transactions *with incremental nonces* per block. This allows users to send many transactions per second, up to 200 tps for medium SKALE Chains.
+
+[NOTE]
+Without MTM mode enabled, an account's subsequent transaction within the same block will be reverted. This means transactions would be to be rate limited per block to avoid a revert.
+
+== Enabling MTM
+
+To use MTM, it must be enabled at chain deployment. 
+
+[NOTE]
+Future versions of SKALE Chains will allow this mode to be toggled on or off by the assigned `MTM_ADMIN_ROLE`. See the xref:permissions.adoc[List of Permissions].
+
+== How to use MTM
+
+To use MTM and fire off multiple transactions, run an async method that calls the current nonce, and then increment from this nonce.
+
+[source,javascript]
+----
+async function execute_txs(startingTxCount) {
+    try {
+        let nonce = await Token.getTransactionCount();
+        let strt = startingTxCount - nonce;
+        let current_tokenId = await Token.getCurrentTokenId()+strt;
+
+        for (let tokenId = strt; tokenId <= 1000; tokenId++) {
+            if (tokenId % 20 === 0) {
+                    await sleep(6000);
+            }
+            Token.mint(current_tokenId, nonce).then((quote) => {
+                console.log(quote["hash"]);
+            }).catch((error) => {
+                console.error("Connection lost ", error);
+            });
+            current_tokenId++
+            nonce++;
+        }
+    } catch (err) {
+        console.log("connection lost!", err)
+        await sleep(4000);
+    }
+}
+----
+
+
+
