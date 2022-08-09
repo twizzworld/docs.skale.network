@@ -1,0 +1,30 @@
+= Submitting Chain Metadata
+:experimental:
+
+SKALE Chain owners are encouraged to submit metadata specifying chain details to the skale-network community repo, as well as submitting to other services such as https://chainlist.org/.
+
+== Submitting to skale-network
+
+. Fork the skale-network community repo: https://github.com/skalenetwork/skale-network/fork
+
+. Append your chain data to menu:metadata[mainnet > chains.json], for example:
++
+```json
+...
+"elated-tan-skat": {                // pre-defined name
+    "alias": "Europa Hub",          // branded chain name
+    "background": "#02001f",        // background color
+    "category": "apps",             // category: apps | games
+    "url": "https://ruby.exchange/" // url for dapp
+  },
+...
+```
+
+. Upload a `png` (only png!) containing your chain logo to menu:metadata[mainnet > logos > pre-defined-skale-chain-name.png].
++
+
+. Submit a PR and include any additional context if needed.
+
+== Example Result
+
+image:network-submission.png[]

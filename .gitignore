@@ -13,8 +13,7 @@ node_modules/
 .npm
 .yarn-integrity
 .env
-
-
+.DS_Store
 .vale.ini
 styles
 
