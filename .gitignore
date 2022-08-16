@@ -14,7 +14,7 @@ node_modules/
 .yarn-integrity
 .env
 
-
+.DS_Store
 .vale.ini
 styles
 
