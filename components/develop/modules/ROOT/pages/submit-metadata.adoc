@@ -1,7 +1,7 @@
 = Submitting Chain Metadata
 :experimental:
 
-SKALE Chain owners are encouraged to submit metadata specifying chain details to the skale-network community repo, as well as submitting to other services such as https://chainlist.org/.
+SKALE Chain owners are encouraged to submit metadata specifying chain details to the skale-network community repo, as well as submitting to other services such as https://chainlist.wtf/ & https://github.com/ethereum-lists/chains.
 
 == Submitting to skale-network
 
@@ -28,3 +28,39 @@ SKALE Chain owners are encouraged to submit metadata specifying chain details to
 == Example Result
 
 image:network-submission.png[]
+
+== Submitting to Chainlist/Ethereum-lists
+
+. Fork the ethereum-lists repo: https://github.com/ethereum-lists/chains/fork
+
+. Append your chain data by creating a json filename being the CAIP-2 representation as name and .json ans extension.  For example if the chain ID is 2046399126, then the filename should be eip155-2046399126.json. An example showing Europa Hub is presented below:
++
+```json
+{
+  "name": "Europa Hub",
+  "chain": "EUROPA",
+  "network": "mainnet",
+  "rpc": [
+    "https://mainnet.skalenodes.com/v1/elated-tan-skat",
+    "wss://mainnet.skalenodes.com/v1/ws/elated-tan-skat"
+  ],
+  "faucets": [],
+  "nativeCurrency": {
+    "name": "sFUEL",
+    "symbol": "sFUEL",
+    "decimals": 18
+  },
+  "infoURL": "https://ruby.exchange",
+  "shortName": "ruby-exchange",
+  "chainId": 2046399126,
+  "networkId": 2046399126,
+  "explorers": [{
+    "name": "blockscout",
+    "url": "https://elated-tan-skat.explorer.mainnet.skalenodes.com/",
+    "icon": "blockscout",
+    "standard": "EIP3091"
+  }]
+}
+```
+
+. Submit a PR.
