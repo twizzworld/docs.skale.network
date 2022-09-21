@@ -11,11 +11,13 @@ SKALE Chain owners are encouraged to submit metadata specifying chain details to
 +
 ```json
 ...
-"elated-tan-skat": {                // pre-defined name
-    "alias": "Europa Hub",          // branded chain name
-    "background": "#02001f",        // background color
-    "category": "apps",             // category: apps | games
-    "url": "https://ruby.exchange/" // url for dapp
+"elated-tan-skat": {                   // pre-defined name
+    "alias": "Europa Hub",             // branded chain name (required)
+    "background": "#02001f",           // background color (required)
+    "category": "apps",                // category: apps | games (required)
+    "url": "https://ruby.exchange/",   // url for dapp (optional)
+    "minSfuelWei": "27000000000000",   // minimum allowed sFUEL (optional)
+    "faucetUrl": "https://example.com" // chain faucet URL (optional)
   },
 ...
 ```
