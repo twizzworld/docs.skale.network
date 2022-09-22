@@ -51,3 +51,7 @@ There is no unbonding period, but only a delegation period and whenever you requ
 If an SKL token holder decides to delegate SKL tokens with a validator, the delegator will receive token rewards based on the number of tokens they delegated, the commission percentage set by the validator, and the amount of time they stake for.
 Initially only the 2-month epoch and associated with it rewards is available. In the future delegators will receive a bonus dependent on the length of time they choose to lock up and stake. 
 The staked tokens are locked during the selected staking period length. The longer delegators they delegate their tokens up, the more rewards they can receive. These rewards are distributed out and liquid at the end of every epoch. Once chosen, staked tokens are locked until the period they chose is complete.
+
+== Why can't I seem to claim all of my rewards, or why is my reward calculation incorrect?
+
+If a delegator doesn't claim staking rewards for an extended period of time (for example, > 12 months), there exists a technical limitation to retrieve all rewards in one transaction. The oldest rewards must be retrieved first in a withdraw transaction. Once this is done, the remaining reward balance will be recalculated to the show the remaining and correct value.
