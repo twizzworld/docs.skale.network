@@ -37,4 +37,5 @@
 ** xref:multisig-setup.adoc[Using SKALE Predeployed Multisig]
 ** xref:skale-chain-wallet.adoc[Managing SKALE Chain Wallet]
 ** xref:permissions.adoc[List of Permissions]
+** xref:submit-metadata.adoc[Submitting Chain Metadata]
 * xref:faq.adoc[FAQs]
