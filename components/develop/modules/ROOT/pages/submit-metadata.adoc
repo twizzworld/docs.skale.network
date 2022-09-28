@@ -17,7 +17,8 @@ SKALE Chain owners are encouraged to submit metadata specifying chain details to
     "category": "apps",                // category: apps | games (required)
     "url": "https://ruby.exchange/",   // url for dapp (optional)
     "minSfuelWei": "27000000000000",   // minimum allowed sFUEL (optional)
-    "faucetUrl": "https://example.com" // chain faucet URL (optional)
+    "faucetUrl": "https://ruby.exchange/faucet.html", // chain faucet URL (optional)
+    "description": "Gasless Trading, Yield Farms, and NFT Boosts" // description (optional)
   },
 ...
 ```
