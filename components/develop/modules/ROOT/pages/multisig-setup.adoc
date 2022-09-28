@@ -48,7 +48,7 @@ Before proceeding, be sure your SKALE Chain is deployed and you have access to a
 . Setup a Gnosis MultiSigWallet local server or use a ready-made instance on IPFS using this link below:
 +
 [TIP]
-<https://github.com/gnosis/MultiSigWallet#an-instance-of-multisig-website-is-available-on-ipfs-at-httpsipfsinfuraioipfsqmfrd4guqzobni2nt2c77a3utq452ffwstr4fjejixugjf>
+<https://ipfs.io/ipfs/QmfRD4GuqZobNi2NT2C77a3UTQ452ffwstr4fjEJixUgjf>
 . Select your SKALE Chain endpoint in Metamask.
 . Click btn:[Unlock Metamask] in the MultiSig UI.
 . Click btn:[Add] button.
