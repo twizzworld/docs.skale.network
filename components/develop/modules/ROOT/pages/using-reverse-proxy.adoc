@@ -1,6 +1,6 @@
 = Using Reverse Proxy
 
-To make it easier to connect to SKALE Chains, developers can use a reverse proxy setup to load balance transactions across a SKALE Chain's 16 individual node endpoints. The core team provides a reverse proxy for convenience to each of the mainnet and staging SKALE Chains. Developers and ecosystem contributors are encouraged to deploy one themselves should different load balancing methods or settings are required.
+To make it easier to connect to SKALE Chains, developers can use a reverse proxy setup to load balance transactions across a SKALE Chain's 16 individual node endpoints. The core team provides a reverse proxy for convenience to each of the mainnet and staging SKALE Chains. Developers and ecosystem contributors are encouraged to deploy one themselves should different load balancing methods or settings be required.
 
 == SKALE Proxy
 
