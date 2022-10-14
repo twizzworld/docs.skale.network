@@ -1,6 +1,7 @@
 = Using Reverse Proxy
+:stem: asciimath
 
-To make it easier to connect to SKALE Chains, developers can use a reverse proxy setup to load balance transactions across a SKALE Chain's 16 individual node endpoints. The core team provides a reverse proxy for convenience to each of the mainnet and staging SKALE Chains. Developers and ecosystem contributors are encouraged to deploy one themselves should different load balancing methods or settings are required.
+To make it easier to connect to SKALE Chains, developers can use a reverse proxy to load balance transactions across a SKALE Chain's 16 individual node endpoints. The core team provides a basic reverse proxy for convenience to each of the mainnet and staging SKALE Chains. Developers and ecosystem contributors are encouraged to deploy and customize reverse proxy settings and methods for application optimization. 
 
 == SKALE Proxy
 
@@ -8,11 +9,11 @@ To experiment or deploy your own reverse proxy, please follow https://github.com
 
 == SKALE Proxy Load Balancing
 
-The current skale-proxy deployed by the core team uses an nginx load balancing method where requests are distributed between the 16 nodes based on the client's IP address. Should an individual endpoint be unavailable, the next available endpoint is used. Read more about this method here: https://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash. You can find alternative methods here: https://nginx.org/en/docs/http/load_balancing.html
+The current skale-proxy deployed by the core team uses an Nginx load balancing method where requests are distributed between the 16 nodes based on the client's IP address. Should an individual endpoint be unavailable, the next available endpoint is used. Read more about this method here: https://nginx.org/en/docs/http/ngx_http_upstream_module.html#ip_hash. You can find alternative methods here: https://nginx.org/en/docs/http/load_balancing.html
 
 == Fallback
 
-If a reverse proxy fails, developers should setup a fallback policy that fits their needs. These policies may include, for example, a fallback to another reverse proxy or a fallback to any of the 16 direct individual endpoints.
+If a reverse proxy fails, developers should employ a fallback policy that fits their needs. These policies may include, for example, a fallback to another reverse proxy or a fallback to any of the 16 direct individual endpoints.
 
 [NOTE]
-SKALE Network assumes a 1/3 tolerance of the nodes becoming Byzantine. Therefore, a fallback policy to the direct endpoints should assume that 1/3 of these endpoints may become unresponsive. 
+SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming Byzantine. Therefore, a fallback policy to the direct endpoints should assume that 1/3 of these endpoints may become unresponsive. 
