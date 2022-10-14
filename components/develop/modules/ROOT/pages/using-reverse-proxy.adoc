@@ -16,4 +16,4 @@ The current skale-proxy deployed by the core team uses an Nginx load balancing m
 If a reverse proxy fails, developers should employ a fallback policy that fits their needs. These policies may include, for example, a fallback to another reverse proxy or a fallback to any of the 16 direct individual endpoints.
 
 [NOTE]
-SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming Byzantine. Therefore, a fallback policy to the direct endpoints should assume that 1/3 of these endpoints may become unresponsive. 
+SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming Byzantine. Therefore, a fallback policy to the direct endpoints should assume that latexmath:[\frac{1}{3}] of these endpoints may become unresponsive. 
