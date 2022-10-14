@@ -12,6 +12,7 @@
 ** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
 ** xref:event-subscriptions.adoc[Subscribing to Events]
+** xref:using-reverse-proxy.adoc[Using a Reverse Proxy]
 ** xref:mtm-mode.adoc[Using MTM Mode]
 ** xref:full-sync-node.adoc[Using Full-sync node]
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
