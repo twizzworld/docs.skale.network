@@ -28,7 +28,7 @@ See here: https://docs.skale.network/skaled/3.14.x/random-number-generator
 
 .How do I use the bridge? 
 
-Bridge ABIs for Hackathon chains are located here: https://github.com/skalenetwork/skale-network/tree/master/releases/eth-nyc
+Bridge ABIs for Hackathon chains are located here:https://github.com/skalenetwork/skale-network/tree/master/releases/eth-sf
 
 .How is the Hackathon bridge configured?
 
