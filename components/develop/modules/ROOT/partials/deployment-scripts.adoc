@@ -11,6 +11,9 @@ For more information on hardhat configuration files, please see https://hardhat.
 [NOTE]
 To deploy your smart contracts onto SKALE, you need to write a script using ethers or web3. This code below shows how to setup hardhat with the private key of your wallet and endpoint to SKALE.
 
+[NOTE]
+If you are using plugins for deployment (hardhat-deploy, ...), plugins can check previous txs, if you are not connected to the Archival Node please use flags to disable previous txs check (for hardhat-deploy - https://github.com/wighawag/hardhat-deploy#deploymentsdeployname-options[skipIfAlreadyDeployed])  
+
 [source,javascript]
 ----
 /*
