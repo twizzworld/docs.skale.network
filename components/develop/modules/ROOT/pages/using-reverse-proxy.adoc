@@ -20,7 +20,7 @@ SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming 
 
 == Proxy-provision
 
-It is a convenient way to run skale-proxy in cloud based infrastracture(AWS, DO, ...).
+https://github.com/skalenetwork/proxy-provision[Proxy-provision] is a convenient way to run skale-proxy in cloud based infrastracture(AWS, DO, ...).
 
 === Node requirements
 
