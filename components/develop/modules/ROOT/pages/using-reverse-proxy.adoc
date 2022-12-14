@@ -17,3 +17,61 @@ If a reverse proxy fails, developers should employ a fallback policy that fits t
 
 [NOTE]
 SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming Byzantine. Therefore, a fallback policy to the direct endpoints should assume that latexmath:[\frac{1}{3}] of these endpoints may become unresponsive. 
+
+== Proxy-provision
+
+It is a convenient way to run skale-proxy in cloud based infrastracture(AWS, DO, ...).
+
+=== Node requirements
+
+Minimum requirements for machine in cloud:
+
+ * 4GB Ram
+ * 2 physical core CPU
+ * 50 GB storage
+ 
+Recommended requirements:
+
+ * 8GB Ram
+ * 4 physical core CPU
+ * 50 GB storage
+ 
+One of the main parameter for the reverse-proxy is a bandwidth, reverse-proxy is redirecting requests and not use as much computational power and storage. So it is necessary to have a good bandwitdth and create a machine at the close location to the area of usage(Europe, Asia, US, ...)
+
+=== Setup
+
+1. Register machine in the cloud
+2. Do https://github.com/skalenetwork/proxy-provision#1-installation[installation steps] on you working machine(different than registered machine at the step 1)
+3. Do https://github.com/skalenetwork/proxy-provision#2-setup[configuration steps]
+
+Example of `inventory` without block-explorer connecting to SKALE network on Ethereum:
+```
+[proxy]
+proxy-0 ansible_host='1.2.3.4'(IP address of registered machine at step 1) ansible_ssh_user='root'
+
+[all:vars]
+ansible_ssh_user='root' # username on machine(s) - e.g. ubuntu
+ansible_python_interpreter=/usr/bin/python3
+
+base_path='/root' # home path on the machine(s) - e.g. /home/ubuntu
+proxy_domain='example.skalenodes.com' # proxy domain name
+explorer_domain='' # explorer domain name (optional for proxy-only setup)
+chain_id='0x1' # Chain ID of the network where SM contracts are deployed - e.g. 0x1
+network_name='mainnet' # SKALE Network name - e.g. mainnet / staging / etc
+eth_endpoint='https://mainnet.infura.io/v3/INFURA-API-TOKEN' # Ethereum Mainnet endpoint
+
+main_website_url='https://skale.network/' # SKALE Website URL
+docs_website_url='https://docs.skale.network/docs/' # SKALE Docs Website URL
+networks='{}' # Legacy variable, keep as is
+abis_url='https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet' # URL of SM contracts ABI
+
+cert_mode=certbot  # 'certbot' - generate using certbot / custom - upload your own
+
+do_token='YOUR-DO-TOKEN' # optional - DigitalOcean token (for 'certbot' cert_mode)
+email='example@example.com' # optional - SSL cert email (for 'certbot' cert_mode)
+```
+Copy https://github.com/skalenetwork/skale-network/blob/master/releases/mainnet/skale-manager/1.9.2/skale-manager-1.9.2-mainnet-abi.json[abi] to `files/abi.json`
+
+Create `files/metaportConfig.json` with `{}` inside
+
+Copy `.ssh/authorized_keys` from registered machine on step 1 to `files/authorized_keys`
