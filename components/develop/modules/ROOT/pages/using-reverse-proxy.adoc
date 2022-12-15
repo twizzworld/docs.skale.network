@@ -5,7 +5,10 @@ To make it easier to connect to SKALE Chains, developers can use a reverse proxy
 
 == SKALE Proxy
 
-To experiment or deploy your own reverse proxy, please follow https://github.com/skalenetwork/skale-proxy.
+As mentioned earlier, your dApp may use a reference implementation of SKALE Proxy hosted by SKALE, but it's preferable to use your own setup.  
+When it comes to setting up your own SKALE Proxy, we're recommending to use https://github.com/skalenetwork/proxy-provision[proxy-provision] as described below. 
+
+Alternatively, to experiment or deploy your own reverse proxy in a manual way, go to https://github.com/skalenetwork/skale-proxy[SKALE Proxy repo].
 
 == SKALE Proxy Load Balancing
 
@@ -20,7 +23,7 @@ SKALE Network assumes a latexmath:[\frac{1}{3}] tolerance of the nodes becoming 
 
 == Proxy-provision
 
-https://github.com/skalenetwork/proxy-provision[Proxy-provision] is a convenient way to run skale-proxy in cloud based infrastracture(AWS, DO, ...).
+https://github.com/skalenetwork/proxy-provision[Proxy-provision] is a convenient way to run skale-proxy in the cloud (AWS, DO, ...).
 
 === Node requirements
 
