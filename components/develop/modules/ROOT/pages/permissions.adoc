@@ -78,6 +78,20 @@ IMPORTANT: Do not revoke this role from MessageProxyForSchain otherwise IMA will
 ** retrieve(address), funcSig: `0x0a79309b` - retrieve entire sFUEL balance from Etherbase.
 ** partiallyRetrieve(address, amount), funcSig: `0x204a3e93` - retrieve amount of sFUEL from Etherbase.
 
++
+[TIP]
+====
+*partiallyRetrieve amount*
+
+`1000000000000000000` - 1 sFUEL  
+
+`1000000000000000` - 0.001 sFUEL 
+
+`1000000000000` - 0.000001 sFUEL 
+====
+
+
+
 === Filestorage
 
 * Address: `0xD3002000000000000000000000000000000000d3`
