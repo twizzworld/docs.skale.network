@@ -6,7 +6,7 @@ To make it easier to connect to SKALE Chains, developers can use a reverse proxy
 == SKALE Proxy
 
 As mentioned earlier, dApps may use a reference implementation of SKALE Proxy hosted by SKALE, but it's preferable to use your own setup.  
-When it comes to setting up your own SKALE Proxy, it is recommending to use https://github.com/skalenetwork/proxy-provision[proxy-provision] as described below. 
+When it comes to setting up your own SKALE Proxy, it is recommended to use https://github.com/skalenetwork/proxy-provision[proxy-provision] as described below. 
 
 Alternatively, to experiment or deploy your own reverse proxy in a manual way, go to https://github.com/skalenetwork/skale-proxy[SKALE Proxy repo].
 
