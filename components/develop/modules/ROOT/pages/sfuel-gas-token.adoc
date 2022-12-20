@@ -87,8 +87,8 @@ For further develop details on distributing and developing with sFUEL, see xref:
 
 == Partner Tooling
 
-* MyLilius
-** End-user tool: https://docs.mylilius.com/products-and-tools/sfuel-station
-** Developer: https://docs.mylilius.com/developers/skale-fuel
+* Dirt Road Development 
+** End-user tool: https://dirtroad.dev/docs/platforms/sfuel-station/using-the-station
+** Developer: https://dirtroad.dev/docs/topics/skale/sfuel
 
 
