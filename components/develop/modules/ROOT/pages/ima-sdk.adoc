@@ -94,8 +94,14 @@ To do that add `additional_accounts.json` file in the root of the project. Struc
 . Startup the SDK and deploy IMA contracts to local ganache and Skaled:
 +
 ```shell
-WAIT=True bash scripts/run_sdk.sh
+SDK_VERSION=0.3.0 WAIT=True bash scripts/run_sdk.sh
 ```
++
+[NOTE]
+Confirm that `SDK_VERSION=` matches the IMA-SDK repository. `0.3.0` is the lastest at the time of writing this documentation.
++
+
+
 +
 Output:
 +
