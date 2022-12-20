@@ -5,8 +5,8 @@ To make it easier to connect to SKALE Chains, developers can use a reverse proxy
 
 == SKALE Proxy
 
-As mentioned earlier, your dApp may use a reference implementation of SKALE Proxy hosted by SKALE, but it's preferable to use your own setup.  
-When it comes to setting up your own SKALE Proxy, we're recommending to use https://github.com/skalenetwork/proxy-provision[proxy-provision] as described below. 
+As mentioned earlier, dApps may use a reference implementation of SKALE Proxy hosted by SKALE, but it's preferable to use your own setup.  
+When it comes to setting up your own SKALE Proxy, it is recommending to use https://github.com/skalenetwork/proxy-provision[proxy-provision] as described below. 
 
 Alternatively, to experiment or deploy your own reverse proxy in a manual way, go to https://github.com/skalenetwork/skale-proxy[SKALE Proxy repo].
 
@@ -41,9 +41,9 @@ Recommended requirements:
  
 One of the main parameter for the reverse-proxy is a bandwidth, reverse-proxy is redirecting requests and not use as much computational power and storage. So it is necessary to have a good bandwitdth and create a machine at the close location to the area of usage(Europe, Asia, US, ...)
 
-MInimum requirements machine would be able to proceed up to 300 req/s
+Minimum requirements: bandwidth support for 300 req/s
 
-Recommended requirements machine would be able to proceed up to 1000 req/s
+Recommended requirements: bandwidth support for 1000 req/s
 
 === Setup
 
