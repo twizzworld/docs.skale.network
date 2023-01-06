@@ -6,11 +6,10 @@ The Wallets contract in SKALE Manager manages this functionality.
 
 Each SKALE Chain owner manages a wallet. This wallet must contain a balance of ETH that's used to reimburse specific transactions performed by validator-nodes including certain IMA messages.
 
-Transactions that are reimbursed by the schain owner are:
+Transactions that are reimbursed by the SKALE Chain owner wallet are:
 
-* certain SKALE Chain distributed key generation operations
+* certain SKALE Chain distributed key generation operations, see xref:validator-cli::self-recharging-wallets.adoc#self-recharging-wallets#_node_transactions[Validator self-recharging wallets].
 * _contingent_ reimbursement of bridge exits, see section below <<_ima_bridge>>.
-
 
 Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withdraw funds from the SKALE Chain wallet after the SKALE Chain deletion process has begun.
 
