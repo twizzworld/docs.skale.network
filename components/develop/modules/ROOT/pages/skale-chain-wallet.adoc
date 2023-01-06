@@ -4,29 +4,23 @@
 ....
 @startuml
 
-interface "SKALE Node" as SN
-component "SKALE Chain" as SC {
-    component "other predeploys"
-    component "IMA SKALE Chain" {
-        component "Community Locker"
-        component "Token Managers"
-    }
-}
+box "SKALE Network"
+participant "IMA Schain" as IS
+participant "SKALE Node" as SN
+end box
 
-component Ethereum {
-    component "SKALE Manager" as SM {
-        component Wallets
-    }
-    component "IMA Mainnet" as IM {
-        component "Deposit Boxes"
-        component "Community Pool"
-    }
-}
+box "Ethereum"
+participant "IMA\nCommunity Pool" as CP
+participant "IMA\nMainnet" as IM
+participant "SKALE Manager\nWallets" as SMW
+end box
 
-IM <--> Geth
-SM <-- Geth
-Geth <--> SN
-SN <--> SC 
+IS -> CP : 1. User deposits ETH IMA Community Pool
+IS -> IM : 2. User exits
+SN -> IM : 3. Random SKALE node posts tx
+CP -> SN : 4. Reimbursement from user's community pool
+SMW --> SN : 5. Contingent reimbursement
+
 @enduml
 ....
 
@@ -34,9 +28,9 @@ The SKALE Network uses a "self-reimbursing" wallet system to make it easier for 
 
 The Wallets contract in SKALE Manager manages this functionality.
 
-Each SKALE Chain owner manages a wallet. This wallet must contain a balance of ETH and this balance is used to reimburse specific transactions performed by validator-nodes including certain IMA messages.
+Each SKALE Chain owner manages a wallet. This wallet must contain a balance of ETH that's used to reimburse specific transactions performed by validator-nodes including certain IMA messages.
 
-Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withdraw funds from the SKALE Chain wallet after the SKALE Chain has been deleted.
+Anyone can fund the SKALE Chain wallet, but only the SKALE Chain owner may withdraw funds from the SKALE Chain wallet after the SKALE Chain deletion process has begun.
 
 == IMA Bridge
 
