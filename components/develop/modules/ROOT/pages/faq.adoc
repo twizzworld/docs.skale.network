@@ -39,7 +39,7 @@ For restricted tokens like ERC1404, you will still use the Interchain Messaging 
 
 Faster commit times, greater throughput, and lower transaction costs are the primary benefits of using a SKALE Chain. The advantages of using the SKALE Network, in particular, include a robust security model (based on random selection and frequent rotation of validator nodes), virtualized and containerized validator nodes, variable chain sizes, expandable on-chain storage options, BLS rollups, full EVM, and Web3 compatibility, and more.
 
-You can visit the SKALE Network: https://skale.space/highlights)[Technical Highlights] for a deeper dive into the benefits of the Network, including:
+You can visit the SKALE Network: https://skale.space/highlights[Technical Highlights] for a deeper dive into the benefits of the Network, including:
 
 * Zero Gas Fees
 * Random Node Rotation
