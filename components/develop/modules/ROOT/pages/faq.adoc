@@ -15,9 +15,9 @@ xref:filestorage::index.adoc[More information on the SKALE Filestorage system ca
 
 The SKALE Network is suitable for enterprise apps, where data privacy is a concern due to the Network's security. More on SKALE's security here:
 
-https://skale.network/blog/the-best-approach-to-securing-decentralized-networks/
+https://skale.network/blog/the-best-approach-to-securing-decentralized-networks/[SKALE Blog: The Best Approach to Securing Decentralized Networks]
 
-https://skale.network/docs/technology/skale-consensus
+https://docs.skale.network/technology/consensus-spec[SKALE Docs: Consensus]
 
 The SKALE Network is permissionless, and blockchain data is publicly accessible. However, using this type of environment in enterprise applications means that the enterprise apps put a stronger focus on security and privacy within their entire app and not just the blockchain parts. An excellent example of an enterprise app that requires both privacy and security is a health care app that's improving the way health care data is shared between systems, all while integrating with scaling solutions like SKALE.
 
@@ -39,16 +39,15 @@ For restricted tokens like ERC1404, you will still use the Interchain Messaging 
 
 Faster commit times, greater throughput, and lower transaction costs are the primary benefits of using a SKALE Chain. The advantages of using the SKALE Network, in particular, include a robust security model (based on random selection and frequent rotation of validator nodes), virtualized and containerized validator nodes, variable chain sizes, expandable on-chain storage options, BLS rollups, full EVM, and Web3 compatibility, and more.
 
-You can visit the SKALE Network: Technical Highlights for a deeper dive into the benefits of the Network, including:
+You can visit the SKALE Network: https://skale.space/highlights[Technical Highlights] for a deeper dive into the benefits of the Network, including:
 
-- Zero to Near-Zero Gas Fees
-- Random Node Selection/Frequent Node Rotation
-- Virtualized Subnodes
-- Containerized Validator Nodes
-- Consensus via Asynchronous Binary Byzantine Agreement (ABBA)
-- BLS Rollups
-- Node Monitoring
-- Ethereum Interoperability
+* Zero Gas Fees
+* Random Node Rotation
+* Containerized Validator Nodes
+* Virtualized Subnodes
+* Consensus via Asynchronous Binary Byzantine Agreement (ABBA)
+* Node Monitoring
+* Ethereum Interoperability
 
 == What's the SKALE Innovator Program?
 
@@ -58,6 +57,6 @@ The SKALE Innovator Program is a program SKALE has been running for the last yea
 
 The SKALE execution model is fully compatible with the Ethereum Virtual Machine (EVM), making it so that smart contracts that run on the Ethereum mainnet can also run on the SKALE Network. There is no need to rewrite or port smart contracts. Anything written for the EVM will execute on the SKALE Network. As such, developers can migrate to SKALE Chains in a phased manner – moving smart contracts to SKALE on an individual basis as the needs and benefits dictate.
 
-Because the SKALE Network uses the Ethereum EVM, it also has full Solidity support and works with most of the Ethereum developer toolset. These include connecting to the Network via web3.js and web3.py and supporting tools such as Truffle, Hardhat, and Remix. The SKALE Network supports all major Ethereum token standards, including ETH, ERC20, ERC721, ERC1155, USDC, Dai, USDT. 
+Because the SKALE Network uses the Ethereum EVM, it also has full Solidity support and works with most of the Ethereum developer toolset. These include connecting to the Network via web3.js, ethers.js, and web3.py and supporting tools such as Truffle, Hardhat, and Remix. The SKALE Network supports all major Ethereum token standards, including ETH, ERC20, ERC721, ERC1155, USDC, Dai, USDT. 
 
-In addition, the SKALE Network supports many popular crypto wallets and browser plugins, and bridges. These include Bitski, Fortmatic, Metamask, Portis, Torus. These interface components are well-regarded in the community and used by thousands of developers. Lastly, the SKALE Network is easy to use. The steps to provision one or more SKALE chains are simple, with options to select sidechain size (small, medium, large), chain duration, storage options, and more.
+In addition, the SKALE Network supports many popular https://docs.skale.network/develop/wallets[crypto wallets], browser plugins, and bridges. These include Bitski, Fortmatic, Metamask, Portis, Torus. These interface components are well-regarded in the community and used by thousands of developers. Lastly, the SKALE Network is easy to use. The steps to provision one or more SKALE chains are simple, with options to select sidechain size (small, medium, large), chain duration, storage options, and more.
