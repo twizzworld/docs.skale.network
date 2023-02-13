@@ -7,7 +7,7 @@ SKALE Chains enable dApps and their users to run scalable, cost-free transaction
 
 Each chain in the SKALEverse has their own process and endpoints for distributing sFUEL to users. Often sFUEL is distributed to users through each dapp's onboarding process.
 
-video::sfuel-station.m4v[opts="autoplay]
+video::sfuel-station.m4v[opts="autoplay, height=450, width=800]
 
 Alternatively, you can head over to the sFUEL station to automatically sFUEL up across all supported SKALE chains: https://sfuel.skale.network/. Enter your account address and click btn:[Fuel Wallet].
 
