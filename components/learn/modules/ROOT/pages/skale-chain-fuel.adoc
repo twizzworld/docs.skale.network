@@ -1,28 +1,21 @@
 = SKALE Chain FUEL (sFUEL)
 :experimental:
 
-SKALE Chains enable dApps and their users to run scalable, cost-free transactions. This provides an effective way to scale your dApp not only for speed but also to scale economically. SKALE Chains do require users to have sFUEL to conduct transactions – this sFUEL is a gas token with no economic value and provides a way for dApps and users to facilitate permissive access to SKALE Chains and protects against DDoS attacks.
+SKALE Chains enable dApps and their users to run scalable, zero-gas cost transactions using SKALE Chains' native token sFUEL. sFUEL effectively allows developers to scale their dApp not only for speed but also to scale economically and provides users with an optimal user experience. 
+
+SKALE Chains require users to have sFUEL to conduct transactions. This sFUEL is a zero-cost gas token with no economic value and provides a way for dApps and users to access SKALE Chains and protects against DDoS attacks.
+
+[NOTE]
+Be careful not to confuse SKALE chain native sFUEL tokens with the SKALE Network token SKL, a mixed-use token representing the right to work in the network as a validator, stake as a delegator, or access a share of its resources by deploying and renting a SKALE Chain over time as a developer.
 
 == How to get sFUEL
 
-Each chain in the SKALEverse has their own process and endpoints for distributing sFUEL to users. Often sFUEL is distributed to users through each dapp's onboarding process.
+Each chain or dApp in the SKALEverse has its process and endpoints for distributing sFUEL to users. Often sFUEL is distributed to users through each dapp's onboarding process.
 
-video::sfuel-station.m4v[opts="autoplay, height=450, width=800]
+Alternatively, you can use the sFUEL station to automatically sFUEL up across all supported SKALE chains: https://sfuel.skale.network/. Enter your account address and click btn:[Fuel Wallet]. See the video below:
 
-Alternatively, you can head over to the sFUEL station to automatically sFUEL up across all supported SKALE chains: https://sfuel.skale.network/. Enter your account address and click btn:[Fuel Wallet].
+video::sfuel-station.m4v[opts=autoplay, height=450, width=800]
 
 == Developing with sFUEL
 
-There are a few ways developers can manage and allocate SKALE FUEL (sFUEL), depending on your setup.
-
-== sFUEL on SKALE SDKs
-
-For SKALE SDKs, an account is pre-allocated with SKALE FUEL (sFUEL). You can use this for conducting transactions, sending to users on your SKALE Chain, and more. See the README in the respective SDK for the pre-allocated account, or check your `.env` file setup.
-
-== sFUEL on Mainnet and Testnet SKALE Chains
-
-For Mainnet and Testnet, the SKALE Chain owner account is provided sFUEL for the SKALE Chain. From this account, the owner can fund contracts, end-user accounts, conduct transactions, etc. When end-users complete transactions and spend gas, the coinbase account is refunded with sFUEL. The coinbase account for SKALE Chains is the SKALE Owner account.
-
-== Real ETH on SKALE Chains
-
-To view Real ETH on SKALE Chains, as in the amount locked in IMA DepositBoxes, you can use the _informational RPC ports_ for your endpoint. 
+Depending on the desired setup, there are several ways SKALE Network developers can manage and allocate users SKALE FUEL (sFUEL). Please see xref:develop::sfuel-gas-token.adoc[Developing with sFUEL].
