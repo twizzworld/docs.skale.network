@@ -14,7 +14,7 @@ Each chain or dApp in the SKALEverse has its process and endpoints for distribut
 
 Alternatively, you can use the sFUEL station to automatically sFUEL up across all supported SKALE chains: https://sfuel.skale.network/. Enter your account address and click btn:[Fuel Wallet]. See the video below:
 
-video::sfuel-station.m4v[opts=autoplay, height=450, width=800]
+video::798561242[vimeo, opts=autoplay, height=450, width=800]
 
 == Developing with sFUEL
 
