@@ -29,11 +29,24 @@ SKALE Chain owners are encouraged to submit metadata specifying chain details to
   },
 ...
 ```
-. Upload a `png` or `gif` file containing your chain logo to menu:metadata[mainnet > logos > CHAIN_NAME.png].
-. For SKALE Hubs only: upload a `png` or `gif` logos for each app on that chain to menu:metadata[mainnet > logos > CHAIN_NAME-APP_NAME.png].
-. Upload a `svg` (only svg!) containing your chain icon to menu:metadata[mainnet > icons > CHAIN_NAME.svg].
-. For SKALE Hubs only: Upload a `svg` (only svg!) icons for each app on that chain to menu:metadata[mainnet > icons > CHAIN_NAME-APP_NAME.svg].
+. Upload logos
 +
+Upload a `png` or `gif` file (at least 400 x 200px) containing your chain logo to menu:metadata[mainnet > logos > CHAIN_NAME.png]. For example: `elated-tan-skat.png` 
++
+image::https://raw.githubusercontent.com/skalenetwork/skale-network/master/metadata/mainnet/logos/elated-tan-skat.png[elated-tan-skat,200]
++
+*For SKALE Hubs only*: upload a `png` or `gif` logos for each app on that chain to menu:metadata[mainnet > logos > CHAIN_NAME-APP_NAME.png]. For example: `elated-tan-skat-ruby.png` 
++
+image::https://raw.githubusercontent.com/skalenetwork/skale-network/master/metadata/mainnet/logos/elated-tan-skat-ruby.png[elated-tan-skat-ruby,400]
+. Upload icons
++
+Upload a `svg` (only svg!) containing your chain icon to menu:metadata[mainnet > icons > CHAIN_NAME.svg]. For example: `elated-tan-skat.svg`
++
+image::https://raw.githubusercontent.com/skalenetwork/skale-network/0b4181a26db96d05f66fe529dbef84328c256796/metadata/mainnet/icons/elated-tan-skat.svg[elated-tan-skat,200]
++
+*For SKALE Hubs only*: Upload a `svg` (only svg!) icons for each app on that chain to menu:metadata[mainnet > icons > CHAIN_NAME-APP_NAME.svg]. For example: `elated-tan-skat-ruby.svg`
++
+image::https://raw.githubusercontent.com/skalenetwork/skale-network/0b4181a26db96d05f66fe529dbef84328c256796/metadata/mainnet/icons/elated-tan-skat-ruby.svg[elated-tan-skat-ruby]
 
 . Submit a PR and include any additional context if needed.
 
