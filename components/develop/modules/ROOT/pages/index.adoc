@@ -19,7 +19,11 @@ For testing, you can use the SKALE public testnet which has 15 chains. Most of t
 |===
 
 [NOTE]
-The public chain provided above requires sFUEL to deploy (faucet: https://sfuel.skale.network/staging/). This is unlike other SKALE chains which require both deployer access and sFUEL to deploy.
+====
+The public chain provided above requires sFUEL to deploy contacts and perform transactions (faucet: https://sfuel.skale.network/staging/). This is unlike other SKALE chains which require both xref:skale-chain-access-control.adoc#_whitelist[deployer access] and sFUEL to deploy contracts.
+
+➡️ sFUEL is a zero-cost gas token and is the native token for each SKALE chain. xref:sfuel-gas-token.adoc[Read more about sFUEL here].
+====
 
 To view the testnet chains, go to https://staging-v3.skalenodes.com/.
 
