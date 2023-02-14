@@ -2,32 +2,34 @@
 
 == Quick Start
 
-Already an Ethereum developer? Use all your usual tools and deployment methods (Truffle, Hardhat, Remix, Web3) and get your own SKALE Chain RPC Endpoint. Yes - an entire RPC endpoint for your dApp, end-users, and ecosystem.
+Already an Ethereum developer? Use all your usual tools and deployment methods (Truffle, Hardhat, Remix, Web3) and get a SKALE Chain RPC Endpoint. 
 
 === Get a SKALE Endpoint
 
-There are several types of SKALE RPC endpoints to get depending on your development stage: development, network testing, and mainnet.
+For testing, you can use the SKALE public testnet which has 15 chains. Most of these chains are dedicated to other dApps and hubs, except `staging-fast-active-bellatrix` which is provided for general public testing.
 
-**🧑‍💻 For quick development**, a single-node chain is sufficient and recommended to build and test your dApp on a SKALE Chain with IMA and Filestorage. 
+[cols="h,m"]
+|===
+|Chain Name: |staging-fast-active-bellatrix
+|RPC (https):| \https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix
+|RPC (wss): | wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix
+|Block explorer: | \https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com
+|Chain ID: | 0x50877ed6
+|Chain ID (dec): | 1351057110
+|Chain name hash: | 0x0000050877ed6397218923b67054bfcfd054c0012d0682fe896667859b4dede9
+|sFUEL faucet: | \https://sfuel.skale.network/staging/chaos
+|===
 
-.Local and IMA-Bridge development environment
-* ⛓ SKALE Chain + IMA Bridge: xref:ima-sdk.adoc[Use the SDK instructions here].
+[NOTE]
+====
+The public chain provided above requires sFUEL to deploy contacts and perform transactions (faucet: https://sfuel.skale.network/staging/chaos). This is unlike other SKALE chains which require both xref:skale-chain-access-control.adoc#_whitelist[deployer access] and sFUEL to deploy contracts.
 
-**✅ For network and load testing**, a multi-node chain is recommended.
+➡️ sFUEL is a zero-cost gas token and is the native token for each SKALE chain. xref:sfuel-gas-token.adoc[Read more about sFUEL here].
+====
 
-.SKALE Dappnet-Rinkeby development environments
-* Request a multi-node Dappnet SKALE Chain with IMA connected to Ethereum Rinkeby
-* https://skale.network/innovators-signup[Request to join the SKALE Innovator Program] to access a multi-node Dappnet SKALE Chain
+To view the testnet chains, go to https://staging-v3.skalenodes.com/.
 
-**🚀 For production ready dApps**, SKALE Mainnet Chains are currently available to select dApps, and will be available on a rolling basis.
-
-.SKALE Mainnet
-* Receive a grant to provision a 16-node SKALE Chain on Mainnet
-* (Soon) Stake SKL to provision a 16-node SKALE Chain on Mainnet
-
-* Setup Web3 wallets to work with the RPC Endpoint
-
-* Deploy your contracts on your SKALE Endpoint
+video::798584275[vimeo, opts=autoplay, height=450, width=800]
 
 == Existing dApps
 
