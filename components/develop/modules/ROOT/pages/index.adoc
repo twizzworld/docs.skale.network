@@ -6,7 +6,7 @@ Already an Ethereum developer? Use all your usual tools and deployment methods (
 
 === Get a SKALE Endpoint
 
-For testing, you can use the SKALE public testnet which has 15 chains. Most of these chains are dedicated to other dApps and hubs, except `staging-fast-active-bellatrix` which is provided for general public testing.
+For testing, you can use the SKALE public testnet which has 15 chains. Most of these chains are dedicated to other dApps and hubs, except for the CHAOS chain (`staging-fast-active-bellatrix`) which is provided for general public testing.
 
 [cols="h,m"]
 |===

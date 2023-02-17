@@ -9,12 +9,6 @@ SKALE Network is live on Mainnet and operating non-stop since September 2020! Ma
 
 == Testnet
 
-SKALE Network operates a Testnet for onboarding and training new validators, and performing testing of new features and bug fixes. SKALE Chains on testnet are reserved for only QA testing purposes.
+SKALE Network operates a Testnet for onboarding, training new validators, and performing testing of new features and bug fixes. SKALE Chains and Hubs on testnet are available for dapp development and testing on an invite basis. 
 
-== Dappnet
-
-SKALE Network core team operates several Dappnets for helping dApp developers perform final network and load testing before Mainnet production launch.
-
-== Hackathons
-
-The core team operates temporary hackathon networks for various EthGlobal events and other hackathons.
+One chain on testnet is available for public testing, see xref:index.adoc#_get_a_skale_endpoint[CHAOS chain endpoints for public testing].
