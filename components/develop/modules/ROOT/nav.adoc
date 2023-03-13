@@ -18,6 +18,7 @@
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
 ** xref:ima::index.adoc[Performing IMA Bridge transfers]
+** xref:metaport::index.adoc[Using Metaport Widget]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
