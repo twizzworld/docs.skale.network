@@ -2,4 +2,5 @@
 * xref:overview.adoc[Basics]
 * xref:skale-chain-sizes.adoc[SKALE Chain sizes]
 * xref:skale-chain-fuel.adoc[SKALE Chain FUEL]
+* xref:mainnet-beta.adoc[Mainnet Beta]
 * xref:faq.adoc[General FAQs]
