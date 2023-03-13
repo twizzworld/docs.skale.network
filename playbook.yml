@@ -63,6 +63,10 @@ content:
     - url: https://github.com/skalenetwork/skale-node
       branches: docs-v*
       start_path: docs
+
+    - url: https://github.com/skalenetwork/metaport
+      branches: docs-v*
+      start_path: docs
       
 ui:
   bundle:
