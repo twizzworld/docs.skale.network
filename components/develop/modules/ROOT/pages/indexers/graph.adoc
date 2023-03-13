@@ -1,9 +1,10 @@
-= Using Graph Protocol
+= Getting Started with The Graph
+:page-aliases: using-graph.adoc
 
 You can use The Graph indexing protocol to create subgraphs on SKALE Chain data. You can reach out to the Graph community to request a Graph node, or you may run your own Graph node. These instructions assume you are using the SKALE-IMA-SDK and running your own graph node.
 
 [NOTE]
-SKALE Chains deployed before Dec 2021 aren't compatible with EIP-1898, and as such can't be used with the Graph.
+For proper compatibility, you must point a Graph node to a SKALE Archive node.
 
 . Install Prerequisites
 +

@@ -1,0 +1,39 @@
+= Getting Started with Subsquid
+
+https://subsquid.io/[Subsquid] is a query node framework that can be applied to SKALE Chains. Subsquid is like an ETL (Extract, Transform, and Load) tool.
+
+Developers can use Subsquid to extract SKALE chain data and process EVM logs in one project and serve this data on a GraphQL endpoint.
+
+Currently, Subsquid is available on the following SKALE chains:
+
+.Mainnet Endpoints
+[%header,cols="2,2,1"]
+|===
+| SKALE Chain
+| Endpoint lookup cmd
+| Archive Endpoint
+
+| SKALE Calypso Hub | `lookupArchive('skale-calypso')`
+| \https://skale-calypso.archive.subsquid.io
+
+| SKALE Nebula Hub
+| `lookupArchive('skale-nebula')`
+| \https://skale-nebula.archive.subsquid.io
+|===
+
+.Staging Endpoints
+[%header,cols="2,2,1"]
+|===
+| SKALE Chain
+| Endpoint lookup cmd
+| Archive Endpoint
+
+| SKALE Calypso Hub (Staging) | `lookupArchive('skale-calypso-staging')`
+| \https://skale-calypso-staging.archive.subsquid.io
+
+| SKALE Nebula Hub (Staging)
+| `lookupArchive('skale-nebula-staging')`
+| \https://skale-nebula-staging.archive.subsquid.io
+|===
+
+For more information, please see https://docs.subsquid.io/.
