@@ -16,7 +16,9 @@
     "prepare:local": "antora --fetch playbook-local-only.yml --stacktrace",
     "build:local": "yarn prepare:ui && yarn prepare:docs",
     "build": "yarn build:ui && antora --fetch playbook.yml --stacktrace --html-url-extension-style=drop",
-    "serve": "live-server build/site"
+    "serve": "live-server build/site",
+    "setup:git": "git submodule update --init --recursive --remote",
+    "setup": "yarn setup:git"
   },
   "dependencies": {
     "@antora/cli": "^2.3.4",
