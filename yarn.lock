@@ -362,10 +362,10 @@
 
 "@skalenetwork/doc-utils@https://github.com/skalenetwork/doc-utils.git":
   version "0.1.0"
-  resolved "https://github.com/skalenetwork/doc-utils.git#e692c65586084982234f52fe4808e2a28532a3fd"
+  resolved "https://github.com/skalenetwork/doc-utils.git#33676d6e16135d3a47616e925970d0ab64bcd2d0"
   dependencies:
-    "@antora/cli" "^3.1.2"
-    "@antora/site-generator-default" "^3.1.2"
+    "@antora/cli" "^2.3.4"
+    "@antora/site-generator-default" "^2.3.4"
     "@djencks/asciidoctor-mathjax" "^0.0.8"
     asciidoctor-kroki "^0.15.4"
     chalk "^4.1.2"
