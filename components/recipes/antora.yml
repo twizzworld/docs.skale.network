@@ -1,0 +1,5 @@
+name: recipes
+title: Recipes
+version: master
+nav:
+  - modules/ROOT/nav.adoc

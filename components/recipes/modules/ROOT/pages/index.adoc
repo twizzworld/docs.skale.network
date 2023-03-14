@@ -1,0 +1,8 @@
+= SKALE Developer Recipes
+
+SKALE Developer Recipes have been created to help ANYONE looking to create, innovate, and explore the SKALE Network. 
+The resources created offer a variety of different guided paths to help you start or continue your developer journey.
+
+Checkout a few of our popular recipes such as:
+
+Creating an NFT
