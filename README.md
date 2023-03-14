@@ -41,6 +41,10 @@ yarn docs:watch:home
 ```console
 yarn docs:watch:learn
 ```
+#### Recipes
+```console
+yarn docs:watch:recipes
+```
 #### Technology
 ```console
 yarn docs:watch:technology
