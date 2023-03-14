@@ -70,8 +70,8 @@ content:
       
 ui:
   bundle:
-    url: ./ui/build/sn-docs-ui-bundle.zip
-  supplemental_files: ./ui/static
+    url: ./doc-ui/build/sn-docs-ui-bundle.zip
+  supplemental_files: ./doc-ui/static
     # snapshot: true
 asciidoc:
   attributes:
