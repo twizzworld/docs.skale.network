@@ -1,1 +1,7 @@
 * xref:index.adoc[Overview]
+* xref:tracks.adoc[Tracks]
+* xref:favorites.adoc[Favorite Recipes]
+* Solidity
+** xref:solidity/index.adoc[Solidity 101]
+* NFTs
+** xref:nfts/index.adoc[Non-Fungible Tokens]

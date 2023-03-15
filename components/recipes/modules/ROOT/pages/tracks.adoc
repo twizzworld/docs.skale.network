@@ -1,0 +1,15 @@
+[.card-section]
+= Tracks
+
+The SKALE Network documentation while geared toward SKALE is also a great location to start learning about how to develop using blockchain technology thanks to the EVM (Ethereum Virtual Machine) compatability that SKALE Chains offer. 
+
+Pick a track below to start learning!
+
+[.card.card-learn]
+--
+xref:solidity/index.adoc[[.card-title]#Solidity 101# [.card-body]#pass:q[Learn the basics of Solidity]#]
+--
+[.card.card-learn]
+--
+xref:nfts/index.adoc[[.card-title]#Non-Fungible Tokens (NFTs)# [.card-body]#pass:q[Mint an NFT in 5 Minutes...For Free!]#]
+--
