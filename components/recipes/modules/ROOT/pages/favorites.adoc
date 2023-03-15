@@ -5,9 +5,9 @@ This page offers up some of favorite recipes to get you building on SKALE as qui
 Each card links to a specific recipe, pick one that looks interesting and get building!
 [.card.card-learn]
 --
-xref:nfts/0-mint-first-nft.adoc[[.card-title]#Mint your first NFT# [.card-body]#pass:q[NFTs Track]#]
+xref:nfts/0-mint-your-first-nft.adoc[[.card-title]#Mint your first NFT# [.card-body]#pass:q[NFTs Track]#]
 --
 [.card.card-learn]
 --
-xref:solidity/0-solidity-basics.adoc[[.card-title]#Solidity 101# [.card-body]#pass:q[Learn the basics of Solidity]#]
+xref:solidity/0-solidity-basics.adoc[[.card-title]#Zero to ERC-20 Hero# [.card-body]#pass:q[Learn the basics of Solidity]#]
 --
