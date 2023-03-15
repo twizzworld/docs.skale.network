@@ -15,7 +15,7 @@
     "prepare:docs": "antora --fetch playbook.yml --stacktrace",
     "prepare:local": "antora --fetch playbook-local-only.yml --stacktrace",
     "build:local": "yarn prepare:ui && yarn prepare:docs",
-    "build": "yarn build:ui && antora --fetch playbook.yml --slient --html-url-extension-style=drop",
+    "build": "yarn build:ui && antora --fetch playbook.yml --html-url-extension-style=drop",
     "serve": "live-server build/site",
     "setup:git": "git submodule update --init --recursive --remote",
     "setup": "yarn setup:git"
