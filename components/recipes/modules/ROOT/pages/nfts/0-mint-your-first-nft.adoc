@@ -1,3 +1,6 @@
 = Mint your first NFT
 
-Coming soon!
+In this recipe you will mint your first https://ethereum.org/en/developers/docs/standards/tokens/erc-721[NFT] on a SKALE Testnet -- the Chaos Chain.
+
+Worried about getting stuck? Head over the https://skale.chat[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
+
