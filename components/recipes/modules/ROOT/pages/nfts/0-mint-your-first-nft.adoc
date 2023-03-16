@@ -5,5 +5,24 @@ In this recipe you will mint your first https://ethereum.org/en/developers/docs/
 Worried about getting stuck? Head over the https://skale.chat[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
 
 include::partial$node-requirements.adoc[]
-
 == Step I: Get the Code
+
+Start by copying the code from the terminal into your command prompt.
+
+include::example$nfts/0/install.adoc[]
+
+Once complete, you should see an output similiar to below.
+
+image::nfts/0/0-install-hardhat-result.png["Output of Command"]
+
+== Step II: Installation
+
+Copied the command from above? Skip this step
+
+include::partial$javascript-repo-install.adoc[]
+
+== Step III: Mint your first NFT
+
+Way to go! In just a couple of quick steps you put yourself in a position to mint your first NFT.
+
+include::example$

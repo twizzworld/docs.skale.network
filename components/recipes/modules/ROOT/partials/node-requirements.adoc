@@ -1,4 +1,5 @@
 == Prerequisites
+[TIP]
 ====
 Before starting this tutorial, make sure to complete the following steps:
 
