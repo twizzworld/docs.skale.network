@@ -1,7 +1,7 @@
 {
     "redirects": [
-      { "source": "/", "destination": "/docs/" },
-      { "source": "/*", "destination": "/*.html" }
+      { "source": "/", "destination": "/docs/index" },
+      { "source": "*", "destination": "*.html" }
 
     ]
 }
