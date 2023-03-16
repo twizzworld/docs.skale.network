@@ -4,4 +4,6 @@ In this recipe you will mint your first https://ethereum.org/en/developers/docs/
 
 Worried about getting stuck? Head over the https://skale.chat[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
 
-**Ready to go?**
+include::partial$node-requirements.adoc[]
+
+== Step I: Get the Code

@@ -1,0 +1,11 @@
+== Prerequisites
+====
+Before starting this tutorial, make sure to complete the following steps:
+
+- [ ] Install https://nodejs.org/en[Node.js] (Version 16+)
+- [ ] Pick or install a code editor of your choice
+    * https://code.visualstudio.com[Visual Studio Code]
+    * https://remix.ethereum.org[Remix]
+        ** Requires installation of https://metamask.io[Metamask]
+- [ ] Install https://github.com/git-guides/install-git[Git]
+====
