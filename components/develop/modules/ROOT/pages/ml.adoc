@@ -1,0 +1,35 @@
+= Using SKALE-ML
+
+== What is SKALE-ML
+
+SKALE-ML is a unique tool that allows SKALE developers to combine trained machine learning models with smart contracts. It provides a method to forward propagate data and control smart contract logic based on model outcomes.
+
+* Use TensorFlow/Keras ML models to control dApp logic.
+* Decentralize and store trained models using SKALE Filestorage.
+* Leverage SKALE's zero-cost gas to perform forward propagation in EVM.
+
+== Example ideas of what you can build with SKALE-ML
+
+* Autonomously filter file uploads using a decentralized ResNet neural network.
+* Identify malicious transactions and pause a bridge using a KNN classifier.
+* Generate NFT images using a decentralized GAN model.
+* Re-balance a DAO treasury using a portfolio optimizer.
+* Build an IMA chatbot using an NLP model.
+
+.SKALE-ML @ EthBoston
+video::4AIrcs__Cek[youtube,start=1123]
+
+.AnonHero @ EthBoston
+video::K9nGj2UuQYM[youtube]
+
+== How it works
+
+. Developers build and train a model using TensorFlow/Keras.
+. Developers upload a trained h5 model and file converter to a SKALE Chain's filestorage.
+. SKALE-ML contracts and precompiles run the predict() method on users' inputs.
+. SKALE-ML forward propagates input data through the h5 model and outputs a file with results.
+. Endpoints call getResults() to receive the prediction output.
+
+== Want to know more?
+
+Reach out to the SKALE core team: https://discord.gg/skale 
