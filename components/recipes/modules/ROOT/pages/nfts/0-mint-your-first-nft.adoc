@@ -2,7 +2,7 @@
 
 In this recipe you will mint your first https://ethereum.org/en/developers/docs/standards/tokens/erc-721[NFT] on a SKALE Testnet -- the Chaos Chain.
 
-Not sure what to do? Head over the https://skale.chat[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
+Not sure what to do? Head over the https://discord.gg/skale[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
 
 include::partial$tools.adoc[]
 
