@@ -1,0 +1,19 @@
+site:
+  title: SKALE Network - Learn
+  robots: allow
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+ui:
+  bundle:
+    url: ./doc-ui/build/sn-docs-ui-bundle.zip
+  supplemental_files: ./doc-ui/static
+asciidoc:
+  attributes:
+    :plantuml-server-url: https://www.plantuml.com/plantuml
+  extensions:
+    - ./lib/tabs-block.js
+    - '@djencks/asciidoctor-mathjax'
+    - asciidoctor-kroki

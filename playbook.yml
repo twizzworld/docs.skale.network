@@ -63,11 +63,15 @@ content:
     - url: https://github.com/skalenetwork/skale-node
       branches: docs-v*
       start_path: docs
+
+    - url: https://github.com/skalenetwork/metaport
+      branches: docs-v*
+      start_path: docs
       
 ui:
   bundle:
-    url: ./ui/build/sn-docs-ui-bundle.zip
-  supplemental_files: ./ui/static
+    url: ./doc-ui/build/sn-docs-ui-bundle.zip
+  supplemental_files: ./doc-ui/static
     # snapshot: true
 asciidoc:
   attributes:

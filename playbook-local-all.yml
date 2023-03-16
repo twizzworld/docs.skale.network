@@ -1,0 +1,40 @@
+site:
+  title: SKALE Network - Local
+  robots: allow
+content:
+  sources:
+    - url: .
+      branches: HEAD
+      start_path: components/home
+
+    - url: .
+      branches: HEAD
+      start_path: components/learn
+
+    - url: .
+      branches: HEAD
+      start_path: components/validators
+
+    - url: .
+      branches: HEAD
+      start_path: components/develop
+
+    - url: .
+      branches: HEAD
+      start_path: components/filestorage
+
+    - url: .
+      branches: HEAD
+      start_path: components/technology
+ui:
+  bundle:
+    url: ./doc-ui/build/sn-docs-ui-bundle.zip
+  supplemental_files: ./doc-ui/static
+asciidoc:
+  attributes:
+    :plantuml-server-url: https://www.plantuml.com/plantuml
+  extensions:
+    - ./lib/tabs-block.js
+    # - ../../node_modules/@skalenetwork/doc-utils/lib/cjs/tabs-block.js
+    - '@djencks/asciidoctor-mathjax'
+    - asciidoctor-kroki

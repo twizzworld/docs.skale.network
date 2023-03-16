@@ -18,6 +18,7 @@
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
 ** xref:ima::index.adoc[Performing IMA Bridge transfers]
+** xref:metaport::index.adoc[Using Metaport Widget]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
@@ -27,8 +28,10 @@
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
 * xref:ima::index.adoc[Ethereum &harr; SKALE]
 * xref:ima::index.adoc[SKALE Chain &harr; SKALE Chain]
-* Indexing
-** xref:using-graph.adoc[Using The Graph]
+* Indexers
+** xref:indexers/graph.adoc[The Graph]
+** xref:indexers/covalent.adoc[Covalent API]
+** xref:indexers/subsquid.adoc[Subsquid]
 * xref:tutorials.adoc[Tutorials]
 ** xref:deploy-a-website-on-skale.adoc[Deploy a decentralized website using SKALE Filestorage]
 * SKALE Chain Administration
