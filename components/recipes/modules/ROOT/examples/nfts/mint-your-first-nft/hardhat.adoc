@@ -1,8 +1,13 @@
-Hardhat is a popular Command Line tool for developers. Copy and paste to download the code from GitHub onto your computer
-[source,bash]
-----
+1. Run the following command in your command prompt to load the Hardhat project onto your system
+
+```shell
 git clone -b recipe-mint-your-first-nft git@github.com:skalenetwork/recipes &&
-cd recipes &&
-npm install && 
-ls
-----
+cd recipes
+```
+2. Install the project dependencies
+
+```shell
+npm install
+```
+
+3.Test

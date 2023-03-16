@@ -11,7 +11,7 @@
 
 // NFT Navigation
 * xref:nfts/index.adoc[Non-Fungible Tokens]
-** xref:nfts/0-mint-your-first-nft.adoc[Mint your first NFT]
+** xref:nfts/0-mint-your-first-nft.adoc[Mint your first  NFT]
 // ** xref:nfts/1-multi-token-standard.adoc[Multi-token Standard]
 // ** xref:nfts/2-using-nfts.adoc[Using NFTs]
 // ** xref:nfts/3-on-chain-digital-assets.adoc[On-chain Digital Assets]

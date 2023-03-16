@@ -18,6 +18,7 @@ include::example$nfts/mint-your-first-nft/remix.adoc[]
 Hardhat::
 +
 --
+// include::partial$javascript-repo-install.adoc[]
 include::example$nfts/mint-your-first-nft/hardhat.adoc[]
 --
 ====
