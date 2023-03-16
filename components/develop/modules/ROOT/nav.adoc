@@ -17,6 +17,7 @@
 ** xref:full-sync-node.adoc[Using Full-sync node]
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
+** xref:ml.adoc[Using SKALE-ML]
 ** xref:ima::index.adoc[Performing IMA Bridge transfers]
 ** xref:metaport::index.adoc[Using Metaport Widget]
 * xref:wallets.adoc[Wallets]
