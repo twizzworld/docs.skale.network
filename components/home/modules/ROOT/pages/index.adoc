@@ -90,7 +90,7 @@ Follow the community's open-source development on https://github.com/skalenetwor
 
 == Questions?
 
-Join the SKALE Network developer community http://skale.chat[Discord server].
+Join the SKALE Network developer community https://discord.gg/skale[Discord server].
 
 
 == Resources
