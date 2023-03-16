@@ -4,7 +4,9 @@ Hardhat::
 +
 --
 
-Hardhat is a popular way to deploy your smart contracts onto Ethereum, and can also be used to deploy your smart contracts onto SKALE. You can update your hardhat configuration file (`hardhat.сonfig.js` or `hardhat.config.ts`) with a configuration to deploy your smart contracts onto SKALE.  
+Hardhat is a popular way to deploy and verify your smart contracts onto Ethereum, and can also be used to deploy and verify your smart contracts on SKALE. 
+
+You can update your hardhat configuration file (`hardhat.сonfig.js` or `hardhat.config.ts`) with a configuration to deploy your smart contracts on SKALE or use this preconfigured https://github.com/skalenetwork/hardhat-skale[Github repository]
 
 For more information on hardhat configuration files, please see https://hardhat.org/config/[Hardhat's Configuration Documentation].  
 
@@ -14,52 +16,86 @@ To deploy your smart contracts onto SKALE, you need to write a script using ethe
 [NOTE]
 If you are using plugins for deployment (hardhat-deploy, ...), plugins can check previous txs, if you are not connected to the Archival Node please use flags to disable previous txs check (for hardhat-deploy - https://github.com/wighawag/hardhat-deploy#deploymentsdeployname-options[skipIfAlreadyDeployed])  
 
+**SAMPLE:** `.env` for https://docs.skale.network/develop/[SKALE Chaos Chain ]
 [source,javascript]
 ----
-/*
- * This hardhat script will deploy your smart contracts to your SKALE Chain.
- *
- *  @param {String} privateKey - Provide your wallet private key.
- *  @param {String} provider - Provide your SKALE endpoint address.
- */
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomiclabs/hardhat-web3";
-import "@nomiclabs/hardhat-ethers";
+#change file name from sample.env -> .env to enable setup to use dotenv
 
-// Provide your wallet private key
-let privateKey = "[YOUR_PRIVATE_KEY]";
+PRIVATE_KEY=
+SKALE_ENDPOINT=https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix
+CHAIN_ID=0x50877ed6
+API_URL=https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/api
+BLOCKEXPLORER_URL=https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com
+ETHERSCAN_API_KEY='abc123' /* <-- contents not important just needs populated string */
+----
 
-//Provide your SKALE endpoint address
-let skale = "[YOUR_SKALE_CHAIN_ENDPOINT]";
 
-const config: HardhatUserConfig = {
-  defaultNetwork: "skale",
-  solidity: {
-    version: '0.8.0',
-    settings: {
-      optimizer:{
-        enabled: true,
-        runs: 200
-      }
-    }
-  },
+**SAMPLE:** `hardhat.config.js`
+[source,javascript]
+----
+require("@nomicfoundation/hardhat-toolbox");
+require("@nomiclabs/hardhat-etherscan");
+const dotenv = require("dotenv");
+
+
+dotenv.config();
+
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  solidity: "0.8.9",
+ 
   networks: {
+
     skale: {
-        url: skale,
-        accounts: [privateKey],
-        gasPrice: 0
-    }
+            url: process.env.SKALE_ENDPOINT,
+           
+            accounts: [process.env.PRIVATE_KEY]
+          },
+      
+  },
+  etherscan: { 
+    apiKey: {
+      skale: process.env.ETHERSCAN_API_KEY,
+    },
+    customChains: [
+      {
+        network: "skale",
+        chainId: parseInt(process.env.CHAIN_ID),
+        urls: {
+          apiURL: process.env.API_URL,
+          browserURL: process.env.BLOCKEXPLORER_URL,
+        }
+      }
+    ]
   }
 };
-
-export default config;
 ----
+
+**DEPLOYING**
 
 You can point your deployment scripts for your existing smart contracts to your SKALE Chain’s address and deploy using existing tooling (e.g.: hardhat). An example hardhat deployment command to deploy your smart contracts using the 'skale' network in the script above is:  
 
 ```shell
-hardhat run upgradeToSkale.ts --network skale
+hardhat run ./scripts/<<your script>> --network skale
 ```
+For verifying your contract make sure you have added all dependencies:
+```shell
+yarn add --save-dev "@ethersproject/providers@^5.4.7" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-chai-matchers@^1.0.0" "@nomiclabs/hardhat-ethers@^2.0.0" "@types/chai@^4.2.0" "@types/mocha@^9.1.0" "@typechain/ethers-v5@^10.1.0" "@typechain/hardhat@^6.1.2" "chai@^4.2.0" "ethers@^5.4.7" "hardhat-gas-reporter@^1.0.8" "solidity-coverage@^0.7.21" "ts-node@>=8.0.0" "typechain@^8.1.0" "typescript@>=4.5.0" "dotenv@^16.0.1" "@openzeppelin/contracts@^4.7.0" "@nomicfoundation/hardhat-toolbox@^1.0.2" "@nomiclabs/hardhat-etherscan@^3.1.5"
+```
+
+**VERIFYING**
+
+Run the fowllowing command after updating it with the contract address returned from `hardhat run` and adding any simple constructors (if no constructors, nothing is needed- can be omitted)
+
+```shell
+hardhat verify <<contract address>> --network skale "add any simple contructors"
+```
+After a few moments, this will return a link to the Blockscout verified contract if successful. 
+
+[NOTE]
+For more info about conifgurations or adding complex contructors please visit: https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan
+
 
 --
 
