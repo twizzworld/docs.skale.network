@@ -1,5 +1,6 @@
 {
     "redirects": [
+      { "source": "*.html", "destination": "*.html"},
       { "source": "/", "destination": "/docs/index.html" },
       { "source": "*", "destination": "*.html" }
     ]

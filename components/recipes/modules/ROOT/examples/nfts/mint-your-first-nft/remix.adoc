@@ -1,8 +1,8 @@
-. Head over to the https://remix.ethereum.org[Remix IDE]
+Head over to the https://remix.ethereum.org/#url=https://github.com/skalenetwork/recipes/blob/recipe-mint-your-first-nft/contracts/MyFirstNFT.sol[Remix IDE]
 
-. On the home screen, GitHub and paste in the following as the URL: https://github.com/skalenetwork/recipes/blob/recipe-mint-your-first-nft/contracts/MyFirstNFT.sol
-+   
-* Having trouble finding GitHub? xref:help#import_contract_from_github_into_remix[Go here]
+// . On the home screen, GitHub and paste in the following as the URL: https://github.com/skalenetwork/recipes/blob/recipe-mint-your-first-nft/contracts/MyFirstNFT.sol
+// +   
+// * Having trouble finding GitHub? xref:help#import_contract_from_github_into_remix[Go here]
 
 . You should have a new new folder on the left side of your screen called _github/skalenetwork/recipes/contracts_. Within that folder should be a new contract called *MyFirstNFT*.*sol*
 +
