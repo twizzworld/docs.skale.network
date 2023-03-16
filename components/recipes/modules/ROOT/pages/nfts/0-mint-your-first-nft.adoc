@@ -6,26 +6,22 @@ Not sure what to do? Head over the https://skale.chat[SKALE Discord] and ask que
 
 include::partial$tools.adoc[]
 
+== Follow the Recipe
 
-// include::partial$node-requirements.adoc[]
-// == Step I: Get the Code
+[tabs]
+====
+Remix IDE::
++
+--
+include::example$nfts/mint-your-first-nft/remix.adoc[]
+--
+Hardhat::
++
+--
+include::example$nfts/mint-your-first-nft/hardhat.adoc[]
+--
+====
 
-// Start by copying the code from the terminal into your command prompt.
+== Congratulations
 
-// include::example$nfts/0/install.adoc[]
-
-// Once complete, you should see an output similiar to below.
-
-// image::nfts/0/0-install-hardhat-result.png["Output of Command"]
-
-// == Step II: Installation
-
-// Copied the command from above? Skip this step
-
-// include::partial$javascript-repo-install.adoc[]
-
-// == Step III: Mint your first NFT
-
-// Way to go! In just a couple of quick steps you put yourself in a position to mint your first NFT.
-
-// include::example$
+Congratulations! You have successfuly minted your first NFT on SKALE 100% for FREE!!

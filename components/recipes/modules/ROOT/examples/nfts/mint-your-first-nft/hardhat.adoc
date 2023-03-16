@@ -1,0 +1,8 @@
+Hardhat is a popular Command Line tool for developers. Copy and paste to download the code from GitHub onto your computer
+[source,bash]
+----
+git clone -b recipe-mint-your-first-nft git@github.com:skalenetwork/recipes &&
+cd recipes &&
+npm install && 
+ls
+----

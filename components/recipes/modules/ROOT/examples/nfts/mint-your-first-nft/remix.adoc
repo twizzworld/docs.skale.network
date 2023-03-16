@@ -1,0 +1,15 @@
+1. Head over to the https://remix.ethereum.org[Remix IDE]
+2. On the home screen, GitHub and paste in the following as the URL: https://github.com/skalenetwork/recipes/blob/recipe-mint-your-first-nft/contracts/MyFirstNFT.sol
+   * Having trouble finding GitHub? xref:help#import_contract_from_github_into_remix[Go here]
+3. You should have a new new folder on the left side of your screen called _github/skalenetwork/recipes/contracts_. Within that folder should be a new contract called *MyFirstNFT*.*sol*
+
+image:nfts/mint-your-first-nft/remix-add-contract.png[]
+4. Click on the 3rd button from the top -- _see image below_ -- and click compile *MyFirstNFT.sol* to compile your smart contract and turn it into something the blockchain can understand. Click on the button with the Ethereum (diamond) logo underneath.
+
+image:nfts/mint-your-first-nft/compile-contract.png[]
+5. Ready to deploy your first NFT? First input your NFT Contract Name and Symbol separated by a comma into the higlighted box -- _see image below_ -- and click *Deploy*.
+
+image:nfts/mint-your-first-nft/deploy-contract.png[]
+6. Prepare to mint the NFT contract by clicking on the _MYFIRSTNFT_. This will drop down a list of functions. Click on *mint* and confirm the transaction in Metamask.
+
+image:nfts/mint-your-first-nft/mint-nft.png[]
