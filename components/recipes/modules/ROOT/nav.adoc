@@ -3,7 +3,7 @@
 * xref:favorites.adoc[Favorite Recipes]
 // // Solidity Navigation
 * xref:solidity/index.adoc[Solidity 101]
-// ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
+** xref:solidity/0-hello-skale.adoc[Hello SKALE]
 // ** xref:solidity/1-solidity-basics.adoc[Solidity Basics]
 // ** xref:solidity/2-zero-to-erc20-hero.adoc[Zero to ERC-20 Hero]
 // ** xref:solidity/3-smart-contract-deployment.adoc[Smart Contract Deployment]

@@ -9,5 +9,5 @@ xref:nfts/0-mint-your-first-nft.adoc[[.card-title]#Mint your first NFT# [.card-b
 --
 [.card.card-learn]
 --
-xref:solidity/0-solidity-basics.adoc[[.card-title]#Zero to ERC-20 Hero# [.card-body]#pass:q[Learn the basics of Solidity]#]
+xref:solidity/0-hello-skale.adoc[[.card-title]#Hello SKALE# [.card-body]#pass:q[The start of every programmers journey]#]
 --
