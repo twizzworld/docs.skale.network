@@ -95,7 +95,7 @@ This means when minting NFTs, transactions can be confirmed -- or denied if they
 
 == Start Building
 
-Checkout the xref:nfts/resources.adoc[Resources] page for more great tutorials and platforms related to Non-Fungible Tokens.
+// Checkout the xref:nfts/resources.adoc[Resources] page for more great tutorials and platforms related to Non-Fungible Tokens.
 
 Each card links to a specific recipe, pick one that looks interesting and get building!
 [.card.card-learn]

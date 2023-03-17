@@ -2,7 +2,7 @@
 
 The Solidity 101 Track by SKALE is not a full blown Solidity course. It is a high-level track designed to help you learn (or rememeber) the basics of Solidity to follow the other recipes.
 
-Checkout the xref:solidity/resources.adoc[Resources] page for more great tutorials and platforms to help you start your journey into Solidity.
+// Checkout the xref:solidity/resources.adoc[Resources] page for more great tutorials and platforms to help you start your journey into Solidity.
 
 Each card links to a specific recipe, pick one that looks interesting and get building!
 [.card.card-learn]
