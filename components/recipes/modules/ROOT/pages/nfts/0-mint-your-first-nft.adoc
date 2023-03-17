@@ -69,4 +69,4 @@ npx hardhat mint
 
 == Congratulations
 
-Congratulations! You have successfuly minted your first NFT on SKALE 100% for FREE!!
+Congratulations! You have successfully minted your first NFT on SKALE 100% for FREE!!
