@@ -8,7 +8,7 @@ include::partial$tools.adoc[]
 
 == Helpful Links
 * https://eips.ethereum.org/EIPS/eip-721[ERC-721: Non-Fungible Token Standard]
-* https://docs.openzeppelin.com/contracts/3.x/erc721#:~:text=ERC721%20is%20a%20standard%20for,across%20a%20number%20of%20contracts[OpenZeppelin ERC-721]
+* https://docs.openzeppelin.com/contracts/4.x/erc721#:~:text=ERC721%20is%20a%20standard%20for,across%20a%20number%20of%20contracts[OpenZeppelin ERC-721]
 
 
 == Follow the Recipe

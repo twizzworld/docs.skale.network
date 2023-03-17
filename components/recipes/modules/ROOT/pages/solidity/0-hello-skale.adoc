@@ -1,3 +1,61 @@
 = Hello SKALE
 
-Coming soon!
+This is the official starting point of the recipes. If you are here it means you are probably brand new to either SKALE, Solidity, or both! If you fit into any of these categories, then don't be afraid to join the https://discord.gg/skale[SKALE Discord] if you run into issues. 
+
+[TIP]
+Already a seasoned developer? Checkout the xref:tracks.adoc[Available Tracks] or xref:favorites.adoc[Some of our Favorites]
+
+== Helpful Links
+* https://docs.soliditylang.org/en/latest/introduction-to-smart-contracts.html[Solidity Language]
+* https://cryptozombies.io[Learn to Code Solidity]
+
+
+== Follow the Recipe
+
+We will be using the following smart contract to learn about Solidity. 
+You will not write code or do anything except read in this recipe. 
+
+Want to dive into code? Head over to the https://cryptozombies.io[CryptoZombies] Tutorial for a deep-dive into Solidity or xref:solidity/1-solidity-basics.adoc[checkout the basics]
+
+[NOTE]
+The smart contract is written in a langauge called Solidity. Solidity is the most common smart contract langauge in the world and works on all Ethereum compatible blockchains, like SKALE.
+
+=== The Smart Contract
+
+```javascript
+/// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+contract HelloSKALE {
+
+    public hello() external view returns (string) {
+        return "SKALE";
+    }
+}
+```
+
+Interested in learning about the license or the solidity version? Checkout https://docs.soliditylang.org/en/v0.8.19/layout-of-source-files.html#spdx-license-identifier[official solidity website].
+
+=== Solidity in Action
+
+As with many data sources, data is often read more than it is written. 
+In this case we are going to use the blockchain explorer to confirm the value that is being returned for the function *hello()* above.
+
+Scroll down in the website window below and find the *1. hello -> XXXXX* and see what it says!
+
+++++
+
+<iframe style="height: 400px; width: 100%;" src="https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com/address/0xdBf5b54816e3bC9b53916733D7b1D97fAeBd6b59/read-contract"></iframe>
+++++
+
+=== Hello SKALE!
+
+If you made it this far then you should see that the explorer has provided the response to this function. The response was *SKALE*!
+
+You have made it to the end of this recipe...for now. Check back soon for the full recipe on how to deploy your own start contract and make changes.
+
+// === Hello <enter-some-value>!
+
+// Coming soon! Deploy your own smart contract and change the response!
+
+// That was a 
