@@ -1,6 +1,8 @@
-= Proof of work (PoW) 
-
+= Proof of Work (PoW) 
 :stem: asciimath
+
+[NOTE]
+For NPM packages and examples, xref:_npm_packages[skip below].
 
 SKALE chain owner has several methods to top up any address with sFUEL:
 
@@ -110,6 +112,26 @@ await mineGasForTransaction(web3, tx);
 let signed = await web3.eth.accounts.signTransaction(tx, window.sessionKey)
 web3.eth.sendSignedTransaction(signed.rawTransaction)
 ```
+
+== NPM Packages
+
+[cols="1,2", options="header"]
+|===
+| Package Name | NPM Tag 
+
+| https://www.npmjs.com/package/@skaleproject/pow[@skaleproject/pow]
+| image:https://img.shields.io/npm/v/@skaleproject/pow.png[link=https://www.npmjs.com/package/@skaleproject/pow]
+
+| https://www.npmjs.com/package/@skaleproject/pow-ethers[@skaleproject/pow-ethers]
+| image:https://img.shields.io/npm/v/@skaleproject/pow-ethers[link=https://www.npmjs.com/package/@skaleproject/pow-ethers]
+
+| https://www.npmjs.com/package/@skaleproject/pow-web3[@skaleproject/pow-web3]
+| image:https://img.shields.io/npm/v/@skaleproject/pow-web3[link=https://www.npmjs.com/package/@skaleproject/pow-web3] 
+|===
+
+== Dart Package
+
+https://github.com/dirt-Road-Development/skale.dart
 
 == Examples
 
