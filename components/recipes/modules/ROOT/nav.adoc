@@ -17,3 +17,6 @@
 // ** xref:nfts/3-on-chain-digital-assets.adoc[On-chain Digital Assets]
 // ** xref:nfts/4-nft-minting-dapp.adoc[NFT Minting App]
 // ** xref:nfts/resources.adoc[Resources]
+
+* Topics
+** xref:topics/nfts.adoc[About Non-Fungible Tokens]
