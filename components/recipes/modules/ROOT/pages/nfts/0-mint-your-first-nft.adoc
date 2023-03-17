@@ -24,7 +24,30 @@ Hardhat::
 +
 --
 // include::partial$javascript-repo-install.adoc[]
-include::example$nfts/mint-your-first-nft/hardhat.adoc[]
+// include::example$nfts/mint-your-first-nft/hardhat.adoc[]
+. Run the following command in your command prompt to load the Hardhat project onto your system
++
+```shell
+git clone -b recipe-mint-your-first-nft https://github.com/skalenetwork/recipes &&
+cd recipes
+```
+
+. Install the project dependencies
++
+```shell
+npm install
+```
+. Deploy smart contract
++
+```shell
+npx hardhat deploy
+```
+
+. Mint your first NFT!!!
++
+```
+npx hardhat mint
+```
 --
 ====
 
