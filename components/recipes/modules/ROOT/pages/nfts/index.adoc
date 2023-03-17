@@ -1,0 +1,31 @@
+= Non-Fungible Tokens
+
+The NFTs Track by SKALE focuses on some of the most common use-cases for NFTs as well as some quick start guides to get you minting in under 5 minutes!
+
+Want to learn more about NFTs? Head over to the xref:topics/nfts.adoc[topic page].
+
+== Start Building
+
+// Checkout the xref:nfts/resources.adoc[Resources] page for more great tutorials and platforms related to Non-Fungible Tokens.
+
+Each card links to a specific recipe, pick one that looks interesting and get building!
+[.card.card-learn]
+--
+xref:nfts/0-mint-your-first-nft.adoc[[.card-title]#Mint your first NFT# [.card-body]#pass:q[Mint your first NFT in under 5 minutes]#]
+--
+// [.card.card-learn]
+// --
+// xref:nfts/1-multi-token-standard.adoc[[.card-title]#ERC1155: Multi-token Standard# [.card-body]#pass:q[Create multiple in-game assets]#]
+// --
+// [.card.card-learn]
+// --
+// xref:nfts/2-using-nfts.adoc[[.card-title]#Using NFTs# [.card-body]#pass:q[Learn how to use your recently created NFTs]#]
+// --
+// [.card.card-learn]
+// --
+// xref:nfts/3-on-chain-digital-assets.adoc[[.card-title]#On-chain Digital Assets# [.card-body]#pass:q[Use SKALE to power truely decentralized on-chain assets]#]
+// --
+// [.card.card-learn]
+// --
+// xref:nfts/4-nft-minting-dapp.adoc[[.card-title]#NFT Minting dApp# [.card-body]#pass:q[Build a minting dApp to share with friends]#]
+// --

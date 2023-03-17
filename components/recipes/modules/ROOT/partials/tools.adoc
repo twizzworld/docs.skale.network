@@ -1,0 +1,10 @@
+== Select your tool
+
+Ready to start? Below is a list of tools that this recipe may support.
+Find a tool that looks interesting and scroll down and pick your tool from the list of tabs. Don't see your tool for this recipe? Head over to the https://discord.gg/skale[Discord] and request your preferred tool.
+
+=== Remix IDE (Beginner Friendly)
+A browser based intregrated development environment great for beginners to Solidity contract develompent. Check it out https://remix.ethereum.org[here].
+
+=== Hardhat
+A fast and flexible set of tools that can be used through code and the command line. Check it out https://hardhat.org[here]

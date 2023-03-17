@@ -1,0 +1,13 @@
+= Favorites
+
+This page offers up some of favorite recipes to get you building on SKALE as quickly and easily as possible.
+
+Each card links to a specific recipe, pick one that looks interesting and get building!
+[.card.card-learn]
+--
+xref:nfts/0-mint-your-first-nft.adoc[[.card-title]#Mint your first NFT# [.card-body]#pass:q[NFTs Track]#]
+--
+[.card.card-learn]
+--
+xref:solidity/0-hello-skale.adoc[[.card-title]#Hello SKALE# [.card-body]#pass:q[The start of every programmers journey]#]
+--

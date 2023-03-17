@@ -1,0 +1,72 @@
+= Mint your first NFT
+
+In this recipe you will mint your first https://ethereum.org/en/developers/docs/standards/tokens/erc-721[NFT] on a SKALE Testnet -- the Chaos Chain.
+
+Not sure what to do? Head over the https://discord.gg/skale[SKALE Discord] and ask questions or checkout the https://github.com/skalenetwork/recipes[GitHub]
+
+include::partial$tools.adoc[]
+
+== Helpful Links
+* https://eips.ethereum.org/EIPS/eip-721[ERC-721: Non-Fungible Token Standard]
+* https://docs.openzeppelin.com/contracts/4.x/erc721#:~:text=ERC721%20is%20a%20standard%20for,across%20a%20number%20of%20contracts[OpenZeppelin ERC-721]
+
+
+== Follow the Recipe
+
+[tabs]
+====
+Remix IDE::
++
+--
+Head over to the https://remix.ethereum.org/#url=https://github.com/skalenetwork/recipes/blob/recipe-mint-your-first-nft/contracts/MyFirstNFT.sol[Remix IDE]
+
+. You should have a new new folder on the left side of your screen called _github/skalenetwork/recipes/contracts_. Within that folder should be a new contract called *MyFirstNFT*.*sol*
++
+image::nfts/mint-your-first-nft/remix-add-contract.png[]
+
+. Click on the 3rd button from the top -- _see image below_ -- and click compile *MyFirstNFT.sol* to compile your smart contract and turn it into something the blockchain can understand. Click on the button with the Ethereum (diamond) logo underneath.
++
+image::nfts/mint-your-first-nft/compile-contract.png[]
+
+. Ready to deploy your first NFT? First input your NFT Contract Name and Symbol separated by a comma into the higlighted box -- _see image below_ -- and click *Deploy*.
++
+image::nfts/mint-your-first-nft/deploy-contract.png[]
+
+. Prepare to mint the NFT contract by clicking on the _MYFIRSTNFT_. This will drop down a list of functions. Click on *mint* and confirm the transaction in Metamask.
++
+image::nfts/mint-your-first-nft/mint-nft.png[]
+--
+Hardhat::
++
+--
+// include::partial$javascript-repo-install.adoc[]
+// include::example$nfts/mint-your-first-nft/hardhat.adoc[]
+. Run the following command in your command prompt to load the Hardhat project onto your system
++
+```shell
+git clone -b recipe-mint-your-first-nft https://github.com/skalenetwork/recipes &&
+cd recipes
+```
+
+. Install the project dependencies
++
+```shell
+npm install
+```
+. Deploy smart contract
++
+```shell
+npx hardhat deploy
+```
+
+. Mint your first NFT!!!
++
+```
+npx hardhat mint
+```
+--
+====
+
+== Congratulations
+
+Congratulations! You have successfully minted your first NFT on SKALE 100% for FREE!!

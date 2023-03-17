@@ -1,0 +1,6 @@
+= Help
+
+Having trouble? Checkout the collection of screenshots below or head over to the https://discord.gg/skale[Discord] and ask a question
+
+== Import Contract from GitHub into Remix
+image:remix-contract-from-github.png[Problems Importing from GitHub]

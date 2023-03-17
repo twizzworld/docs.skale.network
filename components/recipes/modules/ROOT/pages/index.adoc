@@ -1,0 +1,21 @@
+= SKALE Developer Recipes
+
+Learn how to build on SKALE (and by default in Web3). The SKALE Recipes can and should be used by both beginners and experts to quickly start building on SKALE.
+
+== Getting Started
+
+Welcome to the SKALE Network Recipes! If you made it here you are probably ready to build something new, or maybe just exploring Web3 for the first time.
+Whatever the reason, this is the right place to be. Checkout the links below if you are new to either SKALE or Web3 in general OR skip to the xref:index.adoc#_skale_developer_intro[SKALE Developer Intro]
+
+- xref:learn::index.adoc[New to SKALE? Jumpstart your knowledge of SKALE 123]
+- xref:develop::index.adoc#_basics_of_dapp_development[New to Building? Learn the basics of dApp Development]
+
+== SKALE Developer Intro
+
+If you have made it to this section then you are prepared to build on a SKALE Chain. Make sure to read the following bullet points, this is informated created specifically to help you avoid issues down the road:
+
+- There is not just one (1) SKALE Chain, but many SKALE Chains. You can see all of the chains live on Mainnet at https://mainnet.skalenodes.com
+- SKALE Network has an ERC-777 (ERC-20 Compatible) token on the Ethereum Mainnet. This token is **NOT** used for gas on SKALE Chains.
+- SKALE Chains use SKALE Fuel (or sFUEL). sFUEL is provided to SKALE Chain owners and is given to users when using dApps. Do **NOT** use msg.value in your smart contracts as a way to take valued payment. Read more about xref:develop::sfuel-gas-token.adoc[sFUEL here]
+
+Head over to xref:favorites.adoc[Our Favorites] and pick your first recipe!
