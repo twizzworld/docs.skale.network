@@ -30,6 +30,8 @@ ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip
   supplemental_files: ./doc-ui/static
+urls:
+  html_extension_style: indexify
 asciidoc:
   attributes:
     :plantuml-server-url: https://www.plantuml.com/plantuml
