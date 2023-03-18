@@ -20,6 +20,7 @@
 ** xref:ml.adoc[Using SKALE-ML]
 ** xref:ima::index.adoc[Performing IMA Bridge transfers]
 ** xref:metaport::index.adoc[Using Metaport Widget]
+** xref:using-WAGMI.adoc[Using WAGMI]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
 ** xref:wallets/portis.adoc[Portis]
