@@ -22,16 +22,16 @@ import Web3 from 'web3';
 let web3 = "";
 
 let switchToSKALE = {
-  chainId: "0x54173", //decodes to 344435
-  chainName: "SKALE Network Testnet",
-  rpcUrls: ["https://dev-testnet-v1-0.skalelabs.com"],
+  chainId: "0x50877ed6", //decodes to 1351057110
+  chainName: "SKALEChaos Testnet",
+  rpcUrls: ["https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix"],
   nativeCurrency: {
     name: "SKALE FUEL",
     symbol: "sFUEL",
     decimals: 18
   },
   blockExplorerUrls: [
-    "https://expedition.dev/?rpcUrl=https://dev-testnet-v1-0.skalelabs.com"
+    "https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com"
   ]
 };
 
