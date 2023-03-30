@@ -13,12 +13,13 @@ For testing, you can use the SKALE public testnet which has 15 chains. Most of t
 |Chain Name: |staging-fast-active-bellatrix
 |RPC (https):| \https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix
 |RPC (wss): | wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix
-|Block explorer: | \https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com
+|Block Explorer: | \https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com
 |Chain ID: | 0x50877ed6
 |Chain ID (dec): | 1351057110
-|Chain name hash: | 0x0000050877ed6397218923b67054bfcfd054c0012d0682fe896667859b4dede9
-|sFUEL faucet: | \https://sfuel.skale.network/staging/chaos
+|Chain Name Hash: | 0x0000050877ed6397218923b67054bfcfd054c0012d0682fe896667859b4dede9
+|sFUEL Faucet: | \https://sfuel.skale.network/staging/chaos
 |===
+
 
 [NOTE]
 ====
