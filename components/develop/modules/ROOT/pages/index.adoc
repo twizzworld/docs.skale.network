@@ -30,6 +30,9 @@ The public chain provided above requires sFUEL to deploy contacts and perform tr
 
 To view the testnet chains, go to https://staging-v3.skalenodes.com/.
 
+== Add SKALE Chaos Testnet to MetaMask
+
+
 video::798584275[vimeo, opts=autoplay, height=450, width=800]
 
 == Existing dApps
@@ -37,7 +40,7 @@ video::798584275[vimeo, opts=autoplay, height=450, width=800]
 You can deploy your contracts over to your SKALE Chain and begin to use faster and zero-cost gas transactions. Depending on your architecture and needs, you may want to evaluate which contracts to keep on Ethereum and which to serve on SKALE, such as putting more end-user facing transactions on SKALE and transactions requiring PoW security on Ethereum.
 
 [NOTE]
-SKALE Chains have unique access control features. New SKALE Chains only permit the SKALE Chain owner the ability to deploy contracts. See xref:skale-chain-access-control.adoc[SKALE Chain Access Control] for more information. 
+SKALE Chains have unique access control features. New SKALE Chains only permit the SKALE Chain owner the ability to deploy contracts. See xref:skale-chain-access-control.adoc[SKALE Chain Access Control] for more information.
 
 For using the Ethereum-SKALE bridge called Interchain Messaging Agent, you can customize your own bridge and map tokens you select to support, or enable automatic mapping.
 
@@ -47,21 +50,23 @@ Already have an ERC-721 on Mainnet? You can use the IMA extension contracts to e
 
 == New dApps
 
+Whether starting a new project or migrating from another EVM Chain, checkout some of the tools and resources below or head over to the xref:recipes::index.adoc[Recipes] and start deploying smart contracts in minutes. 
+
 == Developer Tool Docs
 
+* https://hardhat.org/hardhat-runner/docs/getting-started[Hardhat Docs]
 * https://www.trufflesuite.com/docs[Truffle Suite Docs]
 * https://remix-ide.readthedocs.io/en/latest/#[Remix Docs]
-* https://docs.openzeppelin.com/[OpenZeppelin Docs]
-
+* https://docs.openzeppelin.com[OpenZeppelin Docs]
 
 == Basics of dapp Development
 
-* https://cryptozombies.io/[CryptoZombies]
+* https://cryptozombies.io[CryptoZombies]
 * https://solidity-by-example.org[Solidity By Example]
-* https://docs.soliditylang.org/[Solidity Docs] and see https://docs.soliditylang.org/en/v0.8.6/#translations[Solidity Docs translations]
-* https://ethereum.org/en/developers/[Ethereum Developer Resources]
+* https://docs.soliditylang.org[Solidity Docs] and see https://docs.soliditylang.org/en/v0.8.6/#translations[Solidity Docs translations]
+* https://ethereum.org/en/developers[Ethereum Developer Resources]
 
 == Best Practices
 
-* https://consensys.github.io/smart-contract-best-practices/[Ethereum Smart Contract Security Best Practices]
-* https://consensys.net/diligence/blog/2020/11/token-interaction-checklist/[ConsenSys Diligence's Token Interaction Checklist]
+* https://consensys.github.io/smart-contract-best-practices[Ethereum Smart Contract Security Best Practices]
+* https://consensys.net/diligence/blog/2020/11/token-interaction-checklist[ConsenSys Diligence's Token Interaction Checklist]
