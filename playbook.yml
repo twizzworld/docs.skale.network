@@ -77,8 +77,7 @@ asciidoc:
   attributes:
     :plantuml-server-url: http://www.plantuml.com/plantuml
   extensions:
-  - ./lib/tabs-block.js
   - '@djencks/asciidoctor-mathjax'
-  - asciidoctor-kroki
+  - 'asciidoctor-kroki'
 urls:
   redirect_facility: netlify
