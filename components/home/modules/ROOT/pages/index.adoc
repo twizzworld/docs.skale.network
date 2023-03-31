@@ -1,7 +1,11 @@
-[.card-section]
 = Documentation
 
 Explore documentation about the SKALE Network, developing on SKALE, validating and delegating, and about SKALE's technologies.
+
+++++
+<div class="card-section">
+<div class="sectionbody">
+++++
 
 [.card.card-learn]
 --
@@ -35,6 +39,11 @@ xref:validators::index.adoc[[.card-title]#Validators# [.card-body]#pass:q[Run SK
 --
 link:https://github.com/skalenetwork[[.card-title]#Open Source# [.card-body]#pass:q[Code and development is open sourced.]#]
 --
+
+++++
+</div>
+</div>
+++++
 
 == About SKALE Network
 
