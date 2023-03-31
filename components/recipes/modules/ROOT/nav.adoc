@@ -1,0 +1,22 @@
+* xref:index.adoc[Overview]
+* xref:tracks.adoc[Tracks]
+* xref:favorites.adoc[Favorite Recipes]
+// // Solidity Navigation
+* xref:solidity/index.adoc[Solidity 101]
+** xref:solidity/0-hello-skale.adoc[Hello SKALE]
+// ** xref:solidity/1-solidity-basics.adoc[Solidity Basics]
+// ** xref:solidity/2-zero-to-erc20-hero.adoc[Zero to ERC-20 Hero]
+// ** xref:solidity/3-smart-contract-deployment.adoc[Smart Contract Deployment]
+// ** xref:solidity/resources.adoc[Resources]
+
+// NFT Navigation
+* xref:nfts/index.adoc[Non-Fungible Tokens]
+** xref:nfts/0-mint-your-first-nft.adoc[Mint your first  NFT]
+// ** xref:nfts/1-multi-token-standard.adoc[Multi-token Standard]
+// ** xref:nfts/2-using-nfts.adoc[Using NFTs]
+// ** xref:nfts/3-on-chain-digital-assets.adoc[On-chain Digital Assets]
+// ** xref:nfts/4-nft-minting-dapp.adoc[NFT Minting App]
+// ** xref:nfts/resources.adoc[Resources]
+
+* Topics
+** xref:topics/nfts.adoc[About Non-Fungible Tokens]

@@ -1,0 +1,90 @@
+= About NFTs
+== What is a digital asset?
+
+A digital asset often refers to information or data that is stored electronically. 
+
+Every asset on the internet represents a digital asset. However, when talking about non-fungible tokens digital assets often come in the form of digital currencies, digital files, and most commonly digital art or collectibles.
+
+== What is an NFT?
+
+A non-fungible token (NFT) is a type of digital asset used to represent ownership or proof of authenticity of something -- often a unique item or content. 
+
+The https://eips.ethereum.org/EIPS/eip-721[ERC-721] and https://eips.ethereum.org/EIPS/eip-1155[ERC-1155] token standards were created by the community to bring uniformity to the non-fungible token ecosystem. The 721 standard was proposed first with the goal of creating a standard API for non-fungible tokens. 
+
+The 1155 standard was introduced second with the goal of creating a more dynamic token that could have both fungible and non-fungible assets apart of the same contract. 
+
+In both cases, the definition of non-fungible can be a bit broad, however, the key is that all tokens both fungible and non-fungible when used in conjunction with an Ethereum-like public blockchain, enables consistent and straightforward proof of ownership. 
+
+== How are NFTs a type of digital assets?
+
+NFTs are unique and one-of-a-kind and cannot be exchanged for something else of identical value. This differs from fungible assets, such as cryptocurrencies, where every unit is equal in value & can be exchanged at a 1 to 1 ratio with itself. 
+
+NFTs have become a common way for creators to monetize their digital content and for collectors to own a unique piece of media -- such as a piece of art -- of collectibles -- such as in-game items or avatars.
+
+While non-fungible tokens can appreciate or depreciate in value depending on various factors such as popularity & rarity, the key factor behind them is the provable ownership. As tokens are generally owned on a 1 to 1 basis -- except for fractional ownership situations -- non-fungible tokens have opened up a new way for individuals to engage with creators and truely own art, collectibles, and unique assets that interest them.
+
+== Why would someone use an ERC-721 contract versus ERC-1155?
+
+Both the ERC-721 and the ERC-1155 standards cover a broad spectrum of use cases.
+ERC-721 is a common standard for 1:1 collections where each asset only has one copy such as art. ERC-1155 on the other hand is common for in-game assets where many players can owner the same asset.
+
+See the table below for a great understanding of the differences between these tokens standards.
+
+[cols="1,1,1"]
+|===
+| |ERC-721 |ERC-1155
+
+// Row 1
+| # of Assets per Token Id
+| 0 or 1
+| 0 - https://velvetshark.com/articles/max-int-values-in-solidity[uint256(-1)]
+
+// Row 2
+| # of Owners per Token
+| 0 or 1
+| 0 - https://velvetshark.com/articles/max-int-values-in-solidity[uint256(-1)]
+
+// Row 3
+| Use Case: Art Collection
+| Yes
+| No
+
+// Row 4
+| Use Case: In-Game Collectibles
+| Yes
+| Yes
+
+// Row 5
+| Use Case: In-Game Starter Pack
+| Yes
+| Yes
+
+// Row 6
+| Use Case: Fractional Ownership
+| No
+| Yes
+
+// Row 7
+| Use Case: Fungible Token
+| No
+| Yes
+
+|===
+
+== Why SKALE?
+
+=== Zero Gas Fees
+One of the biggest reasons to mint your NFTs on SKALE is because the gas utilized has no fiat value. This gas token is called sFUEL and represents a "fee-less" transaction model. 
+
+The gas token exists to provide an additional security layer to the network, however, enables no cost transactions to users. 
+
+This means minting is always free with no excpetions.
+
+=== Near Instance Completition
+
+Blockchains use the term *finality* to represent how long it takes a transaction to be full confirmed. Finality varies greatly across the ecosystem and projects and businesses often have to take this into account when buliding. 
+
+The time to completition -- or TTC -- is really just the time to finality.
+Building on SKALE, block times have a small, but consistent average variation between three (3) and five (5) seconds.
+
+This means when minting NFTs, transactions can be confirmed -- or denied if they fail -- in a time period so small and consistent that your users will barely notice a delay. You'll notice this when you xref:nfts/0-mint-your-first-nft.adoc[mint your first NFT].

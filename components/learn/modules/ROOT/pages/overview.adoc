@@ -50,10 +50,10 @@ If you don't have a SKALE Chain yet, you can get started with:
 * https://forum.skale.network/t/skale-chain-sdk[Rapid and quick testing SKALE endpoint]
 * https://github.com/skalenetwork/skale-sdk[SKALE SDK]
 * https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK]
-* http://skale.chat[Request a Testnet SKALE Chain in Discord] (depending on availability)
+* https://discord.gg/skale[Request a Testnet SKALE Chain in Discord] (depending on availability)
 * https://skale.network/innovators-signup[Apply to SIP Program] for a chance to receive a SKALE Mainnet chain grant.
 
-Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the http://skale.chat[SKALE Network developer community on Discord].
+Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
 == Engage with SKALE Network Community
 

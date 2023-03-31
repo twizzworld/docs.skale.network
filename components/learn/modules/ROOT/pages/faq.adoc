@@ -126,4 +126,4 @@ https://skale.network/blog/skale-differentiators-consensus-block-proposals-and-s
 
 == Have an unanswered question?  
 
-**http://skale.chat[Head over to the SKALE Developer community!]**
+**https://discord.gg/skale[Head over to the SKALE Developer community!]**
