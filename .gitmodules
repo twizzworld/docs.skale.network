@@ -1,3 +1,4 @@
 [submodule "doc-ui"]
 	path = doc-ui
-	url = https://github.com/skalenetwork/doc-ui.git
+	url = git@github.com:skalenetwork/doc-ui.git
+	branch = a3a55ab
