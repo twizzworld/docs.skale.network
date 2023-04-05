@@ -1,6 +1,6 @@
 site:
   title: SKALE Network Documentation 
-  start_page: docs::index.adoc
+  start_page: ROOT::index.adoc
   robots: allow
 content:
   sources:
@@ -83,6 +83,6 @@ asciidoc:
   extensions:
   - ./lib/tabs-block.js
   - '@djencks/asciidoctor-mathjax'
-  - asciidoctor-kroki
-# urls:
-  # redirect_facility: verce
+  - 'asciidoctor-kroki'
+urls:
+  redirect_facility: netlify
