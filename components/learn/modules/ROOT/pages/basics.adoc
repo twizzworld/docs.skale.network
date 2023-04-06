@@ -43,15 +43,13 @@ SKALE Network is designed to work with all Ethereum compatible tools such as API
 
 xref:develop::index.adoc#_developer_tool_docs[View Tools]
 
-== Get Access
+== Access a SKALE Chain
 
-If you don't have a SKALE Chain yet, you can get started with:
+If you don't have a SKALE Chain yet, you can get started by using the public SKALE Chain, Chaos Testnet.
+Checkout the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like rpc endpoint and chain id as well as learn how to attain sFUEL.
 
-* https://forum.skale.network/t/skale-chain-sdk[Rapid and quick testing SKALE endpoint]
-* https://github.com/skalenetwork/skale-sdk[SKALE SDK]
-* https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK]
-* https://discord.gg/skale[Request a Testnet SKALE Chain in Discord] (depending on availability)
-* https://skale.network/innovators-signup[Apply to SIP Program] for a chance to receive a SKALE Mainnet chain grant.
+// Commented Until New Link is Available
+// * https://skale.network/innovators-signup[Apply to SIP Program] for a chance to receive a SKALE Mainnet chain grant.
 
 Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
