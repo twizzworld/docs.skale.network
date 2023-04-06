@@ -49,9 +49,8 @@ If you don't have a SKALE Chain yet, you can get started by using the public SKA
 Checkout the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like rpc endpoint and chain id as well as learn how to attain sFUEL.
 
 // Commented Until New Link is Available
-// * https://skale.network/innovators-signup[Apply to SIP Program] for a chance to receive a SKALE Mainnet chain grant.
-
-Still not sure how to get started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
+* link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
+* Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
 == Engage with SKALE Network Community
 
