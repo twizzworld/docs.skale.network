@@ -37,6 +37,10 @@ xref:validators::index.adoc[[.card-title]#Validators# [.card-body]#pass:q[Run SK
 --
 [.card.card-learn]
 --
+xref:recipes::index.adoc[[.card-title]#Developer Recipes# [.card-body]#pass:q[Guided tutorials to help you unlock the power of SKALE.]#]
+--
+[.card.card-learn]
+--
 link:https://github.com/skalenetwork[[.card-title]#Open Source# [.card-body]#pass:q[Code and development is open sourced.]#]
 --
 
