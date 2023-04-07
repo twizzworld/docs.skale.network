@@ -48,7 +48,6 @@ xref:develop::index.adoc#_developer_tool_docs[View Tools]
 If you don't have a SKALE Chain yet, you can get started by using the public SKALE Chain, Chaos Testnet.
 Checkout the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like rpc endpoint and chain id as well as learn how to attain sFUEL.
 
-// Commented Until New Link is Available
 * link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
 * Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
