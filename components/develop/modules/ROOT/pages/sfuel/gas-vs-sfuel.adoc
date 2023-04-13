@@ -1,0 +1,37 @@
+= Gas vs sFUEL
+
+== What is gas? 
+
+Gas is an asset or a resource used to run something. It can be the fuel needed to enable a car to run or a tokenized asset that enables a blockchain network to run.
+
+From link:https://ethereum.org/en/developers/docs/gas/#what-is-gas[https://ethereum.org] --
+
+"Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the Ethereum network."
+
+
+[width="100%"]
+== Gas vs sFUEL
+|======
+|                | +++<strong>Gas</strong>+++			| +++<strong>sFUEL</strong>+++
+| Easy Access    | +++<p style="color: red;">No</p>+++  | +++<p style="color: green;">Yes</p>+++
+| Economic Value | +++<p style="color: red;">Yes</p>+++ | +++<p style="color: green;">No</p>+++
+| Purchasable    | +++<p style="color: red;">Yes</p>+++ | +++<p style="color: green;">No</p>+++
+| 
+|======
+
+=== Easy Access
+
+Easy access to sFUEL is one of the key reasons why SKALE can enable projects to build invisible blockchain experiences. Accessibility at scale is available with sFUEL since it is not minable, it is not purchasable, and it can be distributed for free resulting in easy access for all.
+
+=== No Economic Value
+
+Gas is a common topic of discussion within the blockchain space due to variable fees that can make using networks unsustainable for many. The lack of economic value enables SKALE Chains and the dApps built on them to have stable or even free costs [if the dApp does not charge for usage]. This makes accessing blockchain technology and related applications a realistic option for more people than ever before.
+
+
+Additionally, valued assets can often be a large blocker for applications looking to leverage blockchain technologies. While subsidizing fees can be used by projects to hide costs from end users, spikes in blockchain usage can cause high fees resulting in applications being unable to function. 
+
+=== Not Purchasable
+
+Purchasable tokens represent one of the largest barriers to entry into the blockchain space. Most users expect services to "just work" and onboarding experiences to let them login with an existing service and start using or playing in seconds. For many networks, the login portion can be hidden away with third party services, however, the gas fees cannot. Users are required to go to other applications or services to purchase assets to transact in. Additionally, users often have to spend money just to transfer tokens to a new network. 
+
+Non-purchasable tokens remove that friction entirely. If they cannot be purcahsed, then they must be given. Learn more about how xref:./sfuel-distribution.adoc[works].
