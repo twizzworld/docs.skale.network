@@ -21,7 +21,7 @@ SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but lik
 
 == Providers
 
-You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:develop::module:providers.adoc[Read more about this here].
+You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:develop::providers.adoc[Read more about this here].
 
 == Using Remix
 
