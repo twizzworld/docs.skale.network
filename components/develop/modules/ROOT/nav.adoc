@@ -6,6 +6,11 @@
 ** xref:networks.adoc[Networks]
 ** xref:proof-of-work.adoc[Proof of Work]
 * xref:sfuel/index.adoc[sFUEL (Gas Token)]
+** xref:sfuel/etherbase.adoc[Etherbase]
+** xref:sfuel/ether-vs-sfuel.adoc[Ether vs sFUEL]
+** xref:sfuel/pow-vs-sfuel.adoc[Proof of Work vs sFUEL]
+** xref:sfuel/sfuel-distribution.adoc[sFUEL Distribution]
+** xref:sfuel/sfuel-station.adoc[sFUEL Station]
 * Tools
 ** xref:ima-sdk.adoc[Using the IMA SDK]
 ** xref:providers.adoc[Using Web3 Providers]
