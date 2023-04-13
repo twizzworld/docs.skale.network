@@ -15,7 +15,7 @@ See distribution options xref:./sfuel-distribution.adoc[here] or learn more abou
 
 == sFUEL in Solidity
 
-When building using Solidity, developers often lean on native token payments. This means using a token like Ether as the "payment" within an application. One of the byproducts of free transactions is a value-less *msg.value* in Solidity. Learn more in the xref:./ether-vs-sfuel.adoc[Ether vs sFUEL] breakdown.
+When building using Solidity, developers often lean on native token payments. This means using a token like Ether as the "payment" within an application. One of the byproducts of free transactions is a value-less *msg.value* in Solidity. Learn more in the xref:./gas-vs-sfuel.adoc[Gas vs sFUEL] breakdown.
 
 == FAQ
 
