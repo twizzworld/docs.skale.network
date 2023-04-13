@@ -1,18 +1,36 @@
-= SKALE Gas Token
+= sFUEL (Gas Token)
 :page-aliases: sfuel-gas-token.adoc
 
-sFUEL is the native token of SKALE. This is similar (but different!) to Ether in Ethereum. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no value: it's FREE. There is no payment/cost required for transactions since sFUEL is FREE.
+SKALE Fuel or **sFUEL** is the native gas token of SKALE Chains. This is similar -- but different! -- to Ether on the Ethereum blockchain. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no economic value: it's a **FREE** resouse making transactions on SKALE 100% free all the time.
 
-Getting sFUEL on a SKALE chain is done through a number of ways. Again because sFUEL is **free and has no economic value**, there is no way to purchase it or find it on exchanges.
+[NOTE]
+Users must have sFUEL in order to transact through their wallets. Alternativley, transactions can be "paid for" by utilizing xref:../proof-of-work.adoc[Proof of Work].
 
-The SKALE chain owner is allocated a massive amount of sFUEL and is responsible for distributing sFUEL to users in a way that's best served for their users' experience. Some SKALE chain owners choose to send sFUEL to each user who completes an onboarding event. Other owners choose to provide a sFUEL faucet, and others allow users to mine gas natively in a browser. See https://github.com/skalenetwork/pow-demo for an example of mining gas on SKALE.
+== sFUEL Distribution 
 
-For further develop details on distributing and developing with sFUEL, see xref:skale-chain-access-control.adoc[Access Control].
+sFUEL Distribution is one of the most important SKALE specific requirements to consider and implement. With no economic value to the gas token, creating invisible onboarding experiences is key to taking full advantage of the SKALE architecture.
 
-== Partner Tooling
-
-* Dirt Road Development 
-** End-user tool: https://dirtroad.dev/docs/platforms/sfuel-station/using-the-station
-** Developer: https://dirtroad.dev/docs/topics/skale/sfuel
+See distribution options xref:./sfuel-distribution.adoc[here] or learn more about the role of sFUEL in xref:../skale-chain-access-control.adoc[controlling access to a SKALE chain].
 
 
+== sFUEL in Solidity
+
+When building using Solidity, developers often lean on native token payments. This means using a token like Ether as the "payment" within an application. One of the byproducts of free transactions is a value-less *msg.value* in Solidity. Learn more in the xref:./ether-vs-sfuel.adoc[Ether vs sFUEL] breakdown.
+
+== FAQ
+
+=== Can a chain run out of sFUEL?
+
+Gas fees from transactions are recycled into xref:./etherbase.adoc[Etherbase] meaning that sFUEL is always being recycled back into a location that the SKALE chain owner can distribute from. Due to this, a chain can never run out of sFUEL.
+
+=== How do SKALE Chain owners distribute sFUEL?
+
+See xref:./sfuel-distribution.adoc[the sFUEL Distribution] section of the SKALE Documentation.
+
+=== Is sFUEL the same on every SKALE Chain?
+
+Yes and no, sFUEL on every SKALE Chain is identical to every other "copy" of sFUEL. However, each chain maintains its own supply. Additionally, sFUEL cannot be transferred between SKALE Chains.
+
+=== Why is sFUEL needed if transactions are free?
+
+sFUEL is a security mechanism for the SKALE Chains. Writes cannot occur to the blockchain without sFUEL -- or Proof of Work -- which is one layer of security against DDoS attacks.
