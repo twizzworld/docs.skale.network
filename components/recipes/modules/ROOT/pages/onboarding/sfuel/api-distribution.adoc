@@ -1,0 +1,46 @@
+= API Distribution
+
+The following will walk you through setting up a server to distribute sFUEL for your application.
+
+== Requirements
+
+* A basic understanding of programming
+* A basic understanding of using a command prompt/terminal
+* link:https://nodejs.org/en[Node.js] installed on your computer
+* An Ethereum PRIAVATE_KEY (a burner address, not your primary)
+* About 10-15 minutes
+
+== Setup
+
+=== Create Project Folder
+Open up your terminal and create a new folder called skale-dist-server and enter it. This can be done by running:
+
+```bash
+mkdir skale-dist-server && cd skale-dist-server
+```
+
+=== Node.js Verification
+In order to create a project using Node.js and NPM. You can verify that you have Node.js installed by running:
+```bash
+node -v
+```
+
+You should see a number such as 18.12.0 OR a response saying that the command node is not recognized. If you see the former, continue, else head over to link:https://nodejs.org/en[the Node.js website] and install Node.js on your computer.
+
+Once you have Node installed, proceed to the project creation.
+
+=== Create new Project
+
+Run the following in your terminal to create a new project:
+
+```bash
+npm init -y
+```
+
+[NOTE]
+You can run the command above without the -y (yes) flag. If you choose to run without this flag, you will be prompted to fill out all the fields.
+
+== Building
+== Testing
+
+== Hosting
