@@ -7,12 +7,11 @@ sFUEL can be distributed in a number of ways to various end users, however, ther
 
 The following are the two most common distribution options found within the SKALE Ecosystem.
 
-== Centralized Service Distribution
+== API Distribution
 
-The centralized distribution method is a great starting point for applications migrating from a traditional background, or for decentralized applications that cater toward more traditional audiences.
-The service can be made available through any service or hosting provider that you are comfortable with. 
+The API distribution method is a great starting point for applications migrating from a traditional background, or for decentralized applications that cater toward more traditional audiences.
 
-Learn how to setup a xref:./distribution/centralized-distribution.adoc[centralized distribution]
+Learn how to setup an xref:./distribution/api-distribution.adoc[API Distribution Service].
 
 === Proof of Work + sFUEL Distribution Contract
 
