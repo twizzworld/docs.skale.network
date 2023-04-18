@@ -7,7 +7,7 @@ The following will walk you through setting up a server to distribute sFUEL for 
 * A basic understanding of programming
 * A basic understanding of using a command prompt/terminal
 * link:https://nodejs.org/en[Node.js] installed on your computer
-* An Ethereum PRIAVATE_KEY (not your primary)
+* An Ethereum Private Key (not your primary)
 * About 10-15 minutes
 
 == Setup
