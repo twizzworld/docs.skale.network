@@ -17,4 +17,4 @@ Learn how to setup an xref:./distribution/api-distribution.adoc[API Distribution
 
 The PoW + sFUEL Distribution contract is the recommended and most common way to distribute sFUEL and handle user onboarding. This is the process used behind the scenes for the community run xref:./sfuel-station.adoc[sFUEL Station]. This is a multi-step process that requires a smart contract to be deployed on a SKALE Chain (if on a dedicated chain - hubs already have them), and then setup Proof of Work on the client. 
 
-To succesfully implement this, it helps to understand xref:../proof-of-work.adoc[Proof of Work] and what is occuring. If you are already comfortable with this concept, xref:./distribution/pow.adoc[click here] to learn about implementing this in your dApp.
+To succesfully implement this, it helps to understand xref:./proof-of-work.adoc[Proof of Work] and what is occuring. If you are already comfortable with this concept, xref:./distribution/proof-of-work-distribution.adoc[click here] to learn about implementing this in your dApp.
