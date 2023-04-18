@@ -1,0 +1,134 @@
+= Proof of Work Distribution
+
+Distributing sFUEL through Proof-of-Work is a two-step process where the first step is optional depending on your SKALE Chain.
+
+== Step I | Deploy sFUEL Distribution Contract
+
+[NOTE]
+If you are building on a SKALE Hub or Chaos Testnet, checkout the xref:develop::sfuel/distribution/proof-of-work-distribution.adoc#_available_on_chain_faucets[deployed contracts] and skip to xref:_step_ii_setup_dapp[Step II].
+
+If you are on a dedicated SKALE Chain and have not deployed a sFUEL Distribution smart contract, yet, proceed with Step I.
+
+The following will use the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract[sFUEL Distribution Contract] by link:https://dirtorad.dev[Dirt Road Dev]. This contract is based on the example found xref:develop::proof-of-work.adoc[here] in the docs.
+
+=== Setup the Project
+
+Start by cloning (and optionally forking) the GitHub repository:
+
+```bash
+git clone https://github.com/Dirt-Road-Develompent/sfuel-distribution-contract && cd sfuel-distribution-contract
+```
+
+After entering into the root of the directory run the setup script:
+
+```bash
+chmod +x ./setup.sh && ./setup.sh
+```
+
+This will install npm packages, add the link:https://openzeppelin.com[Open Zeppelin] smart contracts package, and create a .env file in the root of project.
+
+=== Setup Environment
+
+The next step is to setup the environment. Open the .env file which looks like this:
+
+```.env
+# Private Key - DO NOT SHARE - Should NOT start with 0x
+DEPLOYER_PRIVATE_KEY=
+
+# SKALE Chain RPC
+RPC_URL=
+
+# Decimal Form
+CHAIN_ID= 
+
+# Blockscout -> Browser Url + /api
+API_URL=
+
+# Blockscout
+BROWSER_URL=
+```
+
+and fill in the all the values. The final result should look like this:
+
+```.env
+# Private Key - DO NOT SHARE - Should NOT start with 0x
+DEPLOYER_PRIVATE_KEY=0000000000000000000000000000000000000000000000000000000000000000
+
+# SKALE Chain RPC
+RPC_URL=https://mainnet.skalenodes.com/v1/some-amazing-schain-name
+
+# Decimal Form
+CHAIN_ID=11111111111
+
+# Blockscout -> Browser Url + /api
+API_URL=https://some-amazing-schain-name.explorer.mainnet.skalenodes.com/api
+
+# Blockscout
+BROWSER_URL=https://some-amazing-schain-name.explorer.mainnet.skalenodes.com
+```
+
+[WARNING]
+The private key added is linked to an Ethereum Address. That Ethereum Address must have Deployer Role -- see xref:develop::skale-chain-access-control.adoc#__whitelist[SKALE Chain Access Control] -- and at least as much sFUEL as defined in the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/config.json#L5[deployment config here]. Deployment will fail without confirming these.
+
+[NOTE]
+If the deployer address does not have DEPLOYER_ROLE, the transaction will fail with an error on the explorer that says: +++<p style="color: red;">Error: Out of Gas</p>+++
+
+=== Deploy the Contract
+
+With everything setup, you can deploy the contract by running:
+
+[tabs]
+NPM
+
+The contract should deploy in a few seconds. Once deployed, the contract will automatically begin to verify itself on the block explorer. Do not interrupt this process if you want the contract verified. Make sure to save this contract address, you will need it for Step II of this recipe.
+
+== Step II | Setup dApp
+
+Step II of this recipe uses Next.Js, Wagmi, Rainbowkit, and Proof of Work to distribute sFUEL to new users of your dApp.
+
+=== Project Setup
+
+Start by cloning the recipe to your local machine by running:
+
+```bash
+git clone -b starter-pow-distribution-frontend https://github.com/skalenetwork/recipes.git && cd recipes/next.js
+```
+
+Once cloned and in the next.js directory, run:
+
+```bash
+npm install
+```
+
+to install the necessary packages.
+
+=== Run the Project
+
+Now, to run the project on the Calypso NFT Hub testnet you can run:
+
+```bash
+npm run dev
+```
+
+in your terminal and navigate to localhost on port 3000. Connecting a wallet and clicking *Fill Up&* will trigger the Proof of Work script.
+
+[NOTE]
+Proof of Work can run on any SKALE Chain without requiring an active wallet connection. This means that you do not need to setup Wagmi with your SKALE Chain. If you want to add your SKALE Chain, explore the available link:https://wagmi.sh/core/chains#supported-chains[supported SKALE Chains] or link:https://wagmi.sh/core/chains#build-your-own[add your own].
+
+=== Add your deployed contract
+
+The final step is to add your SKALE Chain and contract information. 
+Go to the link:https://github.com/skalenetwork/recipes/blob/32e9f49a4c423995f74b3a74094ba770ae233392/next.js/hooks/useSKALEFuel.ts#L7[useSKALEFuel React Hook] file. 
+
+[NOTE]
+In production, you may split your configuration and hooks. To simplify the code, the configuration variables have been added to this file.
+
+Update lines 7-9 as needed:
+
+* CONTRACT_ADDRESS should be changed to the value of your deployed contract or the address taken from the hub list
+* Function_HASH should only be changed if you changed the pay function link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/contracts/PoWSecure.sol#L69[here]
+* RPC_URL should be changed to match the SKALE Chain you are using.
+
+After updating the values, the dApp should now be conncted to and distribute sFUEL for users on your SKALE Chain.
+
+You now have a fully decentralized and nearly invisible onboarding experience. For a fully invisisble distribution, remove the button and automatically fill up users behind the scenes.
