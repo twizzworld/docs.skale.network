@@ -77,8 +77,10 @@ If the deployer address does not have DEPLOYER_ROLE, the transaction will fail w
 
 With everything setup, you can deploy the contract by running:
 
-[tabs]
-NPM
+```shell
+chmod +x ./deploy_secure.sh && ./deploy_secure.sh
+```
+
 
 The contract should deploy in a few seconds. Once deployed, the contract will automatically begin to verify itself on the block explorer. Do not interrupt this process if you want the contract verified. Make sure to save this contract address, you will need it for Step II of this recipe.
 
