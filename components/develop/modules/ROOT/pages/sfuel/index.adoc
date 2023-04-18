@@ -4,7 +4,7 @@
 SKALE Fuel or **sFUEL** is the native gas token of SKALE Chains. This is similar -- but different! -- to Ether on the Ethereum blockchain. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no economic value: it's a **FREE** resouse making transactions on SKALE 100% free all the time.
 
 [NOTE]
-Users must have sFUEL in order to transact through their wallets. Alternativley, transactions can be "paid for" by utilizing xref:../proof-of-work.adoc[Proof of Work].
+Users must have sFUEL in order to transact through their wallets. Alternativley, transactions can be mined by utilizing xref:../proof-of-work.adoc[Proof of Work].
 
 == sFUEL Distribution 
 
