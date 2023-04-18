@@ -11,12 +11,23 @@ From link:https://ethereum.org/en/developers/docs/gas/#what-is-gas[https://ether
 
 [width="100%"]
 == Gas vs sFUEL
+[cols="3*",options="header"]
 |======
-|                | +++<strong>Gas</strong>+++			| +++<strong>sFUEL</strong>+++
-| Easy Access    | +++<p style="color: red;">No</p>+++  | +++<p style="color: green;">Yes</p>+++
-| Economic Value | +++<p style="color: red;">Yes</p>+++ | +++<p style="color: green;">No</p>+++
-| Purchasable    | +++<p style="color: red;">Yes</p>+++ | +++<p style="color: green;">No</p>+++
-| 
+|
+| +++<strong>Gas</strong>+++
+| +++<strong>sFUEL</strong>+++
+
+| Easy Access    
+| +++<p style="color: red;">No</p>+++
+| +++<p style="color: green;">Yes</p>+++
+
+| Economic Value 
+| +++<p style="color: red;">Yes</p>+++ 
+| +++<p style="color: green;">No</p>+++
+
+| Purchasable    
+| +++<p style="color: red;">Yes</p>+++ 
+| +++<p style="color: green;">No</p>+++ 
 |======
 
 === Easy Access
