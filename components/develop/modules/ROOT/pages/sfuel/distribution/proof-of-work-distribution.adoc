@@ -36,11 +36,37 @@ Deploying onto a SKALE Hub? Utilize one of the pre-existing sFUEL Distribution c
 
 [width="100%"]
 === Available On-Chain Faucets
+[cols="4*",options="header"]
 |===
-| Chain             | Mainnet Address                               | Testnet Address                               | Function Signature    |
-| Europa            | 0x2B267A3e49b351DEdac892400a530ABb2f899d23    | 0x436389289aEAFefD1d7471b7FbEc67539Bde3E34    | 0x6a627842            |
-| Calypso           | 0x02891b34B7911A9C68e82C193cd7A6fBf0c3b30A    | 0x84b7265Bc964BB69b4275d4Dac4df0FD87556960    | 0x0c11dedd            |
-| Chaos Testnet     |                                               | 0x1B2e7E6E66a6c202cdC0C31DF996b530af22CBee    | 0x0c11dedd            |
-| Nebula            | 0x5a6869ef5b81DCb58EBF51b8F893c31f5AFE3Fa8    | 0xfd56A3456fbAB0fc013213edCc830B9d32403C8B    | 0x0c11dedd            |
-| Titan             | 0xa5C297dF8f8386E4b940D61EF9A8f2bB367a6fAB    | 0xdb6c305e94097033904a76587e4BBCa41B14B2B2    | 0x0c11dedd            |
+| Chain
+| Mainnet Address
+| Testnet Address
+| Function Signature
+
+
+
+| Europa
+| 0x2B267A3e49b351DEdac892400a530ABb2f899d23 
+| 0x436389289aEAFefD1d7471b7FbEc67539Bde3E34
+| 0x6a627842
+
+| Calypso
+| 0x02891b34B7911A9C68e82C193cd7A6fBf0c3b30A 
+| 0x84b7265Bc964BB69b4275d4Dac4df0FD87556960
+| 0x0c11dedd
+
+| Chaos Testnet
+|
+| 0x1B2e7E6E66a6c202cdC0C31DF996b530af22CBee
+| 0x0c11dedd
+
+| Nebula
+| 0x5a6869ef5b81DCb58EBF51b8F893c31f5AFE3Fa8 
+| 0xfd56A3456fbAB0fc013213edCc830B9d32403C8B
+| 0x0c11dedd
+
+| Titan
+| 0xa5C297dF8f8386E4b940D61EF9A8f2bB367a6fAB 
+| 0xdb6c305e94097033904a76587e4BBCa41B14B2B2
+| 0x0c11dedd
 |===
