@@ -14,8 +14,8 @@ From link:https://ethereum.org/en/developers/docs/gas/#what-is-gas[https://ether
 [cols="3*",options="header"]
 |======
 |
-| +++<strong>Gas</strong>+++
-| +++<strong>sFUEL</strong>+++
+| +++<strong>Gas (Other EVM Networks)</strong>+++
+| +++<strong>sFUEL (SKALE Network) </strong>+++
 
 | Easy Access    
 | +++<p style="color: red;">No</p>+++
@@ -45,4 +45,4 @@ Additionally, valued assets can often be a large blocker for applications lookin
 
 Purchasable tokens represent one of the largest barriers to entry into the blockchain space. Most users expect services to "just work" and onboarding experiences to let them login with an existing service and start using or playing in seconds. For many networks, the login portion can be hidden away with third party services, however, the gas fees cannot. Users are required to go to other applications or services to purchase assets to transact in. Additionally, users often have to spend money just to transfer tokens to a new network. 
 
-Non-purchasable tokens remove that friction entirely. If they cannot be purcahsed, then they must be given. Learn more about how xref:./sfuel-distribution.adoc[works].
+Non-purchasable tokens remove that friction entirely. If they cannot be purchased, then they must be given. Learn more about how xref:./sfuel-distribution.adoc[works].
