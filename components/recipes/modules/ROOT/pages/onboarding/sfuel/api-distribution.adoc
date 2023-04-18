@@ -16,7 +16,7 @@ The following will walk you through setting up a server to distribute sFUEL for 
 Open up your terminal and start by cloning the Github Repo
 
 In order to create a project using Node.js and NPM. You can verify that you have Node.js installed by running:
-```bash
+```shell
 node -v
 ```
 
@@ -24,7 +24,7 @@ You should see a number such as 18.12.0 OR a response saying that the command no
 
 Once you have Node installed, proceed to the project creation.
 
-```bash
+```shell
 git clone -b starter-api-distribution-nodejs https://github.com/skalenetwork/recipes.git
 ```
 
@@ -32,7 +32,7 @@ git clone -b starter-api-distribution-nodejs https://github.com/skalenetwork/rec
 
 Run the following in your terminal to install the project dependencies
 
-```bash
+```shell
 yarn install
 ```
 
@@ -42,7 +42,7 @@ You can run the command above without the -y (yes) flag. If you choose to run wi
 === Add Environment Variables
 
 Run the following in your terminal
-```bash
+```shell
 cp .env.example .env
 ```
 
@@ -52,12 +52,12 @@ Add an Ethereum private key to your .env file and change the RPC to match your S
 
 To run the API locally and autoreload when changes occur, run:
 
-```bash
+```shell
 yarn dev
 ```
 
 To run the API without autoreload, run:
 
-```bash
+```shell
 yarn start
 ```

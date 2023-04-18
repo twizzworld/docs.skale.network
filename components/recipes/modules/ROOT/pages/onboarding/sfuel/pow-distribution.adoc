@@ -15,13 +15,13 @@ The following will use the link:https://github.com/Dirt-Road-Development/sfuel-d
 
 Start by cloning (and optionally forking) the GitHub repository:
 
-```bash
+```shell
 git clone https://github.com/Dirt-Road-Develompent/sfuel-distribution-contract && cd sfuel-distribution-contract
 ```
 
 After entering into the root of the directory run the setup script:
 
-```bash
+```shell
 chmod +x ./setup.sh && ./setup.sh
 ```
 
@@ -90,13 +90,13 @@ Step II of this recipe uses Next.Js, Wagmi, Rainbowkit, and Proof of Work to dis
 
 Start by cloning the recipe to your local machine by running:
 
-```bash
+```shell
 git clone -b starter-pow-distribution-frontend https://github.com/skalenetwork/recipes.git && cd recipes/next.js
 ```
 
 Once cloned and in the next.js directory, run:
 
-```bash
+```shell
 npm install
 ```
 
@@ -106,7 +106,7 @@ to install the necessary packages.
 
 Now, to run the project on the Calypso NFT Hub testnet you can run:
 
-```bash
+```shell
 npm run dev
 ```
 
