@@ -4,8 +4,15 @@
 * Network Details
 ** xref:hackathon.adoc[Hackathon Notes]
 ** xref:networks.adoc[Networks]
-** xref:sfuel-gas-token.adoc[SKALE Gas Token]
-** xref:proof-of-work.adoc[Proof of Work]
+* xref:sfuel/index.adoc[sFUEL (Gas Token)]
+** xref:sfuel/etherbase.adoc[Etherbase]
+** xref:sfuel/gas-vs-sfuel.adoc[Gas vs sFUEL]
+** xref:sfuel/proof-of-work.adoc[Proof of Work]
+** xref:sfuel/pow-vs-sfuel.adoc[Proof of Work vs sFUEL]
+** xref:sfuel/sfuel-distribution.adoc[sFUEL Distribution]
+*** xref:sfuel/distribution/api-distribution.adoc[API Distribution]
+*** xref:sfuel/distribution/proof-of-work-distribution.adoc[Proof of Work Distribution]
+** xref:sfuel/sfuel-station.adoc[sFUEL Station]
 * Tools
 ** xref:ima-sdk.adoc[Using the IMA SDK]
 ** xref:providers.adoc[Using Web3 Providers]

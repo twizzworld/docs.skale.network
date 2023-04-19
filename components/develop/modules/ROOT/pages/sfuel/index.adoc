@@ -1,0 +1,36 @@
+= sFUEL (Gas Token)
+:page-aliases: sfuel-gas-token.adoc
+
+SKALE Fuel or **sFUEL** is the native gas token of SKALE Chains. This is similar -- but different! -- to Ether on the Ethereum blockchain. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no economic value: it's a **FREE** resouse making transactions on SKALE 100% free all the time.
+
+[NOTE]
+Users must have sFUEL in order to transact through their wallets. Alternativley, transactions can be mined by utilizing xref:../proof-of-work.adoc[Proof of Work].
+
+== sFUEL Distribution 
+
+sFUEL Distribution is one of the most important SKALE specific requirements to consider and implement. With no economic value to the gas token, creating invisible onboarding experiences is key to taking full advantage of the SKALE architecture.
+
+See distribution options xref:./sfuel-distribution.adoc[here] or learn more about the role of sFUEL in xref:../skale-chain-access-control.adoc[controlling access to a SKALE chain].
+
+
+== sFUEL in Solidity
+
+When building using Solidity, developers often lean on native token payments. This means using a token like Ether as the "payment" within an application. One of the byproducts of free transactions is a value-less *msg.value* in Solidity. Learn more in the xref:./gas-vs-sfuel.adoc[Gas vs sFUEL] breakdown.
+
+== FAQ
+
+=== Can a chain run out of sFUEL?
+
+Gas fees from transactions are recycled into xref:./etherbase.adoc[Etherbase] meaning that sFUEL is always being recycled back into a location that the SKALE chain owner can distribute from. Due to this, a chain can never run out of sFUEL.
+
+=== How do SKALE Chain owners distribute sFUEL?
+
+See xref:./sfuel-distribution.adoc[the sFUEL Distribution] section of the SKALE Documentation.
+
+=== Is sFUEL the same on every SKALE Chain?
+
+Yes and no, sFUEL on every SKALE Chain is identical to every other "copy" of sFUEL. However, each chain maintains its own supply. Additionally, sFUEL cannot be transferred between SKALE Chains.
+
+=== Why is sFUEL needed if transactions are free?
+
+sFUEL is a security mechanism for the SKALE Chains. Writes cannot occur to the blockchain without sFUEL -- or Proof of Work -- which is one layer of security against DDoS attacks.
