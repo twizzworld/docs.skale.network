@@ -9,6 +9,7 @@
 ** sFUEL Distribution
 *** xref:onboarding/sfuel/api-distribution.adoc[API Distribution]
 *** xref:onboarding/sfuel/pow-distribution.adoc[Proof of Work Distribution]
+** xref:onboarding/invisible-web3.adoc[Invisible Web3]
 
 * xref:solidity/index.adoc[Solidity 101]
 ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
