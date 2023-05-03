@@ -1,0 +1,51 @@
+= thirdweb CLI
+
+Welcome to the documentation for the thirdweb CLI on SKALE network. This guide will walk you through the steps needed to install and use the thirdweb CLI on SKALE network, providing you with examples and explanations to help you get started quickly.
+
+== What is the thirdweb CLI?
+
+The thirdweb CLI is a command-line interface that allows developers to create, build and deploy your smart contracts and apps.
+
+See https://portal.thirdweb.com/cli for more information on using the thirdweb CLI.
+
+== Getting Started
+
+To get started with the thirdweb CLI on SKALE network, you will need to follow these steps:
+
+. Install Node.js
++
+The thirdweb CLI is built using Node.js, so you will need to install it on your computer if you haven't already. You can download Node.js from the official website: https://nodejs.org/en/.
+
+. Install the thirdweb CLI
++
+Once you have Node.js installed, you can install the thirdweb CLI by running the following command in your terminal:
++
+```shell
+$ npm i -g @thirdweb-dev/cli
+```
+
+. Create a new project
++
+To create a new project with thirdweb installed and configured;
++
+```shell
+$ npx thirdweb create
+```
+
+. Deploy a smart contract
++
+To deploy your smart contracts to SKALE:
++
+```shell
+$ npx thirdweb deploy
+```
++
+After running `npx thirdweb deploy`, visit your thirdweb dashboard URL and select "Chaos (SKALE Testnet)" from the Network dropdown.
+
+. Publish a smart contract
++
+Publish and share a versioned release of your contract onto thirdweb’s registry
++
+```shell
+$ npx thirdweb publish
+```
