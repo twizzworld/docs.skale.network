@@ -10,7 +10,7 @@ Hubs are community-operated SKALE chains that function as web3 service layers th
 Dapp chains are SKALE chains that provide Layer 2 throughput to a single high-performance Dapp, such as https://www.cryptoblades.io[Cryptoblades] or https://exorde.network[Exorde].
 
 
-### SKALE Hubs- https://mainnet.skalenodes.com/#/[Mainnet]
+== SKALE Hubs- https://mainnet.skalenodes.com/#/[Mainnet]
 [options="header"]
 |=======================
 |Hub |Chain Name      |Use-Case
