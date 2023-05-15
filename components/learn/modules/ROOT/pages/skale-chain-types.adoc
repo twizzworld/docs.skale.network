@@ -1,0 +1,22 @@
+= SKALE Chain Types 
+:experimental:
+
+A SKALE chain is categorized as either a Hub chain or a Dapp chain.
+
+While Hub and Dapp chains share the same technology under the hood, their application within the SKALE Network differs.
+
+Hubs are community-operated SKALE chains that function as web3 service layers that are divided by their specific use-cases. For instance, there could be a hub for DeFi, a hub for gaming, a hub for NFTs, etc.
+
+Dapp chains are SKALE chains that provide Layer 2 throughput to a single high-performance Dapp, such as https://www.cryptoblades.io[Cryptoblades] or https://exorde.network[Exorde].
+
+
+.SKALE Hubs- https://mainnet.skalenodes.com/#/[Mainnet]
+[options="header"]
+|=======================
+|Hub |Chain Name      |Use-Case
+|https://staging-v3.skalenodes.com/fs/staging-legal-crazy-castor/f63bb14e7e9bd2882957129c3e3197e6d18933b4/europa/index.html[Europa]    |elated-tan-skat     | DeFi
+|https://www.calypsohub.network[Calypso]    |honorable-steel-rasalhague     |NFTs, Marketplaces
+|https://nebulachain.io[Nebula]    |green-giddy-denebola     |Web3 Gaming
+|https://skale.space[Titan]    |parallel-stormy-spica| General Community-use
+|======================= 
+
