@@ -30,6 +30,7 @@
 ** xref:metaport::index.adoc[Using Metaport Widget]
 * xref:wallets.adoc[Wallets]
 ** xref:wallets/metamask.adoc[Metamask]
+** xref:wallets/enkrypt.adoc[Enkrypt]
 ** xref:wallets/portis.adoc[Portis]
 ** xref:wallets/bitski.adoc[Bitski]
 ** xref:wallets/torus.adoc[Torus]

@@ -1,0 +1,11 @@
+= Enkrypt (MyEtherWallet)
+
+The Enkrypt wallet is a multichain non-custodial wallet allowing users to easily manage tokens and access web3 application across multiple blockchains, like SKALE Network!
+
+Enkrypt specifically allows users to perform network changes without confirmation popups.
+
+
+For more information you can read about Enkrypt here:
+
+* https://www.enkrypt.com/
+* https://myetherwallet.gitbook.io/enkrypt-documentation/add-enkrypt-to-dapps
