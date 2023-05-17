@@ -1,0 +1,10 @@
+= API Distribution
+
+The API distribution method references a more application owned distribution as opposed to an on-chain distribution.
+This utilizes servers to faciliate sFUEL distribution to users through by exposing an API endpoint through the server or by having fill-up funcitonality
+called directly within existing services i.e when new accounts are created and stored in a database.
+
+[WARNING]
+Code samples and recipes provided are examples of this method, however, may not be suitable for production use.
+
+Head over to the xref:recipes::onboarding/sfuel/api-distribution.adoc[Recipe] and learn how to setup your own sFUEL API Distributor using Node.js.

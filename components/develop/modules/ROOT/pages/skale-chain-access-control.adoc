@@ -2,6 +2,9 @@
 
 SKALE Chains have several ways to manage access control, meaning who is capable of sending a transaction to the SKALE Chain or who is capable of deploying new contracts. There are several methods manage access: distribution of sFUEL to SKALE Chain users and the ConfigController contract, which authorizes specific contracts to deploy new contracts (CREATE2), enables Multi Transaction Mode and enables Free Contract Deployment. The next paragraph will describe listed methods.
 
+[NOTE]
+If you encounter a `Contract Creation Error: Out of gas` error when deploying a contract, this likely means that the address does not have deployer access. See xref:_whitelist[whitelisting an address].
+
 == Config Controller
 
 New SKALE Chains are set only to allow the SKALE Chain owner and CREATE/CREATE2 opcodes the ability to deploy new contracts. Other addresses can be permitted on the fly to deploy contracts by whitelisting addresses.

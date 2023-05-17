@@ -1,0 +1,65 @@
+= using WAGMI 
+
+SKALE is available through WAGMI  **[** https://wagmi.sh/core/getting-started[Docs] **|**
+https://github.com/wagmi-dev/wagmi[Github] **|** https://github.com/wagmi-dev/wagmi[npm] **]**
+
+Wagmi is a collection of React hooks and tools for interacting with EVM blockchains that simplifies the development process while providing built-in support for app caching and persistence. 
+
+Connecting wallets, signing messages, and using ENS names are all ready to go once you configure your chains import and set your provider. 
+
+To use SKALE with WAGMI, you simply need to import the specific SKALE chain(s).
+
+**CONFIGURATION**
+
+To configure WAGMI for SKALE import the desired SKALE chains from `@wagmi/core/chains` and set your provider. 
+
+**EXAMPLE:**
+
+
+[source,javascript]
+----
+
+ 
+import { chain, configureChains } from 'wagmi'
+import { publicProvider } from 'wagmi/providers/public'
+ 
+const { chains, provider } = configureChains(
+  [chain.mainnet, chain.skaleCalypso],
+  [publicProvider()],
+)
+
+
+----
+[width="50%"]
+**SKALE Hubs & Open Chains**
+|=======
+| **WAGMI** |*Name*|**SKALE Chain Name**
+|skaleCalypso |Calypso NFT Hub |honorable-steel-rasalhague
+|skaleCalypsoTestnet |Calypso NFT Hub Testnet |staging-utter-unripe-menkar
+|skaleChaosTestnet |Chaos Open Chain Testnet | Testnet Exclusive 
+|skaleEuropa |Europa Liquidty Hub |elated-tan-skat
+|skaleEuropaTestnet |Europa Liquidty Hub Testnet |staging-legal-crazy-castor
+|skaleNebula |Nebula Gaming Hub |green-giddy-denebola
+|skaleNebulaTestnet |Nebula Gaming Hub Testnet |staging-faint-slimy-achird
+|skaleTitan |Titan Community Hub |parallel-stormy-spica
+|skaleTitanTestnet |Titan Community Hub Testnet |staging-aware-chief-gianfar 
+|=======
+
+
+
+**SKALE Dapp Chains**
+
+|=======
+| **WAGMI** |*Name*|**SKALE Chain Name**
+|skaleBlockBrawlers |BlockBrawlers |frayed-decent-antares
+|skaleCryptoBlades | CryptoBlades |affectionate-immediate-pollux
+|skaleCryptoColosseum |CryptoColosseum |haunting-devoted-deneb
+|skaleExorde |Exorde |N/A
+|skaleHumanProtocol |Human Protocol |wan-red-ain
+|skaleRazor |Razor Network | turbulent-unique-scheat
+|=======
+
+[NOTE]
+For specific chain info visit SKALE Proxy UI:
+https://mainnet.skalenodes.com[Maintnet] &
+http://staging-v3.skalenodes.com/#/[Testnet]

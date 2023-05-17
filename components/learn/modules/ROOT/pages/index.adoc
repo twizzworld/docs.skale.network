@@ -4,7 +4,7 @@ Here are a few notes about getting started with SKALE chains.
 
 == SKALE Network Basics
 
-Read up on what is the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:overview.adoc[in our Basics doc].
+Read up on what is the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:basics.adoc[in our Basics doc].
 
 video::Anb0ZSruWlw[youtube, height=450, width=800, opts="modest"]
 // video::Twe_hPFGlbY[youtube, height=450, width=800, opts="modest"]
@@ -15,7 +15,7 @@ See more videos here: https://www.youtube.com/skale
 
 SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
 
-== SKALE Chain FUEL
+== SKALE Chain FUEL (sFUEL)
 
 SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but like ETH is used to conduct transactions. xref:skale-chain-fuel.adoc[Learn more about managing sFUEL on your SKALE Chain].
 

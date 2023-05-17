@@ -1,0 +1,26 @@
+= Proof of Work vs sFUEL
+
+[NOTE]
+Before proceeding with this section, it is recommended to familiarize yourself with both xref:../proof-of-work.adoc[Proof of Work] and xref:./index.adoc[sFUEL].
+If you still have questions, head over to the link:https://discord.gg/skale[Discord]
+
+Both Proof of Work and sFUEL enable an Externally Owned Account (EOA) -- a wallet -- to send a signed transaction to a SKALE Chain.
+
+== When to use Proof of Work?
+
+There are a number of key uses cases that can use or even require Proof of Work.
+
+=== Initial User Onboarding
+
+One of the most important components of any application is onboarding. Proof of Work enables applications to remove the need to purchase gas entirely by allowing transactions to be sent without a gas token. Meaning that a PoW script can be ran once with the sole purpose of attaining sFUEL. Upon distribution, the user can utilize the application. 
+
+[NOTE]
+Proof of Work does not currently work with Metamask. An anonymous (or random) signer should be used. This opens up the door for invisible onboarding as no clicks are required by the user.
+
+=== Random Signing
+Some applications may utilize random signers in order to enable certain functionality. Proof of Work enables random wallets to be used and to send transactions without having to provide each one sFUEL.
+
+== When to use sFUEL?
+
+sFUEL should be used for most actions related to speed. As the Proof of Work method requires computationally intensive work, it is not always immediate. sFUEL should be used as much as possible to enable seamless user experiences.
+

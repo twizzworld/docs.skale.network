@@ -1,0 +1,20 @@
+= sFUEL Distribution
+
+Distributing sFUEL to users is an important part of building on SKALE. Whether creating an invisible experience or an application designed for Web3 natives; sFUEL distribution is one of the keys to success.
+sFUEL can be distributed in a number of ways to various end users, however, there are a number of options which have consistently been yielded the best results.
+
+== Distribution Options
+
+The following are the two most common distribution options found within the SKALE Ecosystem.
+
+=== API Distribution
+
+The API distribution method is a great starting point for applications migrating from a traditional background, or for decentralized applications that cater toward more traditional audiences.
+
+Learn how to setup an xref:./distribution/api-distribution.adoc[API Distribution Service].
+
+=== Proof of Work + sFUEL Distribution Contract
+
+The PoW + sFUEL Distribution contract is the recommended and most common way to distribute sFUEL and handle user onboarding. This is the process used behind the scenes for the community run xref:./sfuel-station.adoc[sFUEL Station]. This is a multi-step process that requires a smart contract to be deployed on a SKALE Chain (if on a dedicated chain - hubs already have them), and then setup Proof of Work on the client. 
+
+To succesfully implement this, it helps to understand xref:./proof-of-work.adoc[Proof of Work] and what is occuring. If you are already comfortable with this concept, xref:./distribution/proof-of-work-distribution.adoc[click here] to learn about implementing this in your dApp.

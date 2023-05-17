@@ -16,14 +16,14 @@
     "prepare:docs": "antora --fetch playbook.yml --stacktrace",
     "prepare:local": "antora --fetch playbook-local-only.yml --stacktrace",
     "build:local": "yarn prepare:ui && yarn prepare:docs",
-    "build": "yarn build:ui && antora --fetch playbook.yml --html-url-extension-style=drop",
+    "build": "yarn build:ui && antora --fetch playbook.yml --html-url-extension-style=drop --log-level=fatal",
     "serve": "live-server build/site",
     "setup:git": "git submodule update --init --recursive --remote",
     "setup": "yarn setup:git"
   },
   "dependencies": {
-    "@antora/cli": "^2.3.4",
-    "@antora/site-generator-default": "^2.3.4",
+    "@antora/cli": "^3.1.2",
+    "@antora/site-generator-default": "^3.1.2",
     "@skalenetwork/doc-utils": "https://github.com/skalenetwork/doc-utils.git",
     "asciidoctor-kroki": "^0.14.0",
     "generator": "^1.0.1",

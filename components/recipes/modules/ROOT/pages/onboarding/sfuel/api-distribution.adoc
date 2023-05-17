@@ -1,0 +1,63 @@
+= API Distribution
+
+The following will walk you through setting up a server to distribute sFUEL for your application.
+
+== Requirements
+
+* A basic understanding of programming
+* A basic understanding of using a command prompt/terminal
+* link:https://nodejs.org/en[Node.js] installed on your computer
+* An Ethereum Private Key (not your primary)
+* About 10-15 minutes
+
+== Setup
+
+=== Create Project Folder
+Open up your terminal and start by cloning the Github Repo
+
+In order to create a project using Node.js and NPM. You can verify that you have Node.js installed by running:
+```shell
+node -v
+```
+
+You should see a number such as 18.12.0 OR a response saying that the command node is not recognized. If you see the former, continue, else head over to link:https://nodejs.org/en[the Node.js website] and install Node.js on your computer.
+
+Once you have Node installed, proceed to the project creation.
+
+```shell
+git clone -b starter-api-distribution-nodejs https://github.com/skalenetwork/recipes.git
+```
+
+=== Install Dependencies
+
+Run the following in your terminal to install the project dependencies
+
+```shell
+yarn install
+```
+
+[NOTE]
+You can run the command above without the -y (yes) flag. If you choose to run without this flag, you will be prompted to fill out all the fields.
+
+=== Add Environment Variables
+
+Run the following in your terminal
+```shell
+cp .env.example .env
+```
+
+Add an Ethereum private key to your .env file and change the RPC to match your SKALE Chain. The default RPC_URL is set to the Chaos Testnet.
+
+=== Run the API
+
+To run the API locally and autoreload when changes occur, run:
+
+```shell
+yarn dev
+```
+
+To run the API without autoreload, run:
+
+```shell
+yarn start
+```

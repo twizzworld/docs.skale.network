@@ -67,7 +67,7 @@ Result payload for Marionette execute(): `0xe43252d7000000000000000000000000DBC0
 === Etherbase
 
 * Address: `0xd2bA3e0000000000000000000000000000000000`
-* ABI: https://github.com/skalenetwork/config-controller/releases/download/1.0.0-develop.6/config-controller-1.0.0-develop.6-abi.json
+* ABI: https://github.com/skalenetwork/etherbase/releases/download/1.0.0-stable.0/etherbase-1.0.0-stable.0-abi.json
 
 * _ETHER_MANAGER_ROLE_ (hash: `e0ba7b49edc651b7ad93b374c67f1e9a0d37370168bbb86b81c569ebfa15f046`)
 +
