@@ -41,24 +41,20 @@ SKALE Network uses a https://skale.network/blog/technical-highlights/[unique com
 
 SKALE Network is designed to work with all Ethereum compatible tools such as API-based wallets and monitoring and analytics. 
 
-link:/docs/develop/providers[View integrations]
+xref:develop::index.adoc#_developer_tool_docs[View Tools]
 
-== Get Access
+== Access a SKALE Chain
 
-If you don't have a SKALE Chain yet, you can get started with:
+If you don't have a SKALE Chain yet, you can get started by using the public SKALE Chain, Chaos Testnet.
+Checkout the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like rpc endpoint and chain id as well as learn how to attain sFUEL.
 
-* https://forum.skale.network/t/skale-chain-sdk[Rapid and quick testing SKALE endpoint]
-* https://github.com/skalenetwork/skale-sdk[SKALE SDK]
-* https://github.com/skalenetwork/skale-ima-sdk[SKALE-IMA-SDK]
-* https://discord.gg/skale[Request a Testnet SKALE Chain in Discord] (depending on availability)
-* https://skale.network/innovators-signup[Apply to SIP Program] for a chance to receive a SKALE Mainnet chain grant.
-
-Still not sure how to get started? Then head over to the link:/docs/developers/getting-started/beginner[Beginner's guide] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
+* link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
+* Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
 == Engage with SKALE Network Community
 
-* Discord - For development and validator-focused discussions, join the https://discord.gg/vvUtWJB[SKALE Network Discord channel].
+* Discord - For development and validator-focused discussions, join the https://discord.gg/skale[SKALE Network Discord channel].
 * Telegram - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
 * Twitter - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
 * YouTube - For video-tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
-* Blog - Follow and subscribe to the SKALE Network blog and newsletter https://skale.network/blog[here].
+* Blog - Follow and subscribe to the SKALE Network blog and newsletter https://skale.space/blog[here].

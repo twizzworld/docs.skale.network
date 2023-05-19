@@ -1,35 +1,18 @@
-= SKALE Gas Token
+= Etherbase
 
-sFUEL is the native token of SKALE. This is similar (but different!) to Ether in Ethereum. To interact with a SKALE chain, sFUEL tokens are required to conduct transactions. Unlike Ether and other gas tokens, sFUEL has no value: it's FREE. There is no payment/cost required for transactions since sFUEL is FREE.
-
-Getting sFUEL on a SKALE chain is done through a number of ways. Again because sFUEL is **free and has no economic value**, there is no way to purchase it or find it on exchanges.
-
-The SKALE chain owner is allocated a massive amount of sFUEL and is responsible for distributing sFUEL to users in a way that's best served for their users' experience. Some SKALE chain owners choose to send sFUEL to each user who completes an onboarding event. Other owners choose to provide a sFUEL faucet, and others allow users to mine gas natively in a browser. See https://github.com/skalenetwork/pow-demo for an example of mining gas on SKALE.
-
-== Etherbase contract
 
 For SKALE chains launched after April 2022, the Etherbase predeployed contract stores and manages sFUEL received from block rewards and spent gas fees. At deployment, the SKALE Chain owner is assigned as the `DEFAULT_ADMIN_ROLE` and `ETHER_MANAGER_ROLE`. The owner can transfer these roles to other accounts, multisigs, or contracts.
 
-The contract is predeployed at: `0xd2bA3e0000000000000000000000000000000000` with ABIs available here: https://github.com/skalenetwork/etherbase/releases/download/1.0.0-stable.0/etherbase-1.0.0-stable.0-abi.json. 
-
-Initial sFUEL allocation:
-
-* **Etherbase**: 5.79e+58 sFUEL 
-* **SKALE Chain Owner**: 1e+12 sFUEL 
-
-Two methods are available: 
-
-* *retrieve(receiver)* - Retrieve the entire sFUEL balance in Etherbase to receiver address.
-* *partiallyRetrieve(receiver, amount)* - retrieve an amount of sFUEL in Etherbase to the receiver address.
+For more information about Etherbase including the predeployed address, initial distribution amounts, and distribution functions see xref:../permissions.adoc[Etherbase Permissions]
 
 == Etherbase Solidity usage example
 
-The following example illustrates how you can incorporate an automatic top-up modifier to ensure users have sufficient sFUEL to transact. 
+The following example illustrates how you can incorporate an automatic top-up modifier to ensure users have sufficient sFUEL to transact.
 
 NOTE: Example assumes that users have already been provisioned some initial sFUEL.
 
 
-```
+```solidity
 pragma solidity ^0.8.0;
 
 interface IEtherbase {
@@ -84,11 +67,3 @@ contract YourContract is EtherbaseUsage {
 NOTE: YourContract example above must be granted with ETHER_MANAGER_ROLE.
 
 For further develop details on distributing and developing with sFUEL, see xref:skale-chain-access-control.adoc[Access Control].
-
-== Partner Tooling
-
-* Dirt Road Development 
-** End-user tool: https://dirtroad.dev/docs/platforms/sfuel-station/using-the-station
-** Developer: https://dirtroad.dev/docs/topics/skale/sfuel
-
-

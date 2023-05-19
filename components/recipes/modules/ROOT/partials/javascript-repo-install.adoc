@@ -4,7 +4,7 @@ NPM::
 +
 --
 NPM is the default tool installed with Node.js
-[source,bash]
+[source,shell]
 ----
 npm install
 ----
@@ -13,7 +13,7 @@ Yarn::
 +
 --
 Already a power Yarn user? Fire of this single word installation command
-[source,bash]
+[source,shell]
 ----
 yarn
 ----
@@ -22,7 +22,7 @@ PNPM::
 +
 --
 Try using the the fast and efficient package manager
-[source,bash]
+[source,shell]
 ----
 pnpm install
 ----

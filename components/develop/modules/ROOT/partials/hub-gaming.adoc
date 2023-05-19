@@ -1,0 +1,6 @@
+The Nebula Gaming Hub is a SKALE Chain focused on supporting the fast-growing gaming ecosystem on the SKALE Network. With SKALE's *Zero Gas Fees*, the Nebula Gaming Hub enables projects deployed on other EVM (Ethereum Virtual Machine) based chains to quickly and easily migrate to a zero-cost gas environment, opening up the door to invisible gaming experiences for their existing communities. Additionally, traditional gaming projects can lean on Nebula for their first foray into Web3 by utilizing the blockchain for in-game assets and provable ownership without harming the UX of their game. Projects that fit into this category include, but are not limited to:
+
+- Browser Games
+- Desktop Games
+- Mobile Games
+- Web3 Games

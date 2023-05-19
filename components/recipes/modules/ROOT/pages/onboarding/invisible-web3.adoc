@@ -1,0 +1,253 @@
+= Invisible Web3
+
+Creating a seamless user onboarding experience is essential for the
+success of any dApp* A well-designed onboarding process can increase
+user retention and foster a positive first impression, which is crucial
+for encouraging users to come back for more* In this recipe, we will
+demonstrate how to set up an efficient onboarding system using the
+https://github.com/quorumcontrol/skale-boarder[@skaleboarder/safe-tools]
+npm package.
+
+== Tooling
+
+To build our onboarding system, we will use
+https://hardhat.org/%5Bhardhat%5D and
+https://github.com/wighawag/hardhat-deploy%5Bhardhat-deploy%5D along
+with https://www.rainbowkit.com/%5Brainbowkit%5D and
+https://nextjs.org/%5Bnextjs%5D* These tools provide a solid foundation
+for creating a user-friendly and efficient onboarding process.
+
+=== Prerequisites
+
+* Install Node.js
+
+== Getting Started
+
+* Initialize a new Hardhat project by running `hardhat init` in the
+terminal* This will create a new directory with the basic structure of a
+Hardhat project.
+* Install the @skaleboarder/safe-tools package:
+`npm install --save @skaleboarder/safe-tools`.
+* In the `hardhat.config.ts` file, import the necessary modules and
+configurations as shown
+
+IMPORTANT: If you are deploying to production
+MAKE SURE you are either on a chain that has already deployed the
+create2 deployer or that you have allowed
+`0x1aB62e2DDa7a02923A06904413A007f8e257e0D0` to deploy contracts.see:
+https://docs.skale.network/develop/skale-chain-access-control
+
+```typescript
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-deploy";
+import { BigNumber } from 'ethers'
+
+const config: HardhatUserConfig = {
+  defaultNetwork: "hardhat",
+  solidity: "0.8.17",
+  external: {
+    contracts: [{
+      artifacts: ["node_modules/@skaleboarder/safe-tools/artifacts", "node_modules/@skaleboarder/safe-tools/gnosis-safe-artifacts"],
+      deploy: "node_modules/@skaleboarder/safe-tools/hardhat/deploy",
+    }],
+  },
+  deterministicDeployment: (_network: string) => {
+    return {
+      deployer: "0x1aB62e2DDa7a02923A06904413A007f8e257e0D0",
+      factory: "0xf461635EbfA16074b07322781fCcaAA43F852a17",
+      signedTx: "0xf901188085174876e800830192ba8080b8c66080604052348015600f57600080fd5b5060a88061001e6000396000f3fe6080604052348015600f57600080fd5b5060003660606000807f94bfd9af14ef450884c8a7ddb5734e2e1e14e70a1c84f0801cc5a29e34d26428905060203603602060003760003560203603600034f5915081605a57600080fd5b8160005260003560205260008160406000a26014600cf3fea2646970667358221220575a90b3fd3629fb06acbbed667e4e921c5fd5d07bd5ef77421d3165bcfa875164736f6c634300081200331ba02222222222222222222222222222222222222222222222222222222222222222a02222222222222222222222222222222222222222222222222222222222222222",
+      funding: BigNumber.from(278361).mul(100000000000).toString(),
+    }
+  },
+  namedAccounts: {
+    deployer: {
+      default: 0,
+    },
+  }
+};
+
+export default config;
+```
+
+* Create a new Next.js app using `npx create-next-app` and navigate to
+the newly created directory.
+* Install the required dependencies, including ethers, and RainbowKit.
+* Update the `_app.tsx` file with the provided example, which
+demonstrates how to integrate RainbowKit and the Safe Tools package into
+the Next.js app.
+
+```typescript
+import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react'
+import ethers, { BigNumber, providers } from "ethers"
+import '@rainbow-me/rainbowkit/styles.css';
+import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
+import {
+  coinbaseWallet,
+  injectedWallet,
+  metaMaskWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit/wallets';
+import {
+  connectorsForWallets,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { configureChains, createClient, WagmiConfig } from 'wagmi';
+import { mainnet, polygon, optimism, arbitrum } from 'wagmi/chains';
+import { createChain, RainbowKitWalletWrapper, WagmiWrapperConfig } from '@skaleboarder/rainbowkit';
+import addresses from "../addresses.json"
+
+
+const skaleMainnet = createChain({
+  id: BigNumber.from('0x3d91725c').toNumber(),
+  name: 'Crypto Rome',
+  rpcUrls: {
+    default: {
+      http: ["https://mainnet.skalenodes.com/v1/haunting-devoted-deneb"],
+      webSocket: ["wss://mainnet.skalenodes.com/v1/ws/haunting-devoted-deneb"],
+    },
+    public: {
+      http: ["https://mainnet.skalenodes.com/v1/haunting-devoted-deneb"],
+      webSocket: ["wss://mainnet.skalenodes.com/v1/ws/haunting-devoted-deneb"],
+    }
+  },
+  explorer: "https://haunting-devoted-deneb.explorer.mainnet.skalenodes.com/"
+})
+
+const localDev = createChain({
+  id: 31337,
+  name: 'Local Rome',
+  rpcUrls: {
+    default: {
+      http: ['http://localhost:8545'],
+    },
+    public: {
+      http: ['http://localhost:8545'],
+    }
+  },
+  explorer: "http://no.explorer"
+})
+
+// you can setup a 
+const skaleProvider = new providers.StaticJsonRpcProvider(localDev.rpcUrls.default.http[0])
+
+const wrapperConfigs:WagmiWrapperConfig = {
+  ethers,
+  provider: skaleProvider,
+  chainId:  localDev.id.toString(),
+  deploys: addresses.contracts,
+  faucet: async (address, _signer) => {
+      const resp = await fetch(`/api/localFaucet`, { body: JSON.stringify({ address }), method: "POST" })
+      const json = await resp.json()
+      console.log("resp: ", json)
+    },
+}
+
+const wrapper = new RainbowKitWalletWrapper(wrapperConfigs)
+
+const { chains, provider } = configureChains(
+  [mainnet, polygon, optimism, arbitrum, skaleMainnet],
+  [
+    jsonRpcProvider({
+      rpc: (_chain) => ({
+        http: skaleProvider.connection.url,
+      }),
+    }),
+  ]
+);
+
+const connectors = () => {
+  const connects = connectorsForWallets([
+    {
+      groupName: 'Recommended',
+      wallets: [
+        injectedWallet({ chains, shimDisconnect: true }),
+        metaMaskWallet({ chains, shimDisconnect: true }),
+        coinbaseWallet({ appName: "Empire Gambit", chains }),
+        walletConnectWallet({ chains }),
+      ].map((wallet) => wrapper.wrapWallet(wallet)),
+    },
+  ])
+
+  return connects()
+}
+
+const wagmiClient = createClient({
+  autoConnect: false,
+  connectors: connectors,
+  provider
+})
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <ChakraProvider>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains}>
+          <Component {...pageProps} />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </ChakraProvider>
+  )
+}
+```
+
+Next you can add any UI you want to your app and a standard rainbowkit
+`<ConnectButton />`
+
+Run your contracts locally using `npx hardhat node`
+
+Start the Next.js development server by running `npm run dev`.
+
+You now have a fully functional onboarding system for your dApp* The
+@skaleboarder/safe-tools package makes it easy to implement a
+non-custodial sign-in system that allows in-browser transaction relay
+without requiring users to switch their wallets* By combining this with
+the user-friendly interface provided by RainbowKit, you can create an
+engaging and seamless onboarding experience for your users.
+
+Remember to continuously iterate and refine your onboarding process to
+cater to the needs of your users* A well-designed onboarding experience
+can significantly impact the success of your dApp and encourage users to
+explore and engage with your platform* Happy coding!
+
+=== More examples
+
+Need more info? Checkout the
+link:https://github.com/quorumcontrol/skale-boarder/tree/main/packages/demo-contracts[Demo contracts]
+link:https://github.com/quorumcontrol/skale-boarder/tree/main/packages/demo-site[Demo site readme]
+
+=== Tooling Overview
+
+The skaleboarding tooling is a system to allow easy sign up, and
+signature-free transactions on the SKALE network* Its repo can be found
+here: https://github.com/quorumcontrol/skale-boarder .
+
+Overall what it does is:
+
+* Create a Gnosis SAFE for users owned by a main account
+* Create an in-device wallet (for instance, a localsStorage saved
+wallet)
+* Allow that account to send transactions through the Gnosis Safe
+* Provide tooling to easily integrate this system into your dApp
+
+==== Key components
+
+The skaleboarding tooling consists of several key components:
+
+* *@skaleboarder/safe-tools*: A package that simplifies the creation and
+management of Gnosis Safes on the SKALE network* It provides functions
+for creating Safes, managing owners, and submitting transactions through
+the Safe.
+* *@skaleboarder/rainbowkit*: A package that extends the functionality
+of RainbowKit to work with the SKALE network and the Gnosis Safes* It
+includes a wallet wrapper for integrating with various wallet providers
+and a custom chain configuration to ease using the SKALE network.
+* *@skaleboarder/wagmi*: A package that integrates skaleboarder with the
+WAGMI framework* It wraps wagmi so that the signer provided is a
+skaleboarder gnosis safe relayer, but the address still appears to be
+the main, owner, wallet.
+* *Demo contracts*: A set of example contracts that demonstrate how to
+use the skaleboarding system.
+* *Demo dApp:* An example using the demo contracts and skaleboarder
+along with nextjs and rainbowkit to create a seamless signin experience.

@@ -3,6 +3,7 @@
 SKALE Chains can work with a variety of wallet solutions, including any Web3 based solution such as:
 
 * xref:wallets/metamask.adoc[Metamask]
+* xref:wallets/enkrypt.adoc[Enkrypt]
 * xref:wallets/portis.adoc[Portis]
 * xref:wallets/bitski.adoc[Bitski]
 * xref:wallets/torus.adoc[Torus]

@@ -1,4 +1,5 @@
-= Proof of Work (PoW) 
+= Proof of Work (PoW)
+:page-aliases: proof-of-work.adoc
 :stem: asciimath
 
 [NOTE]
