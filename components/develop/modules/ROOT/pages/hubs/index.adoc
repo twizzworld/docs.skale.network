@@ -11,8 +11,7 @@ build in a similar style where upon outgrowing a chain, they can migrate to thei
 
 == Active Hubs
 
-The following are the hubs available on the SKALE Network. Each hub is controlled by various teams in the developer community and represent a location for applications building in the same 
-space to operate and share resources.
+The following are the hubs available on the SKALE Network. Each hub is controlled by various teams in the developer community and represent a location for applications building in the same space to operate and share resources.
 
 === Community Hub | Titan
 
