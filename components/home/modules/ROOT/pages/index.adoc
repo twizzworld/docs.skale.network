@@ -118,4 +118,3 @@ Join the SKALE Network developer community https://discord.gg/skale[Discord serv
 * https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Containerization: The Future of Decentralized Infrastructure]
 * https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization: The Future of Decentralized Infrastructure, part 2]
 * https://skale.network/blog/the-skale-network-validator-faq/[The SKALE Network Validator FAQ]
-* https://skale.network/blog/delegators/[Delegators]
