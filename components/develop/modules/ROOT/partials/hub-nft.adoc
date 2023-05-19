@@ -1,0 +1,5 @@
+The Calypso NFT Hub is a SKALE chain that enables creators and projects created Non-Fungible Token based applications in a gas-free manner. Additionally, projects building on dedicated SKALE Chains can utilize Calypso for NFT related utilities such as NFT Marketplaces without having to build their own. Projects that fit this category include, but are not limited to:
+
+- Creators
+- Games launching in-game digital assets
+- Marketplaces
