@@ -1,9 +1,18 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
 * xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
+
+* xref:hubs/index.adoc[Hubs]
+** xref:hubs/community.adoc[Community]
+** xref:hubs/defi.adoc[DeFI]
+** xref:hubs/gaming.adoc[Gaming]
+** xref:hubs/nft.adoc[NFT]
+** xref:hubs/open-testnet.adoc[Open Testnet]
+
 * Network Details
 ** xref:hackathon.adoc[Hackathon Notes]
 ** xref:networks.adoc[Networks]
+
 * xref:sfuel/index.adoc[sFUEL (Gas Token)]
 ** xref:sfuel/etherbase.adoc[Etherbase]
 ** xref:sfuel/gas-vs-sfuel.adoc[Gas vs sFUEL]

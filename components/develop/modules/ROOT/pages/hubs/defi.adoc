@@ -1,0 +1,6 @@
+= DeFi | Europa
+
+include::partial$what-is-a-skale-hub.adoc[]
+
+== Overview
+include::partial$hub-defi.adoc[]

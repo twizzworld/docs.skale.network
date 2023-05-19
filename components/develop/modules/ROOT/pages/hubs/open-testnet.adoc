@@ -1,0 +1,6 @@
+= Open Testnet | Chaos
+
+include::partial$what-is-a-skale-hub.adoc[]
+
+== Overview
+include::partial$hub-open-testnet.adoc[]
