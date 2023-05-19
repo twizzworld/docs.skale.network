@@ -10,7 +10,7 @@ The SKALE Token (SKL) is the first ERC token with Ethereum native delegation/sta
 
 * Etherscan (Verified Contract): https://etherscan.io/address/0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7#code
 
-* SKALE ABIs: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/skale-manager/1.7.0
+* SKALE ABIs: https://github.com/skalenetwork/skale-network/tree/master/releases/mainnet/skale-manager/1.9.2
 
 * Audits: https://github.com/skalenetwork/skale-manager/blob/develop/.github/SECURITY.md
 
@@ -35,7 +35,44 @@ A wallet that has delegated SKL tokens will incur higher gas fees for SKL token 
 
 There are several ways to delegate SKALE tokens. You can delegate through several applications built by SKALE Validators, through a CLI tool called Validator CLI, or through Etherscan.
 
+=== StakeWithUs Unagii
+
+* https://app.unagii.com/stake/skale
+* https://www.unagii.com/blog/stake-skale-network-skl-intro
+
+=== MEW
+
+* http://myetherwallet.com/
+* https://help.myetherwallet.com/en/articles/5639949-skale-staking-on-mew-wallet-app
+
 === Activate Codefi by ConsenSys
+
+[NOTE]
+====
+Consensus will be deprecating the Activate staking product for all tokens they support including SKL. 
+
+No action is required on your part. 
+
+* Activate users can continue to claim staking rewards and manage tokens using alternative methods like Unagii <<stakewithus_unagii, StakeWithUs Unagii>>.
+* Activate users will not be able to stake any new positions or unstake current positions through Activate after May 31st, 2023.
+** Current staking positions and holdings made through Activate will NOT be impacted.
+* Activate users will not be able to view or claim their earned token rewards through Activate after May 31st, 2023.
+** The value of accumulated rewards will NOT be impacted, and users will still be able to claim rewards at any point via Unagii <<stakewithus_unagii, StakeWithUs Unagii>>.
+
+As an alternative to the Activate platform, all features including staking/unstaking SKL and claiming rewards will be available to users via Unagii (https://app.unagii.com/stake/skale).
+
+NO action is currently needed for you to maintain your staked position and continue to claim rewards.
+
+**Please note that the deprecation of Activate will NOT impact:**
+* Holdings of staked tokens
+* Value of and access to accumulated rewards
+* Any current Staking positions, and
+* Current staking preferences
+
+Unagii platform will provide Activate users ability to continue to claim rewards.
+
+Activate users will not need to unstake to use Unagii, you may continue to claim rewards on Unagii without any changes.
+====
 
 * https://activate.codefi.network/skale-network-launch-partner
 * Rewards calculator: https://activate.codefi.network/skale
@@ -46,21 +83,10 @@ There are several ways to delegate SKALE tokens. You can delegate through severa
 * https://www.binance.com/en/staking
 * https://www.binance.com/en/support/announcement/ccda5a49668f41c79defd2b0498ad95c
 
-=== MEW
-
-* http://myetherwallet.com/
-* https://help.myetherwallet.com/en/articles/5639949-skale-staking-on-mew-wallet-app
-
 === OKX
 
 * https://www.okx.com/earn
 * https://www.okex.com/support/hc/en-us/articles/4413800321421
-
-=== StakeWithUs Unagii
-
-* https://app.unagii.com/stake/skale
-* https://www.unagii.com/blog/stake-skale-network-skl-intro
-
 
 === Validator CLI
 
