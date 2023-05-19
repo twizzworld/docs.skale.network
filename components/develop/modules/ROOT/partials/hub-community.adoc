@@ -1,0 +1,6 @@
+The Titan Community Hub is a SKALE chain that focuses on offering projects focused on building communities to have a place to operate without the full need of a SKALE Chain. Projects that fit this category include, but are not limited to:
+
+- Decentralized Autonomous Organization (DAO) Projects
+- Decentralized Services
+- Oracle or Information Based Projects
+- Projects unrelated to DeFI, Gaming, or NFTs can also build on Titan
