@@ -7,8 +7,7 @@ While Hub and Dapp chains share the same technology under the hood, their applic
 
 Hubs are community-operated SKALE chains that function as web3 service layers that are divided by their specific use-cases (i.e., a hub for DeFi, a hub for gaming, a hub for NFTs, etc).
 
-Dapp chains are SKALE chains that provide Layer 2 throughput to a single high-performance Dapp, such as https://www.cryptoblades.io[Cryptoblades] or https://exorde.network[Exorde].
-
+Dapp chains are dedicated SKALE chains which provide high-performance Layer-2 throughput to individual Dapps, such as https://www.cryptoblades.io[Cryptoblades] or https://exorde.network[Exorde]. And with SKALE ZK announced, developers will have an end-to-end configuration for a Layer-3 that natively connects to Ethereum and their Layer-2 SKALE chain.
 
 == SKALE Hubs- https://mainnet.skalenodes.com/#/[Mainnet]
 [options="header"]
