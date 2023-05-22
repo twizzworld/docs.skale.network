@@ -1,0 +1,50 @@
+= Using Metaport Bridge
+
+== What is the Metaport Bridge
+
+The  Metaport Bridge is a tool that simplifies the process for end-users to transfer tokens between Ethereum and any SKALE Chain or Dapp, as well as facilitating token transfers between different SKALE Chains.
+
+Developers can use the Bridge as an alternative to implementing their own Metaport widget.
+
+== How is it different from the Metaport Widget?
+
+The Metaport widget is an embeddable React component that can be used by SKALE Community developers to guide users through a SKALE IMA bridge transaction, without having to leave the dapp.
+
+The Metaport Bridge implements the Metaport widget - just as other dapps building on SKALE can also implement the Metaport widget into their user flows. The Bridge is more like a general tool, allowing users to navigate any Bridge transfer within the SKALE Network. The Metaport Bridge provides zero-cost, near-instant transfers of assets and data between connected SKALE chains, as well as fast-finality transfers between SKALE Chains connected to Ethereum mainnet (ETH gas fees apply to Ethereum mainnet transactions).
+
+== Sending users with fall back
+
+You can direct users to the Metaport bridge with suggested transfer steps by using the following URL structure: 
+
+Basic context:
+`https://bridge.skale.network/#/bridge/transfer/{source-chain-name}/{destination-chain-name}?{optional-url-parameters}`
+
+=== Optional parameters:
+
+* `to-app`: name of destination dapp
+* 'from-app': name of source dapp
+* `token`: token symbol for transaction
+* `amount`: amount of token to prefill
+* `fallback-url`: url to be redirected once transaction is complete and user clicks button with fallback-text
+* `fallback-text`: text to present to the user for returning to fallback url
+
+[NOTE]
+Note that fallback-url and fallback-text should be encoded with encodeURIComponent().
+
+== Examples
+
+For transferring from Calypso to Europa:
+`https://bridge.skale.network/#/bridge/transfer/honorable-steel-rasalhague/elated-tan-skat` 
+
+
+For transferring from Ethereum to NFT Trade:
+`https://bridge.skale.network/#/bridge/transfer/mainnet/honorable-steel-rasalhague?to-app=nftrade&`
+
+
+.Example of fallback-url and fallback-text
+
+`&token=skl&amount=250&fallback-url=https%3A%2F%2Fnftrade.com%2Fassets%2Fskale%2F0x3b6f8d50938900ef14fbac48575c33a849ffd683%2F1&fallback-text=Return%20to%20NFT%20"Solitude"`
+
+image:fallback-example.png[]
+
+
