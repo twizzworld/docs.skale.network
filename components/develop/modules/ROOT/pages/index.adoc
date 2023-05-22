@@ -1,5 +1,5 @@
 = Developing on SKALE
-
+:page-aliases: hackathon.adoc
 == Quick Start
 
 Already an Ethereum developer? Use all your usual tools and deployment methods (Truffle, Hardhat, Remix, Web3) and get a SKALE Chain RPC Endpoint. 
