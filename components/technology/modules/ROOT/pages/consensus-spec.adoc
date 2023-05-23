@@ -2,7 +2,7 @@
 :page-aliases: skale-consensus.adoc
 
 
-== Introduction
+== Protocol Overview
 
 === High level chain architecture.
 
@@ -76,6 +76,10 @@ This means that:
 * Links can can be arbitrarily slow, but will eventually deliver `messages`.
 
 The asynchronous model described above is _similar to the model assumed by Bitcoin and Ethereum blockchains_. It reflects *the state of modern Internet*, where temporary network splits and interruptions are normal, but always resolve eventually.
+
+Since real Internet sometimes drops messages on the way without delivering them, _the eventual delivery guarantee is achieved in practice by retransmissions_. The `sending node` will make _multiple attempts to transfer_  `message` to the `receiving node`, until the transfer is successful and is confirmed by the `receiving node`.
+
+== Detailed description
 
 === Achieving eventual delivery by retransmissions
 
