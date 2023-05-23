@@ -6,7 +6,14 @@
 
 === SKALE Chain
 
-SKALE Chain is a fixed set of network nodes that accept user transactions, run SKALE consensus and store identical copies of SKALE blockchain. A typical implementation will run a network node in a virtualization container such as a Docker container, so a single physical server can provide support to multiple schains.
+SKALE Chain is a fixed set of network nodes that 
+
+* accept and validate user transactions (submission phase)
+* gossip transactions to each other and store them into pending queues (pending queue phase)
+* create block proposals
+* run SKALE consensus to select a winning and commit is as a block for each block number
+* process the committed 
+* and store identical copies of SKALE blockchain blocks and state. A typical implementation will run a network node in a virtualization container such as a Docker container, so a single physical server can provide support to multiple schains.
 
 === Network security assumptions
 
