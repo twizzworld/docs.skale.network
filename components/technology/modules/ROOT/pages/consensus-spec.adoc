@@ -20,7 +20,7 @@ The diagram below illustrates typical transaction flow
 
 ```mermaid
 flowchart TD
-    b0[Transaction submission] --> b1[Transaction broa] --> b2[Pending Queue] --> b3[Block Proposal] --> b4[Block Commit] --> b5[EVM Processing]
+    b0[Transaction submission] --> b1[Transaction broaadcast] --> b2[Pending Queue] --> b3[Block Proposal] --> b4[Block Commit] --> b5[EVM Processing]
 ```
 
 SKALE chain is fully compatible with ETH mainnet, and can run ETH wallets, tools and dapps.
