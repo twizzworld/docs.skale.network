@@ -73,7 +73,7 @@ This means that:
 * `nodes` are assumed to be connected by a _reliable communications links_. 
 * Links can can be arbitrarily slow, but will eventually deliver `messages`.
 
-The asynchronous model described above is *similar to the model assumed by Bitcoin and Ethereum blockchains*. It reflects *the state of modern Internet*, where temporary network splits and interruptions are normal, but always resolve eventually.
+The asynchronous model described above is _similar to the model assumed by Bitcoin and Ethereum blockchains_. It reflects *the state of modern Internet*, where temporary network splits and interruptions are normal, but always resolve eventually.
 
 === Achieving eventual delivery by retransmissions
 
@@ -93,7 +93,7 @@ We assume that the total number of nodes in the network is fixed and equal to `N
 
 `3 t + 1 ≤ N`
 
-Simply speaking, not more than 1/3 of nodes can be malicious. For instance if `N = 16`, the maximum number of malicious 
+Simply speaking, not more than 1/3 of nodes can be malicious. For instance if `N = 16`, the maximum number of malicious nodes is `5`
 
 === Consensus state
 
