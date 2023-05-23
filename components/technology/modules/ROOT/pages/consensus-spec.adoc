@@ -4,7 +4,7 @@
 
 == Introduction
 
-=== SKALE Chain high level architecture.
+=== High level chain architecture.
 
 SKALE Chain is a fixed set of $N$ network `nodes` that process user `transactions` in the following phases
 
