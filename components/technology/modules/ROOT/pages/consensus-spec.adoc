@@ -128,12 +128,45 @@ During submission phase a `user client` (browser or mobile app) signs a `transac
 
 During the broadcast phase, a `node` that received a `transaction` from `user client` will broadcast it to other `core nodes`. 
 
-==== Pending queue phase.
+==== Pending queue phase
 
 During the pending queue phase, a `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`penging queue`.
 During the validation, `transaction signature` and format are verified. 
 
 Note that `pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pendign queue`. Ethereum-compatible blockchains, including SKALE, drop transactions with the smallest `gas price`.
+
+==== Block proposal phase
+
+During the block proposal phase each SKALE node will form a `block proposal`.  A `block proposal` is an ordered list of `transactions`.
+
+If all `transactions` in `pending queue` can be placed into proposal without reaching `block gas limit`, then all `transactions` will be placed into `block proposal`. Otherwise, `transactions` with higher gas price will be selected from the queue to create a `block proposal` that fits the `block gas limit`. 
+
+Once a `node` created a proposal, it will broadcast `compressed proposal` to all its nodes. The compressed proposal includes only the `transaction hash` (fingerprint) of each transaction. The `receiving node` decompresses `transactions` by matching `transaction hashes` to `transactions` stored in is pending queue. In the event `receiving node` does not have a matching `transaction` in its pending queue, it will ask the `sending node` for the entire `transaction`.
+
+Once the `receiving node` receives the `block proposal`, it will sign a `Data Availability Signature` and pass it to the `sending node`. 
+
+Once the `sending node` collects `DA signatures` from `2/3` of nodes, it will merge the signatures into a `DA proof`. The `DA proof` proves that the proposal has been widely distributed over the network.
+
+==== DA broadcast phase
+
+Once a `node` obtains a `DA proof` for its `block proposal`, it will broadcast `DA proof` to other nodes.
+
+==== Block consensus phase
+
+Once a node receives `DA proofs` from 2/3 of nodes, the node will start the block consensus phase.
+
+During block consensus phase, the `node` will vote `1` if it received `DA proof` for a particular proposal, and vote `0` otherwise.
+
+The nodes will then executed asynchronous binary consensus algorithm, also known as `Byzantine Generals problem`. https://en.wikipedia.org/wiki/Byzantine_fault
+
+The particular binary consensus algorithm impelemented in SKALE is specified in 
+
+https://inria.hal.science/hal-00944019/file/RR-2016-Consensus-optimal-V5.pdf
+
+Once the binary consensus completed, it guarantees that all honest node will reach consensus of `1` or `0'. If honest nodes reach `1` it is guaranteed
+that `1` was initially voted by at least `1' honest nodes. That, in turn, guarantees that the `block proposal` is `DA safe`, or that it is widely distributed over the network.
+
+If a `block consensus` phase outputs `1` for several proposals, the proposal with highest priority is selected. The priority changes from one block to another so that on average each node has similar probability to win.
 
 == Detailed description
 
