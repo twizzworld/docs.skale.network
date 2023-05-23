@@ -12,7 +12,7 @@ The Metaport widget is an embeddable React component that can be used by SKALE C
 
 The Metaport Bridge implements the Metaport widget - just as other dapps building on SKALE can also implement the Metaport widget into their user flows. The Bridge is more like a general tool, allowing users to navigate any Bridge transfer within the SKALE Network. The Metaport Bridge provides zero-cost, near-instant transfers of assets and data between connected SKALE chains, as well as fast-finality transfers between SKALE Chains connected to Ethereum mainnet (ETH gas fees apply to Ethereum mainnet transactions).
 
-== Sending users with fall back
+== Sending users with fallback
 
 You can direct users to the Metaport bridge with suggested transfer steps by using the following URL structure: 
 
