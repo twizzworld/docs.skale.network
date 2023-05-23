@@ -6,14 +6,29 @@
 
 === SKALE Chain
 
-SKALE Chain is a fixed set of network nodes that 
+SKALE Chain is a fixed set of $N$ network nodes that 
 
-* accept and validate user transactions (submission phase)
-* gossip transactions to each other and store them into pending queues (pending queue phase)
-* create block proposals
-* run SKALE consensus to select a winning and commit is as a block for each block number
-* process the committed 
-* and store identical copies of SKALE blockchain blocks and state. A typical implementation will run a network node in a virtualization container such as a Docker container, so a single physical server can provide support to multiple schains.
+1. accept and validate user transactions (*submission phase*)
+2. gossip transactions to each other and store them into pending queues (*pending queue phase*)
+3. create block proposal for each block number and broadcast it to peers, collecting 2/3 $N$ data availability signature shares and creating DA signatures. (*proposal phase*)
+4. broadcast DA signatures to peers (*DA broadcast phase*)
+5. run SKALE consensus for each block proposal to select a winning proposals and commit is as a block (*consensus phase*)
+6. process the committed block through EVM to transition to the new EVM state. (*EVM processing phase*)
+
+=== Transaction flow diagram
+
+
+```
+
+
+
+
+
+
+```
+
+
+
 
 === Network security assumptions
 
