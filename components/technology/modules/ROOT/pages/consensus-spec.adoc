@@ -27,9 +27,12 @@ SKALE chain is composed of a fixed set of $N$ network `nodes` that process user 
 3. store `transactions` into `pending queues` (_pending queue phase_)
 4. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (_block proposal phase_)
 5. broadcast `DA proofs` to peers (_DA broadcast phase_)
-6. run `block consensus` for each `block proposal` to select a `winning proposal` and append it to `blockchain` as a`committed block` (_block consensus phase_)
-7. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
-8. Stores `committed blocks` and `EVM state`(_storage phase_)
+6. run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
+7. sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
+into `block signature`. 
+8. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `committed proposal` becomes a`committed block` (_block consensus phase_)
+9. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
+10. store `committed blocks` and `EVM state`(_storage phase_)
 
 The diagram below illustrates typical transaction flow
 
