@@ -6,28 +6,47 @@
 
 === SKALE Chain
 
-SKALE Chain is a fixed set of $N$ network nodes that 
+SKALE Chain is a fixed set of $N$ network nodes that process user transactions in the following phases
 
 1. accept and validate user transactions (*submission phase*)
 2. gossip transactions to each other and store them into pending queues (*pending queue phase*)
-3. create block proposal for each block number and broadcast it to peers, collecting 2/3 $N$ data availability signature shares and creating DA signatures. (*proposal phase*)
-4. broadcast DA signatures to peers (*DA broadcast phase*)
+3. create block proposal for each block number and broadcast it to peers, collecting 2/3 $N$ data availability signatures and creating DA proofs. (*proposal phase*)
+4. broadcast DA proofs to peers (*DA broadcast phase*)
 5. run SKALE consensus for each block proposal to select a winning proposals and commit is as a block (*consensus phase*)
 6. process the committed block through EVM to transition to the new EVM state. (*EVM processing phase*)
 
-=== Transaction flow diagram
 
-
+```mermaid
+flowchart TD
+    b1[Transaction submission] --> b2[Pending Queue] --> b3[Block Proposal] --> b4[Block Commit] --> b5[EVM Processing]
 ```
 
+SKALE chain is fully compatible with ETH mainnet, and can run ETH wallets, tools and dapps.
+
+=== Skaled and its operation.
+
+Each skale node runs `skaled`, a software blockchain agent. 
+
+Skaled is composed of 
+
+1. `Network API` accepts transactions and user requests.
+2. `Transaction validation module`, that validates transactions on receipt.
+2. `Pending queue module` that holds transactions.
+3. `Transaction broadcast module` that broadcasts valid transactions to other nodes in the chain.
+4. `Proposal module` that creates proposals for consensus
+5. `Proposal broadcast module` broadcasts proposals to peers
+6. `DA proof broadcast module`
+7. `Consensus module`
+8. `EVM module`.
+9. `Block storage module` 
+10 
 
 
-
-
-
+```mermaid
+flowchart TD
+    b1[Network API] --> b2[Tx validation module] --> b3[Pending queue module] --> b5[Proposal Module] --> b6[DA proof broadcast module] --> b7[Consensus module] -->b8[EVM module]
+    b2 --> b4[Tx broadcast module]    
 ```
-
-
 
 
 === Network security assumptions
