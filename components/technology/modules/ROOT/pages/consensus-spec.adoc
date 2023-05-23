@@ -6,7 +6,7 @@
 A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet. It can run ETH wallets, tools and dapps.
 
 As any Ethereum-compatible chain, SKALE chain includes `blockchain`, which is a chain of `transactions` ordered into `committed blocks`, and a computing machine denoted as `EVM`. 
-The set of EVM internal variables is denoted as `EVM state`
+The set of variables stored in EVM is denoted as `EVM state`. 
 
 
 ```mermaid
@@ -23,12 +23,13 @@ The purpose of SKALE chain is to order `transactions` into `blocks` and then pro
 SKALE chain is composed of a fixed set of $N$ network `nodes` that process user `transactions` in the following phases
 
 1. accept and validate user `transactions` (_submission phase_)
-2. broadcast `transactions` to peer nodes and store `transactions` into `pending queues` (_pending queue phase_)
-3. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (_block proposal phase_)
-4. broadcast `DA proofs` to peers (`DA broadcast phase`)
-5. run `block consensus` for each `block proposal` to select a `winning proposal` and append it to `blockchain` as a`committed block` (_block consensus phase_)
-6. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
-7. Stores `committed blocks` and `EVM state`(_storage phase_)
+2. broadcast `transactions` to peer nodes (_broadcast phase_)
+3. store `transactions` into `pending queues` (_pending queue phase_)
+4. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (_block proposal phase_)
+5. broadcast `DA proofs` to peers (_DA broadcast phase_)
+6. run `block consensus` for each `block proposal` to select a `winning proposal` and append it to `blockchain` as a`committed block` (_block consensus phase_)
+7. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
+8. Stores `committed blocks` and `EVM state`(_storage phase_)
 
 The diagram below illustrates typical transaction flow
 
@@ -102,9 +103,6 @@ any messages when it supposed to send a message by a protocol.
 
 It is assumed that `malicious nodes` do not control network routers and links. This means, in particular, that `malicious nodes` can not affect `messages` sent between `honest nodes`, such as corrupting or reordering them
 
-
-
-
 ==== Network security assumptions
 
 The algorithms used by SKALE make assumptions about _the properties of the underlying network_.
@@ -119,6 +117,23 @@ This means that:
 The asynchronous model described above is _similar to the model assumed by Bitcoin and Ethereum blockchains_. It reflects *the state of modern Internet*, where temporary network splits and interruptions are normal, but always resolve eventually.
 
 Since real Internet sometimes drops messages on the way without delivering them, _the eventual delivery guarantee is achieved in practice by retransmissions_. The `sending node` will make _multiple attempts to transfer_  `message` to the `receiving node`, until the transfer is successful and is confirmed by the `receiving node`.
+
+=== Protocol phases overview
+
+==== Submission phase
+
+During submission phase a `user client` (browser or mobile app) signs a `transaction` using user `private wallet key` and submits it either directly to one of `core nodes` or to a `network proxy`. A `network proxy` is a node that load balances incoming transactions to `core nodes` attempting to load them evenly, and avoiding transaction submissions to non-responsive nodes. 
+
+==== Broadcast phase
+
+During the broadcast phase, a `node` that received a `transaction` from `user client` will broadcast it to other `core nodes`. 
+
+==== Pending queue phase.
+
+During the pending queue phase, a `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`penging queue`.
+During the validation, `transaction signature` and format are verified. 
+
+Note that `pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pendign queue`. Ethereum-compatible blockchains, including SKALE, drop transactions with the smallest `gas price`.
 
 == Detailed description
 
