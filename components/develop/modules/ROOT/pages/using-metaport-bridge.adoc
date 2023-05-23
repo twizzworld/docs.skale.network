@@ -2,7 +2,7 @@
 
 == What is the Metaport Bridge
 
-The  Metaport Bridge is a tool that simplifies the process for end-users to transfer tokens between Ethereum and any SKALE Chain or Dapp, as well as facilitating token transfers between different SKALE Chains.
+The Metaport Bridge is a tool that simplifies the process for end-users to transfer tokens between Ethereum and any SKALE Chain or Dapp, as well as facilitating token transfers between different SKALE Chains.
 
 Developers can use the Bridge as an alternative to implementing their own Metaport widget.
 
