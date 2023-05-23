@@ -63,15 +63,15 @@ Each `node` runs `skaled`, SKALE software blockchain agent.
 1. `Network API module` accepts `transactions` and user requests.
 2. `Transaction validation module` validates `transactions` on receipt.
 3. `Pending queue module` holds `transactions`.
-4. `Transaction broadcast module` broadcasts `valid transactions` to other `nodes` in the chain.
+4. `Transaction broadcast module` broadcasts `valid transactions` to other `nodes` in the chain
 5. `Proposal module` creates `block proposals` for consensus
 6. `Proposal broadcast module` broadcasts `block proposals` to peers and collects `DA proofs`
 7. `DA proof broadcast module` broadcasts `DA proofs` to peers
 8. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`, and then creates `block signature` by assembling `signature shares`.
 9. `Finalization module` downloads winning proposals from other `nodes`, if a node does not have a copy of winning proposal by completion `block consensus`.
 10. `EVM module` processes the `committed block`
-11. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`). 
-12. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps.
+11. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`)
+12. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps
 
 
 ```mermaid
