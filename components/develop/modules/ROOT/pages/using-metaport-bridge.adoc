@@ -22,7 +22,7 @@ Basic context:
 === Optional parameters:
 
 * `to-app`: name of destination dapp
-* 'from-app': name of source dapp
+* `from-app`: name of source dapp
 * `token`: token symbol for transaction
 * `amount`: amount of token to prefill
 * `fallback-url`: url to be redirected once transaction is complete and user clicks button with fallback-text
