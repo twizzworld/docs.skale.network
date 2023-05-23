@@ -23,13 +23,13 @@ flowchart TD
 
 SKALE chain is fully compatible with ETH mainnet, and can run ETH wallets, tools and dapps.
 
-=== Skaled and its operation.
+=== Skaled and its modules.
 
 Each skale node runs `skaled`, a software blockchain agent. 
 
 Skaled is composed of 
 
-1. `Network API` accepts transactions and user requests.
+1. `Network API module` accepts transactions and user requests.
 2. `Transaction validation module`, that validates transactions on receipt.
 2. `Pending queue module` that holds transactions.
 3. `Transaction broadcast module` that broadcasts valid transactions to other nodes in the chain.
@@ -44,7 +44,7 @@ Skaled is composed of
 
 ```mermaid
 flowchart TD
-    b1[Network API] -->|Txs| b2[Tx validation module] -->|Validated Txs| b3[Pending queue module] -->|Block Proposals| b5[Proposal Module] --> |DA Proofs| b6[DA proof broadcast module] --> |Proposals and DA proofs| b7[Consensus module] -->|Committed Blocks| b8[EVM module]
+    b1[Network API Module] -->|Txs| b2[Tx validation module] -->|Validated Txs| b3[Pending queue module] -->|Block Proposals| b5[Proposal Module] --> |DA Proofs| b6[DA proof broadcast module] --> |Proposals and DA proofs| b7[Consensus module] -->|Committed Blocks| b8[EVM module]
     b2 -->|Validated Txs| b11[Tx Broadcast]
     b8 -->|Committed Blocks| b9[Block Storage Module]
     b8 -->|EVM State| b10[Evm Storage module]    
