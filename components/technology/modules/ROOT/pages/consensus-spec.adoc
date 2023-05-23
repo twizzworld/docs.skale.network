@@ -67,10 +67,11 @@ Each `node` runs `skaled`, SKALE software blockchain agent.
 5. `Proposal module` creates `block proposals` for consensus
 6. `Proposal broadcast module` broadcasts `block proposals` to peers and collects `DA proofs`
 7. `DA proof broadcast module` broadcasts `DA proofs` to peers
-7. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`
-8. `EVM module` processes the `committed block`
-9. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`). 
-10. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps.
+8. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`, and then creates `block signature` by assembling `signature shares`.
+9. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`, and then creates `block signature` by assembling `signature shares`.
+10. `EVM module` processes the `committed block`
+11. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`). 
+12. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps.
 
 
 ```mermaid
