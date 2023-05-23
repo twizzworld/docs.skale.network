@@ -1,0 +1,44 @@
+== How SKALE Network Derives Security from Ethereum
+
+This document summarizes how SKALE Network, an Ethereum multi-chain scaling network, derives security from the Ethereum blockchain. This article will cover key components of the SKALE Manager contracts, including SKL tokens, stake and delegation, SKALE Validator and SKALE Node registration, SKALE Chain creation, Distributed Key Generation (DKG), and Node Rotation.
+
+=== SKL Tokens
+
+SKL tokens are native Ethereum ERC777 (ERC20) utility tokens used within SKALE Network. These tokens are crucial in securing the network through Proof of Stake, incentivizing SKALE validators to supply compute power (SKALE Nodes) to the network, renting network bandwidth (SKALE Chains), and performing on-chain governance through voting. All SKL token functions operate on the Ethereum Mainnet, leveraging Ethereum's security.
+
+=== Stake and Delegation
+
+To operate a SKALE validator node, validators must stake 20 million SKL tokens per node through self-staking or delegation. These staking and delegation operations are transacted on Ethereum, utilizing Ethereum's security to safeguard the staked and delegated deposits. Over 2.5 billion SKL tokens are staked via SKALE Manager on the Ethereum Mainnet.
+
+=== SKALE Validator and SKALE Node Registration
+
+Each SKALE validator and SKALE node must register an Ethereum wallet and ID with the SKALE Manager. The registration transactions and associated wallets are therefore secured on Ethereum.
+
+=== SKALE Chain Creation
+
+SKALE Chains can be staked or rented by submitting SKL token deposits to the SKALE Manager. This allows SKALE Chain owners to prepay for network bandwidth, enabling their users to access services with zero gas fees, similar to how AWS provides cloud bandwidth (EC2 instances) on a rental basis. Creating a SKALE Chain involves a series of transactions on Ethereum, where the SKALE Manager randomly selects 16 nodes from the pool of SKALE Validator nodes to support the new chain. Additionally, SKALE Chain creation triggers the Distributed Key Generation process. Ethereum's security is utilized throughout the process, ensuring the secure creation of SKALE Chains.
+
+=== Distributed Key Generation (DKG)
+
+SKALE Network employs BLS threshold cryptography and performs a Distributed Key Generation process to establish a trustless setup for BLS threshold cryptography. During SKALE Chain creation, a ceremony is conducted by the SKALE Manager contracts. Each of the 16 selected nodes participates by sending transactions to the SKALE DKG smart contract (part of the SKALE Manager contracts) to create a BLS private key share on each node and compose a BLS common public key on the smart contracts. SKALE Chains utilize BLS threshold signatures for signing messages, proving data availability, and appending blocks. The DKG procedure continues until all malicious players are removed, and only successful DKG participants are allowed to run a SKALE Chain. All verification, complaint processes, and slashing occur as transactions on Ethereum, secured by Ethereum's underlying security. Furthermore, all SKALE Chain public keys are stored on Ethereum.
+
+=== Node Rotation
+
+Nodes within a SKALE Chain are periodically rotated. During each rotation, the SKALE Manager orchestrates the process by randomly selecting a new node to replace an outgoing node. The DKG process is then repeated with the new set of nodes. The prior BLS public key is stored to verify older blocks with the previous set of nodes, while newer blocks use the new key. The rotation process, node selection, and DKG processes all take place on Ethereum, leveraging the pooled security of Ethereum validators to ensure the integrity of these activities.
+
+=== References
+
+*link:https://docs.skale.network/technology/dkg-bls[SKALE DKG and BLS Threshold Cryptography]
+*link:https://docs.skale.network/skaled/3.16.x-beta/#_how_to_stakecreate_a_skale_chain[SKALE Chain Staking and Creation]
+*link:https://docs.skale.network/skaled/3.16.x-beta/#_skale_chain_rotation[SKALE Chain Rotation]
+*link:https://skale.space/blog/the-power-of-ethereum-a-blockchain-created-by-a-blockchain[The Power of Ethereum: A Blockchain Created by a Blockchain]
+*link:https://github.com/skalenetwork/skale-manager[SKALE Manager on GitHub]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/SkaleDKG.sol[SKALE DKG Smart Contract]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/NodeRotation.sol[SKALE Node Rotation Smart Contract]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/KeyStorage.sol[SKALE Key Storage Smart Contract]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/SkaleManager.sol[SKALE Manager Smart Contract]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/Schains.sol[SKALE Chains Smart Contracts]
+*link:https://github.com/skalenetwork/skale-manager/blob/develop/contracts/SchainsInternal.sol[SKALE Chains Internal Smart Contracts]
+*link:https://github.com/skalenetwork/skale-network/blob/master/releases/mainnet/skale-manager/1.9.2/skale-manager-1.9.2-mainnet-contracts.json[SKALE Manager Mainnet Contracts]
+*link:https://skale.space/blog/introducing-the-official-glossary-of-skale[SKALE Glossary]
+*link:https://skale.space/blog/pooled-validation-model-with-random-node-selection-and-frequent-node-rotation[Pooled Validation Model with Random Node Selection and Frequent Node Rotation]

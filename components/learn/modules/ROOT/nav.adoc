@@ -4,3 +4,4 @@
 * xref:skale-chain-fuel.adoc[SKALE Chain FUEL]
 * xref:mainnet-beta.adoc[Mainnet Beta]
 * xref:faq.adoc[General FAQs]
+* xref:skale-and-ethereum-security.adoc[How SKALE leverages Ethereum Security]
