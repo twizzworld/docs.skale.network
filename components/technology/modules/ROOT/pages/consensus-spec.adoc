@@ -18,7 +18,7 @@ EVM processes `committed blocks` one `transaction` at a time. For each `transact
 
 === Architecture overview
 
-The purpose of SKALE chain is to order `transactions` into `blocks` and then process them by `EVM` on each node.
+The purpose of SKALE chain is to order `transactions` into `blocks` and then process them by `EVM`.
 
 SKALE chain is composed of a fixed set of $N$ network `nodes` that process user `transactions` in the following phases
 
