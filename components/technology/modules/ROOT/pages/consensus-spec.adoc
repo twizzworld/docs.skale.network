@@ -1,5 +1,6 @@
 = SKALE Consensus
 :page-aliases: skale-consensus.adoc
+:stem: asciimath
 
 == Protocol Overview
 
@@ -8,11 +9,11 @@ A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet. 
 As any Ethereum-compatible chain, SKALE chain includes `blockchain`, which is a chain of `transactions` ordered into `committed blocks`, and a computing machine denoted as `EVM`. 
 The set of variables stored in `EVM` is denoted as `EVM state`. 
 
-
-```mermaid
+[mermaid]
+....
 flowchart LR
     b0[Tx1processed]---b1[Tx2 processed]---b2[Tx3 processed]---|EVM Processing|b3[Tx3 unprocessed]   
-```
+....
 
 EVM processes `committed blocks` one `transaction` at a time. For each `transaction` it runs instructions (`bytecode`) specified by the `transaction` and changes `EVM state`.
 
@@ -20,31 +21,31 @@ EVM processes `committed blocks` one `transaction` at a time. For each `transact
 
 The purpose of SKALE chain is to order `transactions` into `blocks` and then process them by `EVM`.
 
-SKALE chain is composed of a fixed set of $N$ network `nodes` that process user `transactions` in the following phases
+SKALE chain is composed of a fixed set of `N` network `nodes` that process user `transactions` in the following phases
 
-1. accept and validate user `transactions` (_submission phase_)
-2. broadcast `transactions` to peer nodes (_broadcast phase_)
-3. store `transactions` into `pending queues` (_pending queue phase_)
-4. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (_block proposal phase_)
-5. broadcast `DA proofs` to peers (_DA broadcast phase_)
-6. run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
-7. sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
+. accept and validate user `transactions` (_submission phase_)
+. broadcast `transactions` to peer nodes (_broadcast phase_)
+. store `transactions` into `pending queues` (_pending queue phase_)
+. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (_block proposal phase_)
+. broadcast `DA proofs` to peers (_DA broadcast phase_)
+. run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
+. sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
 into `block signature`. 
-8. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block consensus phase_)
-9. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
-10. store `committed blocks` and `EVM state`(_storage phase_)
+. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block consensus phase_)
+. process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
+. store `committed blocks` and `EVM state`(_storage phase_)
 
-The diagram below illustrates typical transaction flow
+The diagram below illustrates typical transaction flow:
 
-
-```mermaid
+[mermaid]
+....
 flowchart TD
-    b0[Transaction submission] --> b1[Transaction broadcast] --> b2[Pending Queue] --> b3[Block Proposal] --> b31[DA Broadast] --> b32[Block Consensus] --> 
+    b0[Transaction submission] --> b1[Transaction broadcast] --> b2[Pending Queue] --> b3[Block Proposal] --> b31[DA Broadcast] --> b32[Block Consensus] --> 
     b33[Block Signature] --> 
     b34[Block Finalization] --> b4[Block Commit] --> b5[EVM Processing] -->
     b9[Storage phase]
     b6[Block Catchup] -->b4
-```
+....
 
 Note that in addition to normal block processing, a node can receive blocks through `block catchup` mechanism.
 
@@ -58,29 +59,30 @@ The blockchain provides a _guarantee that every transaction is included into the
 
 Each `node` runs `skaled`, SKALE software blockchain agent. 
 
-`skaled` is composed of 
+`skaled` is composed of:
 
-1. `Network API module` accepts `transactions` and user requests.
-2. `Transaction validation module` validates `transactions` on receipt.
-3. `Pending queue module` holds `transactions`.
-4. `Transaction broadcast module` broadcasts `valid transactions` to other `nodes` in the chain
-5. `Proposal module` creates `block proposals` for consensus
-6. `Proposal broadcast module` broadcasts `block proposals` to peers and collects `DA proofs`
-7. `DA proof broadcast module` broadcasts `DA proofs` to peers
-8. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`, and then creates `block signature` by assembling `signature shares`.
-9. `Finalization module` downloads winning proposals from other `nodes`, if a node does not have a copy of winning proposal by completion `block consensus`.
-10. `EVM module` processes the `committed block`
-11. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`)
-12. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps
+. `Network API module` accepts `transactions` and user requests.
+. `Transaction validation module` validates `transactions` on receipt.
+. `Pending queue module` holds `transactions`.
+. `Transaction broadcast module` broadcasts `valid transactions` to other `nodes` in the chain
+. `Proposal module` creates `block proposals` for consensus
+. `Proposal broadcast module` broadcasts `block proposals` to peers and collects `DA proofs`
+. `DA proof broadcast module` broadcasts `DA proofs` to peers
+. `Consensus module` selects the winning `block proposal` and turns it into a `committed block`, and then creates `block signature` by assembling `signature shares`.
+. `Finalization module` downloads winning proposals from other `nodes`, if a node does not have a copy of winning proposal by completion `block consensus`.
+. `EVM module` processes the `committed block`
+. `Block storage module` stores `committed blocks`, deleting old blocks if `skaled` runs out of block storage space (`block rotation`)
+. `State storage module` stores EVM state.  State information is _never deleted automatically_. Cleaning up the state is the responsibility of dapps
 
 
-```mermaid
+[mermaid]
+....
 flowchart TD
     b1[Network API Module] -->|Txs| b2[Tx validation module] -->|Validated Txs| b3[Pending queue module] -->|Block Proposals| b5[Proposal Module] --> |DA Proofs| b6[DA proof broadcast module] --> |Proposals and DA proofs| b7[Consensus module] -->|consensus on winning proposal| b12[Finalization module] -->|committed block| b8[EVM module]
     b2 -->|Validated Txs| b11[Tx Broadcast Module]
     b8 -->|Committed Blocks| b9[Block Storage Module]
     b8 -->|EVM State| b10[Evm Storage module]    
-```
+....
 
 === Security assumptions overview
 
@@ -90,7 +92,7 @@ SKALE is _provably secure_. This means one can prove two qualities of the blockc
 some `nodes` may at a given moment have less `committed blocks` than others. Therefore, `the consistency is eventual`.
 * _liveliness_ - the blockchain will always keep producing new `committed blocks`. 
 
-Provable security means that _under certain mathematical assumptions_, SKALE chain _will always be  consistent and lively, nomatter what the attacker does_.
+Provable security means that _under certain mathematical assumptions_, SKALE chain _will always be  consistent and lively, no matter what the attacker does_.
 
 The mathematical assumptions for provable security are specified below.
 
@@ -98,7 +100,7 @@ The mathematical assumptions for provable security are specified below.
 
 We assume that out of `N` `nodes`, `t` `nodes` at maximum are Byzantine (malicious), where
 
-`3 t + 1 ≤ N`
+latexmath:[3t+1\le N]
 
 Simply speaking, not more than 1/3 of nodes can be malicious. For instance, if `N = 16`, the maximum number of malicious `nodes` is `5`.
 
@@ -136,10 +138,10 @@ During the broadcast phase, a `node` that received a `transaction` from `user cl
 
 ==== Pending queue phase
 
-During the pending queue phase, a `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`penging queue`.
+During the pending queue phase, a `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`pending queue`.
 During the validation, `transaction signature` and format are verified. 
 
-Note that `pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pendign queue`. Ethereum-compatible blockchains, including SKALE, drop transactions with the smallest `gas price`.
+Note that `pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pending queue`. Ethereum-compatible blockchains, including SKALE, drop transactions with the smallest `gas price`.
 
 ==== Block proposal phase
 
@@ -165,7 +167,7 @@ During block consensus phase, the `node` will vote `1` if it received `DA proof`
 
 The nodes will then executed asynchronous binary consensus algorithm, also known as `Byzantine Generals problem`. https://en.wikipedia.org/wiki/Byzantine_fault
 
-The particular binary consensus algorithm impelemented in SKALE is specified in 
+The particular binary consensus algorithm implemented in SKALE is specified in 
 
 https://inria.hal.science/hal-00944019/file/RR-2016-Consensus-optimal-V5.pdf
 
@@ -212,7 +214,7 @@ This specification specifies one hour as a default lifetime of a message which h
 
 === Limited hard crashes
 
-Hard crashes are permitted by the consensus protocol, as long as not too many nodes crash at the same time. Since a crashed node does not conform to the consensus protocol, it counts as a Byzantine node for the consensus round, in which the state was lost. Therefore, only a limited number of concurrent hard crashes can exist at a given moment in time. The sum of crashed nodes and byzantine nodes can not be more than $t$ in the equation (1). Then the crash is qualified as a limited hard crash.
+Hard crashes are permitted by the consensus protocol, as long as not too many nodes crash at the same time. Since a crashed node does not conform to the consensus protocol, it counts as a Byzantine node for the consensus round, in which the state was lost. Therefore, only a limited number of concurrent hard crashes can exist at a given moment in time. The sum of crashed nodes and byzantine nodes can not be more than `t` in the equation (1). Then the crash is qualified as a limited hard crash.
 
 During a limited hard crash, other nodes continue block generation and consensus. The blockchain continues to grow. When a crashed node is back online, it will sync its blockchain with other nodes using a catchup procedure described in this document, and start participating in consensus.
 
@@ -244,22 +246,10 @@ Each node stores a sequence of blocks. Blocks are constructed from transactions 
 
 The following properties are guaranteed:
 
-1.  `_block sequence_` - each node stores a block sequence `*B~i~*` that
-    have positive block IDs ranging from 0 to $HEAD$
-
-2.  `_genesis block_` - every node has the same genesis block that has
-    zero block id.
-
-3.  `_liveliness_` - the blockchain on each node will continuously grow by
-    appending newly committed blocks. If users do not submit
-    transactions to the blockchain, empty blocks will be periodically
-    committed. Periodic generation of empty blocks serves as a beacon to
-    monitor liveliness of the blockchain.
-
-4.  `_fork-free consistency_` - due to network propagation delays,
-    blockchain lengths on two nodes `*A*` and `*B*` may be different. For a
-    given block id, if both node `*A*` and node `*B*` possess a copy of a
-    block, the two copies are guaranteed to be identical.
+. `_block sequence_` - each node stores a block sequence `*B~i~*` that have positive block IDs ranging from 0 to `HEAD`
+. `_genesis block_` - every node has the same genesis block that has zero block id.
+. `_liveliness_` - the blockchain on each node will continuously grow by appending newly committed blocks. If users do not submit transactions to the blockchain, empty blocks will be periodically committed. Periodic generation of empty blocks serves as a beacon to monitor liveliness of the blockchain.
+. `_fork-free consistency_` - due to network propagation delays, blockchain lengths on two nodes `*A*` and `*B*` may be different. For a given block id, if both node `*A*` and node `*B*` possess a copy of a block, the two copies are guaranteed to be identical.
 
 === Honest and Byzantine Nodes
 
@@ -269,71 +259,57 @@ The goal of a Byzantine node is to either violate the liveliness property of the
 
 It is assumed that out of `*N*` total nodes, $t$ nodes are Byzantine, where less the following condition is satisfied.
 
-3  t  + 1 <= N
+latexmath:[3t+1\le N]
 
 or
 
-$$
-t <= floor((N - 1)/3)
-$$
+latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
 The above condition is well known in the consensus theory. There is a proof that shows that secure asynchronous consensus is impossible for larger values of $t$.
 
 It is easy to show that if a security proof works for a certain number of Byzantine nodes, it will work for a fewer Byzantine nodes. Indeed, an honest node can always be viewed as a Byzantine node that decided to behave honestly. Therefore, in proofs, we always assume that the system has the maximum allowed number of Byzantine nodes
 
-$$
-t =  floor((N - 1)/3)
-$$
+latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
 In this case the number of honest nodes is
 
-$$
-h = N-t = N - floor((N - 1) / 3) = floor((2 N + 1) / 3
-$$
+latexmath:[h = N-t = N - \left\lfloor \frac{N-1}{3} \right\rfloor = \left\lfloor \frac{2N-1}{3} \right\rfloor]
 
-Note, that it is beneficial to select `*N*` in such a way that $(N-1)/3$ is divisible by $3$. Otherwise an increase in `*N*` does not lead to an increase in the maximum allowed number of Byzantine nodes.
+Note, that it is beneficial to select `*N*` in such a way that latexmath:[\frac{N - 1}{3}] is divisible by `3`. Otherwise an increase in `*N*` does not lead to an increase in the maximum allowed number of Byzantine nodes.
 
-As an example, for $N = 16$ we get $t = 5$. For $N = 17$ we get $t = 5$ too, so an increase in `*N*` does not improve Byzantine tolerance.
+As an example, for latexmath:[N=16] we get latexmath:[t=5]. For latexmath:[N=17] we get latexmath:[t=5] too, so an increase in `*N*` does not improve Byzantine tolerance.
 
-In this specification, we assume that the `*N*` is always selected in such a way that $N - 1$ is divisible by 3.
+In this specification, we assume that the `*N*` is always selected in such a way that latexmath:[N-1] is divisible by 3.
 
 In this case, expressions simplify as follows
 
-$$
-t = (N - 1) / 3
-$$
+latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
-$$
-h = (2 N + 1) / 3 = 2 t + 1
-$$
+latexmath:[h = \frac{2N+1}{3} = 2t+1]
 
 === Mathematical properties of node voting
 
 Consensus uses voting rounds. It is, therefore, important to proof some basic mathematical properties of voting.
 
-Typically, a node will vote by signing a value and transmitting it to other nodes. To count votes, a receiving node will count received signatures for a particular value $v$.
+Typically, a node will vote by signing a value and transmitting it to other nodes. To count votes, a receiving node will count received signatures for a particular value `v`.
 
 The number of Byzantine nodes is less than a simple majority of honest nodes.
 
-This directly follows from the fact that $h = 2t + 1$, and, therefore, a simple majority of honest nodes is
+This directly follows from the fact that latexmath:[h = 2t+1], and, therefore, a simple majority of honest nodes is
 
-$$
-s = t + 1
-$$
+latexmath:[s = t+1]
 
-We define _supermajority_ as a vote of at least $(2 N + 1) / 3$ nodes.
+We define _supermajority_ as a vote of at least latexmath:[\frac{2N+1}{3}] nodes.
 
 _A vote of all honest nodes is a supermajority_.
 
-Proof: this comes from the fact that $h = (2 N + 1) / 3$.
+Proof: this comes from the fact that latexmath:[h = \frac{2N+1}{3}].
 
 If a particular message was signed by a supermajority vote, at least a simple majority of honest nodes signed this message
 
 Even if all Byzantine nodes participate in a supermajority vote, the number of honest votes it needs to receive is
 
-$$
-(2 N + 1) / 3 - t = 2 t + 1 - t =  t + 1
-$$
+latexmath:[\frac{2N+1}{3}-t = 2t+1-t = t+1]
 
 which is exactly the simple majority of honest nodes `*s*`.
 
@@ -347,17 +323,17 @@ A supermajority vote, is, therefore, an important conflict avoidance mechanism. 
 
 Our protocol uses threshold signatures for supermajority voting.
 
-Each node is supposed to be in possession of BLS private key share $PKS[I]$. Initial generation of key shares is performed using joint-Feldman Distributed Key Generation (DKG) algorithm that is described in this document. DKG algorithm is executed when an schain is created.
+Each node is supposed to be in possession of BLS private key share `*PKS~I~*`. Initial generation of key shares is performed using joint-Feldman Distributed Key Generation (DKG) algorithm that is described in this document. DKG algorithm is executed when an schain is created.
 
-Nodes are able to collectively issue supermajority threshold signatures on messages, where the threshold value is equal to the supermajority vote $(2 N + 1) / 3$. For instance for $N = 16$, the threshold value is $11$.
+Nodes are able to collectively issue supermajority threshold signatures on messages, where the threshold value is equal to the supermajority vote latexmath:[\frac{2N+1}{3}]. For instance for `N = 16`, the threshold value is `11`.
 
 BLS threshold signatures are implemented as described in the paper of by Boldyreva. BLS threshold signatures require a choice of elliptic curve and group pairing. We use elliptic curve (altBN256) and group pairing (optimal-Ate) implemented in Ethereum Constantinople release.
 
-To verify the signature, one uses BLS public key $PK$. This key is computed during the initial DKG algorithm execution. The key is stored in SKALE manager contract on the main ETH net, and is available to anyone.
+To verify the signature, one uses BLS public key `PK`. This key is computed during the initial DKG algorithm execution. The key is stored in SKALE manager contract on Ethereum mainnet and is available to anyone.
 
 === Transactions
 
-Each user transaction $T$ is assumed to be an Ethereum-compatible transaction, represented as a sequence of bytes.
+Each user transaction `T` is assumed to be an Ethereum-compatible transaction, represented as a sequence of bytes.
 
 === Block format: header and body
 
@@ -367,31 +343,24 @@ Each block is a byte string, which includes a header followed by a body.
 
 Block header is a JSON object that includes the following:
 
-1. `*BLOCK~ID~*` - integer id of the current block, starting from 0 and incremented by 1
-
-2.  `*BLOCK PROPOSER*` - integer id of the node that proposed the block.
-
-3.  `*PREVIOUS BLOCK HASH*` - SHA-3 hash of the previous block
-
-4.  `*CURRENT BLOCK HASH*` - the hash of the current block
-
-5.  `*TRANSACTION COUNT*` - count of transactions in the current block
-
-6.  `*TRANSACTION SIZES*` - an array of transaction sizes in the current block
-
-7.  `*CURRENT BLOCK PROPOSER SIG*` - ECDSA signature of the proposer of the current block
-
-8.  `*CURRENT BLOCK T~SIG*` - BLS supermajority threshold signature of the current block
+. `*BLOCK~ID~*` - integer id of the current block, starting from 0 and incremented by 1
+. `*BLOCK PROPOSER*` - integer id of the node that proposed the block.
+. `*PREVIOUS BLOCK HASH*` - SHA-3 hash of the previous block
+. `*CURRENT BLOCK HASH*` - the hash of the current block
+. `*TRANSACTION COUNT*` - count of transactions in the current block
+. `*TRANSACTION SIZES*` - an array of transaction sizes in the current block
+. `*CURRENT BLOCK PROPOSER SIG*` - ECDSA signature of the proposer of the current block
+. `*CURRENT BLOCK T~SIG~*` - BLS supermajority threshold signature of the current block
 
 Note: All integers in this spec are unsigned 64-bit integers unless specified otherwise.
 
 === Block format: body
 
-$BLOCK\ BODY$ is a concatenated transactions array of all transactions in the block.
+`BLOCK BODY` is a concatenated transactions array of all transactions in the block.
 
 === Block format: hash
 
-Block hash is calculated by taking 256-bit Keccack hash of block header concatenated with block body, while omitting $CURRENT\ BLOCK\ HASH$, $CURRENT\ BLOCK\ SIG$, and $CURRENT\ BLOCK\ TSIG$ from the header. The reason why these fields are omitted is because they are not known at the time block is hashed and signed.
+Block hash is calculated by taking 256-bit Keccack hash of block header concatenated with block body, while omitting `CURRENT BLOCK HASH`, `CURRENT BLOCK SIG`, and `CURRENT BLOCK TSIG` from the header. The reason why these fields are omitted is because they are not known at the time block is hashed and signed.
 
 Note: Throughout this spec we use SHA-3 as a secure hash algorithm.
 
@@ -435,7 +404,7 @@ After that the receiving node will then reconstruct the block proposal.
 === Blockchain
 
 For a particular node, the blockchain consists of a range of committed
-blocks `*B~i~*` starting from `*B~0~*` end ending with $B[TIP\_ID]$, where
+blocks `*B~i~*` starting from `*B~0~*` end ending with `*B~TIPID~*`, where
 `*TIP~ID~*` is the ID of the largest known committed block. Block ids are
 sequential positive integers. Blocks are stored in non-volatile storage.
 
@@ -492,10 +461,10 @@ algorithm guarantees eventual catchup, and if the number of nodes in a
 hard crashed state at a given time plus the number of Byzantine nodes is
 less or equal `*N ⅓*`.
 
-Since the normal consensus algorithm is resilient to having $(N-1)/3$
+Since the normal consensus algorithm is resilient to having latexmath:[\frac{N-1}{3}]
 Byzantine nodes, normal consensus will still proceed if we count crashed
 nodes as Byzantine nodes and guarantee that the total number of
-Byzantine nodes is less than $(N-1)/3$. When a node that crashed joins
+Byzantine nodes is less than latexmath:[\frac{N-1}{3}]. When a node that crashed joins
 the system back, it will immediately start participating in the new
 consensus rounds. For the consensus rounds that it missed, it will use
 the catchup procedure to download blocks from other nodes.
@@ -513,35 +482,29 @@ the catchup agent appends blocks to the blockchain.
 
 To create a block a node will:
 
-1.  examine its pending queue,
+. examine its pending queue,
 
-2.  if the total size of of transactions in the pending queue
-    $TOTAL\ SIZE$ is less or equal than $MAX\ BLOCK\ SIZE$, fill in a
-    block proposal by taking all transactions from the queue,
+. if the total size of of transactions in the pending queue `TOTAL SIZE` is less or equal than `MAX BLOCK SIZE`, fill in a block proposal by taking all transactions from the queue,
 
-3.  otherwise, fill in a block proposal by of $MAX\ BLOCK\ SIZE$ by
-    taking transactions from oldest received to newest received,
+. otherwise, fill in a block proposal by of `MAX BLOCK SIZE` by taking transactions from oldest received to newest received,
 
-4.  assemble transactions into a block proposal, ordering transactions
-    by sha-3 hash from smallest value to largest value,
+. assemble transactions into a block proposal, ordering transactions by sha-3 hash from smallest value to largest value,
 
-5.  in case the pending queue is empty, the node will wait for
-    $BEACON\ TIME$ and then, if the queue is still empty, make an empty
-    block proposal containing no transactions.
+. in case the pending queue is empty, the node will wait for `BEACON TIME` and then, if the queue is still empty, make an empty block proposal containing no transactions.
 
 Note that the node does not remove transactions from the pending queue
 at the time of proposal. The reason for this is that at the proposal
 time there is no guarantee that the proposal will be accepted.
 
-$MAX\ BLOCK\ SIZE$ is the maximum size of the block body in bytes.
-Currently we use $MAX\ BLOCK\ SIZE = 8 MB$. FUTURE: We may consider
+`MAX BLOCK SIZE` is the maximum size of the block body in bytes.
+Currently we use `MAX BLOCK SIZE = 8 MB`. FUTURE: We may consider
 self-adjusting block size to target a particular average block commit
-time, such as $1s$.
+time, such as `1s`.
 
-$BEACON\ TIME$ is time between empty block creation. If no-one is
+`BEACON TIME` is time between empty block creation. If no-one is
 submitting transactions to the blockchain, empty beacon blocks will be
 created. Beacon blocks are used to detect normal operation of the
-blockchain. The current value of $BEACON\ TIME$ is $3s$.
+blockchain. The current value of `BEACON TIME` is `3s`.
 
 === Block proposal reliable communication algorithm
 
@@ -558,13 +521,13 @@ The five-step protocol is described below:
     peers
 
 2.  Step 2: each peer on receipt of `*P*` adds the proposal to its
-    proposal storage database $PD$
+    proposal storage database `PD`
 
 3.  Step 3: the peer than sends a receipt to back to `*S*` that contains a
     threshold signature share for `*P*`
 
 4.  Step 4: `*A*` will wait until it collects signature shares from a
-    $supermajority$ of nodes (including itself) `*A*` will then create a
+    `supermajority` of nodes (including itself) `*A*` will then create a
     supermajority signature `*S*`. This signature serves as a receipt that
     a supermajority of nodes are in possession of `*P*`
 
@@ -623,9 +586,9 @@ The consensus described above uses an Asynchronous Binary Byzantine Agreement (A
 
 .  Byzantine nodes: `*P*` assumes less than one third of Byzantine nodes, as described by Equation (1).
 
-.  Initial vote: `*P*` assumes, that each node makes an initial vote $yes(1)$ or $no(0))$
+.  Initial vote: `*P*` assumes, that each node makes an initial vote `yes(1)` or `no(0)`.
 
-.  Consensus vote: `*P*` terminates with a consensus vote of either $yes$ or $no$, where if the consensus vote is $yes$, its is guaranteed that at least one honest node voted yes.
+.  Consensus vote: `*P*` terminates with a consensus vote of either `yes` or `no`, where if the consensus vote is `yes`, its is guaranteed that at least one honest node voted yes.
 
 Note that, an ABBA protocol typically outputs a random number `*_COMMON COIN_*` as a byproduct of its operation. We use this `*_COMMON COIN_*` as a random number source.
 
@@ -635,24 +598,24 @@ A consensus round `*R*` is executed for each `*BLOCK~ID~*` and has the following
 
 .  For each `*R*` nodes will execute `*N*` instances of ABBA.
 
-.  Each $ABBA[i]$ corresponds to a vote on block proposal from the node `*i*`
+.  Each `*ABBA~i~*` corresponds to a vote on block proposal from the node `*i*`
 
-.  Each $ABBA[i]$ completes with a consensus vote of $yes$ or $no$
+.  Each `*ABBA~i~*` completes with a consensus vote of `yes` or `no`
 
-.  Once all $ABBA[i]$ complete, there is a vote vector $v[i]$, which
-    includes $yes$ or $no$ for each proposal.
+.  Once all `*ABBA~i~*` complete, there is a vote vector `*v~i~*`, which
+    includes `yes` or `no` for each proposal.
 
-.  If there is only one $yes$ vote, the corresponding block proposal
+.  If there is only one `yes` vote, the corresponding block proposal
     `*P*` is committed to the blockchain
 
-.  If there are multiple $yes$ votes, `*P*` is pseudo-randomly picked from
-    the $yes$-voted proposals using pseudo-random number `*R*`. The
+.  If there are multiple `yes` votes, `*P*` is pseudo-randomly picked from
+    the `yes`-voted proposals using pseudo-random number `*R*`. The
     winning proposal index the remainder of division of `*R*` by
-    $n_~win~$, where $n_~win~$ is the total number of $yes$ proposals.
+    $n_~win~$, where $n_~win~$ is the total number of `yes` proposals.
 
 .  The random number `*R*` is the sum of all ABBA `*_COMMON COIN_*`.
 
-.  In the rare case when all votes are $no$, an empty block is
+.  In the rare case when all votes are `no`, an empty block is
     committed to the blockchain. The probability of an all-no vote is
     very small and decreases when `*N*` increases. This is analyzed in
     detail in the following sections.
@@ -674,9 +637,9 @@ does not depend on the node where it is executed.
 Data Availability: the winning proposal `*P*` is available to any honest
 node.
 
-This follows from the fact, that ABBA will not return consensus $yes$
-vote unless at least one honest node initially votes $yes$, and from the
-fact that an honest node will not vote $yes$ unless it has a data
+This follows from the fact, that ABBA will not return consensus `yes`
+vote unless at least one honest node initially votes `yes`, and from the
+fact that an honest node will not vote `yes` unless it has a data
 availability proof (threshold signature `*S*`).
 
 == Consensus round vote trigger
@@ -701,11 +664,11 @@ Also, since a supermajority of destination nodes are honest, at some
 point in time the node will transmit its block proposal to a
 supermajority of nodes.
 
-It will vote $yes$ for each block proposal that it received, and $no$
+It will vote `yes` for each block proposal that it received, and `no`
 for each block proposal that it did not receive.
 
-Vote of each honest node will include $(2 N + 1) / 3$ $yes$ votes and
-$2 N - 1)/3$ $no$ votes
+Vote of each honest node will include latexmath:[\frac{2N+1}{3}] `yes` votes and
+latexmath:[\frac{2N-1}{3}] `no` votes
 
 This simply follows from the fact, that node `*A*` votes immediately after
 receiving a supermajority of block proposals, and from the fact that `*A*`
@@ -717,48 +680,33 @@ Once consensus completes on a particular node `*A*` and the winning block
 proposal, the node will execute the following algorithm to finalize the
 proposal and commit it to the chain.
 
-1.  `*A*` will check if it has received the winning proposal `*P*`
+. `*A*` will check if it has received the winning proposal `*P*`
 
-2.  if `*A*` has not received the proposal, it will download it from its
-    peer nodes using the algorithm described later in this document. It
-    is possible to do it because of Lemma 11.
+. if `*A*` has not received the proposal, it will download it from its peer nodes using the algorithm described later in this document. It is possible to do it because of Lemma 11.
 
-3.  `*A*` will then sign a signature share for `*P*` and send it to all
-    other nodes
+. `*A*` will then sign a signature share for `*P*` and send it to all other nodes
 
-4.  `*A*` will then wait to receive signature shares from a supermajority
-    of nodes, including itself
+. `*A*` will then wait to receive signature shares from a supermajority of nodes, including itself
 
-5.  Once `*A*` has received a supermajority of signature shares, it will
-    combine them into a threshold signature.
+. Once `*A*` has received a supermajority of signature shares, it will combine them into a threshold signature.
 
-6.  `*A*` will then commit the `*P*` to the blockchain together with the
-    threshold signature of `*P*`
+. `*A*` will then commit the `*P*` to the blockchain together with the threshold signature of `*P*`
 
 The proposal download algorithm is specified below. The proposal assumes
 that the proposal is split in $N-1$ chunks of equal size
-$Math.ceiling(size(P) / (N - 1))$, except the last chunk the size of
-which will be the remainder of $size(P) / (N - 1)$
+latexmath:[\left\lceil \frac{size(P)}{N-1} \right\rceil], except the last chunk the size of
+which will be the remainder of latexmath:[\frac{size(P)}{N-1}].
 
 The purpose of the algorithm is to minimize network traffic.
 
-1.  `*A*` sends a message to each peer `*i*` , requesting for chunk `*i*`
+. `*A*` sends a message to each peer `*i*` , requesting for chunk `*i*`
+. `*A*` waits until it receives a `supermajority - 1` of responses
+. `*A*` then enumerates missing chunks
+. `*A*` then randomly assigns each missing chunk to a servers, and empty chunks to each server that did not get a missing chunk assigned, and sends the corresponding requests to each server.
+. `*A*` waits until receives `supermajority -1` of responses
+. If `*A*` received all chunks, the algorithm is complete. Otherwise it goes back to step 3.
 
-2.  `*A*` waits until it receives a $supermajority - 1$ of responses
-
-3.  `*A*` then enumerates missing chunks
-
-4.  `*A*` then randomly assigns each missing chunk to a servers, and empty
-    chunks to each server that did not get a missing chunk assigned ,
-    and sends the corresponding requests to each server.
-
-5.  `*A*` waits until receives $supermajority -1$ of responses
-
-6.  If `*A*` received all chunks, the algorithm is complete. Otherwise it
-    goes back to step 3.
-
-FUTURE: we may implement more advanced algorithms based on erasure
-codes.
+FUTURE: we may implement more advanced algorithms based on erasure codes.
 
 === Purging old transactions
 
@@ -811,15 +759,13 @@ amount of gas that the transaction would have used if we would charge
 for transactions. We are currently using the same PoW algorithm as
 Ethereum.
 
-$$
-POW = k * GAS
-$$
+latexmath:[POW = k * gas]
 
 This PoW is calculated in the browser or other client that submits a
 transaction and is passed together with the transaction. If the
 transaction does not include the required PoW it will be rejected.
 
-We are still researching the formula for $k$. Ideally $k$ should go down
+We are still researching the formula for `k`. Ideally `k` should go down
 if the chain is underloaded and increase if the chains starts to be
 overloaded.
 
