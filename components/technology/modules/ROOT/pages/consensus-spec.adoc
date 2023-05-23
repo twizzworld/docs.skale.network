@@ -25,7 +25,7 @@ flowchart TD
 
 SKALE chain is fully compatible with ETH mainnet, and can run ETH wallets, tools and dapps.
 
-=== Skaled and its modules.
+=== SKALE node composition
 
 Each skale `node` runs `skaled`, a software blockchain agent. 
 
