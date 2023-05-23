@@ -9,7 +9,7 @@
 SKALE Chain is a fixed set of $N$ network `nodes` that process user `transactions` in the following phases
 
 1. accept and validate user `transactions` (`submission phase`)
-2. Broadcast `transactions` to peer nodes and store `transactions` into `pending queues` (`pending queue phase`)
+2. broadcast `transactions` to peer nodes and store `transactions` into `pending queues` (`pending queue phase`)
 3. create `block proposal` for each `block number` and broadcast it to peers, collecting `2/3 N` `data availability signatures` and creating `DA proofs`. (`proposal phase`)
 4. broadcast `DA proofs` to peers (`DA broadcast phase`)
 5. run `consensus` for each `block proposal` to select a `winning proposal` and append it to `blockchain` as a`committed block` (`consensus phase`)
