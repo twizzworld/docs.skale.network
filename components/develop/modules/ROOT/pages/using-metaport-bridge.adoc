@@ -37,7 +37,7 @@ For transferring from Calypso to Europa:
 `https://bridge.skale.network/#/bridge/transfer/honorable-steel-rasalhague/elated-tan-skat` 
 
 
-For transferring from Ethereum to NFT Trade:
+For transferring from Ethereum to NFT Trade on Calypso:
 `https://bridge.skale.network/#/bridge/transfer/mainnet/honorable-steel-rasalhague?to-app=nftrade&`
 
 
