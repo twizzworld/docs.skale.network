@@ -6,7 +6,7 @@
 A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet. It can run ETH wallets, tools and dapps.
 
 As any Ethereum-compatible chain, SKALE chain includes `blockchain`, which is a chain of `transactions` ordered into `committed blocks`, and a computing machine denoted as `EVM`. 
-The set of variables stored in EVM is denoted as `EVM state`. 
+The set of variables stored in `EVM` is denoted as `EVM state`. 
 
 
 ```mermaid
