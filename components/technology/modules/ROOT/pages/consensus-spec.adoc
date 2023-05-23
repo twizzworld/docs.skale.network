@@ -35,17 +35,19 @@ Skaled is composed of
 3. `Transaction broadcast module` that broadcasts valid transactions to other nodes in the chain.
 4. `Proposal module` that creates proposals for consensus
 5. `Proposal broadcast module` broadcasts proposals to peers
-6. `DA proof broadcast module`
-7. `Consensus module`
-8. `EVM module`.
-9. `Block storage module` 
-10 
+6. `DA proof broadcast module` broadcasts DA proofs
+7. `Consensus module` selects the winning proposal and turns it into a `committed block`
+8. `EVM module` processes the `committed block`
+9. `Block storage module` stores committed blocks, deleting old blocks if the skaled runs out of block storage space(`block rotation`). Implemented using LevelDB database.
+10. `State storage module` stores EVM state. Implemented using LevelDB database. State information is never deleted automatically, cleaning up the state is the responsibility of the dapp. 
 
 
 ```mermaid
 flowchart TD
-    b1[Network API] --> b2[Tx validation module] --> b3[Pending queue module] --> b5[Proposal Module] --> b6[DA proof broadcast module] --> b7[Consensus module] -->b8[EVM module]
-    b2 --> b4[Tx broadcast module]    
+    b1[Network API] -->|Txs| b2[Tx validation module] -->|Validated Txs| b3[Pending queue module] -->|Block Proposals| b5[Proposal Module] --> |DA Proofs| b6[DA proof broadcast module] --> |Proposals and DA proofs| b7[Consensus module] -->|Committed Blocks| b8[EVM module]
+    b2 -->|Validated Txs| b11[Tx Broadcast]
+    b8 -->|Committed Blocks| b9[Block Storage Module]
+    b8 -->|EVM State| b10[Evm Storage module]    
 ```
 
 
