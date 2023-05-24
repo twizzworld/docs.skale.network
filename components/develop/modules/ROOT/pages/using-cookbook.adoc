@@ -1,10 +1,50 @@
 = Using Cookbook.dev
 
+.Cookbook is an open source smart contract marketplace. 
+You can search, upload, download, deploy, manage and integrate any Solidity smart contract into your app.
+
 Deploy a smart contract  on SKALE Testnet in under a minute. No faucets, no friction. The only blockchain network that doesn’t charge you to go-live. 
 
 SKALE now with Cookbook!
 
-To get started, visit https://www.cookbook.dev/.
+To get started, visit https://www.cookbook.dev.
 
-.Deploying a Soulbound NFT on SKALE's CHAOS Testnet with Cookbook
 video::829635888[vimeo, opts=autoplay, height=450, width=800]
+_Deploying a Soulbound NFT on SKALE's CHAOS Testnet with Cookbook_
+
+
+== Search on the smart contract registry
+
+Navigate to Cookbook, and search for the smart contract you would like to use or deploy:
+
+image::https://www.cookbook.dev/img/screenshots/Search-Screenshot.png[Cookbook Search, 800, 1000]
+
+
+== Choose your deploy option
+
+Once you've chosen your smart contract, select No-Code Deploy.
+
+image::https://www.cookbook.dev/img/screenshots/Contract-Screenshot.png[Cookbook Contract, 900, 1200]
+
+
+Configure your smart contract with the parameters you want.
+
+image::https://www.cookbook.dev/img/screenshots/Deploy-Screenshot.png[Cookbook Deploy, 900, 1200]
+
+
+Navigate to the SKALE tab and select your preferred chain. Be sure to click *_Get sFUEL_* if you don't have any.
+
+image::https://www.cookbook.dev/img/screenshots/Chain-Pick-Screenshot.png[Cookbook Chain Pick, 900, 1200]
+
+
+== Check your deployed smart contract on Dashboard
+
+.Once the smart contract is deployed, you may check the address on Dashboard. 
+You may also download ABI, Bytecode, Source Code and Verification Data from here.
+
+image::https://www.cookbook.dev/img/screenshots/Manage-Screenshot.png[Cookbook Manage, 900, 1200]
+
+
+== Additional Resources
+
+https://www.cookbook.dev
