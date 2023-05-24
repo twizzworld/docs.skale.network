@@ -132,8 +132,14 @@ web3.eth.sendSignedTransaction(signed.rawTransaction)
 
 == Dart Package
 
-https://github.com/dirt-Road-Development/skale.dart
+[cols="1,2", options="header"]
+|===
+| Package Name | Pub Tag
 
+| https://pub.dev/packages/skale[skale.dart]
+| image:https://img.shields.io/pub/v/skale.svg[link=https://pub.dev/packages/skale]
+
+|===
 == Examples
 
 https://github.com/skalenetwork/pow-demo/blob/main/skale-miner.js[Example of PoW algorithm on JS]
