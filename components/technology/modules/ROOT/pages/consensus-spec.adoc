@@ -30,8 +30,8 @@ SKALE chain is composed of a fixed set of `N` network `nodes` that process user 
 . broadcast `DA proofs` to peers (_DA broadcast phase_)
 . run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
 . sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
-into `block signature`. 
-. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block consensus phase_)
+into `block signature`. (_block signature phase_)
+. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block finalization phase_)
 . process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
 . store `committed blocks` and `EVM state`(_storage phase_)
 
@@ -175,6 +175,15 @@ Once the binary consensus completed, it guarantees that all honest node will rea
 that `1` was initially voted by at least `1' honest nodes. That, in turn, guarantees that the `block proposal` is `DA safe`, or that it is widely distributed over the network.
 
 If a `block consensus` phase outputs `1` for several proposals, the proposal with highest priority is selected. The priority changes from one block to another so that on average each node has similar probability to win.
+
+
+
+. run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
+. sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
+into `block signature`. (_block signature phase_)
+. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block finalization phase_)
+
+
 
 == Detailed description
 
