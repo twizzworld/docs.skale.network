@@ -25,6 +25,7 @@
 ** xref:providers.adoc[Using Web3 Providers]
 ** xref:using-truffle-box.adoc[Using Truffle Box]
 ** xref:using-remix.adoc[Using Remix]
+** xref:using-cookbook.adoc[Using Cookbook.dev]
 ** xref:event-subscriptions.adoc[Subscribing to Events]
 ** xref:using-WAGMI.adoc[Using WAGMI]
 ** xref:using-reverse-proxy.adoc[Using a Reverse Proxy]

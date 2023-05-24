@@ -1,0 +1,11 @@
+= Using Cookbook.dev
+
+Deploy a smart contract  on SKALE Testnet in under a minute. No faucets, no friction. The only blockchain network that doesn’t charge you to go-live. 
+
+SKALE now with Cookbook!
+
+To get started, visit https://www.cookbook.dev/.
+
+.Deploying a Soulbound NFT on SKALE's CHAOS Testnet with Cookbook
+vimeo::829635888[vimeo, opts=autoplay, height=450, width=800]
+
