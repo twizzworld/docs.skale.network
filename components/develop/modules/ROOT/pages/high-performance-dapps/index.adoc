@@ -10,9 +10,9 @@ Key characteristics of a high-performance dApp include:
 
 - *Scalability*: High-performance dApps are designed to scale efficiently as the user base and transaction load increase. Leveraging SKALE's multi-chain setupallows applications to host a large number of concurrent users and transactions without sacrificing performance or harming the rest of the applications on the network.
 
-- *Throughput*: High-performance dApps can push a significant volume of transactions per second (TPS). Individual SKALE Chains can support on average 200 transaction per second with peak up to 700 transactions per second. Additinally, applications on dedicated chains also able to offload common actions such as token swaps, NFT listings, and more to shared hub chains.
+- *Throughput*: High-performance dApps can push a significant volume of transactions per second (TPS). Individual SKALE Chains can support on average 200 transaction per second with peak up to 700 transactions per second. Additinally, applications on dedicated chains are also able to offload common actions such as token swaps, NFT listings, and more to shared hub chains.
 
-- *Zero Cost Transactions*: High-performance dApps cannot afford to subsidize user transactions with variable gas amounts. SKALE Chains utilize a no economic value gas token called SKALE Fuel ("sFUEL") which enables all transactions on a chain to be free, opening the door for doing more expensive operations in Solidity that would not be feasible on value-gas chains.
+- *Zero Cost Transactions*: High-performance dApps cannot afford to subsidize user transactions with variable gas amounts. SKALE Chains utilize a zero economic value gas token called SKALE Fuel ("sFUEL") which enables all transactions on a chain to be free, opening the door for doing more complex operations in Solidity that would not be feasible on value-gas chains.
 
 - *Flexible Infrastructure*: High-performance dApps can both grow quickly and experience large spikes in usage. SKALE Network offers flexible infrastructure by allowing companies to run their own proxies, sync nodes, and other key peripheral components to scale according to their specific needs.
 
