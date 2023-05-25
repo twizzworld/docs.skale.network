@@ -10,6 +10,9 @@
 ** xref:hubs/nft.adoc[NFT]
 ** xref:hubs/open-testnet.adoc[Open Testnet]
 
+* xref:high-performance-dapps/index.adoc[High Performance dApps]
+** xref:mtm-mode.adoc[Using MTM Mode]
+
 * xref:sfuel/index.adoc[sFUEL (Gas Token)]
 ** xref:sfuel/etherbase.adoc[Etherbase]
 ** xref:sfuel/gas-vs-sfuel.adoc[Gas vs sFUEL]
@@ -29,7 +32,6 @@
 ** xref:event-subscriptions.adoc[Subscribing to Events]
 ** xref:using-WAGMI.adoc[Using WAGMI]
 ** xref:using-reverse-proxy.adoc[Using a Reverse Proxy]
-** xref:mtm-mode.adoc[Using MTM Mode]
 ** xref:full-sync-node.adoc[Using Full-sync node]
 ** xref:skaled::oracle.adoc[Using SKALE Oracle]
 ** xref:skaled::random-number-generator.adoc[Using the RNG Endpoint]
