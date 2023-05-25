@@ -1,4 +1,5 @@
 = Using MTM Mode
+:page-aliases: mtm-mode.adoc
 
 MTM mode (Multi-Transaction Mode) allows accounts to send multiple transactions *with incremental nonces* per block. This mode will enable users to send many transactions per second, up to 200 tps for medium SKALE Chains.
 
@@ -7,7 +8,7 @@ Without MTM mode enabled, an account's subsequent transaction within the same bl
 
 == Enabling MTM
 
-To use MTM, you must enable it at chain deployment. 
+To use MTM, you must enable it at chain deployment.
 
 [NOTE]
 Future SKALE Chains will allow toggling this mode on or off by the assigned `MTM_ADMIN_ROLE`. See the xref:permissions.adoc[List of Permissions].
