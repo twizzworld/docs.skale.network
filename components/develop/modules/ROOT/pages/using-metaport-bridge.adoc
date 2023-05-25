@@ -45,6 +45,34 @@ For transferring from Ethereum to NFT Trade on Calypso:
 
 `&token=skl&amount=250&fallback-url=https%3A%2F%2Fnftrade.com%2Fassets%2Fskale%2F0x3b6f8d50938900ef14fbac48575c33a849ffd683%2F1&fallback-text=Return%20to%20NFT%20"Solitude"`
 
-image:fallback-example.png[]
+image:fallback-example.png[width=600]
 
+== Demos
 
+[tabs]
+====
+ETH from Ethereum to Ruby::
++
+--
+video::830328385[vimeo, height=450, width=800]
+--
+
+SKL from Ruby to NFTrade::
++
+--
+video::830328427[vimeo, height=450, width=800]
+--
+
+SKILL from CryptoBlades to Ruby::
++
+--
+video::830328355[vimeo, height=450, width=800]
+--
+
+SKILL from Ruby to CryptoBlades::
++
+--
+video::830328401[vimeo, height=450, width=800]
+--
+
+====
