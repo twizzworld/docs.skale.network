@@ -1,11 +1,11 @@
-c
-  title: SKALE Network - Recipes
+site:
+  title: SKALE Network - SKALE Chain Administration
   robots: allow
 content:
   sources:
     - url: .
       branches: HEAD
-      start_path: components/recipes
+      start_path: components/skale-chain-administration
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip

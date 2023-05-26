@@ -1,6 +1,5 @@
 * xref:index.adoc[Getting Started]
 * xref:deployment.adoc[Deploying on SKALE]
-* xref:skale-chain-access-control.adoc[SKALE Chain Access Control]
 
 * xref:hubs/index.adoc[Hubs]
 ** xref:hubs/community.adoc[Community]
@@ -22,12 +21,4 @@
 *** xref:sfuel/distribution/proof-of-work-distribution.adoc[Proof of Work Distribution]
 ** xref:sfuel/sfuel-station.adoc[sFUEL Station]
 
-* SKALE Chain Administration
-** xref:admin-overview.adoc[Overview]
-** xref:skale-chain-management.adoc[Management with Multisig wallet]
-** xref:gnosis-safe-setup.adoc[Using Ethereum Gnosis SAFE]
-** xref:multisig-setup.adoc[Using SKALE Predeployed Multisig]
-** xref:skale-chain-wallet.adoc[Managing SKALE Chain Wallet]
-** xref:permissions.adoc[List of Permissions]
-** xref:submit-metadata.adoc[Submitting Chain Metadata]
 * xref:faq.adoc[FAQs]

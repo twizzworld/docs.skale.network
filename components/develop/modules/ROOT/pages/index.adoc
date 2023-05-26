@@ -40,7 +40,7 @@ video::798584275[vimeo, opts=autoplay, height=450, width=800]
 You can deploy your contracts over to your SKALE Chain and begin to use faster and zero-cost gas transactions. Depending on your architecture and needs, you may want to evaluate which contracts to keep on Ethereum and which to serve on SKALE, such as putting more end-user facing transactions on SKALE and transactions requiring PoW security on Ethereum.
 
 [NOTE]
-SKALE Chains have unique access control features. New SKALE Chains only permit the SKALE Chain owner the ability to deploy contracts. See xref:skale-chain-access-control.adoc[SKALE Chain Access Control] for more information.
+SKALE Chains have unique access control features. New SKALE Chains only permit the SKALE Chain owner the ability to deploy contracts. See xref:skale-chain-administration::skale-chain-access-control.adoc[SKALE Chain Access Control] for more information.
 
 For using the Ethereum-SKALE bridge called Interchain Messaging Agent, you can customize your own bridge and map tokens you select to support, or enable automatic mapping.
 

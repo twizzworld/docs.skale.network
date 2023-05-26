@@ -1,11 +1,11 @@
-c
-  title: SKALE Network - Recipes
+site:
+  title: SKALE Network - Delegators
   robots: allow
 content:
   sources:
     - url: .
       branches: HEAD
-      start_path: components/recipes
+      start_path: components/delegators
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip
