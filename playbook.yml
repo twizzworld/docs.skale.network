@@ -27,14 +27,14 @@ content:
     - url: .
       branches: HEAD
       start_path: components/infrastructure
-      
-    - url: .
-      branches: HEAD
-      start_path: components/filestorage
 
     - url: .
       branches: HEAD
       start_path: components/technology
+
+    - url: .
+      branches: HEAD
+      start_path: components/tools
 
     - url: .
       branches: HEAD

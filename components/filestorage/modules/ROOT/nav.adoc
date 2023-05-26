@@ -1,4 +1,0 @@
-* xref:index.adoc[Overview]
-* xref:filestorage.js::index.adoc[Filestorage JS]
-* xref:filestorage-upgrades.adoc[Upgrades]
-* xref:web3-server.adoc[Web3 Server]

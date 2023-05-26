@@ -1,11 +1,11 @@
 site:
-  title: SKALE Network - Filestorage
+  title: SKALE Network - Tools
   robots: allow
 content:
   sources:
     - url: .
       branches: HEAD
-      start_path: components/filestorage
+      start_path: components/tools
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip
