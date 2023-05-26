@@ -1,5 +1,5 @@
-name: filestorage
-title: Filestorage
+name: tools
+title: Tools
 version: ~
 nav:
   - modules/ROOT/nav.adoc
