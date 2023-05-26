@@ -1,0 +1,5 @@
+name: infrastructure
+title: Infrastructure
+version: ~
+nav:
+  - modules/ROOT/nav.adoc
