@@ -1,11 +1,11 @@
 site:
-  title: SKALE Network - Learn
+  title: SKALE Network - Introduction
   robots: allow
 content:
   sources:
     - url: .
       branches: HEAD
-      start_path: components/learn
+      start_path: components/introduction
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip
