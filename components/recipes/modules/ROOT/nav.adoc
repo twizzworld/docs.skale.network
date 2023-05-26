@@ -7,7 +7,6 @@
 
 * Onboarding
 ** sFUEL Distribution
-*** xref:onboarding/sfuel/api-distribution.adoc[API Distribution]
 *** xref:onboarding/sfuel/pow-distribution.adoc[Proof of Work Distribution]
 ** xref:onboarding/invisible-web3.adoc[Invisible Web3]
 

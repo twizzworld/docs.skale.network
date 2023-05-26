@@ -25,6 +25,10 @@ content:
 
     - url: .
       branches: HEAD
+      start_path: components/infrastructure
+
+    - url: .
+      branches: HEAD
       start_path: components/filestorage
 
     - url: .

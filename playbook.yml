@@ -23,7 +23,11 @@ content:
     - url: .
       branches: HEAD
       start_path: components/develop
-
+    
+    - url: .
+      branches: HEAD
+      start_path: components/infrastructure
+      
     - url: .
       branches: HEAD
       start_path: components/filestorage
