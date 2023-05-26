@@ -1,11 +1,11 @@
 site:
-  title: SKALE Network - Tools
+  title: SKALE Network - Validators
   robots: allow
 content:
   sources:
     - url: .
       branches: HEAD
-      start_path: components/tools
+      start_path: components/validators
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip
