@@ -243,64 +243,6 @@ In this document, anywhere where it is specified that a `message` is sent from `
 
 Note, that if a major network event (such as a global network split between the US and Europe) occurs, `SKALE consensus` may pause for a while, but when, when the network heals, consensus will self-heal by retransmissions will make the chain procede and liveliness will be restored.
 
-=== Consensus state
-
-Each node stores _consensus state_. For each round of consensus, consensus state includes the set of proposed blocks, as well as the state variables of the protocols used by the consensus round.
-
-The state is stored in non-volatile memory and preserved across reboots.
-
-=== Reboots and crashes
-
-During `_A_`, a node will temporarily become unavailable. After a reboot, messages destined to the node will be delivered to the node. Therefore, a reboot does not disrupt operation of asynchronous consensus.
-
-Since consensus protocol state is not lost during a reboot, a node reboot will be interpreted by its peers as a temporarily slowdown of network links connected to the node.
-
-A is an event, where a node loses all of parts of the consensus state. For instance, a node can lose received block proposals or values of protocol variables.
-
-A hard crash can happen in case of a software bug or a hardware failure. It also can happen if a node stays offline for a very long time. In this case, the outgoing message queues of nodes sending messages to this node will overflow, and the nodes will start dropping older messages. This will lead to a loss of a protocol state.
-
-=== Default queue lifetime
-
-This specification specifies one hour as a default lifetime of a message which has been placed into an outgoing queue. Messages older than one hour may be dropped from the message queues. A reboot, which took less than an hour is, therefore, guaranteed to be a a normal reboot.
-
-=== Limited hard crashes
-
-Hard crashes are permitted by the consensus protocol, as long as not too many nodes crash at the same time. Since a crashed node does not conform to the consensus protocol, it counts as a Byzantine node for the consensus round, in which the state was lost. Therefore, only a limited number of concurrent hard crashes can exist at a given moment in time. The sum of crashed nodes and byzantine nodes can not be more than `t` in the equation (1). Then the crash is qualified as a limited hard crash.
-
-During a limited hard crash, other nodes continue block generation and consensus. The blockchain continues to grow. When a crashed node is back online, it will sync its blockchain with other nodes using a catchup procedure described in this document, and start participating in consensus.
-
-=== Widespread crashes
-
-A widespread crash is a crash where the sum of crashed nodes and Byzantine nodes is more than $t$.
-
-During a _widespread crash_ a large proportion of nodes or all nodes may lose the state for a particular round and consensus progress may stall. The blockchain, therefore, may lose its liveliness.
-
-Security of the blockchain will be preserved, since adding a new block to blockchain requires a supermajority threshold signature of nodes, as described later in this document.
-
-The simplest example of a widespread crash is when more than 1/3 of nodes are powered off. In this case, consensus will stall. When the nodes are back online, consensus will start working again.
-
-In real life, a widespread crash can happen due to to a software bug affecting a large proportion of nodes. As an example, after a software update all nodes in an schain may experience the same bug.
-
-=== Failure resolution protocol
-
-In a case of a catastrophic failure a separate failure resolution protocol is used to restart consensus.
-
-First, nodes will detect a catastrophic failure by detecting absence of new block commits for a long time.
-
-Second, nodes will execute a failure recovery protocol that utilizes Ethereum main chain for coordination. Each node will stop consensus operation. The nodes will then sync their blockchains replicas, and agree on time to restart consensus.
-
-Finally, after a period of mandatory silence, nodes will start consensus at an agreed time point in the future.
-
-=== Blockchain architecture
-
-Each node stores a sequence of blocks. Blocks are constructed from transactions submitted by users.
-
-The following properties are guaranteed:
-
-. `_block sequence_` - each node stores a block sequence `*B~i~*` that have positive block IDs ranging from 0 to `HEAD`
-. `_genesis block_` - every node has the same genesis block that has zero block id.
-. `_liveliness_` - the blockchain on each node will continuously grow by appending newly committed blocks. If users do not submit transactions to the blockchain, empty blocks will be periodically committed. Periodic generation of empty blocks serves as a beacon to monitor liveliness of the blockchain.
-. `_fork-free consistency_` - due to network propagation delays, blockchain lengths on two nodes `*A*` and `*B*` may be different. For a given block id, if both node `*A*` and node `*B*` possess a copy of a block, the two copies are guaranteed to be identical.
 
 === Honest and Byzantine Nodes
 
@@ -381,6 +323,68 @@ Nodes are able to collectively issue supermajority threshold signatures on messa
 BLS threshold signatures are implemented as described in the paper of by Boldyreva. BLS threshold signatures require a choice of elliptic curve and group pairing. We use elliptic curve (altBN256) and group pairing (optimal-Ate) implemented in Ethereum Constantinople release.
 
 To verify the signature, one uses BLS public key `PK`. This key is computed during the initial DKG algorithm execution. The key is stored in SKALE manager contract on Ethereum mainnet and is available to anyone.
+
+
+
+=== Consensus state
+
+Each node stores _consensus state_. For each round of consensus, consensus state includes the set of proposed blocks, as well as the state variables of the protocols used by the consensus round.
+
+The state is stored in non-volatile memory and preserved across reboots.
+
+=== Reboots and crashes
+
+During `_A_`, a node will temporarily become unavailable. After a reboot, messages destined to the node will be delivered to the node. Therefore, a reboot does not disrupt operation of asynchronous consensus.
+
+Since consensus protocol state is not lost during a reboot, a node reboot will be interpreted by its peers as a temporarily slowdown of network links connected to the node.
+
+A is an event, where a node loses all of parts of the consensus state. For instance, a node can lose received block proposals or values of protocol variables.
+
+A hard crash can happen in case of a software bug or a hardware failure. It also can happen if a node stays offline for a very long time. In this case, the outgoing message queues of nodes sending messages to this node will overflow, and the nodes will start dropping older messages. This will lead to a loss of a protocol state.
+
+=== Default queue lifetime
+
+This specification specifies one hour as a default lifetime of a message which has been placed into an outgoing queue. Messages older than one hour may be dropped from the message queues. A reboot, which took less than an hour is, therefore, guaranteed to be a a normal reboot.
+
+=== Limited hard crashes
+
+Hard crashes are permitted by the consensus protocol, as long as not too many nodes crash at the same time. Since a crashed node does not conform to the consensus protocol, it counts as a Byzantine node for the consensus round, in which the state was lost. Therefore, only a limited number of concurrent hard crashes can exist at a given moment in time. The sum of crashed nodes and byzantine nodes can not be more than `t` in the equation (1). Then the crash is qualified as a limited hard crash.
+
+During a limited hard crash, other nodes continue block generation and consensus. The blockchain continues to grow. When a crashed node is back online, it will sync its blockchain with other nodes using a catchup procedure described in this document, and start participating in consensus.
+
+=== Widespread crashes
+
+A widespread crash is a crash where the sum of crashed nodes and Byzantine nodes is more than $t$.
+
+During a _widespread crash_ a large proportion of nodes or all nodes may lose the state for a particular round and consensus progress may stall. The blockchain, therefore, may lose its liveliness.
+
+Security of the blockchain will be preserved, since adding a new block to blockchain requires a supermajority threshold signature of nodes, as described later in this document.
+
+The simplest example of a widespread crash is when more than 1/3 of nodes are powered off. In this case, consensus will stall. When the nodes are back online, consensus will start working again.
+
+In real life, a widespread crash can happen due to to a software bug affecting a large proportion of nodes. As an example, after a software update all nodes in an schain may experience the same bug.
+
+=== Failure resolution protocol
+
+In a case of a catastrophic failure a separate failure resolution protocol is used to restart consensus.
+
+First, nodes will detect a catastrophic failure by detecting absence of new block commits for a long time.
+
+Second, nodes will execute a failure recovery protocol that utilizes Ethereum main chain for coordination. Each node will stop consensus operation. The nodes will then sync their blockchains replicas, and agree on time to restart consensus.
+
+Finally, after a period of mandatory silence, nodes will start consensus at an agreed time point in the future.
+
+=== Blockchain architecture
+
+Each node stores a sequence of blocks. Blocks are constructed from transactions submitted by users.
+
+The following properties are guaranteed:
+
+. `_block sequence_` - each node stores a block sequence `*B~i~*` that have positive block IDs ranging from 0 to `HEAD`
+. `_genesis block_` - every node has the same genesis block that has zero block id.
+. `_liveliness_` - the blockchain on each node will continuously grow by appending newly committed blocks. If users do not submit transactions to the blockchain, empty blocks will be periodically committed. Periodic generation of empty blocks serves as a beacon to monitor liveliness of the blockchain.
+. `_fork-free consistency_` - due to network propagation delays, blockchain lengths on two nodes `*A*` and `*B*` may be different. For a given block id, if both node `*A*` and node `*B*` possess a copy of a block, the two copies are guaranteed to be identical.
+
 
 === Transactions
 
