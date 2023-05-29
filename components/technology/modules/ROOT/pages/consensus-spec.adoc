@@ -260,7 +260,9 @@ latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
 The above condition is well known in the consensus theory. There is a proof that shows that secure asynchronous consensus is impossible for larger values of $t$.
 
-It is easy to show that if a security proof works for a certain number of Byzantine nodes, it will work for a fewer Byzantine nodes. Indeed, an honest node can always be viewed as a Byzantine node that decided to behave honestly. Therefore, in proofs, we always assume that the system has the maximum allowed number of Byzantine nodes
+=== Applicability of security proofs to smaller number of Byzantine Nodes
+
+If a security proof works for a certain number of Byzantine nodes, it will work for a fewer Byzantine nodes. Indeed, an honest node can always be viewed as a Byzantine node that decided to behave honestly. Therefore, in proofs, we always assume that the system has the maximum permitted number of Byzantine nodes
 
 latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
@@ -272,7 +274,7 @@ Note, that it is beneficial to select `*N*` in such a way that latexmath:[\frac{
 
 As an example, for latexmath:[N=16] we get latexmath:[t=5]. For latexmath:[N=17] we get latexmath:[t=5] too, so an increase in `*N*` does not improve Byzantine tolerance.
 
-In this specification, we assume that the `*N*` is always selected in such a way that latexmath:[N-1] is divisible by 3.
+In this specification, we assume that the `*N*` is always selected in optimal way, so that that latexmath:[N-1] is divisible by 3.
 
 In this case, expressions simplify as follows
 
@@ -280,6 +282,24 @@ latexmath:[t\le \left\lfloor \frac{N - 1}{3} \right\rfloor]
 
 latexmath:[h = \frac{2N+1}{3} = 2t+1]
 
+
+Note that throughout the document, for the sake of brevity, we say things like `the block proposal is received by 2/3 N of honest nodes`. Each time we say `2/3 N` in this document, we actually mean the above expression for the number of `honest nodes`.
+
+=== Safe waiting
+
+Throughout the protocol, if a `honest receiving node` waits for a message from each other node, it is always safe for a node to wait for `h-1` messages.
+The word safe here means that the wait is always guaranteed to terminate in finite time.
+
+This statement simply follows from the fact, that each `honest node` has `h-1` honest peers.  If the `honst node` would attempt to wait for more than `h-1` messages, the `Byzantine nodes` could attack liveliness of the protocol by simply witholding their messages.
+
+`h-1`-wait is used by the `SKALE consensus` protocol in two places:
+
+* an `honest node` will always wait for `h-1` `block proposals` (in addition to building and broadcasting its own `proposal`)
+* an `honest node` will always wait for `h-1` `DA proofs` (in addition to broadcasting `DA proof` for its own proposal)
+
+Note, that an 'honest node` is guaranteed to build a `DA proof` for its `block proposal`. This follows from the fact, that at least `h-1` nodes will respond with `DA signature share`, and the node will be able to generate its own `DA signature` share. `DA proof` requires `h` signature shares.
+
+Once a node receives `h-1` DA proofs in addition to having a `DA proof` for its own proposal, the node will start a set of `N` binary consensu instances, proposing `1` if a node has `DA proof` and '0' otherwise.  Therefore, a binary string proposed by a node will typically have `2 t + 1` ones and 't' zeros.
 === Mathematical properties of node voting
 
 Consensus uses voting rounds. It is, therefore, important to proof some basic mathematical properties of voting.
