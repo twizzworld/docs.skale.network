@@ -6,7 +6,7 @@
 
 * Filestorage
 ** xref:filestorage/index.adoc[Overview]
-** xref:filestorage/filestorage.js::index.adoc[Filestorage JS]
+** xref:filestorage.js::index.adoc[Filestorage JS]
 ** xref:filestorage/filestorage-upgrades.adoc[Upgrading Filestorage]
 ** xref:filestorage/web3-server.adoc[Web3 Filestorage Server]
 
