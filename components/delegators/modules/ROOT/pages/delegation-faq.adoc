@@ -14,7 +14,7 @@ If the delegation has been accepted, the delegator has to first undelegate. Then
 
 == How can I stake the SKL token?
 
-xref:delegation.adoc#_how_to_delegate[See the delegation guide here].
+xref:index.adoc#_how_to_delegate[See the delegation guide here].
 
 == How can I calculate my staking rewards?
 
