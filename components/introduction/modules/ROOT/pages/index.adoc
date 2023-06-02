@@ -21,11 +21,11 @@ SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but lik
 
 == Providers
 
-You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:develop::providers.adoc[Read more about this here].
+You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:recipes::libraries/providers.adoc[Read more about this here].
 
 == Using Remix
 
-You can use Remix as an IDE for deploying to SKALE Chains. xref:develop::using-remix.adoc[Read more about using Remix here].
+You can use Remix as an IDE for deploying to SKALE Chains. xref:tools::third-party-tools/using-remix.adoc[Read more about using Remix here].
 
 == Deployment
 
@@ -34,5 +34,5 @@ You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Tru
 == Other
 
 * xref:skaled::index.adoc[More about SKALE Chains]
-* xref:filestorage::index.adoc[Filestorage]
+* xref:tools::filestorage/index.adoc[Filestorage]
 * xref:ima::index.adoc[Ethereum <> SKALE Bridge: Interchain Messaging Agent (IMA)]

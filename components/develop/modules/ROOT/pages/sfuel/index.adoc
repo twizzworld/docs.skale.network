@@ -10,7 +10,7 @@ Users must have sFUEL in order to transact through their wallets. Alternativley,
 
 sFUEL Distribution is one of the most important SKALE specific requirements to consider and implement. With no economic value to the gas token, creating invisible onboarding experiences is key to taking full advantage of the SKALE architecture.
 
-See distribution options xref:./sfuel-distribution.adoc[here] or learn more about the role of sFUEL in xref:../skale-chain-access-control.adoc[controlling access to a SKALE chain].
+See distribution options xref:./sfuel-distribution.adoc[here] or learn more about the role of sFUEL in xref:skale-chain-administration::skale-chain-access-control.adoc#_skale_fuel_sfuel[controlling access to a SKALE chain].
 
 
 == sFUEL in Solidity

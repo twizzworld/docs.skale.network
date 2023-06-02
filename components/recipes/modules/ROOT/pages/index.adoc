@@ -7,7 +7,7 @@ Learn how to build on SKALE (and by default in Web3). The SKALE Recipes can and 
 Welcome to the SKALE Network Recipes! If you made it here you are probably ready to build something new, or maybe just exploring Web3 for the first time.
 Whatever the reason, this is the right place to be. Checkout the links below if you are new to either SKALE or Web3 in general OR skip to the xref:index.adoc#_skale_developer_intro[SKALE Developer Intro]
 
-- xref:learn::index.adoc[New to SKALE? Jumpstart your knowledge of SKALE 123]
+- xref:introduction::index.adoc[New to SKALE? Jumpstart your knowledge of SKALE]
 - xref:develop::index.adoc#_basics_of_dapp_development[New to Building? Learn the basics of dApp Development]
 
 == SKALE Developer Intro
