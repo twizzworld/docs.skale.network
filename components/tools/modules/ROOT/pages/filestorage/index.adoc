@@ -38,7 +38,7 @@ image:https://img.shields.io/badge/built%20with-OpenZeppelin-3677FF[built-with o
 
 And of course, it's built with OpenZeppelin Upgradeability technology.
 
-Read about how to xref:filestorage-upgrades.adoc[perform filestorage upgrades].
+Read about how to xref:./filestorage-upgrades.adoc[perform filestorage upgrades].
 
 == Web3 File Server
 
@@ -46,7 +46,7 @@ What good are your files if you can't show them to the world? Here, the SKALE Ne
 
 image:https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white[]
 
-Check out how this xref:web3-server.adoc[Web3 File Server works].
+Check out how this xref:./web3-server.adoc[Web3 File Server works].
 
 == FAQ
 
@@ -60,7 +60,7 @@ Data will be available as long as the SKALE Chain lifetime. Users or the SKALE C
 
 === Can I use SKALE Filestorage with NFTs? 
 
-Absolutely! You can perform NFT mint operations all on a SKALE Chain, and store URI assets on the same SKALE Chain. Assets are then distributed across 16 nodes and persist through the lifetime of the SKALE Chain. And those URIs can be served through the xref:web3-server.adoc[Web3 webserver].
+Absolutely! You can perform NFT mint operations all on a SKALE Chain, and store URI assets on the same SKALE Chain. Assets are then distributed across 16 nodes and persist through the lifetime of the SKALE Chain. And those URIs can be served through the xref:./web3-server.adoc[Web3 webserver].
 
 === Are there any size restrictions for stored NFTs?
 

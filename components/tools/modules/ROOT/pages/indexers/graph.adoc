@@ -1,7 +1,7 @@
 = Getting Started with The Graph
 :page-aliases: using-graph.adoc
 
-You can use The Graph indexing protocol to create subgraphs on SKALE Chain data. You can reach out to the Graph community to request a Graph node, or you may run your own Graph node. These instructions assume you are using the SKALE-IMA-SDK and running your own graph node.
+You can use The Graph indexing protocol to create subgraphs on SKALE Chain data. You can reach out to the Graph community to request a Graph node, or you may run your own Graph node. These instructions assume you are using a Testnet or Mainnet SKALE Chain and are running your own graph node.
 
 [NOTE]
 For proper compatibility, you must point a Graph node to a SKALE Archive node.
@@ -15,9 +15,9 @@ For proper compatibility, you must point a Graph node to a SKALE Archive node.
 * yarn
 * truffle
 
-. Start the SKALE-IMA-SDK
+. Get a SKALE Endpoint
 +
-xref:ima-sdk.adoc[Follow instructions here] to setup the SKALE-IMA-SDK on a machine.
+xref:develop::index.adoc#_getting_a_skale_endpoint[Follow instructions here] to access the SKALE Chaos Testnet endpoints OR use your your own dedicated or hub chain as available.
 
 . Configure a Graph Node
 +
