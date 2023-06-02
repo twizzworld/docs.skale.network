@@ -11,7 +11,7 @@ If you are interested in becoming a channel or strategic consulting partner, ple
 
 SKALE is a multichain network composed of an unlimited number of secure, decentralized, high-performance Ethereum Blockchains purpose-built to bring Web3 to billions of users. SKALE’s advanced cryptography and pooled security model enables speed, security, and decentralization to work in harmony, enabling developers to deliver an amazing user experience to end users void of any gas fees or latency. SKALE’s feature-rich platform which includes EVM functionality, file storage, interchain messaging, and machine learning capabilities allow for applications to run completely on SKALE chains without centralized dependencies.
 
-Read up on the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:learn::overview.adoc[in the Basics doc].
+Read up on the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:introduction::overview.adoc[in the Basics doc].
 
 video::Anb0ZSruWlw[youtube, height=450, width=800, opts="modest"]
 // video::Twe_hPFGlbY[youtube, height=450, width=800, opts="modest"]
