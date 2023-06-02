@@ -17,7 +17,7 @@ For proper compatibility, you must point a Graph node to a SKALE Archive node.
 
 . Get a SKALE Endpoint
 +
-xref:develop::index.adoc#_getting_a_skale_endpoint[Follow instructions here] to access the SKALE Chaos Testnet endpoints OR use your your own dedicated or hub chain as available.
+xref:develop::index.adoc#_getting_a_skale_endpoint[Follow instructions here] to access the SKALE Chaos Testnet endpoint OR use your your own dedicated or hub chain as available.
 
 . Configure a Graph Node
 +
