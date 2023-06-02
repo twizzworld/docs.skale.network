@@ -8,7 +8,7 @@ SKALE Chain owners have special privileges for managing their SKALE Chain, Files
 ** xref:skale-manager:api:Schains.adoc#_deleteschain_deleteschainaddress_from_string_name_external[delete SKALE chain]
 * Filestorage
 ** xref:filestorage.js::index.adoc#_reserve_space[setting space allocation]
-** xref:filestorage::filestorage-upgrades.adoc[performing upgrades]
+** xref:tools::filestorage/filestorage-upgrades.adoc[performing upgrades]
 * IMA Bridge
 ** xref:ima::access-control.adoc[assigning IMA roles]
 ** xref:ima::access-control.adoc#_owner_ima_mainnet_permissions[configuring IMA Mainnet contracts]
