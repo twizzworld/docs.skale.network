@@ -2,6 +2,8 @@ site:
   title: SKALE Network Documentation 
   start_page: ROOT::index.adoc
   robots: allow
+  keys:
+    google_analytics: 'G-0GD5VRL7PP'
 content:
   sources:
 
