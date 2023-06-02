@@ -68,7 +68,7 @@ BROWSER_URL=https://some-amazing-schain-name.explorer.mainnet.skalenodes.com
 ```
 
 [WARNING]
-The private key added is linked to an Ethereum Address. That Ethereum Address must have Deployer Role -- see xref:develop::skale-chain-access-control.adoc#__whitelist[SKALE Chain Access Control] -- and at least as much sFUEL as defined in the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/config.json#L5[deployment config here]. Deployment will fail without confirming these.
+The private key added is linked to an Ethereum Address. That Ethereum Address must have Deployer Role -- see xref:skale-chain-administration::skale-chain-access-control.adoc#__whitelist[SKALE Chain Access Control] -- and at least as much sFUEL as defined in the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/config.json#L5[deployment config here]. Deployment will fail without confirming these.
 
 [NOTE]
 If the deployer address does not have DEPLOYER_ROLE, the transaction will fail with an error on the explorer that says: +++<p style="color: red;">Error: Out of Gas</p>+++

@@ -4,7 +4,7 @@ Follow these steps to deploy a decentralized website using SKALE Filestorage and
 
 . Get a SKALE Chain Endpoint
 +
-You can either use the xref:ima-sdk.adoc[SKALE-IMA-SDK] for a local development environment using Docker containers, or get access to a DappNet chain. You'll need to have the owner private key or a xref:skale-chain-access-control.adoc#_deployment_controller[deployment-authorized private key], to permissively upload files.
+The following will work with any SKALE Chain. You can use the xref:develop::index.adoc#_get_a_skale_endpoint[Chaos Testnet Chain] or any other SKALE chain you have access to. You will need to have the owner private key or a xref:skale-chain-administration::skale-chain-access-control.adoc#_deployment_controller[deployment-authorized private key], to permissively upload files.
 
 . Prepare your files
 +
