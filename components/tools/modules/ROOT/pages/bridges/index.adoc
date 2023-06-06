@@ -1,0 +1,17 @@
+= Bridges
+
+SKALE Network has a built-in message protocol -- IMA or Interchain Messaging Agent -- which facilitates the sending of messages between SKALE Network and the Ethereum Mainnet, as well between SKALE Chains themselves. Additionally, built directly on top of IMA is the SKALE Bridge functionality. This functionality takes shape with a number of pre-defined bridge options for common token standards such as ERC-20, ERC-721, and ERC-1155. Additionally, developers can tie into the lower level MessageProxy to pass custom messages or build custom bridge functionality if preferred. 
+
+Accessing this functionality is done through the calling of various smart contracts on a SKALE Chain or the Ethereum Mainnet, however, for most developers it is more efficient to abstract the complexity away and utilize tools designed for this custom process. 
+
+== Metaport Widget
+
+The first of these tools that can help facilitate transfers between SKALE Chains is the xref:metaport::index.adoc[Metaport Widget]. This widget is accessible through an NPM Package -- link:https://npmjs.com/package/@skalenetwork/metaport[@skalenetwork/metaport] -- and is highly configurable allowing developers to customize the available chains, tokens, theme, and more. It can easily be embedded into most Web based frameworks and projects with ease.
+
+== Metaport Bridge
+
+The second of these tools is the Metaport Bridge; a hosted solution that allows developers to access the functionality of Metaport without implementing it themselves.
+
+This tool simplifies the process for end-users to transfer tokens between Ethereum and any SKALE Chain or Dapp, as well as facilitating token transfers between different SKALE Chains.
+
+Checkout the xref:using-metaport-bridge[documentation] to implement the Bridge UI in your own application.

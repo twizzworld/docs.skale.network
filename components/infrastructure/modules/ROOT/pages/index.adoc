@@ -1,3 +1,36 @@
 = Infrastructure Overview
 
-The developer infrastructure section is focused on providing guidance to developers building on the SKALE Network with additional resources related to user onboarding and scaling your infrastructure.
+The developer infrastructure section is focused on providing guidance to developers building on the SKALE Network with additional resources related to user onboarding and scaling your infrastructure. Learn about various SKALE specific software that you can use within your application as well as additional infrastructure components that can help increase your applications scalability in addition to the default benchmarks that the network boasts.
+
+== Build for SKALE
+
+Building on SKALE unlocks a number of different flows that are difficult to attain when building on decentralized infrastructure. The most common flow that is unique to SKALE is user onboarding. Most networks require that for users to start transacting, they must first attain the networks native gas token -- usually through a purchase. Due to SKALEs "no economic value gas" -- SKALE Fuel or sFUEL for short -- the onboarding flow can often be abstracted or hidden away entirely.
+
+The SKALE Community has worked together to design a number of different approaches to handle sFUEL Distribution throughout the user onboarding process.
+Many projects whether building natively in the Web3 space or migrating from a traditional Web2 background often have a number of different services running to enhance their client facing application. The design of the sFUEL API Distributor is incredibly simple and extendable with one goal in mind; enable any project to quickly and efficiently add user onboarding to their application.
+
+For a client only approach see xref:develop::sfuel//distribution/proof-of-work-distribution.adoc[Proof of Work Distribution]. If you are interested in using an additional service to facilitate selective distribution see xref:sfuel-api-distribution.adoc[API Distribution].
+
+== Scaling an Application
+
+SKALE is really fast. However, as with most technology there are various areas that can be extended or strengthened to attain an even higher level of performance.
+In the case of SKALE, there are currently a couple of very effective ways to add additional scalability and speed to your application and SKALE Chain.
+
+=== SKALE Proxy
+
+The SKALE Proxy is a software program that handles the routing of transactions between users and the blockchain. Each SKALE Chain runs on 16 nodes and the proxy helps balance the transaction load across the nodes for a specific chain. Currently the proxies found at link:https://mainnet.skalenodes.com and link:https://staging-v3.skalenodes.com are offered as a convenience to the network, however, it is highly recommended that high performance applications run their own proxy service.
+
+Benefits of running your own proxy include:
+- Set custom rate limits
+- Users access your domain i.e https://example.com
+- Available to run the proxy as close to your active user groups as possible
+
+See xref:reverse-proxy.adoc[here] for more information about the proxy as well as how to run your own.
+
+=== Full Sync Node
+
+The Full-Sync Node is an available software implementation of a read-only SKALE Node that can help decrease load on the core consensus nodes of your chain.
+Applications are commonly read heavy in comparison to writes meaning that they are pulling data from the chain more often than they are pushing them.
+For applications that contain many reads a full-sync node can help increase chain stability and speed by reducing the amount of actions the core nodes on the chain are required to do, leaving them with a greater ability to handle consensus.
+
+See xref:full-sync-node.adoc[here] for how to setup your own Full-Sync Node.

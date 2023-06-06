@@ -1,0 +1,27 @@
+= Indexers
+
+A blockchain indexer is software tool -- often available as a service -- that organizes and provides access to blockchain data in a more efficient manner. They are often accessible through hosted services in the form of API routes or can be self-hosted and highly customizable.
+
+Indexers are often a necessary service as reading data from the blockchain can be time consuming and very difficult. While not impossible to do on the fly, it is generally more efficient and provides a better User Experience to index the data and then serve data that has already been parsed and transformed as needed. 
+
+== Available Indexers
+
+Currently, SKALE offers support for a number of a different indexers including link:https://covalenthq.com[Covalent], link:https://thegraph.com[The Graph], and link:https://subsquid.io[Subsquid]. All three of these services offer different solutions and have different developer experiences associated with them. 
+
+=== Covalent
+
+Covalent offers a unified API for over 100+ blockchains including active support for seven (7) different SKALE Chains. The unified API offers endpoints for information such as token balances, transaction data, nfts, security, core chain information and more. 
+
+xref:covalent[See the supported networks and how to integrate Covalent]
+
+=== The Graph
+
+The Graph is a self-hosted solution that enables highly-customizable indexing for any SKALE Chain. The Graph operates on Subgraphs that index for a specific subset of information from a given blockchain network e.g. token balances for all user wallets.
+
+xref:graph[Learn how run The Graph for a SKALE Chain]
+
+=== Subsquid
+
+Subsquid is a highly configurable hosted indexing solution that offers developers the ability to create customizable squids that can be deployed on their Aquarium service. Subsquid currently supports both SKALE Calypso and SKALE Nebula Mainnet and Testnet chains.
+
+xref:subsquid[Grab a Subsquid endpoint and head to their docs to deploy a squid]
