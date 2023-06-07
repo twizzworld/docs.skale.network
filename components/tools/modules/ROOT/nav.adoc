@@ -20,12 +20,12 @@
 * xref:oracles/index.adoc[Oracles]
 ** xref:oracles/oracle.adoc[Using SKALE Oracle]
 
-* Third Party Tools
+* xref:third-party-tools/index.adoc[Third Party Tools]
 ** xref:third-party-tools/using-cookbook.adoc[Using Cookbook.dev]
 ** xref:third-party-tools/using-remix.adoc[Using Remix]
 ** xref:third-party-tools/using-truffle-box.adoc[Using Truffle Box]
 
-* SKALE Specific
+* xref:skale-specific/index.adoc[SKALE Specific]
 ** xref:skale-specific/ml.adoc[Using SKALE-ML]
 ** xref:skale-specific/random-number-generator.adoc[Using the RNG Endpoint]
 
