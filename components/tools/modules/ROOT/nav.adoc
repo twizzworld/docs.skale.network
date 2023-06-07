@@ -17,7 +17,7 @@
 * xref:libraries/index.adoc[Libraries]
 ** xref:libraries/using-WAGMI.adoc[Using WAGMI]
 
-* Oracles
+* xref:oracles/index.adoc[Oracles]
 ** xref:oracles/oracle.adoc[Using SKALE Oracle]
 
 * Third Party Tools
