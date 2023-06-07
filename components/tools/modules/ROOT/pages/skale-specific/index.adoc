@@ -1,12 +1,12 @@
 = SKALE Specific Tools
 
-While known for its Zero Gas Fees and incredibly fast time-to-finality (TTF); SKALE Chains offer a number of additional tools.
+While known for its Zero Gas Fees and incredibly fast time-to-finality (TTF); SKALE Chains offer several additional tools.
 These include the xref:oracles/oracle.adoc[SKALE Oracle], xref:filestorage/index.adoc[On-Chain Filestorage], as well as xref:random-number-generator[On-Chain Random Number Generation], and xref:ml[Machine Learning].
 
 
 == Machine Learning (ML)
 
-SKALE ML enables developers to trained models within their smart contracts. This enables developers to create increasingly dynamic smart contracts.
+SKALE ML enables developers to connect trained models to their smart contracts. This allows developers to create increasingly dynamic smart contracts.
 
 xref:ml[Use SKALE ML Now]
 
