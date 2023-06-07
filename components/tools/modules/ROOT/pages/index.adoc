@@ -1,3 +1,47 @@
 = Tools
 
-The tools section covers all available tooling for helping develop on SKALE. This includes SDKs, Wallets, Libraries, and more.
+The tools section covers available tooling for developing on SKALE. This includes SDKs, Wallets, Libraries, and more. The following section contains links to their respective categories.
+
+
+++++
+<div class="card-section">
+<div class="sectionbody">
+++++
+
+[.card.card-learn]
+--
+xref:bridges/index.adoc[[.card-title]#Bridges# [.card-body]#pass:q[SKALE Network Native Bridges]#]
+--
+[.card.card-learn]
+--
+xref:filestorage/index.adoc[[.card-title]#On-chain Filestorage# [.card-body]#pass:q[Decentralized On-Chain Filestorage]#]
+--
+[.card.card-learn]
+--
+xref:indexers/index.adoc[[.card-title]#Indexers# [.card-body]#pass:q[Unlock the power of data on SKALE]#]
+--
+[.card.card-learn]
+--
+xref:libraries/index.adoc[[.card-title]#Libraries# [.card-body]#pass:q[Libraries to enhance development]#]
+--
+[.card.card-learn]
+--
+xref:oracles/index.adoc[[.card-title]#Oracles# [.card-body]#pass:q[Access External Data on SKALE]#]
+--
+[.card.card-learn]
+--
+xref:skale-specific/index.adoc[[.card-title]#SKALE Specific# [.card-body]#pass:q[Tools unique to SKALE Network]#]
+--
+[.card.card-learn]
+--
+xref:third-party-tools/index.adoc[[.card-title]#3rd Party Tools# [.card-body]#pass:q[Access 3rd Party Tools run by the community]#]
+--
+[.card.card-learn]
+--
+link:wallets/index.adoc[[.card-title]#Wallets# [.card-body]#pass:q[Power your UX with a variety of SKALE compatible wallets]#]
+--
+
+++++
+</div>
+</div>
+++++
