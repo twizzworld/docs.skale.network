@@ -8,4 +8,4 @@ link:https://razor.network[Razor Network] is a decentralized oracle network offe
 
 == SKALE Oracle
 
-xref:oracle[SKALE Oracle] is a native oracle built directly into each SKALE Chain. By using the same nodes that operates the SKALE Chain, the native oracle solution enables a variety of usecases.
+xref:oracle[SKALE Oracle] is a native oracle built directly into each SKALE Chain. By using the same nodes that operates the SKALE Chain, the native oracle solution enables a variety of use cases.

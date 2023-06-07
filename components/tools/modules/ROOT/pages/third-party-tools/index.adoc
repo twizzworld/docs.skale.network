@@ -1,0 +1,23 @@
+= Third Party Tools
+
+SKALE is EVM -- Ethereum Virtual Machine -- compatible meaning that many of the existing tools in the Web3 space are compatible out of the box with SKALE. Listed below are a few of the platforms and tools that can help developers build quickly and efficiently when building on SKALE.
+
+== Cookbook
+
+link:https://cookbook.dev[Cookbook] is an open-source smart contract marketplace that allows for developers to quickly find, deploy, and integrate hundreds of popular smart contracts quickly and easily. Cookbook has integrations with tools such as Remix and Visual Studio Code making it quick and simple for developers to begin deploying smart contracts to SKALE.
+
+Currently, Cookbook has direct support five (5) SKALE Testnet Chains -- Calypso, Chaos, Europa, Nebula, and Titan; while also allowing other testnet chains and SKALE Mainnet chains to be used through their connection to link:https://chainlist.org[Chainlist].
+
+xref:using-cookbook[Deploy your first contract to SKALE in minutes]
+
+== Remix IDE
+
+link:https://remix.ethereum.org[Remix IDE] is a browser based IDE -- Integrated Developer Environment -- that enables developers to get up and running with Solidity smart contract development quickly. With a library of plugins, access to a number of popular templates, and the ability to deploy and interact with contracts right from the browser; Remix has become one of the most popular starting points for Solidity developers.
+
+xref:using-remix[Starting using Remix for SKALE]
+
+== Truffle
+
+link:https://trufflesuite.com[Truffle] is a suite of developer tools that can aid in building, testing, and using solidity smart contracts. One of most battle-tested suites; developers can trust that using the SKALE Truffle Box can get them building on SKALE without any friction.
+
+xref:using-truffle-box[Use the SKALE Truffle Box Now]

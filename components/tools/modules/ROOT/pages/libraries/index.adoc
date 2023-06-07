@@ -3,9 +3,9 @@
 Libraries exist to help developers utilize solutions to problems that have already been solved without recreating it i.e "Don't Reinvent the Wheel".
 While many of the libraries listed here in the docs are JavaScript based, libraries that are compatible with SKALE exist in my languages.
 
-The following are various libraries built the SKALE Community and the greater blockchain community to help other developers build more efficiently and more effectivley for both Web3 and more specifically for SKALE.
+The following are various libraries built the SKALE Community and the greater blockchain community to help other developers build more efficiently and more effectively for both Web3 and more specifically for SKALE.
 
-== Chain Agnostic ibraries
+== Chain Agnostic Libraries
 
 === WAGMI
 
