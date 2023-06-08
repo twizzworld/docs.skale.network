@@ -99,7 +99,7 @@ SKALE Network also has an active HackerOne program. Please see the SKALE Network
 
 === How do SKALE Chains resist DDoS attacks and malicious activity?
 
-The SKALE Network has a few ways to handle DDoS protections, xref:skaled::index.adoc#_ddos_protection[more details here].
+The SKALE Network has a few ways to handle DDoS protections, xref:technology::differences.adoc#_ddos_protection[more details here].
 
 High load monitoring and prevention outlined in the above documentation under the DDoS Protection section provides a detailed explanation of the feature.
 

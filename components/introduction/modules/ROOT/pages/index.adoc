@@ -33,6 +33,6 @@ You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Tru
 
 == Other
 
-* xref:skaled::index.adoc[More about SKALE Chains]
+* xref:introduction::overview.adoc[More about SKALE Chains]
 * xref:tools::filestorage/index.adoc[Filestorage]
 * xref:ima::index.adoc[Ethereum <> SKALE Bridge: Interchain Messaging Agent (IMA)]
