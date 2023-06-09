@@ -250,4 +250,46 @@ For more information on using remix, please see https://remix.readthedocs.io/en/
 image::https://assets.website-files.com/5be05ae542686c4ebf192462/5ce1657d7e30fb40711d2b31_rpc-metamask.gif[]
 
 --
+
+thirdweb::
++
+--
+
+Deploy allows you to deploy a smart contract to any EVM compatible
+network without configuring RPC URLs, exposing your private keys,
+writing scripts, and other additional setup such as verifying your
+contract.
+
+. To deploy your smart contract using deploy, navigate to the root
+directory of your project and execute the following command:
++
+[source,bash]
+----
+npx thirdweb deploy
+----
++
+Executing this command will trigger the following actions:
+
+* Compiling all the contracts in the current directory.
+* Providing the option to select which contract(s) you wish to deploy.
+* Uploading your contract source code (ABI) to IPFS.
+. When it is completed, it will open a dashboard interface to finish
+filling out the parameters.
+* `+_name+`: contract name
+* `+_symbol+`: symbol or "`ticker`"
+* `+_royaltyRecipient+`: wallet address to receive royalties from
+secondary sales
+* `+_royaltyBps+`: basis points (bps) that will be given to the royalty
+recipient for each secondary sale, e.g. 500 = 5%
+. Select Skale as the network
+. Manage additional settings on your contract’s dashboard as needed such
+as uploading NFTs, configuring permissions, and more.
+
+For additional information on Deploy, please reference
+https://portal.thirdweb.com/deploy[thirdweb’s documentation].
+
+If you have any further questions or encounter any issues during the
+process, please reach out to thirdweb support at
+http://support.thirdweb.com/[support.thirdweb.com].
+
 ====
