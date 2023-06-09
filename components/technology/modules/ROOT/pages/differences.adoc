@@ -1,10 +1,10 @@
 = SKALE Chain Differences from Ethereum
 
-SKALE Chains operate like Ethereum, and there are a few other features and differences that make SKALE Chains even more powerful and suitable to run your dApp. 
+SKALE Chains operate similar to Ethereum with additional features and differences that make SKALE Chains a more suitable solution to run your dApp. 
 
 == Zero gas fee transactions
 
-Transactions on SKALE Chain run in without any gas fee. This means there is gas on SKALE Chains just like on Ethereum, but it's powered by what's called SKALE FUEL (sFUEL), which has no monetary value. In this way, executing transactions and state changes don't incur costs but require consuming gas in sFUEL, which is value-less. SKALE Chain gas provides a way to meter or limit transactions on the SKALE Chain to prevent malicious execution.
+Transactions on a SKALE Chain have zero gas fees. This model operates by using a gas token similar to Ethereum called sFUEL. SKALE Fuel (sFUEL) has no monetary value meaning that executing transactions and state changes do not incur a cost, but do consume the gas token (sFUEL). sFUEL provides a way to meter or limit transactions on a given SKALE Chain in order to prevent malicious execution.
 
 == Empty Block Intervals
 
@@ -26,7 +26,7 @@ xref:json-rpc-interface.adoc[See the JSON-RPC interface Compatibility table for 
 
 == SKALE Chain Rotation
 
-SKALE Chains run across 16 randomly chosen nodes. Your SKALE Chain can be configured to randomly swap out nodes for other nodes in the network. This helps reduce any potential collusion over time. To the SKALE Chain owner and end-users, this is a process that runs behind the scenes...  The incoming node will gather all previous blocks, transactions, etc from the SKALE Chain in a catchup procedure, and the updated node set will form a new BLS public key through DKG, and all subsequent blocks will be signed with the new BLS public key.
+SKALE Chains run across 16 randomly chosen nodes. Your SKALE Chain can be configured to randomly swap out nodes for other nodes in the network. This helps reduce any potential collusion over time. To the SKALE Chain owner and end-users, this is a process that runs behind the scenes. The incoming node will gather all previous blocks, transactions, etc from the SKALE Chain in a catchup procedure, and the updated node set will form a new BLS public key through DKG, and all subsequent blocks will be signed with the new BLS public key.
 
 == Block Rotation
 

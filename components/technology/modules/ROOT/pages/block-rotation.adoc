@@ -2,7 +2,7 @@
 
 == Introduction
 
-SKALE Chain Block rotation allows to limit the space on hard drive which is occupied by blocks. The current default value is 12.6GB.
+SKALE Chain Block Rotation allows to limit the space on hard drive which is occupied by blocks. The current default value is 12.6GB.
 
 Each SKALE Chain maintains a minimum to maximum number of blocks, which are 80% and 100% of the above value respectively.
 
