@@ -3,7 +3,7 @@
 SKALE Chain sizing is tuned during development and testnets and is set both by the schain_allocation.yml file in SKALE Node, and by SKALE Manager which tracks resource allocation of nodes in the network.
 
 [NOTE]
-Initial deployment of SKALE Chains will be Medium size only. Other sizes will be available in later releases.
+Medium size chains are only supported. Other sizes will be available in later releases.
 
 [NOTE]
 Current node storage for each SKALE Chain is allocated to consensus (30%), blockstorage (30%), filestorage (30%), and logs (10%).
@@ -24,7 +24,7 @@ Current node storage for each SKALE Chain is allocated to consensus (30%), block
 
 | Medium
 | 1/8
-| 200 tps
+| 400 tps
 | 58.92 GB
 | 58.92 GB
 
