@@ -6,6 +6,6 @@ Oracles within the blockchain space enable decentralized applications to access 
 
 link:https://razor.network[Razor Network] is a decentralized oracle network offering price-feed data to applications. This can be utilized in various actions throughout DeFi and other more general Web3 use cases. Razor is available on the Calypso, Nebula, Titan Mainnet, and Testnets.
 
-== SKALE Oracle
+== SKALE Connect
 
-xref:oracle[SKALE Oracle] is a native oracle built directly into each SKALE Chain. Using the same nodes that operate the SKALE Chain, the native oracle solution enables a variety of use cases.
+xref:oracle[SKALE Connect] is a native oracle built directly into each SKALE Chain. Using the same nodes that operate the SKALE Chain, the native oracle solution enables a variety of use cases.

@@ -1,7 +1,7 @@
-= Oracle
+= SKALE Connect
 :stem: latexmath
 
-The SKALE Oracle allows developers to access any external data source using the decentralized power of your SKALE Chain. If your dApp needs market data, weather temperatures, or Ethereum data, the SKALE Oracle provides a simple way to deliver this data to your Dapp.
+SKALE Connect allows developers to access any external data source using the decentralized power of your SKALE Chain. If your dApp needs market data, weather temperatures, or Ethereum data, SKALE Connect provides a simple way to deliver this data to your Dapp.
 
 == How it works
 
