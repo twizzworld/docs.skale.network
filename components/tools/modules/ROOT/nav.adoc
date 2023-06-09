@@ -18,7 +18,7 @@
 ** xref:libraries/using-WAGMI.adoc[Using WAGMI]
 
 * xref:oracles/index.adoc[Oracles]
-** xref:oracles/oracle.adoc[SKALE Connect]
+** xref:oracles/skale-connect.adoc[SKALE Connect]
 
 * xref:third-party-tools/index.adoc[Third Party Tools]
 ** xref:third-party-tools/using-cookbook.adoc[Using Cookbook.dev]
