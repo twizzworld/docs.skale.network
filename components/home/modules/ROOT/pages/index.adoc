@@ -19,7 +19,7 @@ xref:recipes::index.adoc[[.card-title]#Developer Recipes# [.card-body]#pass:q[Gu
 --
 [.card.card-learn]
 --
-xref:skaled::index.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Learn about the technology powering the network]#]
+xref:introduction::overview.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Learn about the technology powering the network]#]
 --
 [.card.card-learn]
 --

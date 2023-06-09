@@ -1,5 +1,6 @@
 * xref:index.adoc[Overview]
 * xref:basics.adoc[Basics]
+* xref:overview.adoc[SKALE Chain Overview]
 * xref:zero-gas-fees.adoc[Zero gas fees]
 * xref:skale-chain-sizes.adoc[SKALE Chain sizes]
 * xref:skale-chain-fuel.adoc[SKALE Chain FUEL]
