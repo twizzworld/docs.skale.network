@@ -2,13 +2,26 @@
 
 == SKALE Network & What it does
 
-The SKALE is an Ethereum native multichain network of high-performance blockchains. The network is open-source and is built to scale Ethereum dApps. The Network enables dApp developers to access validator-operated nodes' compute power and storage to run fast, containerized, EVM-compatible SKALE Chains. Validators run and maintain SKALE Nodes, providing distributed computing power and storage to the SKALE Network. 
+The SKALE Network is an open-source, Ethereum-native multichain network built to scale Ethereum dApps with a focus on high-throughput, fast finality, and zero gas fee transactions via the native gas token sFuel.
 
-The entire SKALE Network is managed by SKALE Manager which is a set of over 35 smart contracts deployed on Ethereum Mainnet. These contracts control network functions such as chain creation, validator registration, node selection, node rotation, staking, bounty payment, slashing, and more.  Network users such as validators, delegators, and dApp Developers exchange SKALE (SKL) tokens to provide stake and access network services.
+The Network enables dApp developers to access validator-operated nodes'compute power and storage to run fast, containerized, EVM-compatible chains called SKALE Chains.
 
-The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. https://countdown.skale.network/[Checkout the current stats.]
+SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum-based networks through the native validator secured bridge (IMA), allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
 
-With SKALE, dApps run zero-cost transactions on a Proof-of-Stake chain distributed across a randomly chosen set of 16 nodes, each running a containerized EVM. SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum-based networks, allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
+With SKALE, dApps run zero-cost transactions on dedicated Proof-of-Stake chains distributed across a randomly chosen set of 16 nodes.
+
+Decentralized validator organizations run and maintain SKALE Nodes, providing distributed computing power and storage to the SKALE Network.
+
+Built on the foundation it services, SKALE Network is managed and operated by over 35 smart contracts deployed on Ethereum mainnet that make up SKALE Manager. 
+
+These smart contracts control network functions such as chain creation, validator registration, node selection, node rotation, staking, bounty payment, slashing, and more.
+
+Network users such as validators, delegators, and dApp Developers exchange SKL tokens to provide stake and access network services.
+
+The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. 
+
+https://skale.space/stats[Checkout the current stats.]
+
 
 SKALE Network uses a https://skale.network/blog/technical-highlights/[unique combination of technologies and cryptographic-based approaches] to achieve scalability, security, interoperability, and progressive decentralization:
 
@@ -39,22 +52,23 @@ SKALE Network uses a https://skale.network/blog/technical-highlights/[unique com
 
 == Tools & Compatibility
 
-SKALE Network is designed to work with all Ethereum compatible tools such as API-based wallets and monitoring and analytics. 
+SKALE Network is designed to work with all Ethereum-compatible tools such as API-based wallets and monitoring and analytics. 
 
 xref:develop::index.adoc#_developer_tool_docs[View Tools]
 
 == Access a SKALE Chain
 
 If you don't have a SKALE Chain yet, you can get started by using the public SKALE Chain, Chaos Testnet.
-Checkout the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like rpc endpoint and chain id as well as learn how to attain sFUEL.
+
+Check out the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like RPC endpoint and chain id as well as learn how to attain sFuel.
 
 * link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
 * Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
 == Engage with SKALE Network Community
 
-* Discord - For development and validator-focused discussions, join the https://discord.gg/skale[SKALE Network Discord channel].
-* Telegram - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
-* Twitter - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
-* YouTube - For video-tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
-* Blog - Follow and subscribe to the SKALE Network blog and newsletter https://skale.space/blog[here].
+* *Discord* - For development and validator-focused discussions, join the #dev-talk channel in https://discord.gg/skale[SKALE's Discord server].
+* *Telegram* - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
+* *Twitter* - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
+* *YouTube* - For video tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
+* *Blog* - Follow and subscribe to the SKALE Network blog and newsletter https://skale.space/blog[here].

@@ -56,6 +56,7 @@ Whether starting a new project or migrating from another EVM Chain, checkout som
 == Developer Tool Docs
 
 * https://hardhat.org/hardhat-runner/docs/getting-started[Hardhat Docs]
+* https://portal.thirdweb.com/[thirdweb Docs]
 * https://www.trufflesuite.com/docs[Truffle Suite Docs]
 * https://remix-ide.readthedocs.io/en/latest/#[Remix Docs]
 * https://docs.openzeppelin.com[OpenZeppelin Docs]
