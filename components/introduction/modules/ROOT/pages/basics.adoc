@@ -2,7 +2,7 @@
 
 == SKALE Network & What it does
 
-The SKALE Network is an open-source, Ethereum-native multichain network built to scale Ethereum dApps with a focus on high-throughput, fast finality, and free transactions via the native gas token sFuel.
+The SKALE Network is an open-source, Ethereum-native multichain network built to scale Ethereum dApps with a focus on high-throughput, fast finality, and zero gas fee transactions via the native gas token sFuel.
 
 The Network enables dApp developers to access validator-operated nodes'compute power and storage to run fast, containerized, EVM-compatible chains called SKALE Chains.
 
@@ -67,7 +67,7 @@ Check out the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to ac
 
 == Engage with SKALE Network Community
 
-* *Discord* - For development and validator-focused discussions, join the https://discord.gg/skale[SKALE Dev Talk channel].
+* *Discord* - For development and validator-focused discussions, join the #dev-talk channel in https://discord.gg/skale[SKALE's Discord server].
 * *Telegram* - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
 * *Twitter* - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
 * *YouTube* - For video tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
