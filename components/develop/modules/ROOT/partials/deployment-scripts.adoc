@@ -1,44 +1,52 @@
 [tabs]
 ====
+
 Hardhat::
 +
 --
 
-Hardhat is a popular development environment for deploying and verifying smart contracts on EVM blockchains.
-Hardhat is fully compatible with SKALE chains.
 
-Below are the steps needed to update your hardhat configuration for deploying and verifying your smart contracts to your SKALE chain.
+Hardhat is a popular development environment for deploying and verifying smart contracts on EVM blockchains. 
 
-[TIP]
-Alternatively, you can use this preconfigured repository for SKALE Chaos open testnet https://github.com/skalenetwork/hardhat-skale[SKALE hardhat repository]
+Hardhat is fully compatible with SKALE Network. +
 
-== Overview
-1. Make an env with SKALE configuration 
+
+[discrete] 
+== Overview 
+
+Below are the steps needed to update your hardhat configuration for deploying and verifying your SKALE chain. +
+
+1. Make a `.env`` with SKALE configuration 
 2. Update `hardhat.config` with dotenv variables
-3. Write or add a deploy script using ethers or web3
+3. Write or add a deploy script using ethers.js or web3.js
 4. Deploy with the `--network skale` flag
 5. Verify all dependencies for verification are installed
-6. Verify with contract address and constructors
+6. Verify with returned contract address and any constructors- if any +
 
+[TIP]
+Alternatively, you can use this preconfigured https://github.com/skalenetwork/hardhat-skale[SKALE hardhat repository] set for Chaos open testnet 
+
+[discrete] 
 === CONFIGURATION
 The code below shows how to configure hardhat with your private key and a SKALE RPC endpoint for SKALE Chaos open testnet.
 
-1. To deploy your smart contracts onto SKALE Chaos (this config) or another SKALE chain, you need to write a script using ethers or web3. 
-
+1. To deploy your smart contracts onto SKALE Chaos (or other SKALE chain ), you will need to write a script using ethers or web3. 
 +
-[TIP] 
-For much more information on hardhat configuration visit https://hardhat.org/hardhat-runner/docs/advanced/hardhat-runtime-environment#hardhat-runtime-environment-hre[Hardhat’s Documentation]. 
-2. Copy or Configure your `env` for SKALE Network: https://staging-v3.skalenodes.com/[Staging] | https://mainnet.skalenodes.com/[Mainnet]
+[NOTE] 
+For much more information on hardhat configuration and deployment scripts visit: https://hardhat.org/hardhat-runner/docs/advanced/hardhat-runtime-environment#hardhat-runtime-environment-hre[Hardhat’s Documentation]. 
++
+2. Copy or Configure your `.env` for SKALE Network:
++
 [discrete] 
 ==== Env Config 
 +
-[source, shell]   
+[source, shell, line-comment=%] 
 ---- 
 /* change file name from sample.env -> .env to enable setup to use dotenv */
 
-PRIVATE_KEY= <1>
+PRIVATE_KEY= % <1>
 
-<2>
+% <2>
 SKALE_ENDPOINT=https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix 
 
 CHAIN_ID=0x50877ed6
@@ -49,13 +57,19 @@ BLOCKEXPLORER_URL=https://staging-fast-active-bellatrix.explorer.staging-v3.skal
 
 ETHERSCAN_API_KEY='abc123' /* <-- contents not important just needs populated string */
 ----
-<1> Be sure to add your private key to the .env
-<2> If you require a different chain configuration:  https://staging-v3.skalenodes.com/[Staging] | https://mainnet.skalenodes.com/[Mainnet]
-3. Connect your env with your `hardhat.config`
-[discrete] 
-==== hardhat.config
+<1> Be sure to add your private key to your `.env`
+<2> {empty}
+[IMPORTANT]
+🔭 Additional Chain info for the entire network is available here: https://staging-v3.skalenodes.com/[Staging] | https://mainnet.skalenodes.com/[Mainnet] +
+❗️ Most chains are not open deployment and require whitelisting by the chain owner or operator
 +
-[source, shell]   
+{empty}
++
+3. Connect your `.env` with your `hardhat.config`
+[discrete] 
+==== hardhat.config 
++
+[source, shell,line-comment=%] 
 ---- 
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-etherscan");
@@ -67,78 +81,98 @@ dotenv.config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
-  solidity: "0.8.9",
+ solidity: "0.8.9",
 
-  networks: {
+ networks: {
 
-    skale: {  <!--1-->
-            url: process.env.SKALE_ENDPOINT,
+ skale: { % <1>
+ url: process.env.SKALE_ENDPOINT,
 
-            accounts: [process.env.PRIVATE_KEY] 
-          },
+ accounts: [process.env.PRIVATE_KEY] 
+ },
 
-  },
-  etherscan: { <!--2-->
-    apiKey: {
-      skale: process.env.ETHERSCAN_API_KEY, 
-    },
-    customChains: [ <!--3-->
-      {
-        network: "skale", 
-        chainId: parseInt(process.env.CHAIN_ID), 
-        urls: {
-          apiURL: process.env.API_URL, 
-          browserURL: process.env.BLOCKEXPLORER_URL, 
-        }
-      }
-    ]
-  }
+ },
+ etherscan: { % <2>
+ apiKey: {
+ skale: process.env.ETHERSCAN_API_KEY, 
+ },
+ customChains: [ % <3>
+ {
+ network: "skale", 
+ chainId: parseInt(process.env.CHAIN_ID), 
+ urls: {
+ apiURL: process.env.API_URL, 
+ browserURL: process.env.BLOCKEXPLORER_URL, 
+ }
+ }
+ ]
+ }
 };
 ----
-<1> Update the `networks:` block
-<2> Add the `etherscan:` block
-<3> Within this `etherscan:` block, add a `customChains:` block 
+<1> Update the `networks` block
+<2> Add the `etherscan` block
+<3> Within this `etherscan` block, add a `customChains` block 
 
-
+[discrete]
 === DEPLOYING
 
+
+1. To deploy your smart contracts from hardhat you will need to https://hardhat.org/hardhat-runner/docs/advanced/scripts#writing-scripts-with-hardhat[write or reuse a deployment script] 
++
 [IMPORTANT]
 Certain plugins (e.g., hardhat-deploy ) can check previous transactions. If you are not connected to an Archive Node please use flags to disable the `boolean` for previous transactions check (for hardhat-deploy - skipIfAlreadyDeployed)
-
-
-1. You will need to https://hardhat.org/hardhat-runner/docs/advanced/scripts#writing-scripts-with-hardhat[write or reuse a deployment script] in order deploy your smart contracts to SKALE with hardhat
-2. You can now use the flag `--networks skale` with your deployment scripts.
 +
-*Example deployment command:*
+{empty}
+2. You can now use the flag `--network skale` with your deployment scripts.
++
+****
+[discrete]
+==== Example deployment command:
 
- npx hardhat run ./scripts/<<your script>> --network skale
-
-
+[source, shell] 
+---- 
+npx hardhat run ./scripts/<<your script>> --network skale
+----
+****
 [NOTE]
-After a successful deployment, the returned address will be used in the verification command. Save it before clearing your terminal!  
- 
- 
+After a successful deployment, the returned address will be used in the verification command. Save it before clearing your terminal! 
+
+
+[discrete]
 === VERIFYING
 
 1. Before verifying with hardhat CLI make sure you have installed the necessary dependencies:
 +
+****
+[discrete]
+==== Dependencies:
+
 [source, shell]
 ----
 npm install --save-dev "@ethersproject/providers@^5.4.7" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-chai-matchers@^1.0.0" "@nomiclabs/hardhat-ethers@^2.0.0" "@types/chai@^4.2.0" "@types/mocha@^9.1.0" "@typechain/ethers-v5@^10.1.0" "@typechain/hardhat@^6.1.2" "chai@^4.2.0" "ethers@^5.4.7" "hardhat-gas-reporter@^1.0.8" "solidity-coverage@^0.7.21" "ts-node@>=8.0.0" "typechain@^8.1.0" "typescript@>=4.5.0" "dotenv@^16.0.1" "@openzeppelin/contracts@^4.7.0" "@nomicfoundation/hardhat-toolbox@^1.0.2" "@nomiclabs/hardhat-etherscan@^3.1.5"
 ----
-+
-2. Copy the address returned from deploying, and run the verification command
-+
-[source, shell]
-npx hardhat verify <<contract address>> --network skale "add any simple constructor"
-+
-[NOTE]
-====
-* If you have no constructors, the "add constructor" can be omitted
-* See https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#complex-arguments[Hardhat Docs] for handling complex constructors (multiple type constructors)
-====
+****
 
-After a few moments, this will return a link to the Blockscout verified contract if successful.
+2. Copy the address in the terminal returned from successfully deploying, and run the verification command
++
+****
+[discrete]
+==== Example deployment command:
+
+[source, shell]
+----
+npx hardhat verify <<contract address>> --network skale "add any simple constructor"
+----
+****
+[IMPORTANT]
+🛠️ If you have no constructors, the "add constructor" can be omitted +
+🚧 See https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#complex-arguments[Hardhat Docs] for handling complex constructors (multiple type constructors)
+{empty}
+3. After a few moments, hardhat will return a link to a verified contract if successful.
+{empty}
+[NOTE]
+٭ Verification may take anywhere from a few seconds to a few minutes depending on contract size +
+٭ Upon successful verification, Hardhat will return Etherscan, but please use Blockscout. ( This is an artifact of the plugin )
 --
 
 Truffle::
