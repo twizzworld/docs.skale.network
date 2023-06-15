@@ -1,8 +1,82 @@
-= Overview
+= About SKALE Network
 
-Here are a few notes about getting started with SKALE chains.
+== What is SKALE Network 
 
-== SKALE Network Basics
+The SKALE Network is an open-source, Ethereum-native multichain network built to scale Ethereum dApps with a focus on high-throughput, fast finality, and zero gas fee transactions via the native gas token sFuel.
+
+== What problems does SKALE solve? 
+
+* `Poor web3 user experience`: 
+** end-users required to pay gas fees
+** low speed and latency
+** connectivity and messaging between chains
+* `Scalability Trilemma`
+** speed
+** security
+** decentralization
+* `Strict and ineffective blockchains`
+** Lack of customization and control
+** Lack of horizontal scaling
+** Block gas limits and gas costs limiting what and how data/transactions are put on-chain
+
+== What does SKALE offer?
+
+* `Zero gas fees` - by design, developers and end-users never pay for transactions.
+* `Instant finality` - the fastest chain to finality. Time to finality = blocktime.
+* `High performance`
+** `Throughput` - Baseline of 400 transactions per second (tps) and up to 700 tps at peak
+** `High block gas limit` - 280 million block gas limit allowing optimal throughput and complex transactions/smart contracts to be executed, like xref:tools::skale-specific/ml.adoc[on-chain Machine Learning].
+* `Purpose-built chains`- app-chains and hub-chains for customization and and horizontal scaling
+* `Native bridge` - Fast flexible, offering 18 second finality between chains. Direct support for popular token standards such as ERC-20, ERC-721, and ERC-1155 with additional flexibility for passing any arbitrary data through the low- level messaging protocol
+* `Native oracle` - decentralized and transaction free oracle enabling developers to read off-chain data
+* `Decentralization and fault tolerance` - chains supported by 16 randomly chosen and rotated SKALE Validator nodes, with a BFT tolerance of 1/3.
+* `Layered Blockchain Security` - unique hybrid Layer 1/Layer 2 architecture that partially derives security from Ethereum and with the performance and decentralization of a Layer 1.
+
+The Network enables dApp developers to access validator-operated nodes'compute power and storage to run fast, containerized, EVM-compatible chains called SKALE Chains.
+
+SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum-based networks through the native validator secured bridge (IMA), allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
+
+With SKALE, dApps run zero-cost transactions on dedicated Proof-of-Stake chains distributed across a randomly chosen set of 16 nodes.
+
+Decentralized validator organizations run and maintain SKALE Nodes, providing distributed computing power and storage to the SKALE Network.
+
+Built on the foundation it services, SKALE Network is managed and operated by over 35 smart contracts deployed on Ethereum mainnet that make up SKALE Manager. 
+
+These smart contracts control network functions such as chain creation, validator registration, node selection, node rotation, staking, bounty payment, slashing, and more.
+
+Network users such as validators, delegators, and dApp Developers exchange SKL tokens to provide stake and access network services.
+
+The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. 
+
+https://skale.space/stats[Checkout the current stats.]
+
+
+SKALE Network uses a https://skale.network/blog/technical-highlights/[unique combination of technologies and cryptographic-based approaches] to achieve scalability, security, interoperability, and progressive decentralization:
+
+[%header,cols=2*]
+|===
+|Technology 
+|Impact
+
+|Pooled Validation Proof-of-Stake
+| https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling/[Scalable security model across validators and delegators]
+
+| Hybrid container architecture
+| https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Agile allocation of on-demand composable compute resources across the network]
+
+|Threshold Cryptography
+| Supermajority signature signing with ABBA consensus supports Byzantine Fault Tolerance and resolves https://skale.network/blog/the-data-availability-problem/[data-availability] issues  
+
+|Trusted-Execution Environment
+| https://github.com/skalenetwork/SGXWallet[Fast block signing and multiple chain support using threshold cryptography]
+
+|Asynchronous Binary Byzantine Agreement (ABBA) Consensus
+| https://skale.network/blog/skale-consensus/[Mathematically provable, fast-finality, leaderless, and Byzantine fault tolerant]
+
+|Ethereum Network
+|Public, open-source, and decentralized operation of the SKALE Network via SKALE Manager contracts
+
+|===
 
 Read up on what is the SKALE Network, what development tools can you use, how to get access to SKALE Chains, and where to reach out for help xref:basics.adoc[in our Basics doc].
 
@@ -11,28 +85,27 @@ video::Anb0ZSruWlw[youtube, height=450, width=800, opts="modest"]
 
 See more videos here: https://www.youtube.com/skale
 
-== SKALE Chain Sizes
 
-SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
+== Tools & Compatibility
 
-== SKALE Chain FUEL (sFUEL)
+SKALE Network is designed to work with all Ethereum-compatible tools such as API-based wallets and monitoring and analytics. 
 
-SKALE Chains operate with sFUEL, which unlike ETH has no monetary value, but like ETH is used to conduct transactions. xref:skale-chain-fuel.adoc[Learn more about managing sFUEL on your SKALE Chain].
+xref:develop::index.adoc#_developer_tool_docs[View Tools]
 
-== Providers
+== Access a SKALE Chain
 
-You can use various connection abstractions to interface with SKALE Chains, like Web3.js and Ethers.js. xref:recipes::libraries/providers.adoc[Read more about this here].
+If you don't have a SKALE Chain yet, you can get started by using the public SKALE Chain, Chaos Testnet.
 
-== Using Remix
+Check out the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like RPC endpoint and chain id as well as learn how to attain sFuel.
 
-You can use Remix as an IDE for deploying to SKALE Chains. xref:tools::third-party-tools/using-remix.adoc[Read more about using Remix here].
+* link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
+* Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
 
-== Deployment
+== Engage with SKALE Network Community
 
-You can use a variety of tooling to deploy to SKALE Chains, such as Hardhat, Truffle, Node.js, and Remix. xref:develop::deployment.adoc[Read more about deployment scripts here].
+* *Discord* - For development and validator-focused discussions, join the #dev-talk channel in https://discord.gg/skale[SKALE's Discord server].
+* *Telegram* - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
+* *Twitter* - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
+* *YouTube* - For video tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
+* *Blog* - Follow and subscribe to the SKALE Network blog and newsletter https://skale.space/blog[here].
 
-== Other
-
-* xref:overview.adoc[More about SKALE Chains]
-* xref:tools::filestorage/index.adoc[Filestorage]
-* xref:ima::index.adoc[Ethereum <> SKALE Bridge: Interchain Messaging Agent (IMA)]
