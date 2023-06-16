@@ -1,0 +1,15 @@
+= Libraries
+
+Libraries exist to help developers utilize solutions to problems that have already been solved without recreating them, i.e., "Don't Reinvent the Wheel."
+While many of the libraries listed here in the docs are JavaScript-based, libraries that are compatible with SKALE exist in my languages.
+
+The following are various libraries built by the SKALE Community and the greater blockchain community to help other developers build more efficiently and effectively for both Web3 and SKALE.
+
+== Chain Agnostic Libraries
+
+=== WAGMI
+
+link:https://wagmi.sh[wagmi] is a JavaScript-based library that enables simplified access to Ethereum. This library is available to use within React-based applications
+through the built-in hooks, developers can call the underlying NPM packages to access the libraries without React.
+
+xref:using-wagmi[Add wagmi to your dApp]

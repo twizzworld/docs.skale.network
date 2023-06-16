@@ -1,0 +1,57 @@
+= Delegation FAQ
+
+== Can delegators choose any validators?
+
+Delegators can choose to delegate their tokens to any registered SKALE validator. The main factors for delegators in choosing a validator will include the node performance, the commission rate set by the validator, and the reputation/experience of the validator. After researching validators and understanding the risks involved, delegators can decide the number of tokens they want to delegate and which validator they will delegate to.
+
+Note that validators can choose to decline individual delegations or not accept any at all, so please check on your delegation once you submitted it.
+
+== Can validators be swapped?
+
+Yes. If the delegation hasn't been accepted yet the token holder can cancel and delegate to a new validator.
+
+If the delegation has been accepted, the delegator has to first undelegate. Then once the next epoch starts, the delegator can make a delegation request to another validator for the next epoch. In this case the delegator will loose one month of delegation. This will be changed in the future.
+
+== How can I stake the SKL token?
+
+xref:index.adoc#_how_to_delegate[See the delegation guide here].
+
+== How can I calculate my staking rewards?
+
+You can use the ConsenSys Activate Calculator here:
+https://activate.codefi.network/staking/skale/calculator
+
+or you can use the Staking Rewards calculator here:
+https://www.stakingrewards.com/calculator/?asset=skale
+
+== How often can rewards be claimed?
+
+Rewards are distributed every month and will be available for delegators to claim every 1st day of each month.
+
+More information can be found here: https://skale.network/blog/network-bounties-and-delegation-workflow/
+
+== How can I renew delegation of my SKL tokens after the delegation period ends?
+
+Your SKL tokens will automatically be redelegated to the same validator for the same delegation period, unless you choose to manually turn off automatic renewal.
+
+== Is there a minimum delegation/staking period?
+
+Yes, there is a minimum delegation/staking period of 2 epochs (2 months). Additional delegation periods may be added in the future.
+
+== What are the risks of staking?
+
+Currently, there is no actual risk to the stake, as the main penalty for validators at this phase is bounty reduction if a validator fails to stay xref:network::compliance-requirements.adoc[in compliance with minimum requirements]. In future network phases, the stake will be slashed if a validator exhibits malicious behavior.
+
+== What's the unbonding period?
+
+There is no unbonding period, but only a delegation period and whenever you request undelegation you need to wait until your delegation period ends, at the end of every month.
+
+== How do delegator rewards work?
+
+If an SKL token holder decides to delegate SKL tokens with a validator, the delegator will receive token rewards based on the number of tokens they delegated, the commission percentage set by the validator, and the amount of time they stake for.
+Initially only the 2-month epoch and associated with it rewards is available. In the future delegators will receive a bonus dependent on the length of time they choose to lock up and stake. 
+The staked tokens are locked during the selected staking period length. The longer delegators they delegate their tokens up, the more rewards they can receive. These rewards are distributed out and liquid at the end of every epoch. Once chosen, staked tokens are locked until the period they chose is complete.
+
+== Why can't I seem to claim all of my rewards, or why is my reward calculation incorrect?
+
+If a delegator doesn't claim staking rewards for an extended period of time (for example, > 12 months), there exists a technical limitation to retrieve all rewards in one transaction. The oldest rewards must be retrieved first in a withdraw transaction. Once this is done, the remaining reward balance will be recalculated to the show the remaining and correct value.

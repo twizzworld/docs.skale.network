@@ -1,0 +1,19 @@
+= SKALE Specific Tools
+
+While known for its Zero Gas Fees and incredibly fast time-to-finality (TTF); SKALE Chains offer several additional tools.
+These include the xref:oracles/oracle.adoc[SKALE Oracle], xref:filestorage/index.adoc[On-Chain Filestorage], as well as xref:random-number-generator[On-Chain Random Number Generation], and xref:ml[Machine Learning].
+
+
+== Machine Learning (ML)
+
+SKALE ML enables developers to connect trained models to their smart contracts. This allows developers to create increasingly dynamic smart contracts.
+
+xref:ml[Use SKALE ML Now]
+
+== Random Number Generator (RNG)
+
+Often when building smart contracts that require random secure random numbers, developers have to lean on external solutions that cost them per request.
+Built into the SKALE Network is the ability for developers to access secure random number generation directly in Solidity without leaning on an external service 
+and without paying any additional fees.
+
+xref:random-number-generator[Add RNG to your Smart Contracts]

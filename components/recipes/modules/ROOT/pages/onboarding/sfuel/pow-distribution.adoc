@@ -2,7 +2,7 @@
 
 Distributing sFUEL through Proof-of-Work is a two-step process where the first step is optional depending on your SKALE Chain.
 
-== Step I | Deploy sFUEL Distribution Contract
+== Step 1 | Deploy sFUEL Distribution Contract
 
 [NOTE]
 If you are building on a SKALE Hub or Chaos Testnet, checkout the xref:develop::sfuel/distribution/proof-of-work-distribution.adoc#_available_on_chain_faucets[deployed contracts] and skip to xref:_step_ii_setup_dapp[Step II].
@@ -68,7 +68,7 @@ BROWSER_URL=https://some-amazing-schain-name.explorer.mainnet.skalenodes.com
 ```
 
 [WARNING]
-The private key added is linked to an Ethereum Address. That Ethereum Address must have Deployer Role -- see xref:develop::skale-chain-access-control.adoc#__whitelist[SKALE Chain Access Control] -- and at least as much sFUEL as defined in the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/config.json#L5[deployment config here]. Deployment will fail without confirming these.
+The private key added is linked to an Ethereum Address. That Ethereum Address must have Deployer Role -- see xref:skale-chain-administration::skale-chain-access-control.adoc#__whitelist[SKALE Chain Access Control] -- and at least as much sFUEL as defined in the link:https://github.com/Dirt-Road-Development/sfuel-distribution-contract/blob/25bd919f8c5edb15dccb5cb3b80d92f3e247101e/config.json#L5[deployment config here]. Deployment will fail without confirming these.
 
 [NOTE]
 If the deployer address does not have DEPLOYER_ROLE, the transaction will fail with an error on the explorer that says: +++<p style="color: red;">Error: Out of Gas</p>+++
@@ -84,9 +84,9 @@ chmod +x ./deploy_secure.sh && ./deploy_secure.sh
 
 The contract should deploy in a few seconds. Once deployed, the contract will automatically begin to verify itself on the block explorer. Do not interrupt this process if you want the contract verified. Make sure to save this contract address, you will need it for Step II of this recipe.
 
-== Step II | Setup dApp
+== Step 2 | Setup dApp
 
-Step II of this recipe uses Next.Js, Wagmi, Rainbowkit, and Proof of Work to distribute sFUEL to new users of your dApp.
+Step 2 of this recipe uses Next.Js, Wagmi, Rainbowkit, and Proof of Work to distribute sFUEL to new users of your dApp.
 
 === Project Setup
 

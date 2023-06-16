@@ -19,7 +19,7 @@ xref:recipes::index.adoc[[.card-title]#Developer Recipes# [.card-body]#pass:q[Gu
 --
 [.card.card-learn]
 --
-xref:skaled::index.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Learn about the technology powering the network]#]
+xref:introduction::overview.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Learn about the technology powering the network]#]
 --
 [.card.card-learn]
 --
@@ -35,7 +35,7 @@ xref:develop::sfuel/index.adoc[[.card-title]#SKALE Fuel (sFUEL)# [.card-body]#pa
 --
 [.card.card-learn]
 --
-xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A native Web3 storage layer available on each chain]#]
+xref:tools::filestorage/index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A native Web3 storage layer available on each chain]#]
 --
 [.card.card-learn]
 --
@@ -43,7 +43,7 @@ link:technology::index.adoc[[.card-title]#SKALE Technology# [.card-body]#pass:q[
 --
 [.card.card-learn]
 --
-xref:validators::delegation.adoc[[.card-title]#Delegation# [.card-body]#pass:q[Delegate SKL tokens to validators]#]
+xref:delegators::index.adoc[[.card-title]#Delegation# [.card-body]#pass:q[Delegate SKL tokens to validators]#]
 --
 
 ++++

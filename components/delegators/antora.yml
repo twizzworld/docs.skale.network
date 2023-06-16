@@ -1,0 +1,5 @@
+name: delegators
+title: Delegators
+version: ~
+nav:
+  - modules/ROOT/nav.adoc

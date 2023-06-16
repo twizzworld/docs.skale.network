@@ -3,13 +3,18 @@ site:
   robots: allow
 content:
   sources:
+
+    - url: .
+      branches: HEAD
+      start_path: components/delegators
+
     - url: .
       branches: HEAD
       start_path: components/home
 
     - url: .
       branches: HEAD
-      start_path: components/learn
+      start_path: components/introduction
 
     - url: .
       branches: HEAD
@@ -25,11 +30,23 @@ content:
 
     - url: .
       branches: HEAD
-      start_path: components/filestorage
+      start_path: components/infrastructure
+
+    - url: .
+      branches: HEAD
+      start_path: components/skale-chain-administration
+
+    - url: .
+      branches: HEAD
+      start_path: components/partnership
 
     - url: .
       branches: HEAD
       start_path: components/technology
+
+    - url: .
+      branches: HEAD
+      start_path: components/tools
 ui:
   bundle:
     url: ./doc-ui/build/sn-docs-ui-bundle.zip

@@ -2,7 +2,7 @@
 :experimental:
 
 [NOTE]
-Need a development SKALE Chain to deploy to? xref:ima-sdk.adoc[Checkout the IMA SDK instructions].
+Need a development SKALE Chain to deploy to? xref:index.adoc[Checkout the Chaos Testnet endpoint].
 
 Deploying to SKALE is similar to deploying to the Ethereum blockchain. There are a few changes you will need to make within your deployment scripts. When using these code samples, please be sure to modify the code appropriately before running anything in production!
 

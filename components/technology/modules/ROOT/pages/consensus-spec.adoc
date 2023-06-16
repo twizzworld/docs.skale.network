@@ -30,8 +30,8 @@ SKALE chain is composed of a fixed set of `N` network `nodes` that process user 
 . broadcast `DA proofs` to peers (_DA broadcast phase_)
 . run `block consensus` for each `block proposal` to select a `winning proposal` (_block consensus phase_)
 . sign the statement on which proposal won (`block signature share`) and broadcast it to other nodes. Wait until receipt of 2/3 of `block signature shares` and merge them 
-into `block signature`. 
-. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block consensus phase_)
+into `block signature`. (_block signature phase_)
+. commit the `winning proposal` if `node` has it, otherwise download it from other nodes and commit it. The `winning proposal` becomes a`committed block` (_block finalization phase_)
 . process the `committed block` through `Ethereum Virtual Machine` to transition to the new `EVM state`. (_EVM processing phase_)
 . store `committed blocks` and `EVM state`(_storage phase_)
 
@@ -159,6 +159,14 @@ Once the `sending node` collects `DA signatures` from `2/3` of nodes, it will me
 
 Once a `node` obtains a `DA proof` for its `block proposal`, it will broadcast `DA proof` to other nodes.
 
+Note that `DA proof` requirement solves two problems:
+
+First, a `block proposal` that has a `DA proof` is _guaranteed to be widely distributed_.
+
+Second, since `DA proof` creation requires a 2/3 signature of nodes, the proposal is _guaranteed to be unique_. 
+A malicious proposal is not able to create two different proposals an obtain DA proofs for both of them.
+
+
 ==== Block consensus phase
 
 Once a node receives `DA proofs` from 2/3 of nodes, the node will start the block consensus phase.
@@ -176,8 +184,37 @@ that `1` was initially voted by at least `1' honest nodes. That, in turn, guaran
 
 If a `block consensus` phase outputs `1` for several proposals, the proposal with highest priority is selected. The priority changes from one block to another so that on average each node has similar probability to win.
 
-== Detailed description
+==== Block  signature phase
 
+After `block consensus` decides on the winning block, each node will sign the statement specifying the winning proposal (`block signature share`) and broadcast it to other nodes. The node will then wait until receipt of 2/3 of `block signature shares` and merge the shares into `block signature`.
+
+==== Block  finalization phase.
+
+On completion of _block signature phase_, all honest nodes will have the `block signature` but some of them may not have the block itself. 
+
+This can happen due to a malicious proposer, that intentionally does not send its proposals to some of the all nodes in order to break the liveliness property of the blocklchain. It can also happen due to proposer crashing, or due to slow network.
+
+Fortunately, `DA proof` requirement solves the problem.  It is guaranteed, that `block proposal` that wins _block consensus phase_ has `DA proof`, and is, therefore, widely distributed across the network.
+
+Therefore, during _block finalization_phase_ If a `node` does not happen to have the `winning proposal`, it will simply connect to other `nodes` to download it from them. 
+
+Note that 2/3 of the nodes are guaranteed to have a copy of the proposal after _DA proof phase_
+
+==== EVM processing phase
+
+After block finalization the block is present on the node.
+
+It will be then processed through Ethereum Virtual Machine to update `EVM state`.
+
+==== Storage phase
+
+`Committed block` will now be stored in persistent storage, and 
+`EVM state` will be updated in persistent storage.
+
+The node will move into _block proposal phase_ for the next block.
+
+
+== Protocol Deep dive 
 === Achieving eventual delivery by retransmissions
 
 Since real Internet sometimes drops messages on the way without delivering them, _the eventual delivery guarantee is achieved in practice by retransmissions_. The `sending node` will make _multiple attempts to transfer_  `message` to the `receiving node`, until the transfer is successful and is confirmed by the `receiving node`.
@@ -381,6 +418,7 @@ Once a block proposal is selected to become a block by consensus, it is signed b
 Each node will keep a pending transactions queue. The first node that receives a transaction will attempt to propagate it to all other nodes in the queue. A user client software may also directly submit the transaction to all nodes.
 
 When a node commits a block to its blockchain, if will remove the matching transactions from the transaction queue.
+
 
 === Gas fees
 
