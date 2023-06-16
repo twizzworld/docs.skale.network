@@ -1,6 +1,6 @@
-== How SKALE Network Derives Security from Ethereum
+== How SKALE Derives Security from Ethereum
 
-This document summarizes how SKALE Network, an Ethereum multi-chain scaling network, derives security from the Ethereum blockchain. This article will cover key components of the SKALE Manager contracts, including SKL tokens, stake and delegation, SKALE Validator and SKALE Node registration, SKALE Chain creation, Distributed Key Generation (DKG), and Node Rotation.
+This document summarizes how SKALE Network, an Ethereum-compatible multi-chain scaling network, partially derives security from the Ethereum blockchain. This article will cover key components of the SKALE Manager contracts, including SKL tokens, stake and delegation, SKALE Validator and SKALE Node registration, SKALE Chain creation, Distributed Key Generation (DKG), and Node Rotation.
 
 === SKL Tokens
 
