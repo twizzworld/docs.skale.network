@@ -13,7 +13,7 @@ See more videos here: https://www.youtube.com/skale
 
 == SKALE Chain Sizes
 
-SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:skale-chain-sizes.adoc[Read more here].
+SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:infrastructure::skale-chain-sizes.adoc[Read more here].
 
 == SKALE Chain FUEL (sFUEL)
 
