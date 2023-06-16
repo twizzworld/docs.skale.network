@@ -24,17 +24,19 @@ The SKALE Network is an open-source, Ethereum-native multichain network built to
 * `Zero gas fees` - by design, developers and end-users never pay for transactions.
 * `Instant finality` - the fastest chain to finality. Time to finality = blocktime.
 * `High performance`
-** `Throughput` - Baseline of 400 transactions per second (tps) and up to 700 tps at peak
+** `Throughput` - Baseline of 400 transactions per second (tps) and up to 700 tps at peak.
 ** `High block gas limit` - 280 million block gas limit allowing optimal throughput and complex transactions/smart contracts to be executed, like xref:tools::skale-specific/ml.adoc[on-chain Machine Learning].
-* `Purpose-built chains`- app-chains and hub-chains for customization and and horizontal scaling
-* `Native bridge` - Fast flexible, offering 18 second finality between chains. Direct support for popular token standards such as ERC-20, ERC-721, and ERC-1155 with additional flexibility for passing any arbitrary data through the low- level messaging protocol
-* `Native oracle` - decentralized and transaction free oracle enabling developers to read off-chain data
+* `Purpose-built chains`- app-chains and hub-chains for customization and and horizontal scaling.
+* `Native bridge` - Fast flexible, offering 18 second finality between chains. Direct support for popular token standards such as ERC-20, ERC-721, and ERC-1155 with additional flexibility for passing any arbitrary data through the low-level messaging protocol.
+* `Native oracle` - decentralized and transaction free oracle enabling developers to read off-chain data.
 * `Decentralization and fault tolerance` - chains supported by 16 randomly chosen and rotated SKALE Validator nodes, with a BFT tolerance of 1/3.
 * `Layered Blockchain Security` - unique hybrid Layer 1/Layer 2 architecture that partially derives security from Ethereum and with the performance and decentralization of a Layer 1.
 
-The Network enables dApp developers to access validator-operated nodes'compute power and storage to run fast, containerized, EVM-compatible chains called SKALE Chains.
+== How does SKALE do this?
 
-SKALE chains can exchange transactions or messages with other SKALE Chains and Ethereum-based networks through the native validator secured bridge (IMA), allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
+The Network enables dApp developers to access validator-operated nodes' compute power and storage to run fast, containerized, EVM-compatible chains called SKALE Chains.
+
+SKALE chains can exchange transactions or messages with other SKALE Chains and the Ethereum Mainnet through the native validator secured bridge (IMA), allowing dApp developers to use SKALE for powering their dApps while enabling token and message transfers to and from Ethereum or other chains.
 
 With SKALE, dApps run zero-cost transactions on dedicated Proof-of-Stake chains distributed across a randomly chosen set of 16 nodes.
 
@@ -49,7 +51,6 @@ Network users such as validators, delegators, and dApp Developers exchange SKL t
 The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. 
 
 https://skale.space/stats[Checkout the current stats.]
-
 
 SKALE Network uses a https://skale.network/blog/technical-highlights/[unique combination of technologies and cryptographic-based approaches] to achieve scalability, security, interoperability, and progressive decentralization:
 
@@ -85,10 +86,13 @@ video::Anb0ZSruWlw[youtube, height=450, width=800, opts="modest"]
 
 See more videos here: https://www.youtube.com/skale
 
+== SKALE Chain Sizes
+
+SKALE Chains can be configured into different sizes - sizes being the amount of resource allocation that each of the 16 nodes provides. xref:infrastructure::skale-chain-sizes.adoc[Read more here].
 
 == Tools & Compatibility
 
-SKALE Network is designed to work with all Ethereum-compatible tools such as API-based wallets and monitoring and analytics. 
+SKALE Network is designed to work with non-custodial wallets, chain agnostic API-based wallets, or those with dedicated support for the SKALE Network, monitoring platforms, and analytic solutions.
 
 xref:develop::index.adoc#_developer_tool_docs[View Tools]
 
