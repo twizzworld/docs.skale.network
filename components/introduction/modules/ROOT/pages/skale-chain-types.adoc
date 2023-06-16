@@ -10,7 +10,7 @@ Hubs are community-operated SKALE chains that function as web3 service layers th
 App chains are dedicated SKALE chains which provide high-performance throughput to individual applications, such as https://www.cryptoblades.io[Cryptoblades] or https://exorde.network[Exorde]. 
 
 == SKALE Hubs- https://mainnet.skalenodes.com/#/[Mainnet]
-[options="header"]
+[options="header", width=50%]
 |=======================
 |Hub |Chain Name      |Use-Case
 |https://staging-v3.skalenodes.com/fs/staging-legal-crazy-castor/f63bb14e7e9bd2882957129c3e3197e6d18933b4/europa/index.html[Europa]    |elated-tan-skat     | DeFi
