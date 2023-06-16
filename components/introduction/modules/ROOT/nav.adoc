@@ -3,6 +3,7 @@
 * xref:zero-gas-fees.adoc[Zero gas fees]
 * xref:skale-hybrid-layer.adoc[SKALE Hybrid Layer Architecture]
 * xref:skale-and-ethereum-security.adoc[Partial Security from Ethereum]
+* xref:skale-chain-types.adoc[SKALE Chain Types]
 * xref:skale-chain-fuel.adoc[SKALE Chain FUEL]
 * xref:mainnet-beta.adoc[Mainnet Beta]
 * xref:faq.adoc[General FAQs]
