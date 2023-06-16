@@ -1,0 +1,30 @@
+= Getting Started with Covalent
+
+Covalent provides a unified API delivering visibility across many blockchain networks. Developers can use Covalent&#39;s API to build dashboards, NFT galleries, and more.
+
+Developers can pull SKALE chain data with Covalent&#39;s unified API including:
+
+* Token balances per address
+* NFT transactions for contract
+* Historical transactions per address
+* Get all contract metadata
+
+Currently, Covalent API supports the following Hubs:
+
+* https://www.covalenthq.com/docs/networks/calypso-hub/[Calypso NFT Hub]
+* https://www.covalenthq.com/docs/networks/europa-hub/[Europa Hub]
+* https://www.covalenthq.com/docs/networks/nebula-gaming-hub/[Nebula Gaming Hub]
+
+And the following dapp-specific chains:
+
+* https://www.covalenthq.com/docs/networks/cryptoblades-omnus/[Cryptoblades/Omnus]
+* https://www.covalenthq.com/docs/networks/razor/[Razor Network on SKALE]
+* https://www.covalenthq.com/docs/networks/exorde/[Exorde]
+
+== Covalent's Increment
+
+Along with data indexing, Covalent's Increment provides a No-Code and SQL-Based Analytics platform, and the above chains' data is available for Increment analytics.
+
+image:daily_txn_omnus.png[]
+
+For more information, check out: https://www.covalenthq.com/docs/

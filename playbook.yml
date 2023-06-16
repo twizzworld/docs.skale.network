@@ -2,15 +2,22 @@ site:
   title: SKALE Network Documentation 
   start_page: ROOT::index.adoc
   robots: allow
+  keys:
+    google_analytics: 'G-0GD5VRL7PP'
 content:
   sources:
+
+    - url: .
+      branches: HEAD
+      start_path: components/delegators
+
     - url: .
       branches: HEAD
       start_path: components/home
 
     - url: .
       branches: HEAD
-      start_path: components/learn
+      start_path: components/introduction
 
     - url: .
       branches: HEAD
@@ -23,14 +30,22 @@ content:
     - url: .
       branches: HEAD
       start_path: components/develop
+    
+    - url: .
+      branches: HEAD
+      start_path: components/infrastructure
 
     - url: .
       branches: HEAD
-      start_path: components/filestorage
+      start_path: components/skale-chain-administration
 
     - url: .
       branches: HEAD
       start_path: components/technology
+
+    - url: .
+      branches: HEAD
+      start_path: components/tools
 
     - url: .
       branches: HEAD
@@ -41,10 +56,6 @@ content:
       start_path: docs
 
     - url: https://github.com/skalenetwork/filestorage.js
-      branches: docs-v*
-      start_path: docs
-
-    - url: https://github.com/skalenetwork/skaled
       branches: docs-v*
       start_path: docs
 

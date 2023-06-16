@@ -1,4 +1,4 @@
-== Invisible Web3
+= Invisible Web3
 
 Creating a seamless user onboarding experience is essential for the
 success of any dApp* A well-designed onboarding process can increase
@@ -8,7 +8,7 @@ demonstrate how to set up an efficient onboarding system using the
 https://github.com/quorumcontrol/skale-boarder[@skaleboarder/safe-tools]
 npm package.
 
-=== Tooling
+== Tooling
 
 To build our onboarding system, we will use
 https://hardhat.org/%5Bhardhat%5D and
@@ -17,11 +17,11 @@ with https://www.rainbowkit.com/%5Brainbowkit%5D and
 https://nextjs.org/%5Bnextjs%5D* These tools provide a solid foundation
 for creating a user-friendly and efficient onboarding process.
 
-==== Prerequisites
+=== Prerequisites
 
 * Install Node.js
 
-=== Getting Started
+== Getting Started
 
 * Initialize a new Hardhat project by running `hardhat init` in the
 terminal* This will create a new directory with the basic structure of a

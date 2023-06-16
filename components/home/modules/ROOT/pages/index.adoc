@@ -1,6 +1,8 @@
-= Documentation
+= SKALE Documentation
 
-Explore documentation about the SKALE Network, developing on SKALE, validating and delegating, and about SKALE's technologies.
+Welcome to the SKALE Network documentation. The documentation has information related to building on SKALE, delegated to validators, background and information related to the technology, and general information for those new to SKALE. 
+
+Checkout some of the most visited sections below and jump to a section relevant to you, or go xref:_about_skale_network[here] for more information about the network.
 
 ++++
 <div class="card-section">
@@ -9,35 +11,39 @@ Explore documentation about the SKALE Network, developing on SKALE, validating a
 
 [.card.card-learn]
 --
-xref:_ethereum_native[[.card-title]#Ethereum Native# [.card-body]#pass:q[Built, supported and aligned with Ethereum.]#]
+xref:develop::index.adoc[[.card-title]#Build on SKALE# [.card-body]#pass:q[Building in Web3 has never been easier]#]
 --
 [.card.card-learn]
 --
-xref:_multichain[[.card-title]#Multichain# [.card-body]#pass:q[Supports an unlimited number of chains.]#]
+xref:recipes::index.adoc[[.card-title]#Developer Recipes# [.card-body]#pass:q[Guided tutorials to help you unlock the power of SKALE]#]
 --
 [.card.card-learn]
 --
-xref:skaled::index.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Enabling dApps to run decentralized, fast and cost-effectively.]#]
+xref:introduction::overview.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Learn about the technology powering the network]#]
 --
 [.card.card-learn]
 --
-xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A Web3 storage layer available on each chain.]#]
+xref:ima::index.adoc[[.card-title]#SKALE IMA Bridge# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptography.]#]
 --
 [.card.card-learn]
 --
-xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptography.]#]
+xref:metaport::index.adoc[[.card-title]#Metaport# [.card-body]#pass:q[UI Widget to add bridging to your dApp]#]
 --
 [.card.card-learn]
 --
-xref:validators::delegation.adoc[[.card-title]#Delegation# [.card-body]#pass:q[Delegate SKL tokens to validators.]#]
+xref:develop::sfuel/index.adoc[[.card-title]#SKALE Fuel (sFUEL)# [.card-body]#pass:q[The secret to Zero Gas Fees]#]
 --
 [.card.card-learn]
 --
-xref:validators::index.adoc[[.card-title]#Validators# [.card-body]#pass:q[Run SKALE Nodes to support the SKALE Network.]#]
+xref:tools::filestorage/index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A native Web3 storage layer available on each chain]#]
 --
 [.card.card-learn]
 --
-link:https://github.com/skalenetwork[[.card-title]#Open Source# [.card-body]#pass:q[Code and development is open sourced.]#]
+link:technology::index.adoc[[.card-title]#SKALE Technology# [.card-body]#pass:q[Deep dive into the technology]#]
+--
+[.card.card-learn]
+--
+xref:delegators::index.adoc[[.card-title]#Delegation# [.card-body]#pass:q[Delegate SKL tokens to validators]#]
 --
 
 ++++
@@ -112,4 +118,3 @@ Join the SKALE Network developer community https://discord.gg/skale[Discord serv
 * https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Containerization: The Future of Decentralized Infrastructure]
 * https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure-2[Containerization: The Future of Decentralized Infrastructure, part 2]
 * https://skale.network/blog/the-skale-network-validator-faq/[The SKALE Network Validator FAQ]
-* https://skale.network/blog/delegators/[Delegators]

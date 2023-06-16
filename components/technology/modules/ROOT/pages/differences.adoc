@@ -1,0 +1,103 @@
+= SKALE Chain Differences from Ethereum
+
+SKALE Chains operate similar to Ethereum with additional features and differences that make SKALE Chains a more suitable solution to run your dApp. 
+
+== Zero gas fee transactions
+
+Transactions on a SKALE Chain have zero gas fees. This model operates by using a gas token similar to Ethereum called sFUEL. SKALE Fuel (sFUEL) has no monetary value meaning that executing transactions and state changes do not incur a cost, but do consume the gas token (sFUEL). sFUEL provides a way to meter or limit transactions on a given SKALE Chain in order to prevent malicious execution.
+
+== Empty Block Intervals
+
+Your SKALE Chain will continue to mine blocks in the absence of transactions. Empty blocks are used to signal to the SKALE Network that your SKALE Chain is healthy and operational. The default empty block interval is 10 seconds. When transactions fill blocks, blocks are mined as fast as possible, up to sub-second blocks depending on validator-node performance.
+
+== Block Gas Limit
+
+SKALE Chains have a block gas limit of 268435455.
+
+== Contract Code Size Limit
+
+SKALE chains have a default code size limit of 64 kB, and are configurable at chain deployment to code size limits of 16, 32, 64, 128, 256, 512, 1024 kB and unlimited. (Ethereum has a contract code size limit of 24576 bytes.)
+
+== JSON-RPC Methods
+
+SKALE Chains have a modified JSON-RPC interface compared to Geth Ethereum clients. In general, this shouldn't raise any incompatibilities unless your dApp requires particular methods. 
+
+xref:json-rpc-interface.adoc[See the JSON-RPC interface Compatibility table for more information].
+
+== SKALE Chain Rotation
+
+SKALE Chains run across 16 randomly chosen nodes. Your SKALE Chain can be configured to randomly swap out nodes for other nodes in the network. This helps reduce any potential collusion over time. To the SKALE Chain owner and end-users, this is a process that runs behind the scenes. The incoming node will gather all previous blocks, transactions, etc from the SKALE Chain in a catchup procedure, and the updated node set will form a new BLS public key through DKG, and all subsequent blocks will be signed with the new BLS public key.
+
+== Block Rotation
+
+SKALE Chains don't store a full history of all blocks. Each SKALE Chain is allocated an amount of storage on each node, and when this limit is reached, older blocks are discarded to ensure SKALE chains and Nodes don't run out of space. For dApps that need access to older blocks, you can retrieve snapshots from your SKALE Chain and store them in Filestorage or third-party services such as Arweave.
+
+== Snapshotting
+
+To support rotation, SKALE Chains create regular Btrfs snapshots. 
+
+xref:snapshots.adoc[See the Snapshots document for more information].
+
+== DDoS Protection
+
+Besides limiting the gas consumption rate on SKALE Chains, each chain also comes with a configurable DDOS protection system that allows the Chain to detect peak (per second) and long load (per minute) JSON-RPC calls and WS/WSS connections. The protection enables the chain to survive in high load situations by banning caller origins for a preset number of seconds.
+
+An example configuration is: 
+
+```json
+ "unddos": {
+        "origins": [
+            {
+                "origin": [ "192.168.1.1", "127.0.0.*", "::1" ], 
+                "ban_lengthy": 0,
+                "ban_peak": 0,
+                "max_calls_per_minute": 1000000000,
+                "max_calls_per_second": 1000000000,
+                "max_ws_conn": 65535
+            },
+            {
+                "origin": [ "*" ],
+                "ban_lengthy": 120,
+                "ban_peak": 15,
+                "max_calls_per_minute": 5000,
+                "max_calls_per_second": 1500,
+                "max_ws_conn": 20
+            }
+        ]
+    },
+```
+
+The first "origins" block configures allowed unlimited load from specified IP origins. The second origins block configures all call origins allowed, but allow 1500 JSON-RPC calls per second and 5000 calls per minute. If the calls exceed the per second limit, "ban_peak" bans the caller for 15 seconds. If the calls exceed the per minute limit, "ban_lengthy" bans the caller for 120 seconds. And finally, "max_ws_conn" allows for 20 concurrent connections from a single IP.
+
+The configuration settings can be expanded to limit specific JSON-RPC calls, like `eth_blockNumber`. For example:
+
+```json
+{
+  "origins": [
+    {
+      "ban_lengthy": 120,
+      "ban_peak": 15,
+      "custom_method_settings": {
+        "eth_blockNumber": {
+          "max_calls_per_minute": 150000,
+          "max_calls_per_second": 5000
+        }
+      },
+      "max_calls_per_minute": 15000,
+      "max_calls_per_second": 500,
+      "max_ws_conn": 50,
+      "origin": [
+        "*"
+      ]
+    }
+  ]
+}
+```
+
+And DDoS protection can be completely disabled with the following config:
+
+```json
+ "unddos": {
+        "enabled": false,
+ }
+```

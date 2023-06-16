@@ -82,11 +82,11 @@ SKALE Filestorage is available on each SKALE Chain. This feature lets developers
 
 Try storing some files directly onto your SKALE Chain. You can learn how in the documentation here:
 
-* https://docs.skale.network/filestorage[Filestorage, window=_blank]
+* xref:tools::filestorage/index.adoc[Filestorage, window=_blank]
 
 Now try accessing  the out-of-the-box web server to serve assets via the web. Learn how to here:
 
-* https://docs.skale.network/filestorage/web3-server[Fielstorage: Web3 Server, window=_blank]
+* xref:tools::filestorage/web3-server.adoc[Fielstorage: Web3 Server, window=_blank]
 
 == Certification
 

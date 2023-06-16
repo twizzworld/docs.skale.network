@@ -2,18 +2,23 @@
 * xref:favorites.adoc[Favorite Recipes]
 * xref:tracks.adoc[Tracks]
 
+* Filestorage
+** xref:filestorage/deploy-a-website-on-skale.adoc[Deploy a decentralized website using SKALE Filestorage]
+
 * xref:nfts/index.adoc[Non-Fungible Tokens]
 ** xref:nfts/0-mint-your-first-nft.adoc[Mint your first  NFT]
 
 * Onboarding
 ** sFUEL Distribution
-*** xref:onboarding/sfuel/api-distribution.adoc[API Distribution]
 *** xref:onboarding/sfuel/pow-distribution.adoc[Proof of Work Distribution]
 ** xref:onboarding/invisible-web3.adoc[Invisible Web3]
 
+* Popular Libraries
+** xref:libraries/providers.adoc[Using Web3 Providers]
+** xref:libraries/event-subscriptions.adoc[Subscribing to Events]
+
 * xref:solidity/index.adoc[Solidity 101]
 ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
-
 
 * Topics
 ** xref:topics/nfts.adoc[About Non-Fungible Tokens]

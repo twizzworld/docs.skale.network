@@ -1,0 +1,7 @@
+= Truffle Box
+
+image:https://github.com/skalenetwork/skale-box/raw/master/truffle-skale.png?raw=true[]
+
+You can use a Truffle Box to kick start your development on SKALE.
+
+https://www.trufflesuite.com/boxes/skale-box

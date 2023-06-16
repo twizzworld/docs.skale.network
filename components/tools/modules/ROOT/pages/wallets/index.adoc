@@ -1,0 +1,13 @@
+= Wallets
+
+SKALE Chains can work with a variety of wallet solutions, including any Web3 based solution such as:
+
+* xref:wallets/metamask.adoc[Metamask]
+* xref:wallets/enkrypt.adoc[Enkrypt]
+* xref:wallets/portis.adoc[Portis]
+* xref:wallets/bitski.adoc[Bitski]
+* xref:wallets/torus.adoc[Torus]
+* xref:wallets/magic-wallet.adoc[Magic]
+* xref:wallets/wallet-connect.adoc[Wallet Connect]
+
+Want another wallet tool listed here? Submit a request here: <https://github.com/skalenetwork/skale-network/issues/new>.

@@ -1,0 +1,3 @@
+== What is a SKALE Hub?
+
+A SKALE Hub is a SKALE Chain designated for use by a specific group of projects or for use by projects in a particular category or industry. An example of a hub is the Nebula Gaming Hub, designated as a chain for gaming-related projects. Hubs represent a shared compute environment for projects that do not need all the resources that come with an individual SKALE Chain.
