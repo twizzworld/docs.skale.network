@@ -4,20 +4,33 @@
 
 The SKALE Network is an open-source, Ethereum-native multichain network built to scale Ethereum dApps with a focus on high-throughput, fast finality, and zero gas fee transactions via the native gas token sFuel.
 
-== What problems does SKALE solve? 
+== What problems does SKALE solve?
 
-* `Poor web3 user experience`: 
+[cols="1,1", width=50%]
+|===
+
+^.^s|_Poor web3 user experience_
+a|
+
 ** end-users required to pay gas fees
 ** low speed and latency
 ** connectivity and messaging between chains
-* `Scalability Trilemma`
+
+^.^s| _Scalability Trilemma_
+a|
+
 ** speed
 ** security
 ** decentralization
-* `Strict and ineffective blockchains`
+
+^.^s| _Strict and ineffective blockchains_
+a|
+
 ** Lack of customization and control
 ** Lack of horizontal scaling
 ** Block gas limits and gas costs limiting what and how data/transactions are put on-chain
+
+|===
 
 == What does SKALE offer?
 
@@ -48,31 +61,31 @@ These smart contracts control network functions such as chain creation, validato
 
 Network users such as validators, delegators, and dApp Developers exchange SKL tokens to provide stake and access network services.
 
-The https://skale.network/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. 
+The https://skale.space/blog/validator-list-for-skale/[SKALE validator community represents over 45 independent operators] running over 150 nodes, and the SKALE Mainnet has been live for over 300 days without interruption. 
 
 https://skale.space/stats[Checkout the current stats.]
 
-SKALE Network uses a https://skale.network/blog/technical-highlights/[unique combination of technologies and cryptographic-based approaches] to achieve scalability, security, interoperability, and progressive decentralization:
+SKALE Network uses a https://skale.space/blog/technical-highlights/[unique combination of technologies and cryptographic-based approaches] to achieve scalability, security, interoperability, and progressive decentralization:
 
-[%header,cols=2*]
+[%header,cols=2*, width=50%]
 |===
 |Technology 
 |Impact
 
 |Pooled Validation Proof-of-Stake
-| https://skale.network/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling/[Scalable security model across validators and delegators]
+| https://skale.space/blog/the-skale-network-why-randomness-rotation-and-incentives-are-critical-for-secure-scaling/[Scalable security model across validators and delegators]
 
 | Hybrid container architecture
-| https://skale.network/blog/containerization-the-future-of-decentralized-infrastructure/[Agile allocation of on-demand composable compute resources across the network]
+| https://skale.space/blog/containerization-the-future-of-decentralized-infrastructure/[Agile allocation of on-demand composable compute resources across the network]
 
 |Threshold Cryptography
-| Supermajority signature signing with ABBA consensus supports Byzantine Fault Tolerance and resolves https://skale.network/blog/the-data-availability-problem/[data-availability] issues  
+| Supermajority signature signing with ABBA consensus supports Byzantine Fault Tolerance and resolves https://skale.space/blog/the-data-availability-problem/[data-availability] issues  
 
 |Trusted-Execution Environment
 | https://github.com/skalenetwork/SGXWallet[Fast block signing and multiple chain support using threshold cryptography]
 
 |Asynchronous Binary Byzantine Agreement (ABBA) Consensus
-| https://skale.network/blog/skale-consensus/[Mathematically provable, fast-finality, leaderless, and Byzantine fault tolerant]
+| https://skale.space/blog/skale-consensus/[Mathematically provable, fast-finality, leaderless, and Byzantine fault tolerant]
 
 |Ethereum Network
 |Public, open-source, and decentralized operation of the SKALE Network via SKALE Manager contracts
