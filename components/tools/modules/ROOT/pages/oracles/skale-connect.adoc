@@ -12,7 +12,8 @@ SKALE Connect allows developers to access any external data source using the dec
 
 == Oracle Methods
 
-* <<oracle_submitRequest>>
+* <<oracle_submitRequest (http(s))>>
+* <<oracle_submitRequest (eth)>>
 * <<oracle_checkResult>>
 
 == Request Formatting
