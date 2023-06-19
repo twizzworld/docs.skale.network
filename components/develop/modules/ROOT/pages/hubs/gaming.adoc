@@ -1,79 +1,9 @@
-= Building Web3 Games on SKALE Network
+= Gaming | Nebula
 
-Blockchain has limitless potential in gaming, and its full potential is yet to be realized. Early blockchain games primarily focused on minting NFTs and incorporating their metadata into the gameplay. However, developers have yet to fully leverage blockchain capabilities, especially in Zero Gas Fee environments. With the rise of Web3 games, SKALE Network offers a highly scalable solution for game developers.
+include::partial$what-is-a-skale-hub.adoc[]
 
-== SKALE Network: Solution to Web3 Games
+== Overview
 
-The SKALE Network provides a fast, EVM-compatible solution for deploying blockchain games. Let’s dissect how SKALE can be the perfect environment for these types of solutions.
+include::partial$hub-gaming.adoc[]
 
-
-=== Features of SKALE Network
-
-* **Zero gas fees for users**: Unlike Ethereum and other L2s, SKALE Network offers zero gas fees for users by using the free gas token sFUEL. Developers and developer communities who want to run and operate a SKALE Chain pre-pay for a chain using SKL tokens. With the bandwidth paid up-front, end-users enjoy free transactions.
-* **Fast transactions per second (TPS)**: SKALE's consensus mechanism supports up to link:https://skale.space/blog/the-quest-for-the-best-blockchain-performance-results-from-dartmouth-blockchain-study[400 transactions per second (TPS) and up to 700 TPS in a a live production environment]. This ensures a seamless and lag-free gaming experience for users. This exceptional performance elevates the user gaming experience to unprecedented levels.
-* **High block gas limit**: Developers enjoy a 268 million block gas limit on SKALE (vs 30 million on Ethereum).  This allows for more transactions to be included in each block, and for more complex smart contracts to be executed in a single block.  This enables developers to build more sophisticated applications on SKALE and leverage one of the most important properties of blockchain technology, storing data.
-* **SKALE Hubs and App-Chains**: SKALE provides two options for running applications. Developers can have a dedicated chain or join a hub like the Nebula Gaming Hub, a specialized chain designed for gaming-related projects. As the projects grow on Hubs, they can migrate to their own dedicated resources.
-
-
-== Building Web3 Games on SKALE
-
-=== Step 1: Setting Up Transactions
-
-SKALEs instant finality and high throughput combined with zero gas fees enables more flexibility when designing applications. While most blockchain based games are restricted to NFT minting and transfers due to gas fees, the SKALE architecture enables developers to put more on-chain while simultaneously creating invisible user experiences. 
-
-Taking that in consideration is important to design your game logic to leverage this high throughput and freedom. This could involve recording actions and movement as transactions on the blockchain - from changing the number of defeated enemies to minting new NFTs. With SKALE, you can place the entire game on-chain.
-
-=== Step  2: Getting sFUEL for testing
-
-In order to start testing the several SKALE chain capabilities it’s important to firstly get some sFUEL. SKALE provides a couple of different options to quickly get the sFUEL on testnets. One of them is link:https://sfuel.skale.network/[sFuel station].
-
-To learn more about it you may confer in the link:https://docs.skale.network/develop/sfuel/[sFUEL documentation]. 
-
-=== Step 3: Deploying to a Testnet chain
-
-You can rapidly start testing on the open CHAOS Testnet Chain. Here are the details about the link:https://docs.skale.network/develop/[chain].
-
-If your game utilizes tokens for actions such as in-game purchases you can utilize the existing tokens deployed on each testnet chain or request an additional token be mapped. Alternatively, if your game has its own token you can deploy this directly on the chain you are using to build.
-
-=== Step 4: Wallets/sFUEL decisions
-
-Is important to decide which wallets better suit the project as well as what’s the best way to fill the users wallets with sFUEL, considering that there are several different ways to do it.
-
-When integrating SKALE with different wallets, it's important to consider the type of users the dApp will have. If the user base is familiar with blockchain technology, a wallet like Metamask is a good option. However, if the users are less experienced with this technology, more user-friendly wallets like web3Auth or Magic are recommended.
-
-When it comes to filling wallets with sFUEL, it's important to choose the distribution method that aligns with the project's goals. 
-
-For games that have no user onboarding and allow users to start playing as soon as the application loads, utilizing an API style distribution method can be a suitable solution due to its speed. Additionally, this solution requires no user action and can be done without the user knowing they have been provided with sFUEL.
-
-Alternatively, SKALE offers a client-side only distribution method that relies on a computational Proof of Work to pull sFUEL from an on-chain faucet. 
-This solution can also be done without the user taking any direct action - other than connecting a wallet - and is well suited for applications that do not run any additional infrastructure.
-
-=== Step 5: Bridging with Metaport
-
-Developers can add the Metaport Widget or the Metaport Bridge into their games to enable users to transfer tokens between SKALE Chains. 
-
-The Metaport Widget is a small UI component that can be embedded within Web based applications to facilitate transfers. Metaport is highly customizable in both themes as well as what tokens and chains can be supported within an implementation. 
-
-The Metaport Bridge can be used as an alternative to the widget for developers who are building games that would prefer a more general solution with limited setup. This solution can be run in a webview if possible. 
-
-For games that require token transfers, but do not have access to webviews or to the browser for Metaport integration, the Interchain Messaging Agent (i.e the SKALE Bridge) can be interacted with directly through smart contracts.
-
-=== Step 6: Setting up additional tools
-
-SKALE chains lays out a diversity of tools that the developers can make use of to tackle different problems that they might encounter.
-
-Infrastructure: If your game needs even more optimal performance, you can customize several services to extend your performance capacity.  These customizations include  proxy endpoints, sync and archive nodes. 
-
-* Filestorage: This tool enables developers to utilize specialized storage resources on SKALE Chain nodes for storing data securely. It complements the on-chain data of a SKALE Chain by offering validated and secure on-chain storage options.
-
-* Random Number Generator (RNG):SKALE Chains offer random number generation directly through Solidity. This RNG generates a random number for every block based on the threshold signature shares of participating SKALE nodes. The signatures are combined in a way that prevents any single entity from influencing the final result. This RNG can be utilized in dApps for various purposes that require randomization.
-
-* SKALE Connect: With SKALE Connect, developers can leverage the decentralized power of their SKALE Chain to access external data sources. Whether it's asset ownership on another blockchain, market data, weather temperatures, or other Ethereum data, the SKALE Connect simplifies the process of delivering this data to dApps.
-
-=== Step 7: Integration with Ethereum
-
-Since SKALE Network is Ethereum-compatible, leverage this compatibility for any aspects of your game that require interaction with the EVM ecosystem. This can include token interoperability, NFT minting, and trading.
-
-== Conclusion
-
-By leveraging the SKALE Network, you can provide a superior user experience in your web3 games. SKALE offers zero gas fees, high transactions per second, support for multisig contracts, and the ability to select a dedicated chain or a hub. These features pave the way for web3 games to appeal to a wider user base and facilitate mass adoption.
+To better understand your game integration with Nebula Hub go to the xref:./integration-steps/gaming-steps.adoc[Integration Steps]. 
