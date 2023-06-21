@@ -6,4 +6,4 @@ include::partial$what-is-a-skale-hub.adoc[]
 
 include::partial$hub-gaming.adoc[]
 
-To better understand your game integration with Nebula Hub go to xref:./integration-steps/gaming-steps.adoc[Integration Steps]. 
+To better understand your game integration with Nebula Hub go to xref:./gaming/integration-steps.adoc[Integration Steps]. 
