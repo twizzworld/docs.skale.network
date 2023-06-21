@@ -3,7 +3,7 @@
 * **Zero gas fees for users**: Unlike Ethereum and other L2s, SKALE Network offers zero gas fees for users by using the free gas token sFUEL. Developers and developer communities who want to run and operate a SKALE Chain pre-pay for a chain using SKL tokens. With the bandwidth paid up-front, end-users enjoy free transactions.
 * **Fast transactions per second (TPS)**: SKALE's consensus mechanism supports up to link:https://skale.space/blog/the-quest-for-the-best-blockchain-performance-results-from-dartmouth-blockchain-study[400 transactions per second (TPS) and up to 700 TPS in a a live production environment]. This ensures a seamless and lag-free gaming experience for users. This exceptional performance elevates the user gaming experience to unprecedented levels.
 * **High block gas limit**: Developers enjoy a 268 million block gas limit on SKALE (vs 30 million on Ethereum).  This allows for more transactions to be included in each block, and for more complex smart contracts to be executed in a single block.  This enables developers to build more sophisticated applications on SKALE and leverage one of the most important properties of blockchain technology, storing data.
-* **SKALE Hubs and App-Chains**: SKALE provides two options for running applications. Developers can have a dedicated chain or join a hub like the Nebula Gaming Hub, a specialized chain designed for gaming-related projects. As the projects grow on Hubs, they can migrate to their own dedicated resources.
+* **SKALE Hub and App-Chain**: SKALE provides two options for running applications. Developers can have a dedicated chain or join a hub like the Nebula Gaming Hub, a specialized chain designed for gaming-related projects. As the projects grow on Hubs, they can migrate to their own dedicated resources.
 
 
 == Building Web3 Games on SKALE
@@ -30,7 +30,7 @@ If your game utilizes tokens for actions such as in-game purchases you can utili
 
 Is important to decide which wallets better suit the project as well as what’s the best way to fill the users wallets with sFUEL, considering that there are several different ways to do it.
 
-When integrating SKALE with different wallets, it's important to consider the type of users the dApp will have. If the user base is familiar with blockchain technology, a wallet like Metamask is a good option. However, if the users are less experienced with this technology, more user-friendly wallets like web3Auth or Magic are recommended.
+When integrating SKALE with different wallets, it's important to consider the type of users the dApp will have. If the user base is familiar with blockchain technology, a wallet like Metamask is a good option. However, if the users are less experienced with this technology, more user-friendly wallets like Web3Auth or Magic are recommended.
 
 When it comes to filling wallets with sFUEL, it's important to choose the distribution method that aligns with the project's goals. 
 
@@ -67,4 +67,6 @@ Since SKALE Network is Ethereum-compatible, leverage this compatibility for any 
 
 == Conclusion
 
-By leveraging the SKALE Network, you can provide a superior user experience in your web3 games. SKALE offers zero gas fees, high transactions per second, support for multisig contracts, and the ability to select a dedicated chain or a hub. These features pave the way for web3 games to appeal to a wider user base and facilitate mass adoption.
+You can use SKALE to provide a superior user experience within your blockchain-based games. SKALE Chains have zero gas fees, high throughput which combined with high block gas limits enables you to do even more on-chain.
+
+These features pave the way for blockchain games to appeal to a wider audience and facilitate mass adoption.
