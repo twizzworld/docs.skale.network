@@ -1,0 +1,47 @@
+= Building Web3 Games on SKALE Network
+
+== Introduction
+
+Blockchain has limitless potential in gaming, and its full potential is yet to be realized. Early blockchain games primarily focused on minting NFTs and incorporating their metadata into the gameplay. However, developers have yet to fully leverage blockchain capabilities, especially in zero gas fee environments. With the rise of Web3 games, SKALE Network offers a highly scalable solution for game developers.
+
+== SKALE Network: Solution to Web3 Games
+
+The SKALE Network provides a fast, EVM-compatible solution for deploying blockchain games. This section details how to take advantage of the SKALE network features for game development.
+
+=== Features of SKALE Network
+
+. *Zero gas fees for users:* Unlike Ethereum and other L2s, SKALE Network offers zero gas fees for users. Developers and developer communities who want to run and operate a SKALE Chain pre-pay for a chain using SKL tokens. With the bandwidth paid up-front, end-users enjoy zero cost transactions.
+. *Fast transactions per second (TPS):* SKALE's consensus mechanism supports up to link:https://skale.space/blog/the-quest-for-the-best-blockchain-performance-results-from-dartmouth-blockchain-study[400 transactions per second (TPS) and up to 700 TPS in a a live production environment]. This ensures a seamless and lag-free gaming experience for users.
+. *SKALE Hubs and dApp Chains:* SKALE provides two options for running applications. Developers can have a dedicated chain or join a hub like the Nebula Gaming Hub, a specialized chain designed for gaming-related projects. As the projects grow on Hubs, they can migrate to their own dedicated resources.
+
+== Building Web3 Games on SKALE
+
+=== Step 1: Setting Up Transactions
+
+Given that SKALE supports instant finality, fast TPS and zero gas fees, design your game logic to leverage this high throughput and freedom. This could involve recording actions and movement as transactions on the blockchain - from changing the number of defeated enemies to minting new NFTs.
+
+=== Step 1: Choosing a Plan
+
+Before deploying your dApp on a SKALE chain, consider first whether you will need the full bandwidth of a dedicated chain, or whether joining a hub will suit your needs. This decision determines the resources (throughput, block storage) and customization that your dApp and users will have access to.
+
+=== Step 
+
+=== Step 2: Setting Up Transactions
+
+Given that SKALE supports instant finality, fast TPS and zero gas fees, design your game logic to leverage this high throughput and freedom. This could involve recording actions and movement as transactions on the blockchain - from changing the number of defeated enemies to minting new NFTs.
+
+=== Step 3: Implementing Multisig Contracts
+
+Use SKALE's support for multisig contracts to secure in-game transactions or interactions that involve multiple parties. This feature could be used to manage in-game economies, ensure fair trades, or control game state changes.
+
+=== Step 4: Selecting a Deployment Option
+
+Determine whether your dApp requires a dedicated SKALE chain or if it can be hosted on a SKALE Hub. This depends on the resources your game requires, which can change as your game grows in popularity.
+
+=== Step 5: Integration with Ethereum
+
+Since SKALE Network is Ethereum-compatible, leverage this compatibility for any aspects of your game that require interaction with the Ethereum ecosystem. This can include token interoperability, NFT minting, and trading.
+
+== Conclusion
+
+By leveraging the SKALE Network, you can provide a superior user experience in your web3 games. SKALE offers zero gas fees, high transactions per second, support for multisig contracts, and the ability to select a dedicated chain or a hub. These features pave the way for web3 games to appeal to a wider user base and facilitate mass adoption.

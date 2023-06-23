@@ -1,0 +1,41 @@
+= Levitation Protocol: General Overview
+
+The Levitation Protocol provides an important contribution to the world of Ethereum scaling, and ZK rollups (ZKRs) in particular. By introducing an implementation of a decentralized sequencer, it aims to address three challenges currently limiting widespread ZKR adoption: 
+
+- Centralization
+- Fragmentation
+- Isolation
+
+== Advantages of the Levitation Protocol
+
+1. **Decentralization**: ZKRs become decentralized when executed on Levitation, without any modifications required.
+2. **Interoperability and Modularity**: Existing ZKRs transform into pluggable modules interacting seamlessly.
+3. **Common Security**: Multiple ZKRs can run in a single Levitation-enabled chain environment, facilitating a common transaction ledger and easing rollup interactions.
+
+The protocol emphasizes simplicity and ETH-compatibility to be compatible with a variety of existing and new ETH-compatible blockchains.
+
+== Levitation Protocol Overview
+
+The Levitation Protocol provides a universal interoperable layer that handles transaction acceptance, ordering, and network relay for existing ZKRs. This modularizes the ZKR processes, allowing different ZKRs to focus on their specific operations, notably execution, proving, and verification of ZK proofs.
+
+== Minimalistic Design and Security-First Approach
+
+Levitation's minimalistic design focuses on speed, simplicity, and security. The protocol is designed to be implemented efficiently using existing open-source libraries and tools. It is implemented in Solidity, with all security-relevant source code deployed as smart contracts to an EVM-compatible chain.
+
+== Performance and Security Flexibility
+
+The protocol is designed to run on a high-performance, fast-finality, decentralized EVM chain. Dapps running on a Levitation-enabled chain can take advantage of high security of the ZKChain and high performance of the FastChain, enabling fast interactive transactions alongside high security transactions.
+
+== Transparent MEV Protection
+
+Levitation introduces Transparent Transaction Encryption (TTE) for on-chain transaction ordering. This system provides a robust protection mechanism against front running and MEV without the need for modifying ZKR implementations.
+
+== SKALE and Levitation
+
+The Levitation Protocol will be integrated into the SKALE App-Chain Architecture, enhancing its capabilities by enabling any operator of ZKRs to offer a decentralized ZK solution to application developers via a SKALE Chain. This expansion will provide developers more configuration options on SKALE's already robust network of 20+ EVM blockchains.
+
+Additionally, the protocol will be supported by the launch of SKALE-G (Ganymede), the largest moon in the solar system, representing the world's fastest and most scalable decentralized Layer 1 blockchain fortified by L2 ZK hooks back to Ethereum.
+
+By offering app-specific chains, Layer 1, and Layer 2 options, SKALE takes a monumental leap forward as a full-fledged blockchain scalability platform. With the Levitation Protocol, SKALE continues to provide a fast, secure, and decentralized platform for building new applications.
+
+For more details, join the SKALE community at https://skale.space/ and contribute to the future of decentralized technology.

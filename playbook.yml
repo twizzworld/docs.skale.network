@@ -41,6 +41,10 @@ content:
 
     - url: .
       branches: HEAD
+      start_path: components/governance
+
+    - url: .
+      branches: HEAD
       start_path: components/technology
 
     - url: .

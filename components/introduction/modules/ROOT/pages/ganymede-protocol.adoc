@@ -1,0 +1,35 @@
+= Ganymede Protocol: General Overview
+
+The Ganymede Protocol aims to enhance decentralization and composability for decentralized applications (dApps) by introducing mathematical enhancements to SKALE's provable consensus algorithms. The protocol is designed with DeFi applications in mind, catering to their need for high composability and a high degree of decentralization. 
+
+Ganymede Protocol enables consensus in a highly decentralized and powerful blockchain environment, allowing a large number of dApps to interact in a highly composable manner. This is crucial for running multiple interacting dApps on a common chain.
+
+== Computationally Powerful Nodes
+
+Ganymede envisions blockchains operating on powerful nodes with substantial network bandwidth and storage, promoting efficient execution of blockchains that implement the Ganymede protocol.
+
+== Integration with Levitation Protocol
+
+Ganymede Protocol algorithms are developed in conjunction with the Levitation Protocol to enable Zero-Knowledge (ZK) functionality on blockchains. This combined functionality promotes high-security transactions verifiable on the Ethereum mainnet using Zero-Knowledge proofs.
+
+== ZK-Native Cryptography
+
+Transitioning cryptographic internals to ZK-native cryptographic algorithms allows for faster ZK-proof generation and efficient verification of ZK proofs on the Ethereum mainnet.
+
+== Minimalistic Design
+
+Ganymede Protocol prioritizes a minimalistic design that reuses existing mathematical principles and codebase for faster implementation. The protocol aims to introduce minimal changes to the existing SKALE consensus algorithms while achieving high composability and decentralization.
+
+== Ganymede Weighted Consensus
+
+An enhancement to SKALE's consensus algorithms is the introduction of the notion of node weight in Ganymede. Node weight is proportional to the total validator stake in a Ganymede-enabled blockchain, which allows a validator to run a single powerful node with significant weight, improving chain performance and reducing costs.
+
+== Aggregated Signature Implementation
+
+Ganymede introduces an implementation of aggregated BLS signatures with long-term BLS keys. This eliminates the need for executing DKG (Distributed Key Generation) algorithms each time a node joins or leaves the chain, making it possible to execute larger blockchains with faster node turnover.
+
+== Transaction Fees
+
+Ganymede Protocol supports non-zero transaction fees compatible with Ethereum transaction fees math (specifically, EIP-1559). Despite this, the protocol's architecture aims to minimize transaction fees, comparable to other high-performance blockchains. This promotes interaction on a single powerful chain among multiple dApps within a Ganymede-enabled system.
+
+Overall, the Ganymede Protocol presents an innovative solution for dApps requiring high composability and decentralization. Its integration with the Levitation Protocol and Ethereum's transaction fees math enhances its capabilities and compatibility, making it a promising upgrade for the SKALE Network.

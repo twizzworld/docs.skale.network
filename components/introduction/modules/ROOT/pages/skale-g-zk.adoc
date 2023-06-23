@@ -1,0 +1,23 @@
+= Levitation Protocol: Empowering Developers in the SKALE Ecosystem
+
+== Overview
+This article summarizes the Levitation (SKALE-ZK) and Ganymede (SKALE-G) protocols and outlines the benefits they offer within the broader SKALE ecosystem. Understanding the advantages of both protocols, how they work in the broader SKALE Multichain ecosystem, and their synergy is essential for developers looking to leverage these novel SKALE Network protocols effectively.
+
+== Levitation Protocol
+Levitation protocol is a cutting-edge solution within the SKALE ecosystem that enables the execution of Zero-Knowledge (ZK) functionality on blockchains. It achieves this by leveraging ZK-native cryptographic algorithms and advanced verification mechanisms. Levitation enhances security and trust by allowing high-security transactions to be verified on the Ethereum (ETH) mainnet using Zero-Knowledge proofs. By integrating Levitation into their applications, developers can ensure privacy, confidentiality, and data integrity while maintaining interoperability with the Ethereum mainnet.
+
+== Ganymede Protocol
+Ganymede protocol is another vital component of the SKALE ecosystem, targeting decentralized applications (dapps) that require high composability and decentralization, with a particular focus on decentralized finance (DeFi) applications. It introduces mathematical improvements to the SKALE provable consensus algorithms, enabling the operation of highly decentralized and robust blockchains where numerous dapps can interact seamlessly. Ganymede's weighted consensus algorithms, aggregated signature implementation, and optimized transaction fees improve scalability, performance, and cost efficiency. By implementing Ganymede, developers can build high-performance dapps on the SKALE Network while maintaining compatibility with the Ethereum ecosystem.
+
+== Synergy between Levitation and Ganymede
+Levitation and Ganymede protocols complement each other within the SKALE ecosystem, enabling developers to unlock a host of benefits:
+
+. **Enhanced Security**: Levitation protocol provides ZK functionality, ensuring privacy and data integrity. When combined with Ganymede's weighted consensus and aggregated signature implementation, developers can build highly secure and trusted applications within the SKALE Network.
+
+. **Interoperability**: The integration of Levitation and Ganymede allows developers to create dapps that seamlessly interact with the Ethereum mainnet. Leveraging Levitation's ZK proofs and Ganymede's ETH-compatible transaction fee algorithms, developers can achieve interoperability while enjoying the scalability and performance benefits of the SKALE Network.
+
+. **Scalability and Performance**: Ganymede's improvements to consensus algorithms and Levitation's efficient cryptographic algorithms enable developers to build highly scalable and performant dapps. The weighted consensus and optimized transaction fees offered by Ganymede further enhance scalability and cost efficiency.
+
+. **DeFi Applications**: Ganymede protocol's specific focus on DeFi applications aligns well with Levitation's privacy and security features. Developers can build sophisticated decentralized financial solutions within the SKALE ecosystem, benefiting from both protocols' capabilities.
+
+In summary, combining Levitation and Ganymede protocols within the SKALE ecosystem provides developers with powerful tools to create secure, scalable, and interoperable dapps. Leveraging Levitation's ZK functionality and Ganymede's weighted consensus, aggregated signatures, and optimized transaction fees, developers can unlock the SKALE Network's full potential, particularly in decentralized finance.
