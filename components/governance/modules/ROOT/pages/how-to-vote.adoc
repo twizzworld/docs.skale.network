@@ -17,6 +17,6 @@ Proposals are introduced on the https://forum.skale.network/[SKALE Network forum
 Each proposal submission on the forum may include a Snapshot poll link, enabling you to cast your vote:
 
 . Visit https://snapshot.org/#/skale.eth[SKALE DAO's Snapshot space].
-. Connect your wallet.
+. Connect your wallet. If you are using an escrow, connect the wallet associated with your escrow.  If you are a validator, connect with your validator wallet.
 . In your browser, navigate to the https://snapshot.org/#/skale.eth[Snapshot] and find the proposal you wish to vote on (or use the Snapshot link from the forum submission).
 . Follow the on-screen instructions within the Snapshot interface to cast your vote.
