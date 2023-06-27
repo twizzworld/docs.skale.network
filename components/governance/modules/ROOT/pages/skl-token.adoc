@@ -13,7 +13,7 @@ The $SKL token is an ERC-777 hybrid utility token on Ethereum that allows its ho
 [NOTE]
 $SKL is not the native token on SKALE Chains.  Unlike other chains where the native token holds economic value is used to pay for or subsidize gas fees for conducting transactions, SKALE Chains use a token with no economic value called sFUEL to permit users to conduct zero-gas cost transactions.
 
-The $SKL token is minted by a smart contract located on Ethereum. Is address is `0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7`. https://etherscan.io/address/0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7
+The $SKL token is minted by a smart contract located on Ethereum. The contract address is `0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7`. https://etherscan.io/address/0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7
 
 If you hold and stake $SKL tokens, you can vote on governance proposals that affect the operation and evolution of the SKALE Network. This includes proposals for SKALE Chain pricing, Network inflation and more, see https://forum.skale.network/t/a-proposal-for-skale-networks-on-chain-governance-system/447.
 
