@@ -4,7 +4,7 @@ The following is a list of roles available for the various https://docs.skale.ne
 
 `DEFAULT_ADMIN_ROLE` and many of the other roles are available to the chain owner through `Marionette` by default.
 
-Find more on the usage of these roles: https://docs.skale.network/skale-chain-administration/skale-chain-access-control[Admin Access Control]
+Find more on the usage of these roles: https://docs.skale.network/skale-chain-administration/administrative-functions[Admin Functions Usage]
 
 == Administrative Roles
 
