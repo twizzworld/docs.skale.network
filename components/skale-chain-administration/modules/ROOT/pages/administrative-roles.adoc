@@ -1,70 +1,97 @@
-:page-aliases: permissions.adoc
-
 = Administrative Roles
 
-The following is a list of roles available on the various pre-deployed contracts on each SKALE Chain. DEFAULT_ADMIN_ROLE and many of the other roles are available to the chain owner through Marionette by default.
+The following is a list of roles available for the various https://docs.skale.network/technology/predeployed[pre-deployed contracts] on each SKALE Chain. 
 
-== Shared
+`DEFAULT_ADMIN_ROLE` and many of the other roles are available to the chain owner through `Marionette` by default.
 
-=== DEFAULT_ADMIN_ROLE
-The default admin role is the administrative role of all other roles in the contract and is needed to provide other roles to an address.
+Find more on the usage of these roles: https://docs.skale.network/skale-chain-administration/skale-chain-access-control[Admin Access Control]
 
-== Config Controller
-
-=== DEPLOYER_ADMIN_ROLE
-Free Contract Deployment can be enabled or disabled by a user with this role.
-
-=== DEPLOYER_ROLE
-Deployer Role allows Ethereum Address to deploy smart contracts onto a SKALE Chain when Free Contract Deployment is disabled.
-
+== Administrative Roles
+. {empty}
++
+[discrete]
+=== Shared
++
+****
+DEFAULT_ADMIN_ROLE:: The default admin role is the administrative role of all other roles in the contract and is necessary to provide other roles to an address.
+****
++
+. {empty}
+[discrete]
+=== Config Controller
++
+****
+DEPLOYER_ADMIN_ROLE:: `Free Contract Deployment` can be enabled or disabled by a user with this role.
+[]
+DEPLOYER_ROLE:: Allows an Ethereum address to deploy smart contracts onto a SKALE Chain when `Free Contract Deployment` is disabled.
 [IMPORTANT]
-Smart Contracts bypass the need for this role.
+.ROLE EXCEPTION 
+Smart Contracts bypass the need for Deployer Role.
 
-=== MTM_ADMIN_ROLE
-Multi Transaction (MTM) mode can be enabled or disabled by a user with this role.
-
+MTM_ADMIN_ROLE:: Multi-Transaction (MTM) mode can be enabled or disabled by a user with this role.
+[NOTE]
+MTM toggle is not yet enabled and is currently set at chain creation
+****
++
+. {empty}
+[discrete]
 == Etherbase
-
-=== ETHER_MANAGER_ROLE
-Can retrieve or distribute sFUEL from Etherbase.
-
++
+****
+ETHER_MANAGER_ROLE:: 
+Can retrieve or distribute sFUEL from `Etherbase`.
+****
+. {empty}
++
+[discrete]
 == Filestorage
-
-=== ALLOCATOR_ROLE
-On-chain xref:tools::filestorage/index.adoc[Filestorage] space can be reserved by a user with this role.
-
++
+****
+ALLOCATOR_ROLE:: On-chain Filestorage space can be reserved by a user with this role.
 [IMPORTANT]
-This role is not assigned to the SKALE Chain Owner upon chain creation.
+.ROLE DEFAULT
+ALLOCATOR_ROLE is not assigned to the SKALE Chain Owner upon chain creation.
 
+****
+. {empty}
++
+[discrete]
 == SKALE IMA Bridge
-
-=== Community Pool
-==== CONSTANT_SETTER_ROLE
-Sets new gas limits for MessageProxy outgoing messages (default is 1M gas) and sets CommunityLocker new rate limit for exit messages (default is 5 minutes per exit message).
-
-==== ARBITER_ROLE
-Initiate arbitration of a specific IMA transfer by delaying the transfer for a time defined by the SKALE Chain owner.
-
-=== Token Managers
-
-==== AUTOMATIC_DEPLOY_ROLE
-Enable and disable IMA bridge automatic deployment.
-
-=== TOKEN_REGISTRAR_ROLE
-Requires to map a token to another chain.
-
-=== MessageProxy
-
-==== EXTRA_CONTRACT_REGISTRAR_ROLE
-Add and remove extra SKALE Chain contracts to the IMA Bridge.
-
-=== REGISTRAR_ROLE
-Add or remove token manager contracts and connect or remove other SKALE Chains.
-
++
+.Community Pool
+****
+CONSTANT_SETTER_ROLE:: 
+- Sets new gas limits for `MessageProxy` outgoing messages (default is 1M gas) 
+- Sets CommunityLocker new rate limit for exit messages (default is 5 minutes per exit message).
+[]
+ARBITER_ROLE:: Initiate arbitration of a specific IMA transfer by delaying the transfer for a time defined by the SKALE Chain owner.
+****
++
+.Token Managers
+****
+AUTOMATIC_DEPLOY_ROLE:: Enable and disable IMA bridge automatic deployment.
+[]
+TOKEN_REGISTRAR_ROLE:: Requires to map a token to another chain.
+****
++
+.Message Proxy
+****
+EXTRA_CONTRACT_REGISTRAR_ROLE:: Add and remove extra SKALE Chain contracts to the IMA Bridge.
+[]
+REGISTRAR_ROLE:: Add or remove token manager contracts and connect or remove other SKALE Chains.
+****
++
+[discrete]
 == Marionette (Chain Owner)
++
+****
+IMA_ROLE:: Calls postMessage in Marionette. 
 
-=== IMA_ROLE
-Calls postMessage in Marionette. (WARNING: SHOULD NOT BE REASSIGNED)
+[WARNING]
+`IMA_ROLE` SHOULD NOT BE REASSIGNED
 
-=== PUPPETEER_ROLE
-Call execute, postMessage, and sendEth in Marionette. Usually assigned to a Multisig. (WARNING: SHOULD NOT BE ASSIGNED)
+
+PUPPETEER_ROLE:: Calls and executes, `postMessage` and `sendEth`, in `Marionette`. Usually assigned to a Multisig. 
+[WARNING] 
+`PUPPETEER_ROLE` SHOULD NOT BE REASSIGNED
+--
