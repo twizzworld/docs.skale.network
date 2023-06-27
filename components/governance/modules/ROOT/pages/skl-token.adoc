@@ -1,0 +1,30 @@
+= The $SKL token: A conceptual overview
+
+include::partial$early.adoc[]
+
+The $SKL token is an ERC-777 hybrid utility token on Ethereum that allows its holders to:
+
+* stake into the SKALE Network by delegating to SKALE Network Validators.
+* stake into the SKALE Network by becoming a SKALE Network Validator.
+* rent SKALE Chains for a period of time.
+
+**SKL token holders who are actively staked have the additional permission to participate in the SKALE Network's on-chain governance protocol.**
+
+[NOTE]
+$SKL is not the native token on SKALE Chains.  Unlike other chains where the native token holds economic value is used to pay for or subsidize gas fees for conducting transactions, SKALE Chains use a token with no economic value called sFUEL to permit users to conduct zero-gas cost transactions.
+
+The $SKL token is minted by a smart contract located on Ethereum. The contract address is `0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7`. https://etherscan.io/address/0x00c83aeCC790e8a4453e5dD3B0B4b3680501a7A7
+
+If you hold and stake $SKL tokens, you can vote on governance proposals that affect the operation and evolution of the SKALE Network. This includes proposals for SKALE Chain pricing, Network inflation and more, see https://forum.skale.network/t/a-proposal-for-skale-networks-on-chain-governance-system/447.
+
+When you vote on a proposal, you're using your $SKL tokens to signal your support or opposition. The more $SKL tokens you have, the more influence your vote will have. This is because the SKALE Network's smart contracts are implemented such that votes are token-weighted, meaning that the power of a vote is determined precisely by the number of tokens the voter's wallet represents.
+
+== Tokenomics
+
+$SKL was created with an initial supply of 7 billion with an estimated issuance rate of 9.3%. $SKL minting events are performed by the Network via a governance proposal.
+
+See https://skale.space/tokenomics
+
+== Conclusion
+
+In summary, the $SKL token is a hybrid utility token that gives its staked token holders the ability to vote on proposals that affect the operation and evolution of the SKALE Network and the technologies it governs. Staking $SKL tokens allows you democratically shape the future of the SKALE ecosystem alongside other values-aligned and incentives-aligned staked token holders.

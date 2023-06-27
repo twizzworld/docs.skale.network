@@ -1,0 +1,5 @@
+name: governance
+title: Governance Docs
+version: ~
+nav:
+  - modules/ROOT/nav.adoc

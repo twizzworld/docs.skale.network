@@ -1,0 +1,22 @@
+= How to Vote on SKALE DAO Proposals
+
+include::partial$early.adoc[]
+
+As a SKL token delegator, your participation and active contribution to the voting process of the SKALE DAO plays an important role in guiding the SKALE network. This guide offers insights on navigating through different stages of a proposal and voting process.
+
+== Initial Proposal Submission Stage
+
+Proposals are introduced on the https://forum.skale.network/[SKALE Network forum] for comprehensive community dialogues and debates. A Snapshot poll often accompanies these submissions, providing a quantitative measure of the active SKALE delegator community's sentiment towards a proposal.
+
+. Access the https://forum.skale.network/[SKALE Network forum].
+. Identify the proposal that you are interested in and carefully review the details and associated discussions.
+. Share your opinions and contribute to the dialogue, shaping the proposal's future.
+
+== Proposal Voting Stage
+
+Each proposal submission on the forum may include a Snapshot poll link, enabling you to cast your vote:
+
+. Visit https://snapshot.org/#/skale.eth[SKALE DAO's Snapshot space].
+. Connect your wallet. If you are using an escrow, connect the wallet associated with your escrow.  If you are a validator, connect with your validator wallet.
+. In your browser, navigate to the https://snapshot.org/#/skale.eth[Snapshot] and find the proposal you wish to vote on (or use the Snapshot link from the forum submission).
+. Follow the on-screen instructions within the Snapshot interface to cast your vote.

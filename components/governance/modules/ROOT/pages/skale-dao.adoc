@@ -1,0 +1,7 @@
+= SKALE DAO: A conceptual overview
+
+include::partial$early.adoc[]
+
+The SKALE DAO is a decentralized autonomous organization (DAO) constructed on the Ethereum blockchain. Essentially, the SKALE DAO is a community-led governance mechanism that empowers $SKL token holders who stake, to propose and vote on alterations to the organization and the technologies under its control.
+
+The $SKL token is a hybrid utility token with governance functions for token holders who stake. DAO members utilize staked $SKL tokens to vote on SKALE DAO proposals (SIPs). The influence of any specific voter's vote is directly related to the quantity of $SKL they stake.

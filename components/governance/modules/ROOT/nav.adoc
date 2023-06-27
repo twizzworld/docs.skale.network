@@ -1,0 +1,8 @@
+* xref:intro-skale-dao.adoc[SKALE DAO Introduction]
+* How-to Guides
+** xref:how-to-vote.adoc[How to Vote]
+* Governance concepts
+** xref:skl-token.adoc[$SKL Token]
+** xref:skale-dao.adoc[SKALE DAO]
+
+
