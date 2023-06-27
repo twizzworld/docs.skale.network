@@ -7,91 +7,89 @@ The following is a list of roles available for the various https://docs.skale.ne
 Find more on the usage of these roles: https://docs.skale.network/skale-chain-administration/skale-chain-access-control[Admin Access Control]
 
 == Administrative Roles
-. {empty}
-+
+
 [discrete]
 === Shared
-+
 ****
+[horizontal]
 DEFAULT_ADMIN_ROLE:: The default admin role is the administrative role of all other roles in the contract and is necessary to provide other roles to an address.
 ****
-+
-. {empty}
 [discrete]
 === Config Controller
-+
+
 ****
+[horizontal]
 DEPLOYER_ADMIN_ROLE:: `Free Contract Deployment` can be enabled or disabled by a user with this role.
-[]
+---
 DEPLOYER_ROLE:: Allows an Ethereum address to deploy smart contracts onto a SKALE Chain when `Free Contract Deployment` is disabled.
++
 [IMPORTANT]
 .ROLE EXCEPTION 
-Smart Contracts bypass the need for Deployer Role.
-
+Smart Contracts bypass the need for Deployer Role. +
++
+---
 MTM_ADMIN_ROLE:: Multi-Transaction (MTM) mode can be enabled or disabled by a user with this role.
++
 [NOTE]
 MTM toggle is not yet enabled and is currently set at chain creation
 ****
-+
-. {empty}
+
 [discrete]
 == Etherbase
-+
 ****
+[horizontal]
 ETHER_MANAGER_ROLE:: 
 Can retrieve or distribute sFUEL from `Etherbase`.
 ****
-. {empty}
-+
-[discrete]
+
 == Filestorage
-+
 ****
+[horizontal]
 ALLOCATOR_ROLE:: On-chain Filestorage space can be reserved by a user with this role.
++
 [IMPORTANT]
 .ROLE DEFAULT
 ALLOCATOR_ROLE is not assigned to the SKALE Chain Owner upon chain creation.
+****
 
-****
-. {empty}
-+
-[discrete]
 == SKALE IMA Bridge
-+
-.Community Pool
+
+=== Community Pool
 ****
+[horizontal]
 CONSTANT_SETTER_ROLE:: 
-- Sets new gas limits for `MessageProxy` outgoing messages (default is 1M gas) 
-- Sets CommunityLocker new rate limit for exit messages (default is 5 minutes per exit message).
-[]
+ .. Sets new gas limits for `MessageProxy` outgoing messages (default is 1M gas) + 
+ .. Sets `CommunityLocker` new rate limit for exit messages (default is 5 minutes per exit message). +
++
+---
 ARBITER_ROLE:: Initiate arbitration of a specific IMA transfer by delaying the transfer for a time defined by the SKALE Chain owner.
 ****
-+
-.Token Managers
+
+=== Token Managers
 ****
+[horizontal]
 AUTOMATIC_DEPLOY_ROLE:: Enable and disable IMA bridge automatic deployment.
-[]
+---
 TOKEN_REGISTRAR_ROLE:: Requires to map a token to another chain.
 ****
-+
-.Message Proxy
+
+=== Message Proxy
 ****
+[horizontal]
 EXTRA_CONTRACT_REGISTRAR_ROLE:: Add and remove extra SKALE Chain contracts to the IMA Bridge.
-[]
+---
 REGISTRAR_ROLE:: Add or remove token manager contracts and connect or remove other SKALE Chains.
 ****
-+
-[discrete]
 == Marionette (Chain Owner)
-+
-****
-IMA_ROLE:: Calls postMessage in Marionette. 
 
+****
+[horizontal]
+IMA_ROLE:: Calls postMessage in Marionette. 
++
 [WARNING]
 `IMA_ROLE` SHOULD NOT BE REASSIGNED
-
-
 PUPPETEER_ROLE:: Calls and executes, `postMessage` and `sendEth`, in `Marionette`. Usually assigned to a Multisig. 
++
 [WARNING] 
 `PUPPETEER_ROLE` SHOULD NOT BE REASSIGNED
 --
