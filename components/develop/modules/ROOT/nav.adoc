@@ -5,6 +5,7 @@
 ** xref:hubs/community.adoc[Community]
 ** xref:hubs/defi.adoc[DeFI]
 ** xref:hubs/gaming.adoc[Gaming]
+*** xref:hubs/gaming/integration-steps.adoc[Integration Steps]
 ** xref:hubs/nft.adoc[NFT]
 ** xref:hubs/open-testnet.adoc[Open Testnet]
 

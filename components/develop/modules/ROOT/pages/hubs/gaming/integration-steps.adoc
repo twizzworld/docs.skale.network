@@ -1,0 +1,3 @@
+= Game Integration on SKALE
+
+include::partial$hub-gaming-dev-steps.adoc[]

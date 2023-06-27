@@ -3,4 +3,7 @@
 include::partial$what-is-a-skale-hub.adoc[]
 
 == Overview
+
 include::partial$hub-gaming.adoc[]
+
+To learn about building your game on SKALE or migrating an existing game to SKALE, see xref:./gaming/integration-steps.adoc[Integration Steps for Nebula].
