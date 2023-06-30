@@ -1,3 +1,123 @@
 = Solidity Basics
 
-Coming soon!
+The Solidity Basics recipe focuses on providing the bare basics found in my programming language tutorials. The following are a number of code examples you can drop into your favorite IDE and run.
+
+== File Setup
+
+The following is the basic setup of a Solidity smart contract.
+
+```solidity
+// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+contract FileSetup {
+    constructor() {}
+}
+```
+
+== Comments
+
+Comments are used in all programming languages to provide additional information about complex functions.
+It is best to name functions and variables with naming that matches the functionality if possible.
+See an example below.
+
+```solidity
+// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+contract Comments {
+    // This is a single line comment
+
+    /**
+     *
+     * This is a multi
+     * line comment
+     */
+
+     // Good Example
+     address public zeroAddress = address(0);
+
+     // Bad Example
+     address public addr = address(0);
+}
+```
+
+== Types
+
+This is not a full list of available types, however, this is many of the common types used in many Solidity contracts.
+
+```solidity
+// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+contract Types {
+    
+    // A basic string
+    public string foo = "bar";
+    
+    /*
+     * The largest number type in solidity
+     * with a max size of 2^256 - 1
+     *
+     */
+    
+    uint8 public smallUnsignedInteger = 8;
+
+    /*
+     * The largest number type in solidity
+     * with a max size of 2^8 - 1
+     *
+     */
+     
+    uint256 public largestUnsignedInteger = 1000;
+
+    // A variable that can only be true or false
+    bool public isTrue = true;
+
+    // An Ethereum Address
+    address public zeroAddress = address(0);
+    
+    // A mapping represents a key/value map
+    mapping(address => uint256) public addressToInteger;
+
+    // An array of integers
+    uint256[] public arr;
+
+    // Bytes 
+    bytes public availableBytes;
+}
+```
+
+== Functions
+
+Functions are used to change the state of a Solidity smart contract. External functions can be called by other smart contracts as well as be Externally Owned Accounts, while public functions can act like external functions while also being called by other functions within a smart contract. Internal functions can be called from public or external functions while also being visible to contracts that inherit the base contract where an internal function lives. Lastly, a private function is only accessible to other functions within the current contract.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+contract Functions {
+    
+    string public str;
+    
+    // External functions can be called from other contracts and not this one
+    function externalFunction() external {
+        str = "external"; 
+    }
+    
+    // Public functions can be used by this contract and others
+    function publicFunction() public {
+        str = "public";
+    }
+    
+    // Internal functions can be used in this contract or by other contracts inheriting it
+    function internalFunction() internal {
+        str = "internal";
+    }
+    
+    // Private functions can only be used in this contract by another function
+    function privateFunction() private {
+        str = "private";
+    }
+}
+```

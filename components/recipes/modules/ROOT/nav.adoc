@@ -19,6 +19,7 @@
 
 * xref:solidity/index.adoc[Solidity 101]
 ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
+** xref:solidity/1-solidity-basics.adoc[Solidity Basics]
 
 * Topics
 ** xref:topics/nfts.adoc[About Non-Fungible Tokens]

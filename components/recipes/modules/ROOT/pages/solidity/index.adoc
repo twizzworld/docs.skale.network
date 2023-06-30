@@ -9,10 +9,10 @@ Each card links to a specific recipe, pick one that looks interesting and get bu
 --
 xref:solidity/0-hello-skale.adoc[[.card-title]#Hello SKALE# [.card-body]#pass:q[A fun twist on the classic Hello World, start your Solidity journey here]#]
 --
-// [.card.card-learn]
-// --
-// xref:solidity/1-solidity-basics.adoc[[.card-title]#Solidity Basics# [.card-body]#pass:q[Learn the basics of Solidity]#]
-// --
+[.card.card-learn]
+--
+xref:solidity/1-solidity-basics.adoc[[.card-title]#Solidity Basics# [.card-body]#pass:q[Learn about comments, functions, types and basic file structure in Solidity]#]
+--
 // [.card.card-learn]
 // --
 // xref:solidity/2-zero-to-erc20-hero.adoc[[.card-title]#Zero to ERC-20 Hero# [.card-body]#pass:q[Use one of the most popular token standards to create a personal reward token]#]
