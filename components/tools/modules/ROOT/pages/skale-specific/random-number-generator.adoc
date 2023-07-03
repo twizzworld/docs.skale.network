@@ -53,7 +53,7 @@ There are a few ways to do this.
 * Concatenate a counter: in your dApp you may create a counter `i` then do:
 +
 ```javascript
-NEW_RANDOM = KECCACK_HASH(OLD_RANDOM || i)
+NEW_RANDOM = KECCACK_HASH(OLD_RANDOM | i)
 i++
 ```
 
