@@ -21,8 +21,8 @@
 ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
 ** xref:solidity/1-solidity-basics.adoc[Solidity Basics]
 
-* Random Number Generation
-** xref:rng/dynamic-nft-creation.adoc[Dynamic NFT Creation]
+* xref:projects/index.adoc[Projects]
+** xref:projects/dynamic-nft-creation.adoc[Dynamic NFT Creation]
 
 * Topics
 ** xref:topics/nfts.adoc[About Non-Fungible Tokens]

@@ -1,0 +1,850 @@
+= Dynamic NFT Creation
+
+The following recipe will guide you down an in-depth process around not only using on-chain randomness, but also around
+using the blockchain for more that the average NFT does. If you are new to SKALE, heade over to the xref:introduction::overview.adoc[Introduction] to learn more and if you are new to Solidity, checkout the new xref:../solidity/index.adoc[Solidity 101] section to get up and running quickly.
+
+The following recipe will make use of a number of different packages, technologies, and tools:
+
+* Node.js for Deploying and Interacting with contracts
+* Hardhat for Smart Contract Development, Deployment, and Interaction
+* Community Packages such as link:https://www.npmjs.com/package/@dirtroad/skale-rng[SKALE RNG]
+* SKALE Chaos Testnet
+
+This recipe has three sections: Setup, Contracts, Frontend. Each section will be a mini-tutorial that links to the previous section.
+
+== Setup
+
+This section will focus on setting up the project. You must have Node.js installed on your computer.
+
+=== Create Project Directories
+
+To start, run the following in your command prompt:
+
+```shell
+mkdir dynamic-nft-creation dynamic-nft-creation/smart-contracts && cd dynamic-nft-creation/smart-contracts
+```
+
+In the final section we will create a folder for the frontend (dApp), however, for now this will allow us to start.
+
+=== Create Hardhat Project
+
+Next run 
+
+```shell
+npx hardhat
+```
+in your command prompt. If you do not have Hardhat installed globally you will need to accept first. If you do then you should see three (3) options to create a new Hardhat project in your current directory. For this Recipe we will be using TypeScript. Select the second option __Create a Typescript Project__ and press enter at each prompt to create the hardhat project in your smart-contracts directory with the .gitignore file and all of the dependencies.
+
+=== Cleanup the Project
+The next step is to cleanup the project since it comes with a few defaults that we don't want in there.
+
+Run the following to remove the unnecessary default files and the scripts folder:
+
+```shell
+rm contracts/Lock.sol scripts/deploy.ts test/Lock.ts && rmdir scripts
+```
+
+Next run the following to add in the files and folders that we want:
+
+```shell
+mkdir deploy && touch contracts/DynamicNFT.sol contracts/SVG.sol contracts/Encoder.sol test/DynamicNFT.ts deploy/deploy.ts
+```
+
+=== Install Necessary Dependencies
+Run the following in your command prompt to install the packages we will use:
+
+```shell
+npm add @openzeppelin/contracts @dirtroad/skale-rng dotenv && npm add -D hardhat-deploy hardhat-deploy-ethers
+```
+
+* @openzeppelin/contracts - Battle-tested smart contract contracts and libraries
+* @dirtroad/skale-rng - SKALE Random Number Generator Smart Contract
+* dotenv - Access to the environment within scripts. Will use values from the .env file
+* hardhat-deploy & hardhat-deploy-ethers - Hardhat plugins to simplify contract deployment and post-deployment access
+
+=== Configure Hardhat
+
+This section will cover setting up the Hardhat Configuration file. Open the __hardhat.config.ts__ file in your favorite editor or command prompt.
+Update it so that it looks the same as the following:
+
+```typescript
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
+import dotenv from "dotenv";
+
+/*
+ * Allows the script to access process.env
+ */
+dotenv.config();
+
+/**
+ *
+ * This section checks for a PRIVATE_KEY value in the .env file
+ * If no value is found it will throw the error
+ */
+
+const PRIVATE_KEY: string | undefined = (process.env.PRIVATE_KEY as string | undefined);
+if (!PRIVATE_KEY) {
+    throw new Error("Private Key Not Found");
+}
+
+const config: HardhatUserConfig = {
+    defaultNetwork: "chaos",
+    solidity: "0.8.19",
+    namedAccounts: {
+        deployer: 0
+    },
+    networks: {
+        chaos: {
+            accounts: [PRIVATE_KEY],
+            url: "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix"
+        }
+    }
+};
+
+export default config;
+```
+
+=== Add Private Key
+Now that the Hardhat Configuration file is setup properly, create an Environment Variables file in the root of the directory.
+
+```shell
+touch .env
+```
+
+Inside this file, add a single line for the PRIVATE_KEY. Add in your private key to this field after the equals sign.
+
+[IMPORTANT]
+Make sure that your .gitignore file contains **.env** on one of the lines. If you followed this section from the start it should already be included.
+This will ensure that your private key is not checked into version control.
+
+[NOTE]
+The private key should not start with 0x.
+
+```shell
+PRIVATE_KEY=0123456....123456
+```
+
+== Contract Development
+
+The following section will take you through a number of steps to create a NFT smart contract that uses an on-chain SVG with random number values when new assets are created. 
+
+=== Initialize the Smart Contract
+
+Open the DynamicNFT.sol file in your editor or command prompt. Start by adding the following so that your file holds the following content:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract DynamicNFT {}
+```
+
+The first line sets the license of the source code of the file. 
+
+The second line specifies the Solidity version. This should match the value in your __hardhat.config.ts__ file.
+
+The final line is the actual contract which is empty for now.
+
+
+=== Inherit the Necessary Contracts and Libraries
+
+The next step is to add in the necessary contracts and libraries to the existing contract. In this step we will be adding contracts and libraries from the OpenZeppelin package
+as well as adding the community RNG smart contract.
+
+The smart contract should now look like the following:
+
+.Click to show the code
+[%collapsible]
+====
+```solidity
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@dirtroad/skale-rng/contracts/RNG.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
+    using Counters for Counters.Counter;
+
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    Counters.Counter private _tokenIdCounter;
+
+    constructor() ERC721("DynamicNFT", "DNFT") {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(MINTER_ROLE, msg.sender);
+    }
+
+    function safeMint(address to, string memory uri) public onlyRole(MINTER_ROLE) {
+        uint256 tokenId = _tokenIdCounter.current();
+        _tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, uri);
+    }
+
+    // The following functions are overrides required by Solidity.
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+        internal
+        override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
+
+    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+        super._burn(tokenId);
+    }
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override(ERC721, ERC721URIStorage)
+        returns (string memory)
+    {
+        return super.tokenURI(tokenId);
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+}
+```
+====
+
+In this section we have added many lines of code, so let's discuss what does what. 
+To start, all of the added imports at the top allow us to access the various OpenZeppelin and RNG contracts we want to use. 
+
+From OpenZeppelin we have included the ERC721, ERC721Enumerable, and ERC721URIStorage contracts. This provides all of the code needed to make a fully functional NFT contract. 
+
+Additionally, we have added the OpenZeppelin AccessControl control which allows the contract to have different roles such as Owners, Minters, etc.
+You can see this in use where the MINTER_ROLE has been added at the top of the contract.
+
+Lastly, we have added the Counter utility contract which provides a very simple counter that can be used to handle getting the next tokenId when an asset is minted.
+You can also see this in use at the top of the contract where it has been imported with the using statement and then initialized.
+
+We have also added the RNG contract from the Dirt Road Dev library. This will mean that the smart contract can access random numbers on-chain.
+
+Finally, we have added a number of overridden functions. These functions are necessary due to the duplicate functions within the ERC721 contracts. 
+We will ignore all of these for now and cover them again in future sections.
+
+=== On-Chain SVG
+
+When building on SKALE you are able to deploy very large contracts thanks to the gas block limit. 
+Combined with zero gas fees, putting the graphics and the metadata for an NFT on-chain with SKALE is a no-brainer. 
+
+For this section let's start by walking through the on-chain SVG portion. The SVG we will be using is the following:
+
+[tabs]
+====
+Code::
++
+--
+```svg
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+  <defs>
+    <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#aaaaaa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#666666;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon1Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9900;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon2Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9900ff;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon3Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc00;stop-opacity:1" />
+    </radialGradient>
+    <filter id="shadowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="craterFilter">
+      <feOffset dx="1" dy="1" in="SourceAlpha" result="offset" />
+      <feGaussianBlur in="offset" stdDeviation="1" result="blur" />
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.75" specularExponent="20" lighting-color="#999999" result="specular">
+        <fePointLight x="-5000" y="-10000" z="20000" />
+      </feSpecularLighting>
+      <feComposite in="specular" in2="SourceAlpha" operator="in" result="composite" />
+      <feComposite in="SourceGraphic" in2="composite" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
+    </filter>
+  </defs>
+  
+  <!-- Space background -->
+  <rect width="100%" height="100%" fill="#000000" />
+  
+  <!-- Stars -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="30" cy="20" r="0.5" fill="#ffffff" />
+    <circle cx="230" cy="50" r="0.8" fill="#ff9900" />
+    <circle cx="120" cy="80" r="1.2" fill="#ffcc00" />
+    <circle cx="200" cy="50" r="0.7" fill="#ffffff" />
+    <circle cx="230" cy="70" r="1.0" fill="#ff9900" />
+    <circle cx="250" cy="25" r="0.9" fill="#ffcc00" />
+    <circle cx="15" cy="200" r="0.5" fill="#ffffff" />
+    <circle cx="25" cy="230" r="0.8" fill="#ff9900" />
+    <circle cx="75" cy="190" r="1.0" fill="#ffcc00" />
+    <circle cx="125" cy="230" r="0.7" fill="#ffffff" />
+    <!-- Add more stars here -->
+  </g>
+  
+  <circle cx="150" cy="150" r="100" fill="url(#planetGradient)" filter="url(#shadowFilter)" /> <!-- Planet body -->
+  
+  <g transform="rotate(0 150 150)">
+    <circle cx="260" cy="70" r="10" fill="url(#moon1Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="8s" repeatCount="indefinite" />
+      <animateMotion dur="8s" repeatCount="indefinite">
+        <mpath href="#moonPath1" />
+      </animateMotion>
+    </circle> <!-- Moon 1 -->
+    <circle cx="270" cy="220" r="15" fill="url(#moon2Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="12s" repeatCount="indefinite" />
+      <animateMotion dur="12s" repeatCount="indefinite">
+        <mpath href="#moonPath2" />
+      </animateMotion>
+    </circle> <!-- Moon 2 -->
+    <circle cx="235" cy="210" r="12" fill="url(#moon3Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="10s" repeatCount="indefinite" />
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath href="#moonPath3" />
+      </animateMotion>
+    </circle> <!-- Moon 3 -->
+  </g>
+  
+  <circle id="moonPath1" cx="150" cy="150" r="90" fill="none" />
+  <circle id="moonPath2" cx="150" cy="150" r="110" fill="none" />
+  <circle id="moonPath3" cx="150" cy="150" r="130" fill="none" />
+  
+  <circle cx="150" cy="150" r="60" fill="rgba(0, 0, 0, 0.2)" filter="url(#shadowFilter)" /> <!-- Shadow -->  
+  
+  <!-- Craters -->
+  <circle cx="100" cy="120" r="7" fill="#888858" filter="url(#craterFilter)" />
+  <circle cx="170" cy="180" r="10" fill="#878888" filter="url(#craterFilter)" />
+  <circle cx="130" cy="240" r="8" fill="#888858" filter="url(#craterFilter)" />
+  <circle cx="70" cy="190" r="9" fill="#878888" filter="url(#craterFilter)" />
+</svg>
+```
+--
+Graphic::
++
+--
+++++
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
+  <defs>
+    <radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#aaaaaa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#666666;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon1Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9900;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon2Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9900ff;stop-opacity:1" />
+    </radialGradient>
+    <radialGradient id="moon3Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00cc00;stop-opacity:1" />
+    </radialGradient>
+    <filter id="shadowFilter" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="craterFilter">
+      <feOffset dx="1" dy="1" in="SourceAlpha" result="offset" />
+      <feGaussianBlur in="offset" stdDeviation="1" result="blur" />
+      <feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.75" specularExponent="20" lighting-color="#999999" result="specular">
+        <fePointLight x="-5000" y="-10000" z="20000" />
+      </feSpecularLighting>
+      <feComposite in="specular" in2="SourceAlpha" operator="in" result="composite" />
+      <feComposite in="SourceGraphic" in2="composite" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />
+    </filter>
+  </defs>
+  
+  <!-- Space background -->
+  <rect width="100%" height="100%" fill="#000000" />
+  
+  <!-- Stars -->
+  <g filter="url(#shadowFilter)">
+    <circle cx="30" cy="20" r="0.5" fill="#ffffff" />
+    <circle cx="230" cy="50" r="0.8" fill="#ff9900" />
+    <circle cx="120" cy="80" r="1.2" fill="#ffcc00" />
+    <circle cx="200" cy="50" r="0.7" fill="#ffffff" />
+    <circle cx="230" cy="70" r="1.0" fill="#ff9900" />
+    <circle cx="250" cy="25" r="0.9" fill="#ffcc00" />
+    <circle cx="15" cy="200" r="0.5" fill="#ffffff" />
+    <circle cx="25" cy="230" r="0.8" fill="#ff9900" />
+    <circle cx="75" cy="190" r="1.0" fill="#ffcc00" />
+    <circle cx="125" cy="230" r="0.7" fill="#ffffff" />
+    <!-- Add more stars here -->
+  </g>
+  
+  <circle cx="150" cy="150" r="100" fill="url(#planetGradient)" filter="url(#shadowFilter)" /> <!-- Planet body -->
+  
+  <g transform="rotate(0 150 150)">
+    <circle cx="260" cy="70" r="10" fill="url(#moon1Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="8s" repeatCount="indefinite" />
+      <animateMotion dur="8s" repeatCount="indefinite">
+        <mpath href="#moonPath1" />
+      </animateMotion>
+    </circle> <!-- Moon 1 -->
+    <circle cx="270" cy="220" r="15" fill="url(#moon2Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="12s" repeatCount="indefinite" />
+      <animateMotion dur="12s" repeatCount="indefinite">
+        <mpath href="#moonPath2" />
+      </animateMotion>
+    </circle> <!-- Moon 2 -->
+    <circle cx="235" cy="210" r="12" fill="url(#moon3Gradient)" filter="url(#shadowFilter)">
+      <animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="10s" repeatCount="indefinite" />
+      <animateMotion dur="10s" repeatCount="indefinite">
+        <mpath href="#moonPath3" />
+      </animateMotion>
+    </circle> <!-- Moon 3 -->
+  </g>
+  
+  <circle id="moonPath1" cx="150" cy="150" r="90" fill="none" />
+  <circle id="moonPath2" cx="150" cy="150" r="110" fill="none" />
+  <circle id="moonPath3" cx="150" cy="150" r="130" fill="none" />
+  
+  <circle cx="150" cy="150" r="60" fill="rgba(0, 0, 0, 0.2)" filter="url(#shadowFilter)" /> <!-- Shadow -->  
+  
+  <!-- Craters -->
+  <circle cx="100" cy="120" r="7" fill="#888858" filter="url(#craterFilter)" />
+  <circle cx="170" cy="180" r="10" fill="#878888" filter="url(#craterFilter)" />
+  <circle cx="130" cy="240" r="8" fill="#888858" filter="url(#craterFilter)" />
+  <circle cx="70" cy="190" r="9" fill="#878888" filter="url(#craterFilter)" />
+</svg>
+++++
+--
+====
+
+In order to make this SVG work on-chain with no external links to IPFS or other storage services we will start by creating a library to house this asset.
+
+Open the SVG.sol file in the contracts folder, and add in the following code:
+
+.Click to show the SVG Library
+[%collapsible]
+====
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+library SVG {
+
+    function load(
+        string memory rgb,
+        uint8[] speeds
+    ) public view returns (string memory) {
+        return string(abi.encodePacked(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">',
+            '<defs>',
+            '<radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
+            '<stop offset="0%" style="stop-color: rbg(',rgb,');stop-opacity:1" />',
+            '<stop offset="100%" style="stop-color:#666666;stop-opacity:1" />',
+            '</radialGradient>',
+            '<radialGradient id="moon1Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
+            '<stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />',
+            '<stop offset="100%" style="stop-color:#ff9900;stop-opacity:1" />',
+            '</radialGradient>',
+            '<radialGradient id="moon2Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
+            '<stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />',
+            '<stop offset="100%" style="stop-color:#9900ff;stop-opacity:1" />',
+            '</radialGradient>',
+            '<radialGradient id="moon3Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
+            '<stop offset="0%" style="stop-color:#00ff00;stop-opacity:1" />',
+            '<stop offset="100%" style="stop-color:#00cc00;stop-opacity:1" />',
+            '</radialGradient>',
+            '<filter id="shadowFilter" x="-30%" y="-30%" width="160%" height="160%">',
+            '<feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />',
+            '</filter>',
+            '<filter id="craterFilter">',
+            '<feOffset dx="1" dy="1" in="SourceAlpha" result="offset" />',
+            '<feGaussianBlur in="offset" stdDeviation="1" result="blur" />',
+            '<feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.75" specularExponent="20" lighting-color="#999999" result="specular">',
+            '<fePointLight x="-5000" y="-10000" z="20000" />',
+            '</feSpecularLighting>',
+            '<feComposite in="specular" in2="SourceAlpha" operator="in" result="composite" />',
+            '<feComposite in="SourceGraphic" in2="composite" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />',
+            '</filter>',
+            '</defs>',
+            '<rect width="100%" height="100%" fill="#000000" />',
+            '<g filter="url(#shadowFilter)">',
+            '<circle cx="30" cy="20" r="0.5" fill="#ffffff" />',
+            '<circle cx="230" cy="50" r="0.8" fill="#ff9900" />',
+            '<circle cx="120" cy="80" r="1.2" fill="#ffcc00" />',
+            '<circle cx="200" cy="50" r="0.7" fill="#ffffff" />',
+            '<circle cx="230" cy="70" r="1.0" fill="#ff9900" />',
+            '<circle cx="250" cy="25" r="0.9" fill="#ffcc00" />',
+            '<circle cx="15" cy="200" r="0.5" fill="#ffffff" />',
+            '<circle cx="25" cy="230" r="0.8" fill="#ff9900" />',
+            '<circle cx="75" cy="190" r="1.0" fill="#ffcc00" />',
+            '<circle cx="125" cy="230" r="0.7" fill="#ffffff" />',
+            '</g>',
+            '<circle cx="150" cy="150" r="100" fill="url(#planetGradient)" filter="url(#shadowFilter)"',
+            '<g transform="rotate(0 150 150)">',
+            '<circle cx="260" cy="70" r="10" fill="url(#moon1Gradient)" filter="url(#shadowFilter)">',
+            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[0],'s" repeatCount="indefinite" />',
+            '<animateMotion dur="8s" repeatCount="indefinite">',
+            '<mpath href="#moonPath1" />',
+            '</animateMotion>',
+            '</circle>',
+            '<circle cx="270" cy="220" r="15" fill="url(#moon2Gradient)" filter="url(#shadowFilter)">',
+            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[1],'s" repeatCount="indefinite" />',
+            '<animateMotion dur="12s" repeatCount="indefinite">',
+            '<mpath href="#moonPath2" />',
+            '</animateMotion>',
+            '</circle>',
+            '<circle cx="235" cy="210" r="12" fill="url(#moon3Gradient)" filter="url(#shadowFilter)">',
+            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[2],'s" repeatCount="indefinite" />',
+            '<animateMotion dur="10s" repeatCount="indefinite">',
+            '<mpath href="#moonPath3" />',
+            '</animateMotion>',
+            '</circle>',
+            '</g>',
+            '<circle id="moonPath1" cx="150" cy="150" r="90" fill="none" />',
+            '<circle id="moonPath2" cx="150" cy="150" r="110" fill="none" />',
+            '<circle id="moonPath3" cx="150" cy="150" r="130" fill="none" />',
+            '<circle cx="150" cy="150" r="60" fill="rgba(0, 0, 0, 0.2)" filter="url(#shadowFilter)" />',
+            '<circle cx="100" cy="120" r="7" fill="#888858" filter="url(#craterFilter)" />',
+            '<circle cx="170" cy="180" r="10" fill="#878888" filter="url(#craterFilter)" />',
+            '<circle cx="130" cy="240" r="8" fill="#888858" filter="url(#craterFilter)" />',
+            '<circle cx="70" cy="190" r="9" fill="#878888" filter="url(#craterFilter)" />',
+            '</svg>'
+        ));
+    }
+}
+```
+====
+
+In the above Solidity library we have created a dynamic on-chain SVG. This SVG has the ability to generate any number of possibilities by dynamically changing based
+on the Solidity parameters.
+
+=== Create Encoder Library for Metadata
+
+The next step of the process is to handle encoding the SVG. This is what will allow us to output an ERC-721 compatible set of Metadata even with having all of the data
+on-chain. Open up the __Encoder.sol__ file and add the following code:
+
+.Click to show the Encoder Library
+[%collapsible]
+====
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@openzeppelin/contracts/utils/Base64.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
+
+library Encoder {
+
+    using Strings for uint256;
+
+    function encodeSVG(string memory _svg) internal pure returns (string memory) {
+        return string(abi.encodePacked(
+            "data:image/svg+xml;base64,",
+            Base64.encode(abi.encodePacked(_svg))
+        ));
+    }
+
+    function encodeNFTMetadata(string memory name, string memory description, string memory image) internal pure returns (string memory) {
+
+        return string(abi.encodePacked(
+            "data:application/json;base64,",
+            Base64.encode(
+                bytes(
+                    abi.encodePacked(
+                        '{',
+                            '"name": "', name, '", ',
+                            '"description":"', description, '", ',
+                            '"image": "', image, '"',
+                        '}'
+                    )
+                )
+            )
+        ));
+    }
+}
+```
+====
+
+=== Complete Smart Contract
+
+The next step is to finish setting up the minting portion of the contract. The minting portion should use the RNG contract that has
+been inherited to generate six (6) random numbers. The first three will be used for color and the last three will be used for speeds.
+
+.Click to see the new code
+[%collapsible]
+====
+```solidity
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@dirtroad/skale-rng/contracts/RNG.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+import "./SVG.sol";
+import "./Encoder.sol";
+
+contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
+    using Counters for Counters.Counter;
+
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    Counters.Counter public tokenIdCounter;
+
+    mapping(uint256 => string) public colors;
+    mapping(uint256 => uint8[]) public speeds;
+
+    constructor() ERC721("DynamicNFT", "DNFT") {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(MINTER_ROLE, msg.sender);
+    }
+
+    function safeMint(address to) public onlyRole(MINTER_ROLE) {
+        uint256 tokenId = tokenIdCounter.current();
+        tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+
+        uint8 arrSize = 6;
+
+        uint8[] memory randomNumbers = new uint8[](arrSize);
+        for (uint8 i = 0; i < arrSize; i++) {
+            if (i < 3) {
+                randomNumbers[i] = getRandomNextRange(i, 255);
+            } else {
+                randomNumbers[i] = 1 + getRandomNextRange(i, 36);
+            }
+        }
+
+        colors[tokenIdCounter.current()] = string(abi.encodePacked(randomNumbers[0], ",", randomNumbers[1], ",", randomNumbers[2]));
+        speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]]
+    }
+
+    // The following functions are overrides required by Solidity.
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+        internal
+        override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
+
+    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+        super._burn(tokenId);
+    }
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override(ERC721, ERC721URIStorage)
+        returns (string memory)
+    {
+        return super.tokenURI(tokenId);
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+}
+
+```
+====
+
+After updating the mint function, it is now time to handle rendering the dynamic SVG properly.
+
+.Click to see the new code
+[%collapsible]
+====
+```solidity
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+import "@dirtroad/skale-rng/contracts/RNG.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+
+import "./SVG.sol";
+import "./Encoder.sol";
+
+contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
+    using Counters for Counters.Counter;
+
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+    Counters.Counter public tokenIdCounter;
+
+    mapping(uint256 => string) public colors;
+    mapping(uint256 => uint8[]) public speeds;
+
+    constructor() ERC721("DynamicNFT", "DNFT") {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(MINTER_ROLE, msg.sender);
+    }
+
+    function safeMint(address to) public onlyRole(MINTER_ROLE) {
+        uint256 tokenId = tokenIdCounter.current();
+        tokenIdCounter.increment();
+        _safeMint(to, tokenId);
+
+        uint8 arrSize = 6;
+
+        uint8[] memory randomNumbers = new uint8[](arrSize);
+        for (uint8 i = 0; i < arrSize; i++) {
+            if (i < 3) {
+                randomNumbers[i] = getRandomNextRange(i, 255);
+            } else {
+                randomNumbers[i] = 1 + getRandomNextRange(i, 36);
+            }
+        }
+
+        colors[tokenIdCounter.current()] = string(abi.encodePacked(randomNumbers[0], ",", randomNumbers[1], ",", randomNumbers[2]));
+        speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]]
+    }
+
+    // The following functions are overrides required by Solidity.
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
+        internal
+        override(ERC721, ERC721Enumerable)
+    {
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
+    }
+
+    function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+        super._burn(tokenId);
+    }
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override(ERC721, ERC721URIStorage)
+        returns (string memory)
+    {
+        return Encoder.encodeNFTMetadata(
+            "DynamicNFT",
+            "The DynamicNFT Smart Contract is a fully on-chain and dynamic NFT",
+            Encoder.encodeSVG(
+                SVG.load(
+                    colors[tokenId],
+                    speeds[tokenId]
+                )
+            )
+        );
+    }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+}
+
+```
+====
+
+=== Preparing for Deployment
+
+Congratulations! IF you have made it this far you should have a functional NFT contract that isn't throwing errors at you. However, how do we test that it works? 
+The next step in the process will require us to jump back into Typescript and Hardhat and setup a deployment pipeline.
+
+Open up the deploy.ts file in your deploy folder. It should be completely empty. 
+Add in the following code:
+
+.Click to see the code
+[%collapsible]
+====
+```typescript
+import { HardhatRuntimeEnvironment } from 'hardhat/types';
+import { DeployFunction } from 'hardhat-deploy/types';
+
+const func: DeployFunction = async function(hre: HardhatRuntimeEnvironment) {
+
+    const { deployments, getNamedAccounts } = hre;
+    const { deploy } = deployments;
+    const { deployer } = await getNamedAccounts();
+
+    /** Deploys Encoder Library Separately */
+    await deploy(
+        "Encoder",
+        {
+            from: deployer,
+            log: true,
+        }
+    );
+
+    /** Deploys SVG Library Separately */
+    await deploy(
+        "SVG",
+        {
+            from: deployer,
+            log: true,
+        }
+    );
+
+    /** Deploys DynamicNFT Contract */
+    await deploy(
+        "DynamicNFT",
+        {
+            from: deployer,
+            log: true,
+            libraries: {
+                Encoder: (await deployments.get("Encoder")).address,
+                SVG: (await deployments.get("SVG")).address
+            }
+        }
+    );
+}
+
+export default func;
+
+func.tags = ["default"]
+```
+====
+
+=== Deploying your Smart Contract
+
+The next step is to deploy your smart contract on the SKALE Chaos Testnet.
+Thanks to all the hard work setting everything up at the beginning - you can now do this by running a single command:
+
+```shell
+npx hardhat deploy
+```
+
+The network, accounts, scripts, etc should all be picked up automatically. If you run into issues and cannot by pass this step, head over to the 
+link:https://discord.gg/skale[SKALE Developer Discord and Ask for Help!], otherwise, you should a contract address and transaction hash show up in the command prompt.
+
+== The Frontend
+
+If you have made it this far into the recipe, great job! If you have done it all once so far, get up and go for a quick walk or grab a coffee of coffee to refresh. This section will still be here when you come back. To start of let's go over what will be created in this section:
+
+1. A Website that functions as a decentralized application (dApp)
+2. A dApp that enables users with non-custodial wallets to mint dynamic NFTs
+3. A showcase page for all the available NFTs
+
+This section will be split into smaller pieces as a number of different files may need to be edited to update everything properly. 
+Additionally, tabs will be used more in this section to have multiple files linked side-by-side.

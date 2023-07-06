@@ -1,0 +1,13 @@
+= Projects
+
+Follow along with the recipe and build projects from scratch. Learn how to take advantage of SKALE Networks Zero Gas Fee Environment, blazing fast speed, large block gas limits to
+build all while actually deploying to SKALEs Chaos Testnet. 
+
+Additionally, throughout theses projects you will use a number of interesting skills and tools such as:
+
+* Node.js and NPM
+* Hardhat
+* Languages like JavaScript, Tyepscript, and Solidity
+* Community packages like Open Zeppelins smart contracts, SKALE.js, and more!
+
+Checkout the first project available now, xref:dynamic-nft-creation[Creating a Dynamic On-chain NFT Contract].
