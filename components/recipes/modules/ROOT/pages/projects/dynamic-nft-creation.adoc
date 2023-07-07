@@ -837,18 +837,3 @@ npx hardhat deploy
 
 The network, accounts, scripts, etc should all be picked up automatically. If you run into issues and cannot by pass this step, head over to the 
 link:https://discord.gg/skale[SKALE Developer Discord and Ask for Help!], otherwise, you should a contract address and transaction hash show up in the command prompt.
-
-== The Frontend
-
-If you have made it this far into the recipe, great job! If you have done it all once so far, get up and go for a quick walk or grab a coffee of coffee to refresh. This section will still be here when you come back. To start of let's go over what will be created in this section:
-
-1. A Website that functions as a decentralized application (dApp)
-2. A dApp that enables users with non-custodial wallets to mint dynamic NFTs
-3. A showcase page for all the available NFTs
-
-This section will be split into smaller pieces as a number of different files may need to be edited to update everything properly. 
-Additionally, tabs will be used more in this section to have multiple files linked side-by-side.
-
-=== Create the Frontend Application
-
-We will be using Next.js for the 
