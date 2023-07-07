@@ -446,8 +446,8 @@ library SVG {
 
     function load(
         string memory rgb,
-        uint8[] speeds
-    ) public view returns (string memory) {
+        uint8[] memory speeds
+    ) public pure returns (string memory) {
         return string(abi.encodePacked(
             '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">',
             '<defs>',
@@ -626,9 +626,9 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
         uint8[] memory randomNumbers = new uint8[](arrSize);
         for (uint8 i = 0; i < arrSize; i++) {
             if (i < 3) {
-                randomNumbers[i] = getRandomNextRange(i, 255);
+                randomNumbers[i] = uint8(getNextRandomRange(i, 255));
             } else {
-                randomNumbers[i] = 1 + getRandomNextRange(i, 36);
+                randomNumbers[i] = uint8(1 + getNextRandomRange(i, 36));
             }
         }
 
@@ -721,7 +721,7 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
         }
 
         colors[tokenIdCounter.current()] = string(abi.encodePacked(randomNumbers[0], ",", randomNumbers[1], ",", randomNumbers[2]));
-        speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]]
+        speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]];
     }
 
     // The following functions are overrides required by Solidity.
@@ -848,3 +848,7 @@ If you have made it this far into the recipe, great job! If you have done it all
 
 This section will be split into smaller pieces as a number of different files may need to be edited to update everything properly. 
 Additionally, tabs will be used more in this section to have multiple files linked side-by-side.
+
+=== Create the Frontend Application
+
+We will be using Next.js for the 
