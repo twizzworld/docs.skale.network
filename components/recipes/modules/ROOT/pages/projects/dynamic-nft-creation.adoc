@@ -10,7 +10,7 @@ The following recipe will make use of a number of different packages, technologi
 * Community Packages such as link:https://www.npmjs.com/package/@dirtroad/skale-rng[SKALE RNG]
 * SKALE Chaos Testnet
 
-This recipe has three sections: Setup, Contracts, Frontend. Each section will be a mini-tutorial that links to the previous section.
+This recipe has three sections: Setup, Contracts, and Mint. Each section will be a mini-recipe that links to the previous section.
 
 == Setup
 
@@ -442,88 +442,90 @@ Open the SVG.sol file in the contracts folder, and add in the following code:
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
+import "@openzeppelin/contracts/utils/Strings.sol";
+
 library SVG {
 
     function load(
         string memory rgb,
         uint8[] memory speeds
-    ) public pure returns (string memory) {
-        return string(abi.encodePacked(
-            '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">',
-            '<defs>',
-            '<radialGradient id="planetGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
-            '<stop offset="0%" style="stop-color: rbg(',rgb,');stop-opacity:1" />',
-            '<stop offset="100%" style="stop-color:#666666;stop-opacity:1" />',
-            '</radialGradient>',
-            '<radialGradient id="moon1Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
-            '<stop offset="0%" style="stop-color:#ffcc00;stop-opacity:1" />',
-            '<stop offset="100%" style="stop-color:#ff9900;stop-opacity:1" />',
-            '</radialGradient>',
-            '<radialGradient id="moon2Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
-            '<stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />',
-            '<stop offset="100%" style="stop-color:#9900ff;stop-opacity:1" />',
-            '</radialGradient>',
-            '<radialGradient id="moon3Gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">',
-            '<stop offset="0%" style="stop-color:#00ff00;stop-opacity:1" />',
-            '<stop offset="100%" style="stop-color:#00cc00;stop-opacity:1" />',
-            '</radialGradient>',
-            '<filter id="shadowFilter" x="-30%" y="-30%" width="160%" height="160%">',
-            '<feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />',
-            '</filter>',
-            '<filter id="craterFilter">',
-            '<feOffset dx="1" dy="1" in="SourceAlpha" result="offset" />',
-            '<feGaussianBlur in="offset" stdDeviation="1" result="blur" />',
-            '<feSpecularLighting in="blur" surfaceScale="2" specularConstant="0.75" specularExponent="20" lighting-color="#999999" result="specular">',
-            '<fePointLight x="-5000" y="-10000" z="20000" />',
-            '</feSpecularLighting>',
-            '<feComposite in="specular" in2="SourceAlpha" operator="in" result="composite" />',
-            '<feComposite in="SourceGraphic" in2="composite" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint" />',
-            '</filter>',
-            '</defs>',
-            '<rect width="100%" height="100%" fill="#000000" />',
-            '<g filter="url(#shadowFilter)">',
-            '<circle cx="30" cy="20" r="0.5" fill="#ffffff" />',
-            '<circle cx="230" cy="50" r="0.8" fill="#ff9900" />',
-            '<circle cx="120" cy="80" r="1.2" fill="#ffcc00" />',
-            '<circle cx="200" cy="50" r="0.7" fill="#ffffff" />',
-            '<circle cx="230" cy="70" r="1.0" fill="#ff9900" />',
-            '<circle cx="250" cy="25" r="0.9" fill="#ffcc00" />',
-            '<circle cx="15" cy="200" r="0.5" fill="#ffffff" />',
-            '<circle cx="25" cy="230" r="0.8" fill="#ff9900" />',
-            '<circle cx="75" cy="190" r="1.0" fill="#ffcc00" />',
-            '<circle cx="125" cy="230" r="0.7" fill="#ffffff" />',
-            '</g>',
-            '<circle cx="150" cy="150" r="100" fill="url(#planetGradient)" filter="url(#shadowFilter)"',
-            '<g transform="rotate(0 150 150)">',
-            '<circle cx="260" cy="70" r="10" fill="url(#moon1Gradient)" filter="url(#shadowFilter)">',
-            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[0],'s" repeatCount="indefinite" />',
-            '<animateMotion dur="8s" repeatCount="indefinite">',
-            '<mpath href="#moonPath1" />',
-            '</animateMotion>',
-            '</circle>',
-            '<circle cx="270" cy="220" r="15" fill="url(#moon2Gradient)" filter="url(#shadowFilter)">',
-            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[1],'s" repeatCount="indefinite" />',
-            '<animateMotion dur="12s" repeatCount="indefinite">',
-            '<mpath href="#moonPath2" />',
-            '</animateMotion>',
-            '</circle>',
-            '<circle cx="235" cy="210" r="12" fill="url(#moon3Gradient)" filter="url(#shadowFilter)">',
-            '<animateTransform attributeName="transform" type="rotate" from="0 150 150" to="360 150 150" dur="',speeds[2],'s" repeatCount="indefinite" />',
-            '<animateMotion dur="10s" repeatCount="indefinite">',
-            '<mpath href="#moonPath3" />',
-            '</animateMotion>',
-            '</circle>',
-            '</g>',
-            '<circle id="moonPath1" cx="150" cy="150" r="90" fill="none" />',
-            '<circle id="moonPath2" cx="150" cy="150" r="110" fill="none" />',
-            '<circle id="moonPath3" cx="150" cy="150" r="130" fill="none" />',
-            '<circle cx="150" cy="150" r="60" fill="rgba(0, 0, 0, 0.2)" filter="url(#shadowFilter)" />',
-            '<circle cx="100" cy="120" r="7" fill="#888858" filter="url(#craterFilter)" />',
-            '<circle cx="170" cy="180" r="10" fill="#878888" filter="url(#craterFilter)" />',
-            '<circle cx="130" cy="240" r="8" fill="#888858" filter="url(#craterFilter)" />',
-            '<circle cx="70" cy="190" r="9" fill="#878888" filter="url(#craterFilter)" />',
-            '</svg>'
-        ));
+    ) public pure returns (bytes memory) {
+        return abi.encodePacked(
+            "<svg xmlns='http://www.w3.org/2000/svg'>",
+            "<defs>",
+            "<radialGradient id='planetGradient' cx='50%' cy='50%' r='50%' fx='50%' fy='50%'>",
+            "<stop offset='0%' style='stop-color: rbg(",rgb,");stop-opacity:1' />",
+            "<stop offset='100%' style='stop-color:#666666;stop-opacity:1' />",
+            "</radialGradient>",
+            "<radialGradient id='moon1Gradient' cx='50%' cy='50%' r='50%' fx='50%' fy='50%'>",
+            "<stop offset='0%' style='stop-color:#ffcc00;stop-opacity:1' />",
+            "<stop offset='100%' style='stop-color:#ff9900;stop-opacity:1' />",
+            "</radialGradient>",
+            "<radialGradient id='moon2Gradient' cx='50%' cy='50%' r='50%' fx='50%' fy='50%'>",
+            "<stop offset='0%' style='stop-color:#ff00ff;stop-opacity:1' />",
+            "<stop offset='100%' style='stop-color:#9900ff;stop-opacity:1' />",
+            "</radialGradient>",
+            "<radialGradient id='moon3Gradient' cx='50%' cy='50%' r='50%' fx='50%' fy='50%'>",
+            "<stop offset='0%' style='stop-color:#00ff00;stop-opacity:1' />",
+            "<stop offset='100%' style='stop-color:#00cc00;stop-opacity:1' />",
+            "</radialGradient>",
+            "<filter id='shadowFilter' x='-30%' y='-30%' width='160%' height='160%'>",
+            "<feDropShadow dx='0' dy='0' stdDeviation='4' flood-color='#000000' flood-opacity='0.5' />",
+            "</filter>",
+            "<filter id='craterFilter'>",
+            "<feOffset dx='1' dy='1' in='SourceAlpha' result='offset' />",
+            "<feGaussianBlur in='offset' stdDeviation='1' result='blur' />",
+            "<feSpecularLighting in='blur' surfaceScale='2' specularConstant='0.75' specularExponent='20' lighting-color='#999999' result='specular'>",
+            "<fePointLight x='-5000' y='-10000' z='20000' />",
+            "</feSpecularLighting>",
+            "<feComposite in='specular' in2='SourceAlpha' operator='in' result='composite' />",
+            "<feComposite in='SourceGraphic' in2='composite' operator='arithmetic' k1='0' k2='1' k3='1' k4='0' result='litPaint' />",
+            "</filter>",
+            "</defs>",
+            "<rect width='100%' height='100%' fill='#000000' />",
+            "<g filter='url(#shadowFilter)'>",
+            "<circle cx='30' cy='20' r='0.5' fill='#ffffff' />",
+            "<circle cx='230' cy='50' r='0.8' fill='#ff9900' />",
+            "<circle cx='120' cy='80' r='1.2' fill='#ffcc00' />",
+            "<circle cx='200' cy='50' r='0.7' fill='#ffffff' />",
+            "<circle cx='230' cy='70' r='1.0' fill='#ff9900' />",
+            "<circle cx='250' cy='25' r='0.9' fill='#ffcc00' />",
+            "<circle cx='15' cy='200' r='0.5' fill='#ffffff' />",
+            "<circle cx='25' cy='230' r='0.8' fill='#ff9900' />",
+            "<circle cx='75' cy='190' r='1.0' fill='#ffcc00' />",
+            "<circle cx='125' cy='230' r='0.7' fill='#ffffff' />",
+            "</g>",
+            "<circle cx='150' cy='150' r='100' fill='url(#planetGradient)' filter='url(#shadowFilter)' />",
+            "<g transform='rotate(0 150 150)'>",
+            "<circle cx='260' cy='70' r='10' fill='url(#moon1Gradient)' filter='url(#shadowFilter)'>",
+            "<animateTransform attributeName='transform' type='rotate' from='0 150 150' to='360 150 150' dur='",Strings.toString(speeds[0]),"s' repeatCount='indefinite' />",
+            "<animateMotion dur='8s' repeatCount='indefinite'>",
+            "<mpath href='#moonPath1' />",
+            "</animateMotion>",
+            "</circle>",
+            "<circle cx='270' cy='220' r='15' fill='url(#moon2Gradient)' filter='url(#shadowFilter)'>",
+            "<animateTransform attributeName='transform' type='rotate' from='0 150 150' to='360 150 150' dur='",Strings.toString(speeds[1]),"s' repeatCount='indefinite' />",
+            "<animateMotion dur='12s' repeatCount='indefinite'>",
+            "<mpath href='#moonPath2' />",
+            "</animateMotion>",
+            "</circle>",
+            "<circle cx='235' cy='210' r='12' fill='url(#moon3Gradient)' filter='url(#shadowFilter)'>",
+            "<animateTransform attributeName='transform' type='rotate' from='0 150 150' to='360 150 150' dur='",Strings.toString(speeds[2]),"s' repeatCount='indefinite' />",
+            "<animateMotion dur='10s' repeatCount='indefinite'>",
+            "<mpath href='#moonPath3' />",
+            "</animateMotion>",
+            "</circle>",
+            "</g>",
+            "<circle id='moonPath1' cx='150' cy='150' r='90' fill='none' />",
+            "<circle id='moonPath2' cx='150' cy='150' r='110' fill='none' />",
+            "<circle id='moonPath3' cx='150' cy='150' r='130' fill='none' />",
+            "<circle cx='150' cy='150' r='60' fill='rgba(0, 0, 0, 0.2)' filter='url(#shadowFilter)' />",
+            "<circle cx='100' cy='120' r='7' fill='#888858' filter='url(#craterFilter)' />",
+            "<circle cx='170' cy='180' r='10' fill='#878888' filter='url(#craterFilter)' />",
+            "<circle cx='130' cy='240' r='8' fill='#888858' filter='url(#craterFilter)' />",
+            "<circle cx='70' cy='190' r='9' fill='#878888' filter='url(#craterFilter)' />",
+            "</svg>"
+        );
     }
 }
 ```
@@ -551,11 +553,12 @@ library Encoder {
 
     using Strings for uint256;
 
-    function encodeSVG(string memory _svg) internal pure returns (string memory) {
+    function encodeSVG(bytes memory _svg) internal pure returns (string memory) {
         return string(abi.encodePacked(
             "data:image/svg+xml;base64,",
-            Base64.encode(abi.encodePacked(_svg))
+            Base64.encode(_svg)
         ));
+        // return _svg;
     }
 
     function encodeNFTMetadata(string memory name, string memory description, string memory image) internal pure returns (string memory) {
@@ -632,7 +635,7 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
             }
         }
 
-        colors[tokenIdCounter.current()] = string(abi.encodePacked(randomNumbers[0], ",", randomNumbers[1], ",", randomNumbers[2]));
+        colors[tokenIdCounter.current()] = string.concat(Strings.toString(randomNumbers[0]), ",", Strings.toString(randomNumbers[1]), ",", Strings.toString(randomNumbers[2]));
         speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]]
     }
 
@@ -676,7 +679,6 @@ After updating the mint function, it is now time to handle rendering the dynamic
 [%collapsible]
 ====
 ```solidity
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
@@ -686,6 +688,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 import "./SVG.sol";
 import "./Encoder.sol";
@@ -714,13 +717,13 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
         uint8[] memory randomNumbers = new uint8[](arrSize);
         for (uint8 i = 0; i < arrSize; i++) {
             if (i < 3) {
-                randomNumbers[i] = getRandomNextRange(i, 255);
+                randomNumbers[i] = uint8(getNextRandomRange(i, 255));
             } else {
-                randomNumbers[i] = 1 + getRandomNextRange(i, 36);
+                randomNumbers[i] = uint8(1 + getNextRandomRange(i, 36));
             }
         }
 
-        colors[tokenIdCounter.current()] = string(abi.encodePacked(randomNumbers[0], ",", randomNumbers[1], ",", randomNumbers[2]));
+        colors[tokenIdCounter.current()] = string.concat(Strings.toString(randomNumbers[0]), ",", Strings.toString(randomNumbers[1]), ",", Strings.toString(randomNumbers[2]));
         speeds[tokenIdCounter.current()] = [randomNumbers[3], randomNumbers[4], randomNumbers[5]];
     }
 
@@ -743,14 +746,9 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
         returns (string memory)
     {
         return Encoder.encodeNFTMetadata(
-            "DynamicNFT",
-            "The DynamicNFT Smart Contract is a fully on-chain and dynamic NFT",
-            Encoder.encodeSVG(
-                SVG.load(
-                    colors[tokenId],
-                    speeds[tokenId]
-                )
-            )
+            name(),
+            "Dynamic NFT Smart Contract",
+            Encoder.encodeSVG(SVG.load(colors[tokenId], speeds[tokenId]))
         );
     }
 
@@ -763,7 +761,6 @@ contract DynamicNFT is RNG, ERC721, ERC721Enumerable, ERC721URIStorage, AccessCo
         return super.supportsInterface(interfaceId);
     }
 }
-
 ```
 ====
 
@@ -837,3 +834,753 @@ npx hardhat deploy
 
 The network, accounts, scripts, etc should all be picked up automatically. If you run into issues and cannot by pass this step, head over to the 
 link:https://discord.gg/skale[SKALE Developer Discord and Ask for Help!], otherwise, you should a contract address and transaction hash show up in the command prompt.
+
+== Frontend
+
+The last part of this recipe is to create a frontend to mint NFTs and view them.
+The frontend will be a Next.js application that is created from the RainbowKit CLI tool.
+
+Want to test the above and not build the frontend? You can either skip down to xref:#_mint_an_nft[Mint and NFT] or run
+
+```shell
+git clone -b recipe-dynamic-nft git@github.com:skalenetwork/recipes.git && cd 3-frontend/dynamic-nft-contract/frontend && npm install 
+```
+
+and go into
+
+=== Initialize the Frontend
+
+First make sure you are in the dynamic-nft-contract directory. You should have one sub-directory called smart-contracts. Then run the following in your command prompt:
+
+```shell
+npm init @rainbow-me/rainbowkit@latest
+```
+
+It will ask for a name of your dApp, enter frontend. It may take a few minutes depending on your internet and computer to set everything up. 
+
+Once finished, enter into the frontend directory by running:
+
+```shell
+cd frontend
+```
+
+=== Update Web3 Configuration
+
+To start, update the _app.tsx file in the pages directory to match the following:
+
+.Click to see the code
+[%collapsible]
+====
+```typescript
+import '../styles/globals.css';
+import '@rainbow-me/rainbowkit/styles.css';
+import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import type { AppProps } from 'next/app';
+import { configureChains, createConfig, WagmiConfig } from 'wagmi';
+import {
+  skaleChaosTestnet
+} from 'wagmi/chains';
+import { publicProvider } from "wagmi/providers/public";
+
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [
+    {
+      ...skaleChaosTestnet,
+      rpcUrls: {
+        ...skaleChaosTestnet.rpcUrls,
+        default: {
+          ...skaleChaosTestnet.rpcUrls.default,
+          webSocket: ["wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix"]
+        },
+        public: {
+          ...skaleChaosTestnet.rpcUrls.public,
+          webSocket: ["wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix"]
+        }
+      }
+    }
+  ],
+  [
+    publicProvider()
+  ]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: 'RainbowKit App',
+  projectId: '<your-project-id-here>',
+  chains,
+});
+
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+  webSocketPublicClient,
+});
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <WagmiConfig config={wagmiConfig}>
+      <RainbowKitProvider chains={chains}>
+        <Component {...pageProps} />
+      </RainbowKitProvider>
+    </WagmiConfig>
+  );
+}
+
+export default MyApp;
+```
+====
+
+[NOTE]
+The above changes will add support for SKALEs Chaos Testnet as well as Websocket support within Viem which we need to read data from the SKALE Chain.
+
+=== Add Web3 Hooks
+
+Next create a new file in the root frontend directory called __hooks.ts__.
+Add the following into your hooks file,
+
+.Click to see the code
+[%collapsible]
+====
+```typescript
+import { useAccount, useContractWrite, useWebSocketPublicClient } from "wagmi";
+import ContractConfig from "../smart-contracts/deployments/chaos/DynamicNFT.json";
+
+const CONTRACT_DEFAULTS = {
+    abi: ContractConfig.abi,
+    address: ContractConfig.address as `0x${string}`,
+};
+
+interface IState {
+    address: string | undefined;
+    balance: number | bigint;
+    tokensOwned: {
+        uri: string;
+        tokenId: number | bigint;
+    }[]
+  }
+export default function useAppData() {
+
+    const wss = useWebSocketPublicClient();
+    const { address } = useAccount();
+
+    const getBalance = async () => {
+        const res = await wss?.readContract({
+            ...CONTRACT_DEFAULTS,
+            functionName: "balanceOf",
+            args: [address]
+        });
+        return res as bigint;
+    }
+
+    const getOwnedTokens = async() => {
+        const balance = await getBalance();
+        
+        const ownedTokenIds = await Promise.all(
+            Array.from({ length: Number(balance)}, (_, i) => {
+                return wss?.readContract({
+                    ...CONTRACT_DEFAULTS,
+                    functionName: "tokenOfOwnerByIndex",
+                    args: [address, i]
+                })
+            }
+        ));
+
+        const tokenURIs = await Promise.all(
+            Array.from({ length: ownedTokenIds.length }, (_, i) => {
+                return wss?.readContract({
+                    ...CONTRACT_DEFAULTS,
+                    functionName: "tokenURI",
+                    args: [(ownedTokenIds[i] as bigint) + BigInt(1)]
+                })
+            })
+        );
+
+        return tokenURIs.map((uri, i: number) => {
+            return {
+                uri,
+                tokenId: ownedTokenIds[i]
+            } as {
+                uri: string,
+                tokenId: bigint
+            }
+        });
+    }
+
+    const setup = async(state: IState, setState: any) => {
+        setState({
+            ...state,
+            address,
+            balance: await getBalance(),
+            tokensOwned: await getOwnedTokens()
+        });
+    }
+
+    return {
+        address,
+        setup,
+        wss,
+    }
+}
+```
+====
+
+The setup function calls the getBalance and getOwnedTokens functions. These combined load the gallery directly from the deployed smart contract which is linked in from the smart-contracts directory in the project. 
+
+[IMPORTANT]
+This functionality will only be possible with the ERC721Enumerable extension which makes it easier to iterate through which NFTs are owned by a wallet. Additionally, this example is not using Multicall; however, the reads can be sped up by adding in Multicall.
+
+=== Building the Gallery
+
+Now use the hooks to create the gallery that will render on the main page of the dApp. Update the following files to add in a gallery to your application:
+
+.Click to see pages/index.tsx
+[%collapsible]
+====
+```typescript
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import type { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
+import { ApplicationHead } from '../components';
+import useAppData from '../hooks';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+interface IState {
+  address: string | undefined;
+  balance: number | bigint;
+  tokensOwned: {
+      uri: string;
+      tokenId: number | bigint;
+  }[]
+}
+
+const Home: NextPage = () => {
+
+  const { address, setup} = useAppData();
+
+  const [state, setState] = useState<IState>({
+    address: undefined,
+    balance: 0,
+    tokensOwned: []
+});
+
+  useEffect(() => {
+    if (address) {
+      setup(state, setState);
+    }
+  }, [address])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setup(state, setState);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <ApplicationHead />
+      <main className={styles.main}>
+        <nav className={styles.nav}>
+          <div className={styles.title}>
+            <h2>Dynamic NFT</h2>
+          </div>
+          <div className={styles.connectWallet}>
+            <ConnectButton />
+          </div>
+        </nav>
+        <div className={styles.gallery}>
+          {state.tokensOwned && state.tokensOwned.length === 0
+            ? "No Tokens Owned :("
+            : (
+              <div className={styles.item}>
+                {state.tokensOwned && state.tokensOwned.map((token, index: number) => {
+                  const json = Buffer.from(token.uri.substring(29), "base64").toString();
+                  const result = JSON.parse(json);
+                  return (
+                    <img key={index} src={result["image"]} alt ="Hi" />
+                  )
+                })}
+              </div>
+            )
+          }
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default Home;
+```
+====
+
+.Click to see styles/globals.css
+[%collapsible]
+====
+
+```css
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+```
+====
+
+.Click to see styles/Home.module.css
+[%collapsible]
+====
+```css
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  min-height: 100vh;
+  background: seashell;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.nav {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.connectWallet,
+.title {
+  margin: 0 5%;
+}
+
+.gallery {
+  width: 90%;
+  min-height: calc(100vh - 150px);
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.item {
+  width: auto;
+  position: relative;
+  height: 300px;
+}
+
+.item img {
+  height: 300px;
+  width: 300px;
+  border-radius: 32px;
+}
+
+.item:nth-child(odd) img {
+  margin: 0 8px;
+}
+```
+====
+=== Add Minting Functionality
+
+The last step is to add the ability to mint NFTs from a connected wallet. Update the following files to add minting functionality:
+
+.Click to see hooks.ts
+[%collapsible]
+====
+```typescript
+import { useAccount, useContractWrite, useWebSocketPublicClient } from "wagmi";
+import ContractConfig from "../smart-contracts/deployments/chaos/DynamicNFT.json";
+
+const CONTRACT_DEFAULTS = {
+    abi: ContractConfig.abi,
+    address: ContractConfig.address as `0x${string}`,
+};
+interface IState {
+    address: string | undefined;
+    balance: number | bigint;
+    tokensOwned: {
+        uri: string;
+        tokenId: number | bigint;
+    }[]
+  }
+export default function useAppData() {
+
+    const wss = useWebSocketPublicClient();
+    const { address } = useAccount();
+
+    const getBalance = async () => {
+        const res = await wss?.readContract({
+            ...CONTRACT_DEFAULTS,
+            functionName: "balanceOf",
+            args: [address]
+        });
+        return res as bigint;
+    }
+
+    const getOwnedTokens = async() => {
+        const balance = await getBalance();
+        
+        const ownedTokenIds = await Promise.all(
+            Array.from({ length: Number(balance)}, (_, i) => {
+                return wss?.readContract({
+                    ...CONTRACT_DEFAULTS,
+                    functionName: "tokenOfOwnerByIndex",
+                    args: [address, i]
+                })
+            }
+        ));
+
+        const tokenURIs = await Promise.all(
+            Array.from({ length: ownedTokenIds.length }, (_, i) => {
+                return wss?.readContract({
+                    ...CONTRACT_DEFAULTS,
+                    functionName: "tokenURI",
+                    args: [(ownedTokenIds[i] as bigint) + BigInt(1)]
+                })
+            })
+        );
+
+        return tokenURIs.map((uri, i: number) => {
+            return {
+                uri,
+                tokenId: ownedTokenIds[i]
+            } as {
+                uri: string,
+                tokenId: bigint
+            }
+        });
+    }
+
+    const setup = async(state: IState, setState: any) => {
+        setState({
+            ...state,
+            address,
+            balance: await getBalance(),
+            tokensOwned: await getOwnedTokens()
+        });
+    }
+
+    const safeMint = useContractWrite({
+        ...CONTRACT_DEFAULTS,
+        functionName: "safeMint",
+        args: [address]
+    });
+
+    return {
+        address,
+        safeMint,
+        setup,
+        wss,
+    }
+}
+```
+====
+
+.Click to see pages/index.tsx
+[%collapsible]
+====
+```typescript
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import type { NextPage } from 'next';
+import styles from '../styles/Home.module.css';
+import { ApplicationHead } from '../components';
+import useAppData from '../hooks';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+interface IState {
+  address: string | undefined;
+  balance: number | bigint;
+  tokensOwned: {
+      uri: string;
+      tokenId: number | bigint;
+  }[]
+}
+
+const Home: NextPage = () => {
+
+  const { address, safeMint, setup} = useAppData();
+
+  const [state, setState] = useState<IState>({
+    address: undefined,
+    balance: 0,
+    tokensOwned: []
+});
+
+  useEffect(() => {
+    if (address) {
+      setup(state, setState);
+    }
+  }, [address])
+
+  const updateGallery = async() => {
+    await setup(state, setState);
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setup(state, setState);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className={styles.container}>
+      <ApplicationHead />
+      <main className={styles.main}>
+        <nav className={styles.nav}>
+          <div className={styles.title}>
+            <h2>Dynamic NFT</h2>
+          </div>
+          <div className={styles.connectWallet}>
+            <ConnectButton />
+          </div>
+        </nav>
+        <div className={styles.gallery}>
+          {state.tokensOwned && state.tokensOwned.length === 0
+            ? "No Tokens Owned :("
+            : (
+              <div className={styles.item}>
+                {state.tokensOwned && state.tokensOwned.map((token, index: number) => {
+                  const json = Buffer.from(token.uri.substring(29), "base64").toString();
+                  const result = JSON.parse(json);
+                  return (
+                    <img key={index} src={result["image"]} alt ="Hi" />
+                  )
+                })}
+              </div>
+            )
+          }
+        </div>
+        <div className={!safeMint.isIdle ? styles.loading : styles.mint}>
+          <button className={!safeMint.isIdle ? styles.animated : undefined} onClick={() => safeMint.write()} disabled={!safeMint.isIdle}>
+            {!safeMint.isIdle ? <p>&#x21bb;</p> : <p>&#43;</p>}
+          </button>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default Home;
+```
+====
+
+.Click to see styles/Home.module.css
+[%collapsible]
+====
+```css
+.container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main {
+  min-height: 100vh;
+  background: seashell;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.nav {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.connectWallet,
+.title {
+  margin: 0 5%;
+}
+
+.gallery {
+  width: 90%;
+  min-height: calc(100vh - 150px);
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 0 5%;
+}
+
+.item {
+  width: auto;
+  position: relative;
+  height: 300px;
+}
+
+.item img {
+  height: 300px;
+  width: 300px;
+  border-radius: 32px;
+}
+
+.item:nth-child(odd) img {
+  margin: 0 8px;
+}
+
+.mint,
+.loading {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+}
+
+.mint button,
+.loading button {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  font-size: 2rem;
+  background: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.mint button:hover {
+  background: black;
+  cursor: pointer;
+}
+
+.loading button {
+  color: #29FF94;
+  border: 1px solid #29FF94;
+  animation-play-state: running;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.mint button {
+  border: 1px solid #00BAFF;
+  color: #00BAFF;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+```
+====
+
+
+== Mint a Dynamic NFT
+
+The final step is this process is to mint a dynamic NFT. To do so, we will use hardhat tasks. 
+
+[IMPORTANT]
+There is a known issue related to Hardhat when running this task. You may see a TypeError: missing r related error. If so, the transaction was still successful and this should be fixed in the near future with an update to Hardhat/Ethers. This is not a SKALE issue.
+
+=== Adding a Mint Task
+Start by heading into the smart-contracts folder and create a new file called tasks.ts:
+
+```shell
+touch tasks.ts
+```
+
+Open this file and add in the following code:
+
+.Click to view the code
+[%collapsible]
+====
+```typescript
+import { task } from "hardhat/config";
+
+task("mint", "Mint an NFT")
+    .setAction( async (_, hre) => {
+        
+
+        const { ethers, deployments, getNamedAccounts } = hre;
+        
+        const [ signer ] = await ethers.getSigners();
+
+        const contractConfig = await deployments.get("DynamicNFT");
+        const contract = new ethers.Contract(contractConfig.address, contractConfig.abi, signer);
+
+        const mint = await contract.safeMint(signer.address);
+        console.log("NFT Minted Successfully: ", mint);
+    });
+```
+====
+
+Once complete, update the __hardhat.config.ts__ file by adding ```import "./tasks"``` underneath the last import.
+It should look like the following:
+
+.Click to view the code
+[%collapsible]
+====
+```typescript
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import "hardhat-deploy";
+import "hardhat-deploy-ethers";
+import dotenv from "dotenv";
+import "./tasks";
+
+/*
+ * Allows the script to access process.env
+ */
+dotenv.config();
+
+/**
+ *
+ * This section checks for a PRIVATE_KEY value in the .env file
+ * If no value is found it will throw the error
+ */
+
+const PRIVATE_KEY: string | undefined = (process.env.PRIVATE_KEY as string | undefined);
+if (!PRIVATE_KEY) {
+    throw new Error("Private Key Not Found");
+}
+
+const config: HardhatUserConfig = {
+    defaultNetwork: "chaos",
+    solidity: "0.8.19",
+    namedAccounts: {
+        deployer: 0
+    },
+    networks: {
+        chaos: {
+            accounts: [PRIVATE_KEY],
+            url: "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix"
+        }
+    }
+};
+
+export default config;
+```
+====
