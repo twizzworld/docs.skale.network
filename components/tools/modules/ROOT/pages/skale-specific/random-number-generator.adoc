@@ -4,7 +4,7 @@
 
 Each SKALE Chain supports a special random number generator (RNG) precompiled. This RNG is generated for every block and is based on the current block's threshold signature shares of at least latexmath:[\frac{11}{16}] SKALE nodes supporting any given SKALE Chain.
 
-Each SKALE chain block is signed by at least latexmath:[\frac{11}{16}] nodes. Each signature is glued together such that no single party can influence the resulting signature.
+SKALE chain consensus is _asynchronous and leaderless_, and blocks are signed by at least latexmath:[\frac{11}{16}] nodes. Each signature is glued together such that no single node can influence the resulting signature. This process ensures that results cannot be tampered with or manipulated by a single entity.
 
 General steps:
 
