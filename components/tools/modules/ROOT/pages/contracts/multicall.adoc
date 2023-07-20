@@ -1,0 +1,49 @@
+= Multicall
+
+Multicall has two primary use-cases:
+- Enabling the ability to read off of multiple contracts with a single request
+- The ability to execute multiple state-changing transactions in a single request
+
+== Deployments
+
+All deployments on the SKALE network have been officially deployed and can be found under the address: *0xcA11bde05977b3631167028862bE2a173976CA112*.
+
+The deployment is currently available on the following SKALE Chains.
+
+
+[width="100%"]
+=== Chains with Multicall
+[cols="3*",options="header"]
+|===
+| Chain
+| Mainnet
+| Testnet
+
+| Europa
+| &check;
+| &check;
+
+| Calypso
+| &check;
+| &check;
+
+| Chaos Testnet
+| 
+| &check;
+
+| Nebula
+| &check;
+| &check;
+
+| Pscyhe
+| &check;
+| &check;
+
+| Titan
+| &check;
+| &check;
+|===
+
+== Security
+This contract is unaudited however is commonly used by many projects and tools including Wagmi.
+View the link:https://github.com/mds1/multicall/blob/main/README.md[GitHub] for more information.

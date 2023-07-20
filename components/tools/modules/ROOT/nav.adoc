@@ -4,6 +4,9 @@
 ** xref:bridges/using-metaport-bridge.adoc[Using Metaport Bridge]
 ** xref:metaport::index.adoc[Using Metaport Widget]
 
+* Contracts
+** xref:contracts/multicall.adoc[Multicall]
+
 * xref:filestorage/index.adoc[Filestorage]
 ** xref:filestorage.js::index.adoc[Filestorage JS]
 ** xref:filestorage/filestorage-upgrades.adoc[Upgrading Filestorage]
