@@ -20,6 +20,7 @@
 * xref:solidity/index.adoc[Solidity 101]
 ** xref:solidity/0-hello-skale.adoc[Hello SKALE]
 ** xref:solidity/1-solidity-basics.adoc[Solidity Basics]
+** xref:solidity/2-erc20-in-game-token.adoc[ERC-20: In-Game Token]
 
 * xref:projects/index.adoc[Projects]
 ** xref:projects/dynamic-nft-creation.adoc[Dynamic NFT Creation]
