@@ -13,10 +13,10 @@ xref:solidity/0-hello-skale.adoc[[.card-title]#Hello SKALE# [.card-body]#pass:q[
 --
 xref:solidity/1-solidity-basics.adoc[[.card-title]#Solidity Basics# [.card-body]#pass:q[Learn about comments, functions, types and basic file structure in Solidity]#]
 --
-// [.card.card-learn]
-// --
-// xref:solidity/2-zero-to-erc20-hero.adoc[[.card-title]#Zero to ERC-20 Hero# [.card-body]#pass:q[Use one of the most popular token standards to create a personal reward token]#]
-// --
+[.card.card-learn]
+--
+xref:solidity/2-erc20-in-game-token.adoc[[.card-title]#ERC-20: In Game Token# [.card-body]#pass:q[Use one of the most popular token standards to create an in game token]#]
+--
 // [.card.card-learn]
 // --
 // xref:solidity/3-smart-contract-deployment.adoc[[.card-title]#Smart Contract Deployment# [.card-body]#pass:q[Learn about deploying smart contracts on SKALE]#]
