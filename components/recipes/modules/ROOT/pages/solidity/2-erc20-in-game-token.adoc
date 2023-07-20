@@ -1,0 +1,99 @@
+= ERC-20: In-Game Token
+
+The ERC-20 token which is an link:https://eips.ethereum.org/EIPS/eip-20[official standard] is one of the most common smart contracts found on EVM chains today.
+Commonly used to represent fungible stores of value - the ERC-20 is a common token also used on SKALE to represent in-game tokens.
+
+While often used with link:https://docs.openzeppelin.com/contracts/4.x/erc20[OpenZeppelin] to take advantage of the pre-existing code and audits; the ERC-20 token itself is fairly simple. Checkout the link:https://eips.ethereum.org/EIPS/eip-20[Specification Token Methods] to learn about what each of the basic functions and variables does within in an ERC-20.
+
+For the rest of this recipe, we will focus on how to use the ERC-20 as an in-game token. To follow along create a new Hardhat, Foundry, or Truffle project or open the popular Remix IDE and start with the following code. You may need to add the OpenZeppelin libraries to do so. 
+
+.Click to see how to add OpenZeppelin
+[%collapsible]
+====
+```shell
+
+# Hardhat or Truffle with NPM
+npm add -D @openzeppelin/contracts
+
+# Hardhat or Truffle with Yarn
+yarn add -D @openzeppelin/contracts
+
+# Hardhat or Truffle with pnpm
+pnpm add -D @openzeppelin/contracts
+
+# Foundry
+forge install OpenZeppelin/openzeppelin-contracts && forge remappings > remappings.txt
+```
+====
+
+```solidity
+// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+/**
+ * For Foundry use:
+ * import "openzeppelin-contracts/token/ERC20/ERC20.sol";
+ */
+
+contract InGameToken is ERC20 {
+    constructor() ERC20("InGameToken", "IGT") {
+        _mint(msg.sender, 1000 * 10 ** 18); // Mint the deployer a supply of 1000
+    }
+}
+```
+
+There is now a very basic token contract with a max supply of 1000 that you can transfer to anyone on which SKALE chain you are deployed too.
+
+== Add Minting Functionality
+
+The above contract may work for very basic instances, however, generally games must be able to continually grow and adapt. Let's add a couple of minting functions to the ERC-20 to allow for growth over time. 
+
+```solidity
+// SPDX-License-Identifer: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+
+/**
+ * For Foundry use:
+ * import "openzeppelin-contracts/token/ERC20/ERC20.sol";
+ * import "openzeppelin-contracts/access/AccessControl.sol";
+ */
+
+contract InGameToken is ERC20, AccessControl {
+
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
+
+    constructor() ERC20("InGameToken", "IGT") {
+        _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(ADMIN_ROLE, msg.sender);
+        _grantRole(MINTER_ROLE, msg.sender);
+    }
+
+    /**
+     * @dev Allow an admin to mint some amount to re-fill their treasury
+     * @notice This doesn't have many limits other than admin role currently. It could be extended
+     * to have additional security measures such as time locks, max amount withdraws, etc
+     * @param amount Amount of ERC-20 token to mint to the msg.sender
+     */
+    function treasuryMint(uint256 amount) external onlyRole(ADMIN_ROLE) {
+        _mint(msg.sender, amount);
+    }
+
+    /**
+     * @dev Allow for another contract to mint tokens to a user as in-game rewards
+     * @notice This function should not be very limited on purpose. It is designed to be used by another contract
+     * @param to The address to send tokens to
+     * @param amount The amount of tokens to send the to address
+     */
+    function contractMint(address to, uint256 amount) external onlyRole(MINTER_ROLE) {
+        _mint(to, amount);
+    }
+}
+```
+
+Great job! The recipe is now complete and you have created a very basic contract that will allow you as the owner to mint tokens as needed as well as allowing other contracts to call your token and mint them with the proper role. This opens up an exciting way to handle automatic reward distribution.
