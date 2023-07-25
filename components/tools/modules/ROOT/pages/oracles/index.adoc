@@ -8,4 +8,4 @@ link:https://razor.network[Razor Network] is a decentralized oracle network offe
 
 == SKALE Connect
 
-xref:skale-connect[SKALE Connect] is a native oracle built directly into each SKALE Chain. Using the same nodes that operate the SKALE Chain, the native oracle solution enables a variety of use cases.
+xref:./skale-connect[SKALE Connect] is a native oracle built directly into each SKALE Chain. Using the same nodes that operate the SKALE Chain, the native oracle solution enables a variety of use cases.
