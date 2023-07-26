@@ -27,7 +27,7 @@ forge install OpenZeppelin/openzeppelin-contracts && forge remappings > remappin
 ====
 
 ```solidity
-// SPDX-License-Identifer: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -51,7 +51,7 @@ There is now a very basic token contract with a max supply of 1000 that you can 
 The above contract may work for very basic instances, however, generally games must be able to continually grow and adapt. Let's add a couple of minting functions to the ERC-20 to allow for growth over time. 
 
 ```solidity
-// SPDX-License-Identifer: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -88,7 +88,7 @@ contract InGameToken is ERC20, AccessControl {
      * @dev Allow for another contract to mint tokens to a user as in-game rewards
      * @notice This function should not be very limited on purpose. It is designed to be used by another contract
      * @param to The address to send tokens to
-     * @param amount The amount of tokens to send the to address
+     * @param amount The amount of tokens to send the to the address
      */
     function contractMint(address to, uint256 amount) external onlyRole(MINTER_ROLE) {
         _mint(to, amount);
