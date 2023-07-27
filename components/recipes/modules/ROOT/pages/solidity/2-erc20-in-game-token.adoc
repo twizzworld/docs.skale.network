@@ -88,7 +88,7 @@ contract InGameToken is ERC20, AccessControl {
      * @dev Allow for another contract to mint tokens to a user as in-game rewards
      * @notice This function should not be very limited on purpose. It is designed to be used by another contract
      * @param to The address to send tokens to
-     * @param amount The amount of tokens to send the to the address
+     * @param amount The amount of tokens to send to the address
      */
     function contractMint(address to, uint256 amount) external onlyRole(MINTER_ROLE) {
         _mint(to, amount);
